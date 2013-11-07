@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Shepherd
+  m_Shader: {fileID: 4800000, guid: 7e344cbacd5b94a498c64570ec4248c3, type: 3}
+  m_ShaderKeywords: []
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DiffMap1
+        second:
+          m_Texture: {fileID: 2800000, guid: 01d7580424dbaa149875498a59219933, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DiffMap2
+        second:
+          m_Texture: {fileID: 2800000, guid: 5c6da7ebe15624756ad1845e38ee2360, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DiffMap3
+        second:
+          m_Texture: {fileID: 2800000, guid: 5ce82099850494682a3de30e847e6036, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DiffMap4
+        second:
+          m_Texture: {fileID: 2800000, guid: f36f46cf6bad5470789235f1a129bc1a, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DiffuseTexture
+        second:
+          m_Texture: {fileID: 2800000, guid: 01d7580424dbaa149875498a59219933, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SpecularTexture
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _Threshold1
+        second: .253846169
+      data:
+        first:
+          name: _Threshold2
+        second: -.41538462
+      data:
+        first:
+          name: _Threshold3
+        second: -.72307694
+      data:
+        first:
+          name: _Overlap1
+        second: .0500000007
+      data:
+        first:
+          name: _Overlap2
+        second: .0500000007
+      data:
+        first:
+          name: _Overlap3
+        second: .0211538468
+      data:
+        first:
+          name: _EdgeSize
+        second: .200000003
+      data:
+        first:
+          name: _DiffuseLightDarkThreshold
+        second: .74000001
+      data:
+        first:
+          name: _ShininessTreshold
+        second: 1.13
+      data:
+        first:
+          name: _EdgeTreshold
+        second: .330000013
+    m_Colors:
+      data:
+        first:
+          name: _Color
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _ScaleOffset
+        second: {r: 0, g: -.0199999996, b: .189999998, a: 0}
+      data:
+        first:
+          name: _PivotOffset
+        second: {r: 0, g: .200000003, b: 0, a: .419999987}
+      data:
+        first:
+          name: _OutlineColour
+        second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _DiffuseLightColour
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _DiffuseDarkColour
+        second: {r: .786764741, g: .786764741, b: .786764741, a: 1}
+      data:
+        first:
+          name: _SpecularColour
+        second: {r: 1, g: 1, b: 1, a: 1}

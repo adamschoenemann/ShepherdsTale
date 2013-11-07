@@ -1,0 +1,1362 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"FindO",
+				"FindGameObjectsWithTag	tag"
+			],
+			[
+				"dis",
+				"Dispose"
+			],
+			[
+				"dbC",
+				"dbCommand"
+			],
+			[
+				"Comm",
+				"dbCommand"
+			],
+			[
+				"Create",
+				"CreateCommand"
+			],
+			[
+				"health",
+				"healthBar"
+			],
+			[
+				"OnTriggerE",
+				"OnTriggerEnter	other"
+			],
+			[
+				"hea",
+				"health"
+			],
+			[
+				"heal",
+				"healthBar"
+			],
+			[
+				"GetCom",
+				"GetComponentInChildren	type"
+			],
+			[
+				"he",
+				"healthBar"
+			],
+			[
+				"per",
+				"percentage"
+			],
+			[
+				"L",
+				"LookAt	worldPosition"
+			],
+			[
+				"minDi",
+				"minDistanceFromGround"
+			],
+			[
+				"Rayca",
+				"Raycast	ray, hitInfo, distance"
+			],
+			[
+				"RayC",
+				"Raycast	ray, hitInfo, distance"
+			],
+			[
+				"gro",
+				"grounded"
+			],
+			[
+				"gr",
+				"grounded"
+			],
+			[
+				"groun",
+				"Grounded"
+			],
+			[
+				"Is",
+				"IsGrounded"
+			],
+			[
+				"tr",
+				"true"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"collision",
+				"collisionFlags"
+			],
+			[
+				"OnCo",
+				"OnCollisionEnter	collision"
+			],
+			[
+				"fo",
+				"force"
+			],
+			[
+				"Vec",
+				"Vector3	x, y, z"
+			],
+			[
+				"for",
+				"forward"
+			],
+			[
+				"Ma",
+				"Mathf"
+			],
+			[
+				"look",
+				"lookWeight"
+			],
+			[
+				"tra",
+				"transform"
+			],
+			[
+				"In",
+				"Input"
+			],
+			[
+				"stand",
+				"standardPos"
+			],
+			[
+				"GetC",
+				"GetComponent	type"
+			],
+			[
+				"col",
+				"collision"
+			],
+			[
+				"Find",
+				"FindGameObjectsWithTag	tag"
+			],
+			[
+				"Tra",
+				"Transform"
+			],
+			[
+				"att",
+				"attackRunState"
+			],
+			[
+				"shep",
+				"shepherdController"
+			],
+			[
+				"_NO",
+				"_NormalIntensity"
+			],
+			[
+				"_No",
+				"_NormalIntensity"
+			],
+			[
+				"N",
+				"_NormalIntensity"
+			],
+			[
+				"_Di",
+				"_DiffuseMap_ST"
+			],
+			[
+				"_di",
+				"_DiffuseMap_ST"
+			],
+			[
+				"City",
+				"CityGraph"
+			],
+			[
+				"ad",
+				"addEdge(EdgeType)	void"
+			],
+			[
+				"Graph",
+				"Graphics2D"
+			],
+			[
+				"Grap",
+				"GraphTest"
+			],
+			[
+				"Gra",
+				"Graph"
+			],
+			[
+				"gra",
+				"graph"
+			],
+			[
+				"G",
+				"Graph"
+			],
+			[
+				"g",
+				"getX"
+			],
+			[
+				"ge",
+				"getRight()"
+			],
+			[
+				"String",
+				"StringBuilder"
+			],
+			[
+				"sw",
+				"switch"
+			],
+			[
+				"swi",
+				"switch_test"
+			],
+			[
+				"Prin",
+				"Printf"
+			],
+			[
+				"Print",
+				"Println"
+			],
+			[
+				"swith",
+				"Switch"
+			],
+			[
+				"prev",
+				"prevprev"
+			],
+			[
+				"fi",
+				"fib_test"
+			],
+			[
+				"map_",
+				"map_test2"
+			],
+			[
+				"sr",
+				"struct"
+			],
+			[
+				"P",
+				"Printf"
+			],
+			[
+				"range",
+				"range_test"
+			],
+			[
+				"prin",
+				"Println"
+			],
+			[
+				"Pr",
+				"Println"
+			],
+			[
+				"c",
+				"cmplx"
+			],
+			[
+				"p",
+				"Println"
+			],
+			[
+				"WINDOW_CLOS",
+				"WINDOW_CLOSING	int"
+			],
+			[
+				"HAI",
+				"HAIR_END	EHairColor"
+			],
+			[
+				"pre",
+				"_prev	LinkedList::Node *"
+			],
+			[
+				"be",
+				"begin()	LinkedList::Node"
+			],
+			[
+				"head",
+				"head	Node*"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Scripts/FaceCamera.cs",
+			"settings":
+			{
+				"buffer_size": 388,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Standard Assets/Log_code/Log.cs",
+			"settings":
+			{
+				"buffer_size": 6847,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Scripts/ShepherdController.cs",
+			"settings":
+			{
+				"buffer_size": 12973,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Scripts/Enemy.cs",
+			"settings":
+			{
+				"buffer_size": 12809,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Scripts/HealthBar.cs",
+			"settings":
+			{
+				"buffer_size": 963,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Standard Assets/Log_code/Logger.cs",
+			"settings":
+			{
+				"buffer_size": 1306,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Standard Assets/Log_code/Logger2.cs",
+			"settings":
+			{
+				"buffer_size": 1393,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Scripts/Tags.cs",
+			"settings":
+			{
+				"buffer_size": 185,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 38.0,
+		"selected_items":
+		[
+			[
+				"unity",
+				"Unity Reference: Search Selection"
+			],
+			[
+				"rena",
+				"File: Rename"
+			],
+			[
+				"rei",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"form",
+				"SublimeAStyleFormatter: Format Current File"
+			],
+			[
+				"conve",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"tabs",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"line",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"forma",
+				"SublimeAStyleFormatter: Format Current File"
+			],
+			[
+				"wr",
+				"Word Wrap: Toggle"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"refe",
+				"Unity Reference: Search Selection"
+			],
+			[
+				"ref",
+				"Unity Reference: Search Selection"
+			],
+			[
+				"new",
+				"File: New File Relative to Current View"
+			],
+			[
+				"new ",
+				"File: New File Relative to Current View"
+			],
+			[
+				"sideb",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"clos",
+				"Project: Close"
+			],
+			[
+				"im",
+				"Java: Import Class Under Cursor"
+			],
+			[
+				"imp",
+				"Java: Import Class Under Cursor"
+			],
+			[
+				"dele",
+				"File: Delete"
+			],
+			[
+				"new f",
+				"File: New File Relative to Current View"
+			],
+			[
+				"copy",
+				"File: Copy Path"
+			],
+			[
+				"new fi",
+				"File: New File Relative to Current View"
+			],
+			[
+				"cop",
+				"File: Copy Path"
+			],
+			[
+				"disal",
+				"Package Control: Disable Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"impor",
+				"Snippet: import junit.framework.TestCase;"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"instl",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				"impo",
+				"Java: Import Class Under Cursor"
+			],
+			[
+				"Java",
+				"Set Syntax: Java"
+			],
+			[
+				"java",
+				"Java: Open Javadoc for Class Under Cursor"
+			],
+			[
+				"renam",
+				"File: Rename"
+			],
+			[
+				"file: n",
+				"File: New File Relative to Current View"
+			],
+			[
+				"Projec",
+				"Project: Edit"
+			],
+			[
+				"add",
+				"Project: Add Folder"
+			],
+			[
+				"in",
+				"Indent XML"
+			],
+			[
+				"ind",
+				"Indent XML"
+			],
+			[
+				"inde",
+				"Indent XML"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"sideba",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"xml",
+				"Indent XML"
+			],
+			[
+				"tidy",
+				"TidyHTML"
+			],
+			[
+				"XML",
+				"Indent XML"
+			],
+			[
+				"jso",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			],
+			[
+				"ASt",
+				"SublimeAStyleFormatter: Format Current File"
+			],
+			[
+				"prett",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"Insta",
+				"Package Control: Install Package"
+			],
+			[
+				"copy ",
+				"File: Copy Path"
+			],
+			[
+				"run",
+				"Build: Run"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"SublimeL",
+				"SublimeLinter: Extract Annotations"
+			],
+			[
+				"subli",
+				"SublimeLinter: Extract Annotations"
+			],
+			[
+				"main",
+				"Snippet: main()"
+			],
+			[
+				"Snippet: ",
+				"Snippet: For Loop"
+			],
+			[
+				"pack Ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Pack Ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: Dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"Bracket",
+				"Bracket Highlighter: Select Bracket Content"
+			],
+			[
+				"Install",
+				"Package Control: Install Package"
+			],
+			[
+				"Inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Packa",
+				"Package Control: Install Package"
+			],
+			[
+				"Pack",
+				"Package Control: Install Package"
+			],
+			[
+				"Package",
+				"Package Control: Remove Package"
+			]
+		],
+		"width": 403.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Scripts/SQLDatabase.cs",
+		"/F/Dropbox/MED5/Implementation/logging_notes.md",
+		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Logs/2013_11_02_12_59.csv",
+		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Standard Assets/Log_code/Logger_2.cs",
+		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Logs/2013_11_04_10_02.csv",
+		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Logs/2013_11_04_08_35.csv",
+		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Scripts/SQLDataBase.cs",
+		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Shaders/ToonShaderEdgyObjects2.shader",
+		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Shepherd/ThirdPersonCamera.cs",
+		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Scripts/CameraController.cs",
+		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Shepherd/StaffScript.cs",
+		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Scripts/Enemy.cs",
+		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Scripts/PlayerController.cs",
+		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Scripts/Utils.cs",
+		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Shepherd/ShepherdController.cs",
+		"/F/Dropbox/Medialogy/MED5/CGP/lesson5/unity/Assets/Shaders/Lesson7.shader",
+		"/F/Dropbox/Medialogy/MED5/CGP/lesson5/unity/Assets/Shaders/Lesson6_TestDiffuse.shader",
+		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Scripts/Tags.cs",
+		"/F/Dropbox/Projects/Java/Graph/src/Vertex.java",
+		"/F/Dropbox/Projects/Java/Graph/src/AVertex.java",
+		"/F/Dropbox/Projects/Java/Graph/src/IVertex.java",
+		"/F/Dropbox/Projects/Java/Graph/src/Vertex2.java",
+		"/F/Dropbox/Projects/Java/Graph/src/City.java",
+		"/F/Dropbox/Projects/Java/Graph/src/Edge.java",
+		"/F/Dropbox/Projects/Java/Graph/src/IEdge.java",
+		"/F/Dropbox/Projects/Java/Graph/src/Road.java",
+		"/F/Dropbox/Projects/Java/Graph/src/GraphTest.java",
+		"/F/Dropbox/Projects/Java/Graph/src/CityGraph.java",
+		"/F/Dropbox/Projects/Java/Graph/src/IGraph.java",
+		"/F/Dropbox/MED4/OOSE/5/SwingExample/src/SwingExample.java",
+		"/F/Dropbox/Projects/Java/Graph/src/CityTest.java",
+		"/F/Dropbox/Projects/Java/Graph/src/Graph.java",
+		"/F/Dropbox/Projects/Java/BTree/src/BNode.java",
+		"/F/Dropbox/Projects/Java/BTree/src/BTree.java",
+		"/F/Dropbox/Programs/SublimeText/Data/Packages/SublimeJava/SublimeJava.sublime-settings",
+		"/F/Dropbox/Scripts/general.sublime-project",
+		"/F/Dropbox/Programs/SublimeText/Data/Packages/Display Functions (Java)/README.markdown",
+		"/F/Dropbox/Programs/SublimeText/Data/Packages/SublimeJava/README.creole",
+		"/F/Dropbox/Projects/Java/Graph/src/2DVertex.java",
+		"/F/Dropbox/Scripts/tips.txt",
+		"/F/Dropbox/Programs/SublimeText/Data/Packages/User/Preferences.sublime-settings",
+		"/F/Dropbox/Projects/Java/BTree/src/BNode",
+		"/F/Dropbox/Scripts/text_editing_hotkeys.ahk",
+		"/F/Dropbox/MED4 Group/Project Presentation(slides)/abs_slides_notes.txt",
+		"/F/Dropbox/Projects/Go/start/src/pictest.go",
+		"/F/Dropbox/Projects/Go/start/src/wctest.go",
+		"/F/Dropbox/Projects/Go/start/src/methods_interfaces.go",
+		"/F/Dropbox/Projects/Go/start/src/test.go",
+		"/F/Dropbox/Projects/Go/start/src/pic.go",
+		"/F/Dropbox/Projects/Go/gotest.go",
+		"/C/Users/Adam/AppData/Local/Temp/fz3temp-1/index 2.php",
+		"/C/Users/Adam/AppData/Local/Temp/fz3temp-1/index.php",
+		"/F/Dropbox/Programs/SublimeText/Data/Packages/User/Default (Windows).sublime-keymap",
+		"/F/Dropbox/Programs/SublimeText/Data/Packages/Default/Default (Windows).sublime-keymap",
+		"/F/Dropbox/notes.txt",
+		"/F/Install/Tomb.Raider-SKIDROW/skidrow.nfo",
+		"/F/Dropbox/test.go",
+		"/F/Dropbox/Projects/TimeForTV/playground/FacebookLogin/keyhash.txt",
+		"/F/Dropbox/MED4/DAE/Homework 5/homework5.txt",
+		"/F/Dropbox/Projects/TimeForTV/playground/api/user.xml",
+		"/F/Dropbox/Projects/TimeForTV/playground/api/output.txt",
+		"/F/Dropbox/Projects/TimeForTV/playground/api/config.txt",
+		"/F/Dropbox/Projects/TimeForTV/TimeForTV/key.txt",
+		"/F/Dropbox/MED4/DAE/Homework 3/Homework_3.m",
+		"/F/Dropbox/MED4/OOSE/5/SwingExample/SwingExample.java",
+		"/F/Dropbox/MED4/OOSE/3/SwingExample/SwingExample.java",
+		"/F/Dropbox/MED4/OOSE/3/ATM/bin/ATM.class",
+		"/C/Users/Adam/AppData/Local/Temp/fz3temp-1/error_log",
+		"/F/Dropbox/MED4/OOSE/3/ATM/bin/BankAccount.class",
+		"/F/Dropbox/MED4/OOSE/3/ATM/bin/Bank.class",
+		"/C/Users/Adam/AppData/Local/Temp/Rar$DI01.929/Duck.java",
+		"/C/Users/Adam/AppData/Local/Temp/Rar$DI00.026/Exercise1.java",
+		"/F/Dropbox/MED4/OOSE/3/README.txt",
+		"/F/Dropbox/MED4/OOSE/3/Exercise1/Exercise1.java",
+		"/F/Dropbox/MED4/OOSE/3/Exercise1/Duck.java",
+		"/F/Dropbox/Projects/TimeForTV/TimeForTV/proguard.cfg",
+		"/F/Dropbox/MED4/OOSE/3/ATM/src/BankAccount.java",
+		"/F/Dropbox/MED4/OOSE/3/ATM/src/Transaction.java",
+		"/F/Dropbox/MED4/OOSE/3/ATM/src/ATM.java",
+		"/F/Dropbox/MED4/OOSE/3/ATM/src/Bank.java",
+		"/F/Dropbox/MED4/OOSE/3/ATM/src/Keyboard.java",
+		"/F/Dropbox/Programs/SublimeText/Data/Packages/SublimeAStyleFormatter/SublimeAStyleFormatter.sublime-settings",
+		"/F/Dropbox/Projects/TimeForTV/TimeForTV/bin/AndroidManifest.xml",
+		"/F/Downloads/dBpoweramp Music Converter (dMC) R14.3 Final Registered [h33t][iahq76]/ReadMe!.txt",
+		"/F/Dropbox/Projects/Java/test/src/hello/Person.java",
+		"/F/Dropbox/Projects/Java/test/src/hello/Hello.java",
+		"/F/Downloads/Ableton Live 8.2.2 (CRACKED) [theLEAK]/readme.txt",
+		"/F/Downloads/Ableton Live 8.2.2 (CRACKED) [theLEAK]/theLEAK Team.txt",
+		"/F/Dropbox/Programs/adt-bundle-windows/sdk/extras/google/usb_driver/android_winusb.inf",
+		"/F/Dropbox/MED4/DAE/Excercise 1/results.txt",
+		"/C/Users/Adam/AppData/Local/Temp/Rar$DI02.122/README.TXT",
+		"/F/Dropbox/Projects/TimeForTV/branches/TimeForTV(v2)/TimeForTV/AndroidManifest.xml",
+		"/F/Dropbox/Projects/TimeForTV/TimeForTV/AndroidManifest.xml",
+		"/F/Projects/TimeForTV/project.properties",
+		"/F/Projects/TimeForTV/AndroidManifest.xml",
+		"/F/Projects/TimeForTV/build_system.xml",
+		"/F/Projects/TimeForTV/library/bin/R.txt",
+		"/F/Dropbox/Projects/Java/test/Test.java",
+		"/F/Dropbox/Programs/SublimeText/Data/Packages/Default/Preferences.sublime-settings",
+		"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/apps/myApps/CilleFilters/src/testApp.h",
+		"/F/Dropbox/Scripts/autohotkeys.ahk",
+		"/F/Dropbox/MED3 Group/P3 Exam/Video/video_script.txt",
+		"/F/Dropbox/Scripts/applications.ahk",
+		"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/apps/myApps/IPFilters/README.md",
+		"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/apps/myApps/IPFilters/IPFilters.workspace",
+		"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/apps/myApps/IPFilters/IPFilters.cbp",
+		"/F/Dropbox/MED3/ProceduralProgramming/Fysik/README.md",
+		"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/apps/myApps/Pinball/src/Pinball.h",
+		"/F/Dropbox/MED3/ProceduralProgramming/Excercises/LinkedList/DoubleLinkedList/dllist.h",
+		"/F/Dropbox/MED3/ProceduralProgramming/Excercises/LinkedList/doubly_linked_list/README.md",
+		"/F/Dropbox/xampp/htdocs/josefineo/db/josefineo.sql",
+		"/C/Users/Adam/AppData/Local/Temp/fz3temp-1/.htaccess",
+		"/F/Dropbox/Projects/TrineTrold/trine_speak.txt",
+		"/F/Dropbox/MED3/ProceduralProgramming/Excercises/Trees/BinaryTree/BinaryTree.hpp",
+		"/F/Dropbox/Scripts/hover_windows.ahk",
+		"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/apps/myApps/displayTest/src/testApp.h",
+		"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/apps/myApps/retardpopulation/src/testApp.cpp",
+		"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/addons/ofxDisplayStackObject/src/ofxFBODisplayStackObject.h",
+		"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/addons/ofxDisplayStackObject/src/ofxDisplayStackObject.cpp",
+		"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/addons/ofxDisplayStackObject/src/ofxDisplayStackObject.h",
+		"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/apps/myApps/retardpopulation/retardPopulation.cbp",
+		"/F/Dropbox/Programs/SublimeText/Data/Packages/SublimeClang/SublimeClang.sublime-settings",
+		"/F/Dropbox/Scripts/start_menu.ahk",
+		"/F/Dropbox/Programs/SublimeText/Data/Packages/SublimeLinter/sublimelinter/modules/c_cpplint.py",
+		"/F/Dropbox/Programs/SublimeText/Data/Pristine Packages/C++.sublime-package",
+		"/F/Dropbox/Programs/SublimeText/Data/Packages/SublimeLinter/README.md",
+		"/F/Dropbox/Programs/SublimeText/Data/Packages/User/BracketHighlighter.sublime-settings",
+		"/F/Dropbox/Programs/SublimeText/Data/Packages/BracketHighlighter/BracketHighlighter.sublime-settings"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"bite",
+			"->",
+			"uint",
+			"Game",
+			"dbCommand",
+			"yourPassword",
+			"\\n+",
+			"\\n",
+			"\\r\\n",
+			"\\n\\r",
+			"\\r",
+			"\\n\\r",
+			"\\n",
+			"\\r\\n\\r\\n",
+			"Logger",
+			"Log",
+			"CanSeePlayer",
+			"IsNearPlayer",
+			"other",
+			"if",
+			"width",
+			"offset",
+			"c",
+			"y",
+			"MonoBehaviour",
+			"M",
+			"FaceCamera",
+			"C",
+			"=",
+			"Math",
+			"0.",
+			"speed",
+			"s",
+			"ProjectToPlane",
+			"Proj",
+			"shepherdController",
+			"return",
+			"=",
+			"myTest",
+			"BotControlScript",
+			"B",
+			"_BumpMap",
+			"_BumpMap_ST",
+			"_BumpMap",
+			"_BumpMap_ST",
+			"_BumpMap",
+			"_BumpMap_ST",
+			"List",
+			"addRoad",
+			"getRoad",
+			"Edge<City>",
+			"Vertex2",
+			"IVertex",
+			"b",
+			"a",
+			" >",
+			"VertType",
+			"Edge",
+			"\n		",
+			"));\n",
+			"Vertex<T>",
+			"Vertex",
+			"BNode",
+			"int",
+			"prTln",
+			"int",
+			"\n				",
+			"\");\n",
+			"->",
+			"left",
+			"Left",
+			"Data",
+			"int",
+			"enumerate",
+			"itemize",
+			"1:4",
+			"z",
+			"keys",
+			"}\n",
+			"side",
+			"n",
+			";",
+			"package",
+			"jre",
+			"java",
+			"[\\D|\\S]",
+			"[\\D|\\s]",
+			"[A-å]",
+			"\\D",
+			"[A-z]",
+			"\\d",
+			" = ",
+			"^(\\w+)(.*)",
+			":\\s(.+)[.]",
+			"[a-z]",
+			"tmp",
+			"column",
+			"erase",
+			"prev",
+			"next",
+			"\n",
+			"next",
+			"prev",
+			"){",
+			"next",
+			"int",
+			"block_c",
+			"toggle_co",
+			"push",
+			"!p",
+			"^p"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"\\n",
+			"",
+			"ShepherdController",
+			"_NormalMap",
+			"_NormalMap_ST",
+			"_NormalMap",
+			"head",
+			"tail",
+			"IEdge",
+			"BNode<T>",
+			"T",
+			"println",
+			"T",
+			".",
+			"right",
+			"Right",
+			"Left",
+			"BNode",
+			",\n,",
+			",\n",
+			"",
+			"\\1",
+			"\n\\1",
+			"",
+			"empty",
+			"delete",
+			"_prev",
+			"_next",
+			"T"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Scripts/FaceCamera.cs",
+					"settings":
+					{
+						"buffer_size": 388,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								388,
+								388
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Standard Assets/Log_code/Log.cs",
+					"settings":
+					{
+						"buffer_size": 6847,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								477,
+								477
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "Scripts/ShepherdController.cs",
+					"settings":
+					{
+						"buffer_size": 12973,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5211.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Scripts/Enemy.cs",
+					"settings":
+					{
+						"buffer_size": 12809,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1891.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Scripts/HealthBar.cs",
+					"settings":
+					{
+						"buffer_size": 963,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "Standard Assets/Log_code/Logger.cs",
+					"settings":
+					{
+						"buffer_size": 1306,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								598,
+								598
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "Standard Assets/Log_code/Logger2.cs",
+					"settings":
+					{
+						"buffer_size": 1393,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1058,
+								705
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 122.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "Scripts/Tags.cs",
+					"settings":
+					{
+						"buffer_size": 185,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.432647333957,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.clang":
+	{
+		"height": 100.0
+	},
+	"output.exec":
+	{
+		"height": 174.0
+	},
+	"output.markdown":
+	{
+		"height": 98.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"tag",
+				"Scripts/Tags.cs"
+			],
+			[
+				"logger",
+				"Standard Assets/Log_code/Logger2.cs"
+			],
+			[
+				"logg",
+				"Standard Assets/Log_code/Logger.cs"
+			],
+			[
+				"log",
+				"Standard Assets/Log_code/Log.cs"
+			],
+			[
+				"enem",
+				"Scripts/Enemy.cs"
+			],
+			[
+				"shepherdcon",
+				"Scripts/ShepherdController.cs"
+			],
+			[
+				"play",
+				"Scripts/PlayerController.cs"
+			],
+			[
+				"c",
+				"Scripts/CameraController.cs"
+			],
+			[
+				"ied",
+				"Java/Graph/src/IEdge.java"
+			],
+			[
+				"ci",
+				"Java/Graph/src/City.java"
+			],
+			[
+				"cit",
+				"Java/Graph/src/City.java"
+			],
+			[
+				"ed",
+				"Java/Graph/src/Edge.java"
+			],
+			[
+				"gra",
+				"Java/Graph/src/Graph.java"
+			],
+			[
+				"grap",
+				"Java/Graph/src/Graph.java"
+			],
+			[
+				"f",
+				"/F/Dropbox/Scripts/tips.txt"
+			],
+			[
+				"start",
+				"Scripts/start_menu.ahk"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"naj",
+				"/F/Dropbox/xampp/htdocs/najas/najas.sublime-project"
+			],
+			[
+				"naja",
+				"/F/Dropbox/xampp/htdocs/najas/najas.sublime-project"
+			],
+			[
+				"",
+				"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/apps/myApps/retardpopulation/retardpopulation.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 216.0,
+	"status_bar_visible": true
+}

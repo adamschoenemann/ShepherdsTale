@@ -1,0 +1,30 @@
+Statement,Counterstatement,Inverse grading,Type
+I complete tasks successfully.,I get others to do my duties.,n,C
+I love large parties,I don't like crowded events.,n,E
+I have a good word for everyone.,I have a sharp tongue.,n,A
+I avoid mistakes.,I jump into things without thinking.,n,C
+I believe in the importance of art.,I believe that too much tax money goes to support artists.,n,O
+I have frequent mood swings.,I rarely lose my composure.,n,N
+I am concerned about others.,I am out for my own personal gain.,n,A
+I love to daydream.,I seldom daydream.,n,O
+I make friends easily.,I am hard to get to know.,n,E
+I love to read challenging material.,I avoid difficult reading material.,n,O
+I prefer variety to routine.,I am a creature of habit.,n,O
+I can't stand confrontations.,I love a good fight.,n,A
+I feel comfortable with myself.,I dislike myself.,y,N
+I like to tidy up.,I often forget to put things back in their proper place.,n,C
+I don't like to draw attention to myself.,I don't mind being the center of attention.,y,E
+I am often in a bad mood.,I am not easily annoyed.,n,N
+I stick to the rules.,I cheat to get ahead.,n,CA
+I get stressed out easily.,I remain calm under pressure.,n,N
+I excel in what I do.,I do just enough work to get by.,n,C
+I often eat too much.,I am able to control my cravings.,n,N
+I amuse my friends.,I seldom joke around.,y,E
+I am easily intimidated.,I am able to stand up for myself.,n,NE
+I become overwhelmed by events.,I readily overcome setbacks.,n,NC
+I waste my time.,I make plans and stick to them.,y,C
+I take control of things.,I wait for others to lead the way.,n,CE
+I consider myself an average person.,I believe that I am better than others.,n,A
+I experience my emotions intensely.,I seldom get emotional.,n,NO
+I start conversations.,I don't talk a lot.,n,E
+I suspect hidden motives in others.,I believe that others have good intentions.,y,A
