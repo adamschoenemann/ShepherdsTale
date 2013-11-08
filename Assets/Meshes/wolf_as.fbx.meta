@@ -1,0 +1,154 @@
+fileFormatVersion: 2
+guid: a6fd5607879a99645bf592636ac59259
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: back_left
+    100002: back_left_angle
+    100004: back_left_foot
+    100006: back_left_knee
+    100008: back_left_toe
+    100010: back_right
+    100012: back_right_angle
+    100014: back_right_foot
+    100016: back_right_knee
+    100018: back_right_toe
+    100020: end_tail
+    100022: front_left
+    100024: front_left_foot
+    100026: front_left_knee
+    100028: front_left_thigh
+    100030: front_left_toe
+    100032: front_right
+    100034: front_right_foot
+    100036: front_right_knee
+    100038: front_right_thigh
+    100040: front_right_toe
+    100042: group
+    100044: group2
+    100046: head
+    100048: joint1
+    100050: leg_behind_left
+    100052: leg_behind_right
+    100054: leg_front_left
+    100056: leg_front_right
+    100058: middel_tail
+    100060: neck
+    100062: root
+    100064: shoulder
+    100066: tail
+    100068: Wolf
+    100070: //RootNode
+    400000: back_left
+    400002: back_left_angle
+    400004: back_left_foot
+    400006: back_left_knee
+    400008: back_left_toe
+    400010: back_right
+    400012: back_right_angle
+    400014: back_right_foot
+    400016: back_right_knee
+    400018: back_right_toe
+    400020: end_tail
+    400022: front_left
+    400024: front_left_foot
+    400026: front_left_knee
+    400028: front_left_thigh
+    400030: front_left_toe
+    400032: front_right
+    400034: front_right_foot
+    400036: front_right_knee
+    400038: front_right_thigh
+    400040: front_right_toe
+    400042: group
+    400044: group2
+    400046: head
+    400048: joint1
+    400050: leg_behind_left
+    400052: leg_behind_right
+    400054: leg_front_left
+    400056: leg_front_right
+    400058: middel_tail
+    400060: neck
+    400062: root
+    400064: shoulder
+    400066: tail
+    400068: Wolf
+    400070: //RootNode
+    4300000: Wolf
+    7400000: Walk
+    9500000: //RootNode
+    13700000: Wolf
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations:
+    - name: Walk
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 48
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      transformMask: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 2
+  userData: 
