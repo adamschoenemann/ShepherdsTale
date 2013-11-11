@@ -25,19 +25,24 @@ public class CameraController : MonoBehaviour {
 		rigidbody.freezeRotation = true;
 	}
 
-	void LateUpdate () {
-		if (target) {
-			x += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
-			y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+	// void LateUpdate () {
+	// 	if (target) {
+	// 		x += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
+	// 		y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 
-			y = ClampAngle(y, yMinLimit, yMaxLimit);
+	// 		y = ClampAngle(y, yMinLimit, yMaxLimit);
 
-			Quaternion rotation = Quaternion.Euler(y, x, 0);
-			Vector3 position = rotation * new Vector3(0.0f, 0.0f, -distance) + target.position;
+	// 		Quaternion rotation = Quaternion.Euler(y, x, 0);
+	// 		Vector3 position = rotation * new Vector3(0.0f, 0.0f, -distance) + target.position;
 
-			transform.rotation = rotation;
-			transform.position = position;
-		}
+	// 		transform.rotation = rotation;
+	// 		transform.position = position;
+	// 	}
+	// }
+	// 
+	public void AlignTo()
+	{
+		// transform
 	}
 
 	static float ClampAngle (float angle, float min, float max) {
