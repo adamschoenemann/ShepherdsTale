@@ -1001,6 +1001,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
 --- !u!114 &275684123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4540,6 +4542,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d2a35b6720a7a3478d38d3571328a75, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
@@ -9858,7 +9862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6331ab6fdeaa49ebb0a2efa9e635a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSmoothing: 3
+  turnSmoothing: 10
   normalSpeed: 400
   sneakSpeed: 100
   animSpeed: 2
