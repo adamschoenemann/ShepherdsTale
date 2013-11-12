@@ -1,5 +1,14 @@
 using UnityEngine;
 
+/**
+ * Controls the wolf
+ * TODO: AI still needs some work.
+ * 			 Patrolling still needs to be implemented.
+ * 			 Listening and luring.
+ * 			 Attacking and dying.
+ * 			 Navigating around obstacles
+ * @type {[type]}
+ */
 public class WolfController : MonoBehaviour
 {
 
@@ -89,6 +98,7 @@ public class WolfController : MonoBehaviour
 		}
 	}
 
+	// TODO: Fix this, doesn't quite work
 	void ResetRotation()
 	{
 		if(Quaternion.Dot(transform.rotation, defaultRotation) < 0.99)
@@ -113,6 +123,7 @@ public class WolfController : MonoBehaviour
 		}
 	}
 
+	// TODO: Lerp this instead
 	void ReturnToDefault()
 	{
 		Vector3 direction = (defaultPosition - transform.position);
