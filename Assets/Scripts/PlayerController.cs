@@ -49,6 +49,11 @@ public class PlayerController : MonoBehaviour
 
 	}
 
+	public bool IsSneaking()
+	{
+		return animation.anim.GetBool("Sneak");
+	}
+
 	void LateUpdate()
 	{
 	}

@@ -7,6 +7,7 @@ using System;
 [RequireComponent(typeof (Animator))]
 [RequireComponent(typeof (CapsuleCollider))]
 [RequireComponent(typeof (Rigidbody))]
+[Obsolete("This class is obsolete. It has been replaced by PlayerController/Movement/Animation")]
 public class ShepherdController : MonoBehaviour
 {
 

@@ -10,7 +10,7 @@ using System;
 public class PlayerAnimation : MonoBehaviour
 {
 
-	private Animator anim;							// a reference to the animator on the character
+	public Animator anim;							// a reference to the animator on the character
 	private AnimatorStateInfo currentBaseState;			// a reference to the current state of the anima
 	private AnimatorStateInfo layer2State;
 	private AnimatorStateInfo layer2CurrentState;	// a reference to the current state of the animator, used for layer 2
@@ -47,6 +47,21 @@ public class PlayerAnimation : MonoBehaviour
 
 	void Update()
 	{
+		
+	}
+
+	public void FixedUpdate()
+	{
+		float h = Input.GetAxis("Horizontal");
+		float v = Input.GetAxis("Vertical");
+		
+		AnimateMovement(v, h);
+		AnimateSneaking();
+		AnimateAttack();
+	}
+
+	void AnimateSneaking()
+	{
 		// Minimize aggro range if we hold down SHIFT (same as sneaky key) Still need some tweaking, 
 		//you can "escape" the wolf from a closer distance by hitting the shift key!
 		if(Input.GetButtonDown("Sneak"))
@@ -59,15 +74,6 @@ public class PlayerAnimation : MonoBehaviour
 			anim.SetBool("Sneak", false);
 			// SetSneaking(false);
 		}
-	}
-
-	public void FixedUpdate()
-	{
-		float h = Input.GetAxis("Horizontal");
-		float v = Input.GetAxis("Vertical");
-		
-		AnimateMovement(v, h);
-		AnimateAttack();
 	}
 
 	void AnimateMovement(float v, float h)
