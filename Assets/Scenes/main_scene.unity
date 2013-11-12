@@ -7134,8 +7134,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1393358818}
-  m_LocalRotation: {x: .176131681, y: -1.01587636e-08, z: 3.67962105e-10, w: .984366655}
-  m_LocalPosition: {x: 1.53728361e-05, y: 2.56692886, z: -4.09016228}
+  m_LocalRotation: {x: .173648193, y: 0, z: 0, w: .984807789}
+  m_LocalPosition: {x: 0, y: 1.79999995, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2055785872}
@@ -7145,17 +7145,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1393358818}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0761b4a5ee0dec34baba4b3239997c52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 2055785872}
-  distance: 5
-  xSpeed: 250
-  ySpeed: 120
-  yMinLimit: 30
-  yMaxLimit: 30
+  speed: 100
 --- !u!1 &1393759460
 GameObject:
   m_ObjectHideFlags: 0
@@ -10038,6 +10033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aea74f9725ea5842b4ba586013fc28d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotateSpeed: 200
 --- !u!1 &2061331344
 GameObject:
   m_ObjectHideFlags: 0

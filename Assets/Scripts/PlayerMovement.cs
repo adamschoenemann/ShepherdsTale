@@ -31,15 +31,10 @@ public class PlayerMovement : MonoBehaviour
 		y *= 0.02f * 120;
 		rotX += x;
 		// rotY -= y;
-		// This camera rotation is still not super hot
+		// This rotation is still not super hot
+		// but at least it works
 		Quaternion rotation = Quaternion.Euler(y, x, 0);
 		transform.Rotate(new Vector3(0, x, 0));
-	}
-
-	public void RotateToCamera()
-	{
-		// Transform camTransform = Camera.main.transform;
-		// transform.rotation = Quaternion.Euler(0, camTransform.eulerAngles.y, 0);		
 	}
 
 	public void FixedUpdate()
