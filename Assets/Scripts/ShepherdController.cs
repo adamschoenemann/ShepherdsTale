@@ -84,7 +84,7 @@ public class ShepherdController : MonoBehaviour
 	void Rotate(Vector3 targetDirection) {
 		if(rigidbody.velocity.magnitude <= 0)
 		{
-			return;
+			// return;
 		}
 		// Create a new vector of the horizontal and vertical inputs.
     // Vector3 targetDirection = rigidbody.transform.forward;
@@ -219,6 +219,9 @@ public class ShepherdController : MonoBehaviour
 			Rotate(direction.normalized);
 			anim.SetFloat("Speed", direction.magnitude);
 			anim.SetFloat("Direction", v*h);
+		}
+		else {
+			Rotate(cam.transform.forward);
 		}
 
 		anim.speed = animSpeed;								// set the speed of our animator to the public variable 'animSpeed'

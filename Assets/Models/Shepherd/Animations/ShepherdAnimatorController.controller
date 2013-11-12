@@ -108,7 +108,7 @@ BlendTree:
   m_PrefabInternal: {fileID: 0}
   m_Name: Blend Tree
   m_Childs:
-  - m_Motion: {fileID: 7400006, guid: 66e521740e4044e1b8a7fff5876160b8, type: 3}
+  - m_Motion: {fileID: 7400004, guid: 66e521740e4044e1b8a7fff5876160b8, type: 3}
     m_Threshold: -1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -122,7 +122,7 @@ BlendTree:
     m_CycleOffset: 0
     m_IsAnim: 1
     m_Mirror: 0
-  - m_Motion: {fileID: 7400004, guid: 66e521740e4044e1b8a7fff5876160b8, type: 3}
+  - m_Motion: {fileID: 7400006, guid: 66e521740e4044e1b8a7fff5876160b8, type: 3}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -133,7 +133,7 @@ BlendTree:
   m_BlendParameterY: New Float
   m_MinThreshold: -1
   m_MaxThreshold: 1
-  m_UseAutomaticThresholds: 1
+  m_UseAutomaticThresholds: 0
   m_BlendType: 0
 --- !u!206 &20609456
 BlendTree:
@@ -462,7 +462,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Wave
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
     m_ExitTime: .899999976
   m_Atomic: 1
@@ -632,7 +632,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Attack
+    m_ConditionEvent: Wave
     m_EventTreshold: 0
     m_ExitTime: .491525292
   m_Atomic: 1
@@ -722,7 +722,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Attack
+    m_ConditionEvent: Wave
     m_EventTreshold: 0
     m_ExitTime: .964285731
   m_Atomic: 1
@@ -775,7 +775,7 @@ State:
   m_Motions:
   - {fileID: 7400014, guid: ce448a8080b4e934b8473badd27be402, type: 3}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: 360, y: -216, z: 0}
+  m_Position: {x: 360, y: -228, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -970,7 +970,7 @@ State:
   m_Motions:
   - {fileID: 0}
   m_ParentStateMachine: {fileID: 110790068}
-  m_Position: {x: 240, y: 12, z: 0}
+  m_Position: {x: 228, y: 60, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 

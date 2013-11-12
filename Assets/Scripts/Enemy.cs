@@ -3,7 +3,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 	private GameObject player;
-	private ShepherdController shepCtrl;
+	private PlayerAnimation playerAnim;
 	public float moveSpeed = 120f;
 	private bool colliding = false;
 	//private bool playerInSight = false;
@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour
 	void Awake()
 	{
 		player = GameObject.FindGameObjectWithTag(Tags.player);
-		shepCtrl = player.GetComponent<ShepherdController>();
+		playerAnim = player.GetComponent<PlayerAnimation>();
 		col = GetComponent<SphereCollider>();
 		anim = GetComponent<Animator>();
 		health = startHealth;
@@ -241,7 +241,7 @@ public class Enemy : MonoBehaviour
 				break;
 			case Tags.staff:
 				transform.LookAt(player.transform);
-				if(shepCtrl.IsAttacking() == false)
+				if(playerAnim.IsAttacking() == false)
 					break;
 				health--;
 				healthBar.SetPercentage(health / (float) startHealth);
@@ -299,7 +299,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 	private GameObject player;
-	private ShepherdController shepCtrl;
+	private PlayerAnimation playerAnim;
 	public float moveSpeed = 120f;
 	private bool colliding = false;
 	private bool playerInSight = false;
@@ -330,7 +330,7 @@ public class Enemy : MonoBehaviour
 	void Awake()
 	{
 		player = GameObject.FindGameObjectWithTag(Tags.player);
-		shepCtrl = player.GetComponent<ShepherdController>();
+		playerAnim = player.GetComponent<PlayerAnimation>();
 		col = GetComponent<SphereCollider>();
 		anim = GetComponent<Animator>();
 		health = startHealth;
@@ -493,7 +493,7 @@ public class Enemy : MonoBehaviour
 				break;
 			case Tags.staff:
 				transform.LookAt(player.transform);
-				if(shepCtrl.IsAttacking() == false)
+				if(playerAnim.IsAttacking() == false)
 					break;
 				health--;
 				healthBar.SetPercentage(health / (float) startHealth);
