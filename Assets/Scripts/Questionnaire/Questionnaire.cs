@@ -70,7 +70,7 @@ public class Questionnaire : MonoBehaviour {
 		instructionsPage = new InstructionsPage(layout);
 
 		//PrimeOutputFile(); // Insert suitable header in the output file
-		//personalityPageIndex = 19; // Go to last page (5 for 29item, 19 for 100item)
+		personalityPageIndex = 19; // Go to last page (5 for 29item, 19 for 100item)
 	}
 	
 	// Update is called once per frame
@@ -162,7 +162,7 @@ public class Questionnaire : MonoBehaviour {
 			index += pageAnswers.Length;
 		}*/
 		string[] personalityAnswers = GetPersonalityAnswers();
-		personalityAnswers.CopyTo(output, 3);
+		personalityAnswers.CopyTo(output, 4);
 
 		return output;
 	}

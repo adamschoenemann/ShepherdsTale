@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityEditor;
 
 public class PersonalityResultsPage {
 
@@ -179,7 +180,10 @@ public class PersonalityResultsPage {
 		
 		if(GUI.Button(layout.ElementRect(1,5), "Next questionaire"))
 		{
-			Application.LoadLevel("PersonalityTest 100 item");
+			if(Application.loadedLevelName != "PersonalityTest 100 item")
+				Application.LoadLevel("PersonalityTest 100 item");
+			else
+				EditorApplication.isPlaying = false;
 		}
 	}
 
