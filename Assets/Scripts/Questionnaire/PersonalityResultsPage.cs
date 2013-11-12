@@ -120,7 +120,9 @@ public class PersonalityResultsPage {
 			{
 				val = 4 - val;
 			}
-
+			
+			
+			
 			switch(types[i])
 			{
 				case "O":
@@ -156,7 +158,7 @@ public class PersonalityResultsPage {
 		e /= nE;
 		a /= nA;
 		n /= nN;
-
+		
 		int y = 0;
 		lines = new ParameterLine[5];
 		lines[0] = new ParameterLine(this.layout, y++, loO, hiO, o);
@@ -173,6 +175,11 @@ public class PersonalityResultsPage {
 		foreach(ParameterLine p in lines)
 		{
 			p.Draw();
+		}
+		
+		if(GUI.Button(layout.ElementRect(1,5), "Next questionaire"))
+		{
+			Application.LoadLevel("PersonalityTest 100 item");
 		}
 	}
 

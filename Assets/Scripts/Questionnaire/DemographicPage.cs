@@ -19,7 +19,8 @@ public class DemographicPage
 			// Deliberately empty
 		}
 	}
-
+	
+	public string ID  { get; private set;} // ID for personality verification
 	public string Gender { get; private set;}
 	public string Age { get; private set;}
 	public string Nationality { get; private set;}
@@ -32,6 +33,7 @@ public class DemographicPage
 	{
 		this.layout = layout;
 		Answered = false;
+		ID = "";
 		Gender = "";
 		Age = "";
 		Nationality = "";
@@ -39,15 +41,22 @@ public class DemographicPage
 
 	public void Draw()
 	{
+		// Headline
+		GUI.Label(layout.ElementRect(1,0), Application.loadedLevelName, "box");
+		
+		// ID
+		GUI.Label(layout.ElementRect(0,1), "ID",  "box");
+		ID = GUI.TextField(layout.ElementRect(1,1), ID);
+		
 		// Gender
-	 	GUI.Label(layout.ElementRect(0,0), "Gender",  "box");
-	 	if(GUI.Toggle(layout.ElementRect(1,0), male, "Male"))
+	 	GUI.Label(layout.ElementRect(0,2), "Gender",  "box");
+	 	if(GUI.Toggle(layout.ElementRect(1,2), male, "Male"))
 		{	
 			male = true;
 			female = false;
 			Gender = "male";
 		}
-		if(female = GUI.Toggle(layout.ElementRect(2,0), female, "Female"))
+		if(female = GUI.Toggle(layout.ElementRect(2,2), female, "Female"))
 		{
 			male = false;
 			female = true;
@@ -55,17 +64,13 @@ public class DemographicPage
 		}
 
 		// Age
-		GUI.Label(layout.ElementRect(0,1), "Age",  "box");
-		Age = GUI.TextField(layout.ElementRect(1,1), Age);
-		int age;
-		if(!Int32.TryParse(Age, out age) || (age > 99))
-		{
-			Age = "";
-		}
+		GUI.Label(layout.ElementRect(0,3), "Age",  "box");
+		Age = GUI.TextField(layout.ElementRect(1,3), Age);
+		
 
 		// Nationality
-		GUI.Label(layout.ElementRect(0,2), "Nationality",  "box");
-		Nationality = GUI.TextField(layout.ElementRect(1,2), Nationality);
+		GUI.Label(layout.ElementRect(0,4), "Nationality",  "box");
+		Nationality = GUI.TextField(layout.ElementRect(1,4), Nationality);
 		int nat;
 		if(Int32.TryParse(Nationality, out nat))
 		{

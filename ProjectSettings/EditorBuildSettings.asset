@@ -16,7 +16,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Sneak.unity
   - enabled: 1
-    path: Assets/Scenes/PersonalityTest.unity
+    path: Assets/Scenes/PersonalityTest 29 item.unity
   - enabled: 1
     path: Assets/Scenes/kill.unity
   - enabled: 1
@@ -27,3 +27,5 @@ EditorBuildSettings:
     path: Assets/Scenes/sneak.unity
   - enabled: 1
     path: Assets/Scenes/three_options.unity
+  - enabled: 1
+    path: Assets/Scenes/PersonalityTest 100 item.unity

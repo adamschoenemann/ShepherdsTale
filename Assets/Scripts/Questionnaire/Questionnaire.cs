@@ -12,12 +12,15 @@ public class Questionnaire : MonoBehaviour {
 
 	public PersonalityQuestions personalityQuestions;
 	public GUISkin skin;
-
+	
 	private ProgressBar progressBar;
 	private DemographicPage demoPage;
 	private InstructionsPage instructionsPage;
 	private PersonalityPage[] personalityPages;
 	private PersonalityResultsPage personalityResultsPage;
+	public string questionaireResponsName;
+	private string format = ".csv";
+	
 
 	private int personalityPageIndex = -2; // -2: demographics, -1: instructions page
 	private readonly int noOfDemographicQuestions = 3;
@@ -67,7 +70,7 @@ public class Questionnaire : MonoBehaviour {
 		instructionsPage = new InstructionsPage(layout);
 
 		//PrimeOutputFile(); // Insert suitable header in the output file
-		//personalityPageIndex = 5; // Go to last page
+		//personalityPageIndex = 19; // Go to last page (5 for 29item, 19 for 100item)
 	}
 	
 	// Update is called once per frame
@@ -141,12 +144,13 @@ public class Questionnaire : MonoBehaviour {
 
 	private string[] GetAnswers()
 	{
-		string[] output = new string[personalityQuestions.Length + noOfDemographicQuestions];
+		string[] output = new string[personalityQuestions.Length + noOfDemographicQuestions+1];
 
 		// Demographic responses
-		output[0] = demoPage.Gender;
-		output[1] = demoPage.Age;
-		output[2] = demoPage.Nationality;
+		output[0] = demoPage.ID;
+		output[1] = demoPage.Gender;
+		output[2] = demoPage.Age;
+		output[3] = demoPage.Nationality;
 
 		// Personality question responses
 		/*int index = noOfDemographicQuestions;
@@ -181,14 +185,15 @@ public class Questionnaire : MonoBehaviour {
 
 	private void PrimeOutputFile()
 	{
-		string[] header = new string[personalityQuestions.Length + noOfDemographicQuestions + 1];
+		string[] header = new string[personalityQuestions.Length + noOfDemographicQuestions + 2];
 		header[0] = "Timestamp";
-		header[1] = "Gender";
-		header[2] = "Age";
-		header[3] = "Nationality";
-		for(int i = 4; i < header.Length; i++)
+		header[1] = "ID";
+		header[2] = "Gender";
+		header[3] = "Age";
+		header[4] = "Nationality";
+		for(int i = 5; i < header.Length; i++)
 		{
-			header[i] = "q" + (i - 3).ToString();
+			header[i] = "q" + (i - 4).ToString();
 		}
 		
 		WriteLine(header);
@@ -209,7 +214,7 @@ public class Questionnaire : MonoBehaviour {
 
 	private void WriteLine(string[] line)
 	{
-		CSVWriter.WriteNewRow(Application.dataPath + @"/Output", "QuestionnaireResponses.csv", line, ",");
+		CSVWriter.WriteNewRow(Application.dataPath + @"/Output", questionaireResponsName + format, line, ",");
 	}
 }
 

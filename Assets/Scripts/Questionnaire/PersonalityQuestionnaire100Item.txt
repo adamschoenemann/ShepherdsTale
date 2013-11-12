@@ -1,0 +1,101 @@
+Statement,Counterstatement,Inverse grading,Type
+1. I am the life of the party., ,y,E
+2. I insult people., ,n,A
+3. Am always prepared., ,y,C
+4. Get stressed out easily., ,n,N
+5. Have a rich vocabulary., ,y,O
+6. Often feel uncomfortable around others., ,n,E
+7. Am interested in people., ,y,A
+8. Leave my belongings around., ,n,C
+9. Am relaxed most of the time., ,y,N
+10. Have difficulty understanding abstract ideas., ,n,O
+11. Feel comfortable around people., ,y,E
+12. Am not interested in other people's problems., ,n,A
+13. Pay attention to details., ,y,C
+14. Worry about things., ,n,N
+15. Have a vivid imagination., ,y,O
+16. Keep in the background., ,n,E
+17. Sympathize with others' feelings., ,y,A
+18. Make a mess of things., ,n,C
+19. Seldom feel blue., ,y,N
+20. Am not interested in abstract ideas., ,n,O
+21. Start conversations., ,y,E
+22. Feel little concern for others., ,n,A
+23. Get chores done right away., ,y,C
+24. Am easily disturbed., ,n,N
+25. Have excellent ideas., ,y,O
+26. Have little to say., ,n,E
+27. Have a soft heart., ,y,A
+28. Often forget to put things back in their proper place., ,n,C
+29. Am not easily bothered by things., ,y,N
+30. Do not have a good imagination.   , ,n,O
+31. Talk to a lot of different people at parties., ,y,E
+32. Am not really interested in others., ,n,A
+33. Like order., ,y,C
+34. Get upset easily., ,n,N
+35. Am quick to understand things., ,y,O
+36. Don't like to draw attention to myself., ,n,E
+37. Take time out for others., ,y,A
+38. Shirk my duties., ,n,C
+39. Rarely get irritated., ,y,N
+40. Try to avoid complex people.  , ,n,O
+41. Don't mind being the center of attention., ,y,E
+42. Am hard to get to know., ,n,A
+43. Follow a schedule., ,y,C
+44. Change my mood a lot., ,n,N
+45. Use difficult words., ,y,O
+46. Am quiet around strangers., ,n,E
+47. Feel others' emotions., ,y,A
+48. Neglect my duties., ,n,C
+49. Seldom get mad., ,y,N
+50. Have difficulty imagining things.    , ,n,O
+51. Make friends easily., ,y,E
+52. Am indifferent to the feelings of others., ,n,A
+53. Am exacting in my work., ,y,C
+54. Have frequent mood swings., ,n,N
+55. Spend time reflecting on things., ,y,O
+56. Find it difficult to approach others., ,n,E
+57. Make people feel at ease., ,y,A
+58. Waste my time., ,n,C
+59. Get irritated easily., ,n,N
+60. Avoid difficult reading material. , ,n,O
+61. Take charge., ,y,E
+62. Inquire about others' well-being., ,y,A
+63. Do things according to a plan., ,y,C
+64. Often feel blue., ,n,N
+65. Am full of ideas., ,y,O
+66. Don't talk a lot., ,n,E
+67. Know how to comfort others., ,y,A
+68. Do things in a half-way manner., ,n,C
+69. Get angry easily., ,n,N
+70. Will not probe deeply into a subject. , ,n,O
+71. Know how to captivate people., ,y,E
+72. Love children., ,y,A
+73. Continue until everything is perfect., ,y,C
+74. Panic easily., ,n,N
+75. Carry the conversation to a higher level., ,y,O
+76. Bottle up my feelings., ,n,E
+77. Am on good terms with nearly everyone., ,y,A
+78. Find it difficult to get down to work., ,n,C
+79. Feel threatened easily., ,n,N
+80. Catch on to things quickly.    , ,y,O
+81. Feel at ease with people., ,y,E
+82. Have a good word for everyone., ,y,A
+83. Make plans and stick to them., ,y,C
+84. Get overwhelmed by emotions., ,n,N
+85. Can handle a lot of information., ,y,O
+86. Am a very private person., ,n,E
+87. Show my gratitude., ,y,N
+88. Leave a mess in my room., ,n,C
+89. Take offense easily., ,n,N
+90. Am good at many things.    , ,y,O
+91. Wait for others to lead the way., ,n,E
+92. Think of others first., ,y,A
+93. Love order and regularity., ,y,C
+94. Get caught up in my problems., ,n,N
+95. Love to read challenging material., ,y,O
+96. Am skilled in handling social situations., ,y,E
+97. Love to help others., ,y,A
+98. Like to tidy up., ,y,C
+99. Grumble about things., ,n,N
+100. Love to think up new ways of doing things., ,y,O
