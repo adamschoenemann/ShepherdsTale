@@ -12,7 +12,7 @@ GameObject:
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
   - 54: {fileID: 5400000}
-  - 64: {fileID: 6400000}
+  - 136: {fileID: 13600000}
   m_Layer: 0
   m_Name: BigtreewCollider
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 288.556244, y: 0, z: 410.59787}
+  m_LocalPosition: {x: 241.843384, y: 0, z: 364.598297}
   m_LocalScale: {x: .75, y: .75, z: .75}
   m_Children: []
   m_Father: {fileID: 0}
@@ -68,12 +68,12 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &6400000
-MeshCollider:
+--- !u!136 &13600000
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -81,10 +81,10 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_SmoothSphereCollisions: 0
-  m_Convex: 0
-  m_Mesh: {fileID: 4300000, guid: 283746c560beb6145a5409c8e486d6d9, type: 2}
+  m_Radius: 1.30999994
+  m_Height: 7.42000008
+  m_Direction: 1
+  m_Center: {x: .0199999996, y: 2.20000005, z: .0500000007}
 --- !u!193 &19300000
 Tree:
   m_ObjectHideFlags: 1

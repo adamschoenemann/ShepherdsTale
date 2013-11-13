@@ -10,6 +10,7 @@ using System;
 public class PlayerAnimation : MonoBehaviour
 {
 
+	[HideInInspector]
 	public Animator anim;							// a reference to the animator on the character
 	private AnimatorStateInfo currentBaseState;			// a reference to the current state of the anima
 	private AnimatorStateInfo layer2State;

@@ -44,7 +44,14 @@ public class PlayerController : MonoBehaviour
 			cam.ResetRotation(transform.position);
 			movement.Rotate(dx, dy);
 		}
-		movement.Move(ver, hor);
+		if(IsSneaking())
+		{
+			movement.Sneak(ver, hor);
+		}
+		else
+		{
+			movement.Run(ver, hor);
+		}
 
 
 	}
@@ -52,6 +59,11 @@ public class PlayerController : MonoBehaviour
 	public bool IsSneaking()
 	{
 		return animation.anim.GetBool("Sneak");
+	}
+
+	public bool IsAttacking()
+	{
+		return animation.IsAttacking();
 	}
 
 	void LateUpdate()

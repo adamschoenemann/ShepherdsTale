@@ -7,10 +7,11 @@ using System;
  * Handles player movement
  * @type {[type]}
  */
-public class PlayerMovement : MonoBehaviour 
+public class PlayerMovement : NoiseGenerator 
 {
 
-	public float moveSpeed = 10.0f;
+	public float runSpeed = 10.0f;
+	public float sneakSpeed = 5.0f;
 	private float rotX = 0.0f, rotY = 0.0f;
 
 	void Awake()
@@ -18,11 +19,27 @@ public class PlayerMovement : MonoBehaviour
 
 	}
 
-	public void Move(float ver, float hor)
+	public void Run(float ver, float hor)
 	{
 		Vector3 move = ver * transform.forward + hor * transform.right;
-		Vector3 force = move.normalized * moveSpeed * Time.deltaTime * 200;
+		Vector3 moveNormalized = move.normalized;
+		Vector3 force = moveNormalized * runSpeed * 2.5f;
 		rigidbody.AddForce(force);
+		if(move.magnitude > 0.1)
+		{
+			MakeNoise(5.0f);
+		}
+	}
+
+	public void Sneak(float ver, float hor)
+	{
+		Vector3 move = ver * transform.forward + hor * transform.right;
+		Vector3 force = move.normalized * sneakSpeed * 2.5f;
+		rigidbody.AddForce(force);
+		if(move.magnitude > 0.1)
+		{
+			MakeNoise(2.5f);
+		}
 	}
 
 	public void Rotate(float x, float y)
@@ -45,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 		// {
 		// 	Rotate();
 		// }
-		// Move(ver, hor);
+		// Run(ver, hor);
 
 	}
 

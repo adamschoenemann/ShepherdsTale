@@ -4,14 +4,18 @@ using System.Collections;
 public class HealthBar : FaceCamera {
 
 	private Texture2D texture;
-	private GameObject player;
+	public GameObject target;
+	private Mortal mortal;
 	public float width = 30;
+	private int maxHealth;
 	private float percentage = 1.0f;
 
 	// Use this for initialization
 	protected override void Start () {
 		base.Start();
-		player = GameObject.FindGameObjectWithTag(Tags.player);
+		mortal = target.GetComponent<Mortal>();
+		maxHealth = mortal.GetHealth();
+		// player = GameObject.FindGameObjectWithTag(Tags.player);
 
 		texture = new Texture2D(1, 1);
 		for(int y = 0; y < texture.height; y++)
@@ -30,8 +34,12 @@ public class HealthBar : FaceCamera {
 
 	void OnGUI()
 	{
-		// int o = 50;
+		if(mortal.IsAlive() == false)
+		{
+			return;
+		}
 		Vector3 screenPos = cam.camera.WorldToScreenPoint(transform.position);
+		float percentage = mortal.GetHealth() / (float) maxHealth;
 		float drawWidth = percentage * width;
 		//print("percentage: " + percentage);
 		GUI.DrawTexture(new Rect(screenPos.x - drawWidth/2, Screen.height - screenPos.y, drawWidth, 3), texture);

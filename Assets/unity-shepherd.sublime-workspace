@@ -4,6 +4,122 @@
 		"selected_items":
 		[
 			[
+				"GetM",
+				"GetMesh"
+			],
+			[
+				"pla",
+				"player"
+			],
+			[
+				"LookA",
+				"LookAtLerp"
+			],
+			[
+				"IsA",
+				"IsAttacking"
+			],
+			[
+				"GetMesh",
+				"GetMeshRenderer"
+			],
+			[
+				"CheckIfR",
+				"CheckIfReachedPlayer"
+			],
+			[
+				"Di",
+				"Dictionary"
+			],
+			[
+				"CheckIf",
+				"CheckIfReachedPlayer"
+			],
+			[
+				"defa",
+				"defaultPosition"
+			],
+			[
+				"new",
+				"newState"
+			],
+			[
+				"Upda",
+				"UpdateSuspiciousTimer"
+			],
+			[
+				"GetCom",
+				"GetComponent	type"
+			],
+			[
+				"Listen",
+				"ListenForPlayer"
+			],
+			[
+				"pl",
+				"player"
+			],
+			[
+				"def",
+				"defaultPosition"
+			],
+			[
+				"GetCo",
+				"GetComponent	type"
+			],
+			[
+				"player",
+				"playerController"
+			],
+			[
+				"Ray",
+				"Ray	origin, direction"
+			],
+			[
+				"Up",
+				"UpdateState"
+			],
+			[
+				"playr",
+				"playerPos"
+			],
+			[
+				"de",
+				"deltaTime"
+			],
+			[
+				"loca",
+				"localRotation"
+			],
+			[
+				"forw",
+				"forwardA"
+			],
+			[
+				"f",
+				"forwardA"
+			],
+			[
+				"local",
+				"localPosition"
+			],
+			[
+				"lo",
+				"localPosition"
+			],
+			[
+				"p",
+				"position"
+			],
+			[
+				"Vect",
+				"Vector3	x, y, z"
+			],
+			[
+				"Rot",
+				"RotateAround	point, axis, angle"
+			],
+			[
 				"FindO",
 				"FindGameObjectsWithTag	tag"
 			],
@@ -38,10 +154,6 @@
 			[
 				"heal",
 				"healthBar"
-			],
-			[
-				"GetCom",
-				"GetComponentInChildren	type"
 			],
 			[
 				"he",
@@ -272,10 +384,6 @@
 				"cmplx"
 			],
 			[
-				"p",
-				"Println"
-			],
-			[
 				"WINDOW_CLOS",
 				"WINDOW_CLOSING	int"
 			],
@@ -300,66 +408,82 @@
 	"buffers":
 	[
 		{
-			"file": "Scripts/FaceCamera.cs",
+			"file": "Scripts/Noises/NoiseManager.cs",
 			"settings":
 			{
-				"buffer_size": 388,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Standard Assets/Log_code/Log.cs",
-			"settings":
-			{
-				"buffer_size": 6847,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Scripts/ShepherdController.cs",
-			"settings":
-			{
-				"buffer_size": 12973,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Scripts/Enemy.cs",
-			"settings":
-			{
-				"buffer_size": 12809,
-				"line_ending": "Unix"
+				"buffer_size": 404,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "Scripts/HealthBar.cs",
 			"settings":
 			{
-				"buffer_size": 963,
+				"buffer_size": 1184,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Standard Assets/Log_code/Logger.cs",
+			"file": "Scripts/Player/PlayerController.cs",
 			"settings":
 			{
-				"buffer_size": 1306,
+				"buffer_size": 1314,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Scripts/Player/PlayerAnimation.cs",
+			"settings":
+			{
+				"buffer_size": 3546,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Scripts/Player/PlayerMovement.cs",
+			"settings":
+			{
+				"buffer_size": 1387,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Scripts/WolfController.cs",
+			"settings":
+			{
+				"buffer_size": 7828,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/F/Dropbox/Programs/SublimeText/Data/Packages/User/Default (Windows).sublime-keymap",
+			"settings":
+			{
+				"buffer_size": 7283,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Standard Assets/Log_code/Logger2.cs",
+			"file": "/F/Dropbox/Programs/SublimeText/Data/Packages/Default/Default (Windows).sublime-keymap",
 			"settings":
 			{
-				"buffer_size": 1393,
+				"buffer_size": 30564,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Scripts/Tags.cs",
+			"file": "Scripts/Staff.cs",
 			"settings":
 			{
-				"buffer_size": 185,
+				"buffer_size": 543,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Scripts/Mortal.cs",
+			"settings":
+			{
+				"buffer_size": 391,
 				"line_ending": "Windows"
 			}
 		}
@@ -367,20 +491,64 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 38.0,
+		"height": 374.0,
 		"selected_items":
 		[
 			[
-				"unity",
-				"Unity Reference: Search Selection"
+				"key",
+				"Preferences: Key Bindings - Default"
+			],
+			[
+				"packa",
+				"Preferences: Browse Packages"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Discover Packages"
 			],
 			[
 				"rena",
 				"File: Rename"
 			],
 			[
+				"new fi",
+				"File: New File Relative to Current View"
+			],
+			[
 				"rei",
 				"Indentation: Reindent Lines"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"ind",
+				"Indent XML"
+			],
+			[
+				"new",
+				"File: New File Relative to Current View"
+			],
+			[
+				"new f",
+				"File: New File Relative to Current View"
+			],
+			[
+				"markd",
+				"Set Syntax: Markdown"
+			],
+			[
+				"togg",
+				"View: Toggle Minimap"
+			],
+			[
+				"unity",
+				"Unity Reference: Search Selection"
 			],
 			[
 				"form",
@@ -419,10 +587,6 @@
 				"Unity Reference: Search Selection"
 			],
 			[
-				"new",
-				"File: New File Relative to Current View"
-			],
-			[
 				"new ",
 				"File: New File Relative to Current View"
 			],
@@ -447,16 +611,8 @@
 				"File: Delete"
 			],
 			[
-				"new f",
-				"File: New File Relative to Current View"
-			],
-			[
 				"copy",
 				"File: Copy Path"
-			],
-			[
-				"new fi",
-				"File: New File Relative to Current View"
 			],
 			[
 				"cop",
@@ -483,10 +639,6 @@
 				"Package Control: Install Package"
 			],
 			[
-				"instal",
-				"Package Control: Install Package"
-			],
-			[
 				"remo",
 				"Package Control: Remove Package"
 			],
@@ -501,10 +653,6 @@
 			[
 				"instl",
 				"Package Control: Install Package"
-			],
-			[
-				"packa",
-				"Package Control: List Packages"
 			],
 			[
 				"impo",
@@ -536,10 +684,6 @@
 			],
 			[
 				"in",
-				"Indent XML"
-			],
-			[
-				"ind",
 				"Indent XML"
 			],
 			[
@@ -659,7 +803,7 @@
 				"Package Control: Remove Package"
 			]
 		],
-		"width": 403.0
+		"width": 544.0
 	},
 	"console":
 	{
@@ -676,6 +820,33 @@
 	},
 	"file_history":
 	[
+		"/F/Dropbox/Programs/SublimeText/Data/Packages/Navigation History/Default (Windows).sublime-keymap",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/IMortal.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Enemy.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/PlayerMovement.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/NoiseManager.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/INoiseListener.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/NoiseGenerator.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Noise.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/PlayerController.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/PlayerAnimation.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Timer.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/CameraController.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Utils.cs",
+		"/F/Dropbox/MED5/Implementation/wolf_notes.md",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Tags.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/WolfController.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/WolfAnimation.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/NoiseListener.cs",
+		"/F/Projects/MED5/ShepherdsTale/.gitignore",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/ShepherdController.cs",
+		"/F/Projects/MED5/ShepherdsTale/yvrvosrh.fkc.txt",
+		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Scripts/PlayerController.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/HealthBar.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Standard Assets/Log_code/Logger2.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/FaceCamera.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Standard Assets/Log_code/Log.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Standard Assets/Log_code/Logger.cs",
 		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Scripts/SQLDatabase.cs",
 		"/F/Dropbox/MED5/Implementation/logging_notes.md",
 		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Logs/2013_11_02_12_59.csv",
@@ -688,7 +859,6 @@
 		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Scripts/CameraController.cs",
 		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Shepherd/StaffScript.cs",
 		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Scripts/Enemy.cs",
-		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Scripts/PlayerController.cs",
 		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Scripts/Utils.cs",
 		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Shepherd/ShepherdController.cs",
 		"/F/Dropbox/Medialogy/MED5/CGP/lesson5/unity/Assets/Shaders/Lesson7.shader",
@@ -777,33 +947,7 @@
 		"/F/Dropbox/Programs/SublimeText/Data/Packages/Default/Preferences.sublime-settings",
 		"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/apps/myApps/CilleFilters/src/testApp.h",
 		"/F/Dropbox/Scripts/autohotkeys.ahk",
-		"/F/Dropbox/MED3 Group/P3 Exam/Video/video_script.txt",
-		"/F/Dropbox/Scripts/applications.ahk",
-		"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/apps/myApps/IPFilters/README.md",
-		"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/apps/myApps/IPFilters/IPFilters.workspace",
-		"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/apps/myApps/IPFilters/IPFilters.cbp",
-		"/F/Dropbox/MED3/ProceduralProgramming/Fysik/README.md",
-		"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/apps/myApps/Pinball/src/Pinball.h",
-		"/F/Dropbox/MED3/ProceduralProgramming/Excercises/LinkedList/DoubleLinkedList/dllist.h",
-		"/F/Dropbox/MED3/ProceduralProgramming/Excercises/LinkedList/doubly_linked_list/README.md",
-		"/F/Dropbox/xampp/htdocs/josefineo/db/josefineo.sql",
-		"/C/Users/Adam/AppData/Local/Temp/fz3temp-1/.htaccess",
-		"/F/Dropbox/Projects/TrineTrold/trine_speak.txt",
-		"/F/Dropbox/MED3/ProceduralProgramming/Excercises/Trees/BinaryTree/BinaryTree.hpp",
-		"/F/Dropbox/Scripts/hover_windows.ahk",
-		"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/apps/myApps/displayTest/src/testApp.h",
-		"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/apps/myApps/retardpopulation/src/testApp.cpp",
-		"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/addons/ofxDisplayStackObject/src/ofxFBODisplayStackObject.h",
-		"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/addons/ofxDisplayStackObject/src/ofxDisplayStackObject.cpp",
-		"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/addons/ofxDisplayStackObject/src/ofxDisplayStackObject.h",
-		"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/apps/myApps/retardpopulation/retardPopulation.cbp",
-		"/F/Dropbox/Programs/SublimeText/Data/Packages/SublimeClang/SublimeClang.sublime-settings",
-		"/F/Dropbox/Scripts/start_menu.ahk",
-		"/F/Dropbox/Programs/SublimeText/Data/Packages/SublimeLinter/sublimelinter/modules/c_cpplint.py",
-		"/F/Dropbox/Programs/SublimeText/Data/Pristine Packages/C++.sublime-package",
-		"/F/Dropbox/Programs/SublimeText/Data/Packages/SublimeLinter/README.md",
-		"/F/Dropbox/Programs/SublimeText/Data/Packages/User/BracketHighlighter.sublime-settings",
-		"/F/Dropbox/Programs/SublimeText/Data/Packages/BracketHighlighter/BracketHighlighter.sublime-settings"
+		"/F/Dropbox/MED3 Group/P3 Exam/Video/video_script.txt"
 	],
 	"find":
 	{
@@ -821,6 +965,74 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"1",
+			"rig",
+			"mesh",
+			"transform",
+			"2",
+			"Vector3",
+			"Lerp",
+			"Time.deltaTime",
+			"distanceFromHomeThresh",
+			"alt",
+			"ctrl",
+			"alt",
+			"State",
+			"IsReturnedHome",
+			"NOTE",
+			"void",
+			"IsSuspiciousTimeDone",
+			"void",
+			"IsSuspiciousTimeDone",
+			"UpdateSuspiciousTimer",
+			"void",
+			"Is",
+			"IsIfReturned",
+			"IsIfReachedPlayer",
+			"IsIfPlayerTooAway",
+			"IsIfTooFarAway",
+			"IsForPlayerVisible",
+			"IsForPlayerAudible",
+			"Check",
+			"CheckForPlayerAudio",
+			"LookForPlayer",
+			"ListenForPlayer",
+			"1.7",
+			"GetHealth",
+			"percentage",
+			"target",
+			"float",
+			"heal",
+			"renderer",
+			"Vector3",
+			"float",
+			"milis",
+			"MakeNoise",
+			"normalized",
+			"move",
+			"MonoBehaviour",
+			"card-short-id",
+			"origin",
+			"private",
+			"moveSpeed",
+			"Move",
+			"();\n",
+			"playerDistanceThresh",
+			"RotateTo",
+			"Sneaking",
+			"Sneak",
+			"transform.forward = direction.normalized;",
+			"Vector3",
+			"defaultTransform",
+			"100",
+			"CheckForPlayer",
+			"=",
+			"run",
+			",",
+			"private",
+			"forwardA",
+			"localPositon",
+			"rotation",
 			"bite",
 			"->",
 			"uint",
@@ -880,58 +1092,7 @@
 			"VertType",
 			"Edge",
 			"\n		",
-			"));\n",
-			"Vertex<T>",
-			"Vertex",
-			"BNode",
-			"int",
-			"prTln",
-			"int",
-			"\n				",
-			"\");\n",
-			"->",
-			"left",
-			"Left",
-			"Data",
-			"int",
-			"enumerate",
-			"itemize",
-			"1:4",
-			"z",
-			"keys",
-			"}\n",
-			"side",
-			"n",
-			";",
-			"package",
-			"jre",
-			"java",
-			"[\\D|\\S]",
-			"[\\D|\\s]",
-			"[A-å]",
-			"\\D",
-			"[A-z]",
-			"\\d",
-			" = ",
-			"^(\\w+)(.*)",
-			":\\s(.+)[.]",
-			"[a-z]",
-			"tmp",
-			"column",
-			"erase",
-			"prev",
-			"next",
-			"\n",
-			"next",
-			"prev",
-			"){",
-			"next",
-			"int",
-			"block_c",
-			"toggle_co",
-			"push",
-			"!p",
-			"^p"
+			"));\n"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -969,7 +1130,7 @@
 			"_next",
 			"T"
 		],
-		"reverse": false,
+		"reverse": true,
 		"show_context": true,
 		"use_buffer2": true,
 		"whole_word": false,
@@ -978,23 +1139,23 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Scripts/FaceCamera.cs",
+					"file": "Scripts/Noises/NoiseManager.cs",
 					"settings":
 					{
-						"buffer_size": 388,
+						"buffer_size": 404,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								388,
-								388
+								270,
+								270
 							]
 						],
 						"settings":
@@ -1010,18 +1171,18 @@
 				},
 				{
 					"buffer": 1,
-					"file": "Standard Assets/Log_code/Log.cs",
+					"file": "Scripts/HealthBar.cs",
 					"settings":
 					{
-						"buffer_size": 6847,
+						"buffer_size": 1184,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								477,
-								477
+								918,
+								918
 							]
 						],
 						"settings":
@@ -1031,6 +1192,87 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Scripts/Player/PlayerController.cs",
+					"settings":
+					{
+						"buffer_size": 1314,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								663,
+								663
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Scripts/Player/PlayerAnimation.cs",
+					"settings":
+					{
+						"buffer_size": 3546,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2765,
+								2765
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 900.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Scripts/Player/PlayerMovement.cs",
+					"settings":
+					{
+						"buffer_size": 1387,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								869,
+								869
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1038,105 +1280,23 @@
 			]
 		},
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
-					"buffer": 2,
-					"file": "Scripts/ShepherdController.cs",
-					"settings":
-					{
-						"buffer_size": 12973,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 5211.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Scripts/Enemy.cs",
-					"settings":
-					{
-						"buffer_size": 12809,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1891.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "Scripts/HealthBar.cs",
-					"settings":
-					{
-						"buffer_size": 963,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
 					"buffer": 5,
-					"file": "Standard Assets/Log_code/Logger.cs",
+					"file": "Scripts/WolfController.cs",
 					"settings":
 					{
-						"buffer_size": 1306,
+						"buffer_size": 7828,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								598,
-								598
+								5417,
+								5417
 							]
 						],
 						"settings":
@@ -1145,52 +1305,106 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3600.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "Standard Assets/Log_code/Logger2.cs",
+					"file": "/F/Dropbox/Programs/SublimeText/Data/Packages/User/Default (Windows).sublime-keymap",
 					"settings":
 					{
-						"buffer_size": 1393,
+						"buffer_size": 7283,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1058,
-								705
+								510,
+								510
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 122.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 7,
-					"file": "Scripts/Tags.cs",
+					"file": "/F/Dropbox/Programs/SublimeText/Data/Packages/Default/Default (Windows).sublime-keymap",
 					"settings":
 					{
-						"buffer_size": 185,
+						"buffer_size": 30564,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								2584,
+								3415
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 353.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "Scripts/Staff.cs",
+					"settings":
+					{
+						"buffer_size": 543,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								367,
+								367
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "Scripts/Mortal.cs",
+					"settings":
+					{
+						"buffer_size": 391,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								253,
+								253
 							]
 						],
 						"settings":
@@ -1234,7 +1448,7 @@
 		"cols":
 		[
 			0.0,
-			0.432647333957,
+			0.489261378595,
 			1.0
 		],
 		"rows":
@@ -1267,6 +1481,54 @@
 		"selected_items":
 		[
 			[
+				"playermo",
+				"Scripts/Player/PlayerMovement.cs"
+			],
+			[
+				"playerani",
+				"Scripts/Player/PlayerAnimation.cs"
+			],
+			[
+				"playercon",
+				"Scripts/Player/PlayerController.cs"
+			],
+			[
+				"wolfcon",
+				"Scripts/WolfController.cs"
+			],
+			[
+				"wolf",
+				"WolfAnimation.cs"
+			],
+			[
+				"tags",
+				"Scripts/Tags.cs"
+			],
+			[
+				"shep",
+				"Scripts/ShepherdController.cs"
+			],
+			[
+				"ene",
+				"Scripts/Enemy.cs"
+			],
+			[
+				"pla",
+				"Scripts/PlayerAnimation.cs"
+			],
+			[
+				"utils",
+				"Scripts/Utils.cs"
+			],
+			[
+				"camer",
+				"Scripts/CameraController.cs"
+			],
+			[
+				"play",
+				"Scripts/PlayerMovement.cs"
+			],
+			[
 				"tag",
 				"Scripts/Tags.cs"
 			],
@@ -1289,10 +1551,6 @@
 			[
 				"shepherdcon",
 				"Scripts/ShepherdController.cs"
-			],
-			[
-				"play",
-				"Scripts/PlayerController.cs"
 			],
 			[
 				"c",
@@ -1339,11 +1597,11 @@
 		"selected_items":
 		[
 			[
-				"naj",
+				"naja",
 				"/F/Dropbox/xampp/htdocs/najas/najas.sublime-project"
 			],
 			[
-				"naja",
+				"naj",
 				"/F/Dropbox/xampp/htdocs/najas/najas.sublime-project"
 			],
 			[
@@ -1353,7 +1611,7 @@
 		],
 		"width": 380.0
 	},
-	"show_minimap": true,
+	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": false,
