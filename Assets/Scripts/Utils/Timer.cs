@@ -2,8 +2,11 @@ public class Timer
 {
 
 	// in miliseconds
-	private long duration;
-	private long elapsed;
+	public long duration {get; private set;}
+	public long elapsed {get; private set;}
+
+	public delegate void OnTickDelegate(Timer self, long interval);
+	public OnTickDelegate onTick;
 
 	public Timer(long duration)
 	{
@@ -11,18 +14,25 @@ public class Timer
 		this.elapsed = 0L;
 	}
 
-	public void tickMilliseconds(long interval)
+	public void TickMilliseconds(long interval)
 	{
 		elapsed += interval;
+		if(onTick != null)
+			onTick(this, interval);
 	}
 
-	public void tickSeconds(float seconds)
+	public void TickSeconds(float seconds)
 	{
-		tickMilliseconds((long) (seconds * 1000));
+		TickMilliseconds((long) (seconds * 1000));
 	}
 
 	public bool IsDone()
 	{
 		return (elapsed >= duration);
+	}
+
+	public float GetProgress()
+	{
+		return elapsed / (float) duration;
 	}
 }

@@ -350,6 +350,7 @@ GameObject:
   - 82: {fileID: 8200000}
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400002}
+  - 114: {fileID: 11400008}
   m_Layer: 0
   m_Name: Wolf_prefab
   m_TagString: Enemy
@@ -1116,7 +1117,7 @@ Animator:
 --- !u!102 &10200000
 TextMesh:
   serializedVersion: 3
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100038}
@@ -1182,6 +1183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 100044}
   width: 30
+  distanceThresh: 10
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1194,6 +1196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  invincibleTime: 500
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1204,6 +1207,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1ff382f1773f764faa6292ea823def0, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
 --- !u!114 &11400006
 MonoBehaviour:
@@ -1224,6 +1228,17 @@ MonoBehaviour:
   moveSpeed: 6
   nearThresh: 1.70000005
   distanceFromHomeThresh: 21.9799995
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e727ee13708863419dfde45a694a357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

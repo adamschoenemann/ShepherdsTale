@@ -14,7 +14,7 @@ using Wolf;
  */
 namespace Wolf
 {
-	public enum State {Idle, Suspicious, Alerted, Attacking, Returning};
+	public enum State {Idle, Suspicious, Alerted, Engaging, Attacking, Returning};
 }
 
 
@@ -57,6 +57,8 @@ public class WolfController : MonoBehaviour
 
 	protected Timer suspiciousTimer;
 	protected Mortal mortal;
+
+	private Timer attackTimer;
 
 //============================================================================//
 //============================== METHODS =====================================//
@@ -103,13 +105,19 @@ public class WolfController : MonoBehaviour
 				if(IsPlayerVisible() == false) return State.Suspicious;
 				if(IsTooFarAwayFromHome()) return State.Returning;
 				if(IsPlayerTooFarAway()) return State.Returning;
+				if(IsPlayerReached()) return State.Engaging;
+				return State.Alerted;
+				break;
+
+			case State.Engaging:
 				if(IsPlayerReached()) return State.Attacking;
 				return State.Alerted;
 				break;
 
 			case State.Attacking:
+				if(IsAttackFinished()) return State.Engaging;
 				if(IsPlayerReached()) return State.Attacking;
-				return State.Alerted;
+				return State.Engaging;
 				break;
 
 			case State.Returning:
@@ -136,8 +144,11 @@ public class WolfController : MonoBehaviour
 			case State.Alerted:
 				ChasePlayer();
 				break;
+			case State.Engaging:
+				InitiateAttack();
+				break;
 			case State.Attacking:
-				AttackPlayer();
+				TickAttack();
 				break;
 			case State.Returning:
 				ReturnToDefault();
@@ -188,7 +199,7 @@ public class WolfController : MonoBehaviour
 	{
 		if(suspiciousTimer != null)
 		{
-			suspiciousTimer.tickSeconds(Time.deltaTime);
+			suspiciousTimer.TickSeconds(Time.deltaTime);
 			if(suspiciousTimer.IsDone())
 			{
 				return true;
@@ -268,25 +279,48 @@ public class WolfController : MonoBehaviour
 		return false;
 	}
 
-//============================== ACTIONS =====================================//
-	
-	// TODO: Attacking properly
-	// Animations should most likely be used
-	protected virtual void AttackPlayer()
+	protected virtual bool IsAttackFinished()
 	{
-		rigidbody.velocity = Vector3.zero;
-		LookAtLerp(player.transform.position);
-		print("AttackPlayer");
-		// StartCoroutine(DoAttack());
+		if(attackTimer == null)
+			return true;
+
+		return attackTimer.IsDone();
 	}
 
-	protected virtual IEnumerator DoAttack()
+//============================== ACTIONS =====================================//
+	
+
+
+	protected void InitiateAttack()
 	{
-		// GameObject rig = GetRig();
-		transform.position = transform.position + transform.forward * 0.2f;
-		yield return new WaitForSeconds(1.0f);
-		transform.position = transform.position - transform.forward * 0.2f;
+
+		long attackTime = 1000;
+		Vector3 startPosition = transform.position;
+		Vector3 attackPosition = transform.position + transform.forward;
+		attackTimer = new Timer(attackTime);
+		attackTimer.onTick = (timer, interval) => {
+			float progress = timer.GetProgress();
+			// print(progress);
+			if(progress < 0.5f)
+			{
+				transform.position = Vector3.Lerp(transform.position, attackPosition, progress);
+			}
+			else
+			{
+				transform.position = Vector3.Lerp(transform.position, startPosition, progress);
+			}
+		};
 	}
+
+	protected void TickAttack()
+	{
+		if(attackTimer != null)
+		{
+			LookAtLerp(player.transform.position);
+			attackTimer.TickSeconds(Time.deltaTime);
+		}
+	}
+
 
 	protected virtual void ChasePlayer()
 	{
@@ -376,6 +410,11 @@ public class WolfController : MonoBehaviour
 	protected virtual GameObject GetRig()
 	{
 		return transform.Find("group1").gameObject;
+	}
+
+	GameObject GetAttackCollider()
+	{
+		return transform.Find("attacker").gameObject;
 	}
 	
 

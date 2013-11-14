@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"inv",
+				"invincibleTimer"
+			],
+			[
+				"SetB",
+				"SetBool"
+			],
+			[
+				"Anim",
+				"AnimatorStateInfo"
+			],
+			[
+				"onD",
+				"onDamageHandler"
+			],
+			[
 				"GetM",
 				"GetMesh"
 			],
@@ -419,8 +435,8 @@
 			"file": "Scripts/HealthBar.cs",
 			"settings":
 			{
-				"buffer_size": 1184,
-				"line_ending": "Unix"
+				"buffer_size": 1288,
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -451,24 +467,24 @@
 			"file": "Scripts/WolfController.cs",
 			"settings":
 			{
-				"buffer_size": 7828,
+				"buffer_size": 8578,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/F/Dropbox/Programs/SublimeText/Data/Packages/User/Default (Windows).sublime-keymap",
+			"file": "Scripts/WolfAnimation.cs",
 			"settings":
 			{
-				"buffer_size": 7283,
-				"line_ending": "Unix"
+				"buffer_size": 787,
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/F/Dropbox/Programs/SublimeText/Data/Packages/Default/Default (Windows).sublime-keymap",
+			"file": "Scripts/Mortal.cs",
 			"settings":
 			{
-				"buffer_size": 30564,
-				"line_ending": "Unix"
+				"buffer_size": 1119,
+				"line_ending": "Windows"
 			}
 		},
 		{
@@ -480,10 +496,10 @@
 			}
 		},
 		{
-			"file": "Scripts/Mortal.cs",
+			"file": "Scripts/Utils/Timer.cs",
 			"settings":
 			{
-				"buffer_size": 391,
+				"buffer_size": 402,
 				"line_ending": "Windows"
 			}
 		}
@@ -491,9 +507,21 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 374.0,
+		"height": 213.0,
 		"selected_items":
 		[
+			[
+				"makrd",
+				"Markdown Preview: Python Markdown: Preview in Browser"
+			],
+			[
+				"new",
+				"File: New File Relative to Current View"
+			],
+			[
+				"ctags",
+				"CTags: Rebuild Tags"
+			],
 			[
 				"key",
 				"Preferences: Key Bindings - Default"
@@ -529,10 +557,6 @@
 			[
 				"ind",
 				"Indent XML"
-			],
-			[
-				"new",
-				"File: New File Relative to Current View"
 			],
 			[
 				"new f",
@@ -803,7 +827,7 @@
 				"Package Control: Remove Package"
 			]
 		],
-		"width": 544.0
+		"width": 485.0
 	},
 	"console":
 	{
@@ -820,9 +844,15 @@
 	},
 	"file_history":
 	[
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Obsolete/ShepherdController.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Enemy.cs",
+		"/F/Dropbox/Programs/SublimeText/Data/Packages/Default/Default (Windows).sublime-keymap",
+		"/F/Dropbox/Programs/SublimeText/Data/Packages/User/Default (Windows).sublime-keymap",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/WolfController.cs.meta",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Models/WolfController.controller",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/WolfController.cs",
 		"/F/Dropbox/Programs/SublimeText/Data/Packages/Navigation History/Default (Windows).sublime-keymap",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/IMortal.cs",
-		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Enemy.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/PlayerMovement.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/NoiseManager.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/INoiseListener.cs",
@@ -835,7 +865,6 @@
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Utils.cs",
 		"/F/Dropbox/MED5/Implementation/wolf_notes.md",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Tags.cs",
-		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/WolfController.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/WolfAnimation.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/NoiseListener.cs",
 		"/F/Projects/MED5/ShepherdsTale/.gitignore",
@@ -898,8 +927,6 @@
 		"/F/Dropbox/Projects/Go/gotest.go",
 		"/C/Users/Adam/AppData/Local/Temp/fz3temp-1/index 2.php",
 		"/C/Users/Adam/AppData/Local/Temp/fz3temp-1/index.php",
-		"/F/Dropbox/Programs/SublimeText/Data/Packages/User/Default (Windows).sublime-keymap",
-		"/F/Dropbox/Programs/SublimeText/Data/Packages/Default/Default (Windows).sublime-keymap",
 		"/F/Dropbox/notes.txt",
 		"/F/Install/Tomb.Raider-SKIDROW/skidrow.nfo",
 		"/F/Dropbox/test.go",
@@ -944,10 +971,7 @@
 		"/F/Projects/TimeForTV/build_system.xml",
 		"/F/Projects/TimeForTV/library/bin/R.txt",
 		"/F/Dropbox/Projects/Java/test/Test.java",
-		"/F/Dropbox/Programs/SublimeText/Data/Packages/Default/Preferences.sublime-settings",
-		"/F/Dropbox/MED3/ProceduralProgramming/openFrameworks/apps/myApps/CilleFilters/src/testApp.h",
-		"/F/Dropbox/Scripts/autohotkeys.ahk",
-		"/F/Dropbox/MED3 Group/P3 Exam/Video/video_script.txt"
+		"/F/Dropbox/Programs/SublimeText/Data/Packages/Default/Preferences.sublime-settings"
 	],
 	"find":
 	{
@@ -965,6 +989,14 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"protected",
+			"bool",
+			"private",
+			"animator",
+			"Anim",
+			"anim",
+			"state",
+			"private",
 			"1",
 			"rig",
 			"mesh",
@@ -1084,15 +1116,7 @@
 			"addRoad",
 			"getRoad",
 			"Edge<City>",
-			"Vertex2",
-			"IVertex",
-			"b",
-			"a",
-			" >",
-			"VertType",
-			"Edge",
-			"\n		",
-			"));\n"
+			"Vertex2"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1139,7 +1163,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -1174,15 +1198,15 @@
 					"file": "Scripts/HealthBar.cs",
 					"settings":
 					{
-						"buffer_size": 1184,
+						"buffer_size": 1288,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								918,
-								918
+								83,
+								83
 							]
 						],
 						"settings":
@@ -1208,8 +1232,8 @@
 						"selection":
 						[
 							[
-								663,
-								663
+								1137,
+								1137
 							]
 						],
 						"settings":
@@ -1218,7 +1242,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 180.0,
+						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1235,8 +1259,8 @@
 						"selection":
 						[
 							[
-								2765,
-								2765
+								2092,
+								2092
 							]
 						],
 						"settings":
@@ -1245,7 +1269,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 900.0,
+						"translation.y": 1008.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1262,8 +1286,8 @@
 						"selection":
 						[
 							[
-								869,
-								869
+								316,
+								316
 							]
 						],
 						"settings":
@@ -1272,7 +1296,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 180.0,
+						"translation.y": 720.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1280,7 +1304,7 @@
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -1288,15 +1312,15 @@
 					"file": "Scripts/WolfController.cs",
 					"settings":
 					{
-						"buffer_size": 7828,
+						"buffer_size": 8578,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5417,
-								5417
+								2278,
+								2278
 							]
 						],
 						"settings":
@@ -1305,62 +1329,61 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3600.0,
+						"translation.y": 1321.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "/F/Dropbox/Programs/SublimeText/Data/Packages/User/Default (Windows).sublime-keymap",
+					"file": "Scripts/WolfAnimation.cs",
 					"settings":
 					{
-						"buffer_size": 7283,
+						"buffer_size": 787,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								510,
-								510
+								599,
+								599
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 45.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 7,
-					"file": "/F/Dropbox/Programs/SublimeText/Data/Packages/Default/Default (Windows).sublime-keymap",
+					"file": "Scripts/Mortal.cs",
 					"settings":
 					{
-						"buffer_size": 30564,
+						"buffer_size": 1119,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2584,
-								3415
+								325,
+								325
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"syntax": "Packages/C#/C#.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 353.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1383,7 +1406,8 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/C#/C#.tmLanguage"
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1393,23 +1417,24 @@
 				},
 				{
 					"buffer": 9,
-					"file": "Scripts/Mortal.cs",
+					"file": "Scripts/Utils/Timer.cs",
 					"settings":
 					{
-						"buffer_size": 391,
+						"buffer_size": 402,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								253,
-								253
+								172,
+								172
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C#/C#.tmLanguage"
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1481,6 +1506,34 @@
 		"selected_items":
 		[
 			[
+				"ene",
+				"Scripts/Enemy.cs"
+			],
+			[
+				"shephe",
+				"Scripts/Obsolete/ShepherdController.cs"
+			],
+			[
+				"shepherdcon",
+				"Scripts/Obsolete/ShepherdController.cs"
+			],
+			[
+				"enemy",
+				"Scripts/Enemy.cs"
+			],
+			[
+				"timer",
+				"Scripts/Utils/Timer.cs"
+			],
+			[
+				"wolfcon",
+				"Scripts/WolfController.cs"
+			],
+			[
+				"wolf",
+				"Models/WolfController.controller"
+			],
+			[
 				"playermo",
 				"Scripts/Player/PlayerMovement.cs"
 			],
@@ -1493,24 +1546,12 @@
 				"Scripts/Player/PlayerController.cs"
 			],
 			[
-				"wolfcon",
-				"Scripts/WolfController.cs"
-			],
-			[
-				"wolf",
-				"WolfAnimation.cs"
-			],
-			[
 				"tags",
 				"Scripts/Tags.cs"
 			],
 			[
 				"shep",
 				"Scripts/ShepherdController.cs"
-			],
-			[
-				"ene",
-				"Scripts/Enemy.cs"
 			],
 			[
 				"pla",
@@ -1547,10 +1588,6 @@
 			[
 				"enem",
 				"Scripts/Enemy.cs"
-			],
-			[
-				"shepherdcon",
-				"Scripts/ShepherdController.cs"
 			],
 			[
 				"c",
