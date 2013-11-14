@@ -5405,6 +5405,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
   wolf: {fileID: 0}
   wolfAcces: {fileID: 0}
 --- !u!1 &1149531601
@@ -5710,6 +5717,7 @@ GameObject:
   - 82: {fileID: 1254645244}
   - 114: {fileID: 1254645245}
   - 114: {fileID: 1254645240}
+  - 114: {fileID: 1254645243}
   m_Layer: 0
   m_Name: Wolf_prefab
   m_TagString: Enemy
@@ -5758,6 +5766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  invincibleTime: 500
 --- !u!54 &1254645241
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5788,6 +5797,17 @@ CapsuleCollider:
   m_Height: 1.37
   m_Direction: 2
   m_Center: {x: 0, y: .310000002, z: 0}
+--- !u!114 &1254645243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1254645237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e727ee13708863419dfde45a694a357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &1254645244
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7791,6 +7811,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: def93b79c32709c4da501ac9d5f1ceda, type: 2}
+      propertyPath: invincibleTime
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: def93b79c32709c4da501ac9d5f1ceda, type: 2}
   m_RootGameObject: {fileID: 1254645237}
@@ -9234,6 +9258,13 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6331ab6fdeaa49ebb0a2efa9e635a5f, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
   turnSmoothing: 10
