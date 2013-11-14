@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Wolf;
 
 /**
  * Controls the wolf
@@ -11,21 +12,26 @@ using System.Collections.Generic;
  * 			 Navigating around obstacles
  * @type {[type]}
  */
+namespace Wolf
+{
+	public enum State {Idle, Suspicious, Alerted, Attacking, Returning};
+}
+
+
 public class WolfController : MonoBehaviour
 {
 
-	private Vector3 defaultPosition;
-	private Quaternion defaultRotation;
-
-	private enum State {Idle, Suspicious, Alerted, Attacking, Returning};
+	protected Vector3 defaultPosition;
+	protected Quaternion defaultRotation;
+	
 	private State _state = State.Idle;
-	private State state
+	public State state
 	{
 		get
 		{
 			return _state;
 		}
-		set
+		protected set
 		{
 			if(_state != value)
 			{
@@ -35,44 +41,48 @@ public class WolfController : MonoBehaviour
 		}
 	}
 
-	private GameObject player;
-	private PlayerController playerController;
-	private Vector3 lastKnownPlayerPos;
-	private Dictionary<string, Collision> collisionFlags = new Dictionary<string, Collision>();
+	protected GameObject player;
+	protected PlayerController playerController;
+	protected Vector3 lastKnownPlayerPos;
+	protected Dictionary<string, Collision> collisionFlags = new Dictionary<string, Collision>();
 
 	public float hearing = 2.0f;
 	public float seeingThresh = 10.0f;
 	public float fieldOfView = 100.0f;
 	public float turnSpeed = 5.0f;
 	public float playerDistanceThresh = 15.0f;
-	public float moveSpeed = 200.0f;
+	public float moveSpeed = 1.0f;
 	public float nearThresh = 1.7f; // Adjust by hand for now
 	public float distanceFromHomeThresh = 15.0f;
 
-	private Timer suspiciousTimer;
+	protected Timer suspiciousTimer;
+	protected Mortal mortal;
 
 //============================================================================//
 //============================== METHODS =====================================//
 //============================================================================//
 
 //================================ CORE ======================================//
-	void Awake()
+	protected virtual void Awake()
 	{
 		state = State.Idle;
 		player = GameObject.FindWithTag(Tags.player);
 		playerController = player.GetComponent<PlayerController>();
+		mortal = GetComponent<Mortal>();
+
+		mortal.onDeathHandler = OnDeath;
 
 		defaultPosition = transform.position;
 		defaultRotation = transform.rotation;
 	}
 
-	void Update()
+	protected virtual void Update()
 	{
 		state = UpdateState();
 		TakeAction();
 	}
 
-	State UpdateState()
+	protected virtual State UpdateState()
 	{
 		switch(state)
 		{
@@ -113,7 +123,7 @@ public class WolfController : MonoBehaviour
 		
 	}
 
-	void TakeAction()
+	protected virtual void TakeAction()
 	{
 		switch(state)
 		{
@@ -135,7 +145,7 @@ public class WolfController : MonoBehaviour
 		}
 	}
 
-	void OnStateChange(State oldState, State newState)
+	protected virtual void OnStateChange(State oldState, State newState)
 	{
 		print("State change from: " + oldState + " to " + newState);
 		if(oldState == State.Returning)
@@ -164,7 +174,7 @@ public class WolfController : MonoBehaviour
 
 //============================ STATE CHECKS ==================================//
 
-	bool IsPlayerReached()
+	protected virtual bool IsPlayerReached()
 	{
 		float distance = (player.transform.position - transform.position).magnitude;
 		if(distance < nearThresh)
@@ -174,7 +184,7 @@ public class WolfController : MonoBehaviour
 		return false;
 	}
 
-	bool IsSuspiciousTimerDone()
+	protected virtual bool IsSuspiciousTimerDone()
 	{
 		if(suspiciousTimer != null)
 		{
@@ -187,7 +197,7 @@ public class WolfController : MonoBehaviour
 		return false;
 	}
 
-	bool IsReturnedHome()
+	protected virtual bool IsReturnedHome()
 	{
 		if((defaultPosition - transform.position).magnitude <  moveSpeed + 0.01)
 		{
@@ -196,7 +206,7 @@ public class WolfController : MonoBehaviour
 		return false;
 	}
 
-	bool IsTooFarAwayFromHome()
+	protected virtual bool IsTooFarAwayFromHome()
 	{
 		if((transform.position - defaultPosition).magnitude > distanceFromHomeThresh)
 		{
@@ -205,7 +215,7 @@ public class WolfController : MonoBehaviour
 		return false;
 	}
 
-	bool IsPlayerTooFarAway()
+	protected virtual bool IsPlayerTooFarAway()
 	{
 		if((player.transform.position - transform.position).magnitude > playerDistanceThresh)
 		{
@@ -214,7 +224,7 @@ public class WolfController : MonoBehaviour
 		return false;
 	}
 
-	bool IsPlayerVisible()
+	protected virtual bool IsPlayerVisible()
 	{
 		Vector3 direction = player.transform.position - transform.position;
 		float angle = Vector3.Angle(direction, transform.forward);
@@ -236,7 +246,7 @@ public class WolfController : MonoBehaviour
 		return false;
 	}
 
-	bool IsPlayerAudible()
+	protected virtual bool IsPlayerAudible()
 	{
 		NoiseManager nm = GameObject.FindWithTag(Tags.gameController).GetComponent<NoiseManager>();
 		if(nm != null)
@@ -262,7 +272,7 @@ public class WolfController : MonoBehaviour
 	
 	// TODO: Attacking properly
 	// Animations should most likely be used
-	void AttackPlayer()
+	protected virtual void AttackPlayer()
 	{
 		rigidbody.velocity = Vector3.zero;
 		LookAtLerp(player.transform.position);
@@ -270,7 +280,7 @@ public class WolfController : MonoBehaviour
 		// StartCoroutine(DoAttack());
 	}
 
-	IEnumerator DoAttack()
+	protected virtual IEnumerator DoAttack()
 	{
 		// GameObject rig = GetRig();
 		transform.position = transform.position + transform.forward * 0.2f;
@@ -278,21 +288,29 @@ public class WolfController : MonoBehaviour
 		transform.position = transform.position - transform.forward * 0.2f;
 	}
 
-	void ChasePlayer()
+	protected virtual void ChasePlayer()
 	{
 		LookAtLerp(player.transform.position);
+
 		rigidbody.velocity = (transform.forward * moveSpeed);
 	}
 
-	void ReturnToDefault()
+	protected virtual void ReturnToDefault()
 	{
 		LookAtLerp(defaultPosition);
 		rigidbody.velocity = (transform.forward * moveSpeed);
 	}
 
+//============================== CALLBACKS ===================================//
+
+	protected virtual void OnDeath(Mortal mortal)
+	{
+		gameObject.SetActive(false);
+	}
+
 //============================== MISC ========================================//
 	
-	void RotateTowards(Quaternion rotation, float margin = 0.99f)
+	protected virtual void RotateTowards(Quaternion rotation, float margin = 0.99f)
 	{
 		if(Quaternion.Dot(transform.rotation, rotation) < margin)
 		{
@@ -308,19 +326,19 @@ public class WolfController : MonoBehaviour
 		}
 	}
 
-	void LookAtLerp(Vector3 lookAt)
+	protected virtual void LookAtLerp(Vector3 lookAt)
 	{
 		Vector3 direction = (lookAt - transform.position);
 		Quaternion targetRotation = Quaternion.LookRotation(direction.normalized);
 		RotateTowards(targetRotation);
 	}
 
-	void ResetRotation()
+	protected virtual void ResetRotation()
 	{
 		RotateTowards(defaultRotation);
 	}
 
-	void OnCollisionEnter(Collision collision)
+	protected virtual void OnCollisionEnter(Collision collision)
 	{
 		GameObject obj = collision.gameObject;
 		if(obj != null)	
@@ -333,7 +351,7 @@ public class WolfController : MonoBehaviour
 		}
 	}
 
-	void OnCollisionExit(Collision collision)
+	protected virtual void OnCollisionExit(Collision collision)
 	{
 		GameObject obj = collision.gameObject;
 		if(obj != null)	
@@ -345,24 +363,20 @@ public class WolfController : MonoBehaviour
 		}
 	}
 
-	GameObject GetMesh()
+	protected virtual GameObject GetMesh()
 	{
 		return transform.Find("wolf").gameObject;
 	}
 
-	Renderer GetMeshRenderer()
+	protected virtual Renderer GetMeshRenderer()
 	{
 		return GetMesh().renderer;
 	}
 
-	GameObject GetRig()
+	protected virtual GameObject GetRig()
 	{
 		return transform.Find("group1").gameObject;
 	}
-
-
-
-
 	
 
 }
