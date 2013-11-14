@@ -7,8 +7,8 @@ public class HealthBar : FaceCamera {
 	public GameObject target;
 	private Mortal mortal;
 	public float width = 30;
+	public float distanceThresh = 10.0f;
 	private int maxHealth;
-	private float percentage = 1.0f;
 
 	// Use this for initialization
 	protected override void Start () {
@@ -38,6 +38,11 @@ public class HealthBar : FaceCamera {
 		{
 			return;
 		}
+		GameObject player = GameObject.FindWithTag(Tags.player);
+		if((transform.position - player.transform.position).magnitude > distanceThresh)
+		{
+			return;
+		}
 		Vector3 screenPos = cam.camera.WorldToScreenPoint(transform.position);
 		float percentage = mortal.GetHealth() / (float) maxHealth;
 		float drawWidth = percentage * width;
@@ -45,9 +50,5 @@ public class HealthBar : FaceCamera {
 		GUI.DrawTexture(new Rect(screenPos.x - drawWidth/2, Screen.height - screenPos.y, drawWidth, 3), texture);
 	}
 
-	public void SetPercentage(float p)
-	{
-		percentage = p;
-	}
 
 }

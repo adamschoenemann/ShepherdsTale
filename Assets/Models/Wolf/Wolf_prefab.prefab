@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400016}
   m_Layer: 0
-  m_Name: rig
+  m_Name: group1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -297,8 +297,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 400038}
   - 23: {fileID: 2300000}
-  - 102: {fileID: 10200000}
   - 114: {fileID: 11400000}
+  - 102: {fileID: 10200000}
   m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
@@ -1116,7 +1116,7 @@ Animator:
 --- !u!102 &10200000
 TextMesh:
   serializedVersion: 3
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100038}
