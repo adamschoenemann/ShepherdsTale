@@ -63,7 +63,7 @@ public class WolfController : MonoBehaviour
 //============================================================================//
 
 //================================ CORE ======================================//
-	protected void Awake()
+	protected virtual void Awake()
 	{
 		state = State.Idle;
 		player = GameObject.FindWithTag(Tags.player);
@@ -76,13 +76,13 @@ public class WolfController : MonoBehaviour
 		defaultRotation = transform.rotation;
 	}
 
-	protected void Update()
+	protected virtual void Update()
 	{
 		state = UpdateState();
 		TakeAction();
 	}
 
-	protected State UpdateState()
+	protected virtual State UpdateState()
 	{
 		switch(state)
 		{
@@ -123,7 +123,7 @@ public class WolfController : MonoBehaviour
 		
 	}
 
-	protected void TakeAction()
+	protected virtual void TakeAction()
 	{
 		switch(state)
 		{
@@ -145,7 +145,7 @@ public class WolfController : MonoBehaviour
 		}
 	}
 
-	protected void OnStateChange(State oldState, State newState)
+	protected virtual void OnStateChange(State oldState, State newState)
 	{
 		print("State change from: " + oldState + " to " + newState);
 		if(oldState == State.Returning)
@@ -174,7 +174,7 @@ public class WolfController : MonoBehaviour
 
 //============================ STATE CHECKS ==================================//
 
-	protected bool IsPlayerReached()
+	protected virtual bool IsPlayerReached()
 	{
 		float distance = (player.transform.position - transform.position).magnitude;
 		if(distance < nearThresh)
@@ -184,7 +184,7 @@ public class WolfController : MonoBehaviour
 		return false;
 	}
 
-	protected bool IsSuspiciousTimerDone()
+	protected virtual bool IsSuspiciousTimerDone()
 	{
 		if(suspiciousTimer != null)
 		{
@@ -197,7 +197,7 @@ public class WolfController : MonoBehaviour
 		return false;
 	}
 
-	protected bool IsReturnedHome()
+	protected virtual bool IsReturnedHome()
 	{
 		if((defaultPosition - transform.position).magnitude <  moveSpeed + 0.01)
 		{
@@ -206,7 +206,7 @@ public class WolfController : MonoBehaviour
 		return false;
 	}
 
-	protected bool IsTooFarAwayFromHome()
+	protected virtual bool IsTooFarAwayFromHome()
 	{
 		if((transform.position - defaultPosition).magnitude > distanceFromHomeThresh)
 		{
@@ -215,7 +215,7 @@ public class WolfController : MonoBehaviour
 		return false;
 	}
 
-	protected bool IsPlayerTooFarAway()
+	protected virtual bool IsPlayerTooFarAway()
 	{
 		if((player.transform.position - transform.position).magnitude > playerDistanceThresh)
 		{
@@ -224,7 +224,7 @@ public class WolfController : MonoBehaviour
 		return false;
 	}
 
-	protected bool IsPlayerVisible()
+	protected virtual bool IsPlayerVisible()
 	{
 		Vector3 direction = player.transform.position - transform.position;
 		float angle = Vector3.Angle(direction, transform.forward);
@@ -246,7 +246,7 @@ public class WolfController : MonoBehaviour
 		return false;
 	}
 
-	protected bool IsPlayerAudible()
+	protected virtual bool IsPlayerAudible()
 	{
 		NoiseManager nm = GameObject.FindWithTag(Tags.gameController).GetComponent<NoiseManager>();
 		if(nm != null)
@@ -272,7 +272,7 @@ public class WolfController : MonoBehaviour
 	
 	// TODO: Attacking properly
 	// Animations should most likely be used
-	protected void AttackPlayer()
+	protected virtual void AttackPlayer()
 	{
 		rigidbody.velocity = Vector3.zero;
 		LookAtLerp(player.transform.position);
@@ -280,7 +280,7 @@ public class WolfController : MonoBehaviour
 		// StartCoroutine(DoAttack());
 	}
 
-	protected IEnumerator DoAttack()
+	protected virtual IEnumerator DoAttack()
 	{
 		// GameObject rig = GetRig();
 		transform.position = transform.position + transform.forward * 0.2f;
@@ -288,14 +288,14 @@ public class WolfController : MonoBehaviour
 		transform.position = transform.position - transform.forward * 0.2f;
 	}
 
-	protected void ChasePlayer()
+	protected virtual void ChasePlayer()
 	{
 		LookAtLerp(player.transform.position);
 
 		rigidbody.velocity = (transform.forward * moveSpeed);
 	}
 
-	protected void ReturnToDefault()
+	protected virtual void ReturnToDefault()
 	{
 		LookAtLerp(defaultPosition);
 		rigidbody.velocity = (transform.forward * moveSpeed);
@@ -303,14 +303,14 @@ public class WolfController : MonoBehaviour
 
 //============================== CALLBACKS ===================================//
 
-	protected void OnDeath(Mortal mortal)
+	protected virtual void OnDeath(Mortal mortal)
 	{
 		gameObject.SetActive(false);
 	}
 
 //============================== MISC ========================================//
 	
-	protected void RotateTowards(Quaternion rotation, float margin = 0.99f)
+	protected virtual void RotateTowards(Quaternion rotation, float margin = 0.99f)
 	{
 		if(Quaternion.Dot(transform.rotation, rotation) < margin)
 		{
@@ -326,19 +326,19 @@ public class WolfController : MonoBehaviour
 		}
 	}
 
-	protected void LookAtLerp(Vector3 lookAt)
+	protected virtual void LookAtLerp(Vector3 lookAt)
 	{
 		Vector3 direction = (lookAt - transform.position);
 		Quaternion targetRotation = Quaternion.LookRotation(direction.normalized);
 		RotateTowards(targetRotation);
 	}
 
-	protected void ResetRotation()
+	protected virtual void ResetRotation()
 	{
 		RotateTowards(defaultRotation);
 	}
 
-	protected void OnCollisionEnter(Collision collision)
+	protected virtual void OnCollisionEnter(Collision collision)
 	{
 		GameObject obj = collision.gameObject;
 		if(obj != null)	
@@ -351,7 +351,7 @@ public class WolfController : MonoBehaviour
 		}
 	}
 
-	protected void OnCollisionExit(Collision collision)
+	protected virtual void OnCollisionExit(Collision collision)
 	{
 		GameObject obj = collision.gameObject;
 		if(obj != null)	
@@ -363,17 +363,17 @@ public class WolfController : MonoBehaviour
 		}
 	}
 
-	protected GameObject GetMesh()
+	protected virtual GameObject GetMesh()
 	{
 		return transform.Find("wolf").gameObject;
 	}
 
-	protected Renderer GetMeshRenderer()
+	protected virtual Renderer GetMeshRenderer()
 	{
 		return GetMesh().renderer;
 	}
 
-	protected GameObject GetRig()
+	protected virtual GameObject GetRig()
 	{
 		return transform.Find("group1").gameObject;
 	}
