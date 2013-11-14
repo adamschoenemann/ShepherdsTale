@@ -267,7 +267,7 @@ public class WolfController : MonoBehaviour
 		rigidbody.velocity = Vector3.zero;
 		LookAtLerp(player.transform.position);
 		print("AttackPlayer");
-		StartCoroutine(DoAttack());
+		// StartCoroutine(DoAttack());
 	}
 
 	IEnumerator DoAttack()
