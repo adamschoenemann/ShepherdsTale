@@ -3,12 +3,15 @@ public class Mortal : MonoBehaviour
 {
 
 	public int health = 5;
+	public int invincibleTime = 500;
 
 	public delegate void OnDeathDelegate(Mortal instance);
-	public delegate void OnDamageDelegate(Mortal instance, int damage);
+	public delegate bool OnDamageDelegate(Mortal instance, int damage);
 
 	public OnDeathDelegate onDeathHandler;
 	public OnDamageDelegate onDamageHandler;
+
+	private Timer invincibleTimer;
 
 	public int GetHealth()
 	{
@@ -17,17 +20,34 @@ public class Mortal : MonoBehaviour
 
 	public int Damage(int amount)
 	{	
+		if(invincibleTimer != null && invincibleTimer.IsDone() == false)
+		{
+			print("hit, but invincible");
+			return health;
+		}
 		if(onDamageHandler != null)
 		{
-			onDamageHandler(this, amount);
+			if(onDamageHandler(this, amount) == false)
+			{
+				return health;
+			}
 		}
 		health -= amount;
+		invincibleTimer = new Timer(invincibleTime);
 		print("Taking " + amount + " in damage");
 		if(IsAlive() == false)
 		{
 			Die();
 		}
 		return health;
+	}
+
+	void Update()
+	{
+		if(invincibleTimer != null && invincibleTimer.IsDone() == false)
+		{
+			invincibleTimer.tickSeconds(Time.deltaTime);
+		}
 	}
 
 	public void Die()

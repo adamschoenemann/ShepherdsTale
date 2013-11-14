@@ -1292,6 +1292,7 @@ GameObject:
   - 114: {fileID: 11400002}
   - 54: {fileID: 5400000}
   - 136: {fileID: 13600000}
+  - 114: {fileID: 11400006}
   m_Layer: 0
   m_Name: Loonie_prefab
   m_TagString: Untagged
@@ -2451,7 +2452,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 3
+  invincibleTime: 500
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2471,6 +2473,18 @@ MonoBehaviour:
   moveSpeed: 4
   nearThresh: 1.70000005
   distanceFromHomeThresh: 15
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa69f0e42826d674bacbb35ce0eb1af1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 9500000}
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

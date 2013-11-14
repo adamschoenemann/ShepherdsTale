@@ -1,7 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Wolf;
 
 public class LoonieController : WolfController {
+	
+	protected override void Awake()
+	{
+		base.Awake();
+		mortal.onDamageHandler = OnDamage;		
+	}
+	
+	bool OnDamage(Mortal mortal, int damage)
+	{
+		Vector3 playerPos = player.transform.position;
+		Vector3 direction = playerPos - transform.position;
+		if(Vector3.Dot(playerPos.normalized, transform.forward) < 0)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
 	
 	protected override bool IsPlayerAudible()
 	{
@@ -22,14 +43,9 @@ public class LoonieController : WolfController {
 		GameObject staff	= GameObject.FindGameObjectWithTag("Staff");
 		if(other.gameObject == player || other.gameObject == staff)
 		{
-			state = Wolf.State.Alerted;
-			
+			state = State.Alerted;
 		}
 	}
 	
-	void Update()
-	{
-		if(state	
-	}
 	
 }
