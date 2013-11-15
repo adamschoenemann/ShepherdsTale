@@ -1,36 +1,77 @@
 using UnityEngine;
+using StateMachine;
 
 public class NPCController : MonoBehaviour
 {
 
-	private StateMachine sm;
+	private StateSpace sp;
+	public enum NPCState {Idle, Suspicous, Alerted, Engaging, Attacking, Returning};
 	private GameObject player;
 
 	void Awake()
 	{
-		sm = new StateMachine();
 		player = GameObject.FindWithTag(Tags.player);
 
-		StateMachine.State idleState = new StateMachine.State();
-		StateMachine.Action idleAction = new StateMachine.Action();
+		sp = new StateSpace<NPCState>(NPCState.Idle);
 
-		idleAction.predicates = () => {
-			return true;
-		};
+		sp.AddAction(NPCState.Idle, () => {
+			print("Idling..." + gameObject.name);
+		})
 
-		idleAction.callback = () => {
-			print("action!");
-		};
+		sp.AddAction(NPCState.Suspicous, () => {
+			print("Suspicous..." + gameObject.GetInstanceID());
+		});
 
-		idleState.AddAction(idleAction);
+		sp.AddTransition(NPCState.Idle, NPCState.Suspicous)
+			.when(() => {
+				return ((transform.position - player.transform.position).magnitude < 10.0f);
+			}).perform(() => {
+				print("Changing state from Idle to Suspicous");
+			});
 
-		sm.AddState(idleState);
+		sp.AddTransition(NPCState.Suspicious, NPCState.Idle)
+			.when(() => {
+				return ((transform.position - player.transform.position).magnitude >= 10.0f);
+			}).perform(() => {
+				print("Changing state from Suspicous to Idle");
+			})
 
+		// StateSpace.test(NPCState.Idle);
 	}
 
 	void Update()
 	{
-		sm.Update();
+		sp.Update();
 	}
+
+	// private StateMachine sm;
+	// private GameObject player;
+
+	// void Awake()
+	// {
+	// 	sm = new StateMachine();
+	// 	player = GameObject.FindWithTag(Tags.player);
+
+	// 	StateMachine.State idleState = new StateMachine.State();
+	// 	StateMachine.Action idleAction = new StateMachine.Action();
+
+	// 	idleAction.predicates = () => {
+	// 		return true;
+	// 	};
+
+	// 	idleAction.callback = () => {
+	// 		print("action!");
+	// 	};
+
+	// 	idleState.AddAction(idleAction);
+
+	// 	sm.AddState(idleState);
+
+	// }
+
+	// void Update()
+	// {
+	// 	sm.Update();
+	// }
 
 }
