@@ -6,7 +6,7 @@ TagManager:
   - Enemy
   - Staff
   - Ground
-  - 
+  - CheckPoint
   - Trap
   - 
   Builtin Layer 0: Default
