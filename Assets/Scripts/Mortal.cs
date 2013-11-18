@@ -6,7 +6,7 @@ public class Mortal : MonoBehaviour
 	public int invincibleTime = 500;
 
 	public delegate void OnDeathDelegate(Mortal instance);
-	public delegate void OnDamageDelegate(Mortal instance, int damage);
+	public delegate bool OnDamageDelegate(Mortal instance, int damage);
 
 	public OnDeathDelegate onDeathHandler;
 	public OnDamageDelegate onDamageHandler;
@@ -27,7 +27,8 @@ public class Mortal : MonoBehaviour
 		}
 		if(onDamageHandler != null)
 		{
-			onDamageHandler(this, amount);
+			if(onDamageHandler(this, amount) == false)
+				return health;
 		}
 		health -= amount;
 		invincibleTimer = new Timer(invincibleTime);
