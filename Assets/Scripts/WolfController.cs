@@ -301,7 +301,7 @@ public class WolfController : MonoBehaviour
 		attackTimer.onTick = (timer, interval) => {
 			float progress = timer.GetProgress();
 			// print(progress);
-			if(progress < 0.5f)
+			if(progress < 0.2f)
 			{
 				transform.position = Vector3.Lerp(transform.position, attackPosition, progress);
 			}

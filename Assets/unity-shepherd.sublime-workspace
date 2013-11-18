@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"Perform",
+				"PerformCallback"
+			],
+			[
+				"Tran",
+				"Transition"
+			],
+			[
 				"inv",
 				"invincibleTimer"
 			],
@@ -424,42 +432,18 @@
 	"buffers":
 	[
 		{
-			"file": "Scripts/Noises/NoiseManager.cs",
+			"file": "Scripts/StateMachine.cs",
 			"settings":
 			{
-				"buffer_size": 404,
+				"buffer_size": 3718,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Scripts/HealthBar.cs",
+			"file": "Scripts/NPCController.cs",
 			"settings":
 			{
-				"buffer_size": 1288,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Scripts/Player/PlayerController.cs",
-			"settings":
-			{
-				"buffer_size": 1314,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Scripts/Player/PlayerAnimation.cs",
-			"settings":
-			{
-				"buffer_size": 3546,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Scripts/Player/PlayerMovement.cs",
-			"settings":
-			{
-				"buffer_size": 1387,
+				"buffer_size": 1739,
 				"line_ending": "Windows"
 			}
 		},
@@ -467,39 +451,7 @@
 			"file": "Scripts/WolfController.cs",
 			"settings":
 			{
-				"buffer_size": 8578,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Scripts/WolfAnimation.cs",
-			"settings":
-			{
-				"buffer_size": 787,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Scripts/Mortal.cs",
-			"settings":
-			{
-				"buffer_size": 1119,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Scripts/Staff.cs",
-			"settings":
-			{
-				"buffer_size": 543,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Scripts/Utils/Timer.cs",
-			"settings":
-			{
-				"buffer_size": 402,
+				"buffer_size": 9243,
 				"line_ending": "Windows"
 			}
 		}
@@ -844,6 +796,15 @@
 	},
 	"file_history":
 	[
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Player/PlayerMovement.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Noises/NoiseManager.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/HealthBar.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Player/PlayerController.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Player/PlayerAnimation.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/WolfAnimation.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Mortal.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Staff.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Utils/Timer.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Obsolete/ShepherdController.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Enemy.cs",
 		"/F/Dropbox/Programs/SublimeText/Data/Packages/Default/Default (Windows).sublime-keymap",
@@ -871,7 +832,6 @@
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/ShepherdController.cs",
 		"/F/Projects/MED5/ShepherdsTale/yvrvosrh.fkc.txt",
 		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Scripts/PlayerController.cs",
-		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/HealthBar.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Standard Assets/Log_code/Logger2.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/FaceCamera.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Standard Assets/Log_code/Log.cs",
@@ -963,15 +923,7 @@
 		"/F/Downloads/Ableton Live 8.2.2 (CRACKED) [theLEAK]/theLEAK Team.txt",
 		"/F/Dropbox/Programs/adt-bundle-windows/sdk/extras/google/usb_driver/android_winusb.inf",
 		"/F/Dropbox/MED4/DAE/Excercise 1/results.txt",
-		"/C/Users/Adam/AppData/Local/Temp/Rar$DI02.122/README.TXT",
-		"/F/Dropbox/Projects/TimeForTV/branches/TimeForTV(v2)/TimeForTV/AndroidManifest.xml",
-		"/F/Dropbox/Projects/TimeForTV/TimeForTV/AndroidManifest.xml",
-		"/F/Projects/TimeForTV/project.properties",
-		"/F/Projects/TimeForTV/AndroidManifest.xml",
-		"/F/Projects/TimeForTV/build_system.xml",
-		"/F/Projects/TimeForTV/library/bin/R.txt",
-		"/F/Dropbox/Projects/Java/test/Test.java",
-		"/F/Dropbox/Programs/SublimeText/Data/Packages/Default/Preferences.sublime-settings"
+		"/C/Users/Adam/AppData/Local/Temp/Rar$DI02.122/README.TXT"
 	],
 	"find":
 	{
@@ -989,6 +941,15 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"State",
+			"perform",
+			"Suspicous",
+			"Transition",
+			"Perform",
+			"When",
+			"S",
+			"private",
+			"perform",
 			"protected",
 			"bool",
 			"private",
@@ -1107,16 +1068,7 @@
 			"BotControlScript",
 			"B",
 			"_BumpMap",
-			"_BumpMap_ST",
-			"_BumpMap",
-			"_BumpMap_ST",
-			"_BumpMap",
-			"_BumpMap_ST",
-			"List",
-			"addRoad",
-			"getRoad",
-			"Edge<City>",
-			"Vertex2"
+			"_BumpMap_ST"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1163,23 +1115,23 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Scripts/Noises/NoiseManager.cs",
+					"file": "Scripts/StateMachine.cs",
 					"settings":
 					{
-						"buffer_size": 404,
+						"buffer_size": 3718,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								270,
-								270
+								2090,
+								2090
 							]
 						],
 						"settings":
@@ -1188,115 +1140,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Scripts/HealthBar.cs",
-					"settings":
-					{
-						"buffer_size": 1288,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								83,
-								83
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Scripts/Player/PlayerController.cs",
-					"settings":
-					{
-						"buffer_size": 1314,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1137,
-								1137
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 540.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Scripts/Player/PlayerAnimation.cs",
-					"settings":
-					{
-						"buffer_size": 3546,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2092,
-								2092
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1008.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "Scripts/Player/PlayerMovement.cs",
-					"settings":
-					{
-						"buffer_size": 1387,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								316,
-								316
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 720.0,
+						"translation.y": 1257.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1304,23 +1148,50 @@
 			]
 		},
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
-					"buffer": 5,
+					"buffer": 1,
+					"file": "Scripts/NPCController.cs",
+					"settings":
+					{
+						"buffer_size": 1739,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1106,
+								1106
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 151.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
 					"file": "Scripts/WolfController.cs",
 					"settings":
 					{
-						"buffer_size": 8578,
+						"buffer_size": 9243,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2278,
-								2278
+								2901,
+								2901
 							]
 						],
 						"settings":
@@ -1329,115 +1200,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1321.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "Scripts/WolfAnimation.cs",
-					"settings":
-					{
-						"buffer_size": 787,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								599,
-								599
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 45.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "Scripts/Mortal.cs",
-					"settings":
-					{
-						"buffer_size": 1119,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								325,
-								325
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "Scripts/Staff.cs",
-					"settings":
-					{
-						"buffer_size": 543,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								367,
-								367
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "Scripts/Utils/Timer.cs",
-					"settings":
-					{
-						"buffer_size": 402,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								172,
-								172
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1575.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1505,6 +1268,14 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"npc",
+				"Scripts/NPCController.cs"
+			],
+			[
+				"state",
+				"Scripts/StateMachine.cs"
+			],
 			[
 				"ene",
 				"Scripts/Enemy.cs"

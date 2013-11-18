@@ -4,8 +4,8 @@ using StateMachine;
 public class NPCController : MonoBehaviour
 {
 
-	private StateSpace sp;
-	public enum NPCState {Idle, Suspicous, Alerted, Engaging, Attacking, Returning};
+	private StateSpace<NPCState> sp;
+	public enum NPCState {Idle, Suspicious, Alerted, Engaging, Attacking, Returning};
 	private GameObject player;
 
 	void Awake()
@@ -15,26 +15,30 @@ public class NPCController : MonoBehaviour
 		sp = new StateSpace<NPCState>(NPCState.Idle);
 
 		sp.AddAction(NPCState.Idle, () => {
-			print("Idling..." + gameObject.name);
-		})
-
-		sp.AddAction(NPCState.Suspicous, () => {
-			print("Suspicous..." + gameObject.GetInstanceID());
+			print("Idling... " + gameObject.name);
 		});
 
-		sp.AddTransition(NPCState.Idle, NPCState.Suspicous)
-			.when(() => {
+		sp.AddAction(NPCState.Idle, () => {
+			print("Also idling, btw " + gameObject.name);
+		});
+
+		sp.AddAction(NPCState.Suspicious, () => {
+			print("Suspicious..." + gameObject.GetInstanceID());
+		});
+
+		sp.AddTransition(NPCState.Idle, NPCState.Suspicious)
+			.When(() => {
 				return ((transform.position - player.transform.position).magnitude < 10.0f);
-			}).perform(() => {
-				print("Changing state from Idle to Suspicous");
+			}).Perform(() => {
+				print("Changing state from Idle to Suspicious");
 			});
 
 		sp.AddTransition(NPCState.Suspicious, NPCState.Idle)
-			.when(() => {
+			.When(() => {
 				return ((transform.position - player.transform.position).magnitude >= 10.0f);
-			}).perform(() => {
-				print("Changing state from Suspicous to Idle");
-			})
+			}).Perform(() => {
+				print("Changing state from Suspicious to Idle");
+			});
 
 		// StateSpace.test(NPCState.Idle);
 	}

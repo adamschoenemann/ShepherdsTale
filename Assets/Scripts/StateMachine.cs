@@ -24,34 +24,111 @@ namespace StateMachine
 
 	public class Transition<S>
 	{
-		private S from, to;
+		public S from {private set; get;}
+		public S to {private set; get;}
+
+		public delegate bool WhenCallback();
+		private WhenCallback when;
+
+		public delegate void PerformCallback();
+		private PerformCallback perform;
+
+		public Transition(S from, S to)
+		{
+			this.from = from;
+			this.to = to;
+		}
+
+		public Transition<S> When(WhenCallback cb)
+		{
+			when = cb;
+			return this;
+		}
+
+		public Transition<S> Perform(PerformCallback cb)
+		{
+			perform += cb;
+			return this;
+		}
+
+		public bool Resolve()
+		{
+			if(when != null && when() == true)
+			{
+				if(perform != null)
+				{
+					perform();
+				}
+				return true;
+			}
+			return false;
+		}
 
 	}
 
-	public class StateSpace<S>
+	public class StateSpace<S> where S : IComparable
 	{
 
 		private S currentState;
 		private Dictionary<S, List<Action>> actions;
+		private Dictionary<S, List<Transition<S>>> transitions;
 
 		public StateSpace(S state)
 		{
 			currentState = state;
 			actions = new Dictionary<S, List<Action>>();
+			transitions = new Dictionary<S, List<Transition<S>>>();
 		}
 
 		public Action AddAction(S state, Action.Callback cb)
 		{
-			if(actions.ContainsKey(S) == false)
+			if(actions.ContainsKey(state) == false)
 			{
-				actions[S] = new List<Action>();
+				actions[state] = new List<Action>();
 			}
-			actions[S].Add(new Action(cb));
+			Action action = new Action(cb);
+			actions[state].Add(action);
+			return action;
 		}
 
-		public Transition AddTransition(S from, S to)
+		public Transition<S> AddTransition(S from, S to)
 		{
+			if(transitions.ContainsKey(from) == false)
+			{
+				transitions[from] = new List<Transition<S>>();
+			}
+			Transition<S> t = new Transition<S>(from, to);
+			transitions[from].Add(t);
+			return t;
+		}
 
+		public Transition<S>[] FindTransitions(S from, S to)
+		{
+			List<Transition<S>> list = transitions[from];
+			return list.FindAll((t) => {
+				return t.to.CompareTo(to) == 0;
+			}).ToArray();
+		}
+
+		public bool RemoveTransition(Transition<S> t)
+		{
+			List<Transition<S>> list = transitions[t.from];
+			return list.Remove(t);
+		}
+
+		public void Update()
+		{
+			foreach(Action action in actions[currentState])
+			{
+				action.callback();
+			}
+			foreach(Transition<S> t in transitions[currentState])
+			{
+				if(t.Resolve() == true)
+				{
+					currentState = t.to;
+				}
+			}
 		}
 		
 	}
