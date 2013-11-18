@@ -4,12 +4,28 @@
 		"selected_items":
 		[
 			[
-				"Perform",
-				"PerformCallback"
+				"Perf",
+				"PerformDelegate"
+			],
+			[
+				"When",
+				"WhenDelegate"
+			],
+			[
+				"Tra",
+				"Transition"
+			],
+			[
+				"wa",
+				"waypointIndex"
 			],
 			[
 				"Tran",
-				"Transition"
+				"Transform"
+			],
+			[
+				"Perform",
+				"PerformCallback"
 			],
 			[
 				"inv",
@@ -280,10 +296,6 @@
 				"FindGameObjectsWithTag	tag"
 			],
 			[
-				"Tra",
-				"Transform"
-			],
-			[
 				"att",
 				"attackRunState"
 			],
@@ -432,18 +444,50 @@
 	"buffers":
 	[
 		{
-			"file": "Scripts/StateMachine.cs",
+			"file": "Scripts/Mortal.cs",
 			"settings":
 			{
-				"buffer_size": 3718,
+				"buffer_size": 1150,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Scripts/Patroller.cs",
+			"settings":
+			{
+				"buffer_size": 1874,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Scripts/Utils/Utils.cs",
+			"settings":
+			{
+				"buffer_size": 879,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/F/Dropbox/Projects/Unity/first/Assets/StateMachine.cs",
+			"settings":
+			{
+				"buffer_size": 2066,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/F/Dropbox/Projects/Unity/first/Assets/PlayerController.cs",
+			"settings":
+			{
+				"buffer_size": 386,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "Scripts/NPCController.cs",
 			"settings":
 			{
-				"buffer_size": 1739,
+				"buffer_size": 0,
 				"line_ending": "Windows"
 			}
 		},
@@ -451,7 +495,39 @@
 			"file": "Scripts/WolfController.cs",
 			"settings":
 			{
-				"buffer_size": 9243,
+				"buffer_size": 9403,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Scripts/AttackCollider.cs",
+			"settings":
+			{
+				"buffer_size": 462,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Scripts/WolfAnimation.cs",
+			"settings":
+			{
+				"buffer_size": 1313,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Scripts/Staff.cs",
+			"settings":
+			{
+				"buffer_size": 543,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Scripts/Utils/Timer.cs",
+			"settings":
+			{
+				"buffer_size": 655,
 				"line_ending": "Windows"
 			}
 		}
@@ -459,9 +535,33 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 213.0,
+		"height": 88.0,
 		"selected_items":
 		[
+			[
+				"c#",
+				"Set Syntax: C#"
+			],
+			[
+				"unit",
+				"Set Syntax: Unity C#"
+			],
+			[
+				"ren",
+				"File: Rename"
+			],
+			[
+				"rena",
+				"File: Rename"
+			],
+			[
+				"ref",
+				"Unity Reference: Search Selection"
+			],
+			[
+				"refe",
+				"Unity Reference: Search Selection"
+			],
 			[
 				"makrd",
 				"Markdown Preview: Python Markdown: Preview in Browser"
@@ -489,10 +589,6 @@
 			[
 				"package",
 				"Package Control: Discover Packages"
-			],
-			[
-				"rena",
-				"File: Rename"
 			],
 			[
 				"new fi",
@@ -553,14 +649,6 @@
 			[
 				"wrap",
 				"Word Wrap: Toggle"
-			],
-			[
-				"refe",
-				"Unity Reference: Search Selection"
-			],
-			[
-				"ref",
-				"Unity Reference: Search Selection"
 			],
 			[
 				"new ",
@@ -796,7 +884,14 @@
 	},
 	"file_history":
 	[
+		"/F/Dropbox/Projects/Unity/first/Assets/PlayerController.c",
+		"/F/Dropbox/Projects/Unity/first/Assets/PlayerController.js",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Obsolete/StateMachine.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Player/PlayerMovement.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Obsolete/FiniteStateMachine.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Utils.meta",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/StateMachine.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Agent.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Noises/NoiseManager.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/HealthBar.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Player/PlayerController.cs",
@@ -916,14 +1011,7 @@
 		"/F/Dropbox/MED4/OOSE/3/ATM/src/Keyboard.java",
 		"/F/Dropbox/Programs/SublimeText/Data/Packages/SublimeAStyleFormatter/SublimeAStyleFormatter.sublime-settings",
 		"/F/Dropbox/Projects/TimeForTV/TimeForTV/bin/AndroidManifest.xml",
-		"/F/Downloads/dBpoweramp Music Converter (dMC) R14.3 Final Registered [h33t][iahq76]/ReadMe!.txt",
-		"/F/Dropbox/Projects/Java/test/src/hello/Person.java",
-		"/F/Dropbox/Projects/Java/test/src/hello/Hello.java",
-		"/F/Downloads/Ableton Live 8.2.2 (CRACKED) [theLEAK]/readme.txt",
-		"/F/Downloads/Ableton Live 8.2.2 (CRACKED) [theLEAK]/theLEAK Team.txt",
-		"/F/Dropbox/Programs/adt-bundle-windows/sdk/extras/google/usb_driver/android_winusb.inf",
-		"/F/Dropbox/MED4/DAE/Excercise 1/results.txt",
-		"/C/Users/Adam/AppData/Local/Temp/Rar$DI02.122/README.TXT"
+		"/F/Downloads/dBpoweramp Music Converter (dMC) R14.3 Final Registered [h33t][iahq76]/ReadMe!.txt"
 	],
 	"find":
 	{
@@ -941,6 +1029,11 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"Using",
+			"private",
+			"0",
+			"priate",
+			"waypointContainer",
 			"State",
 			"perform",
 			"Suspicous",
@@ -1063,12 +1156,7 @@
 			"Proj",
 			"shepherdController",
 			"return",
-			"=",
-			"myTest",
-			"BotControlScript",
-			"B",
-			"_BumpMap",
-			"_BumpMap_ST"
+			"="
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1115,23 +1203,23 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Scripts/StateMachine.cs",
+					"file": "Scripts/Mortal.cs",
 					"settings":
 					{
-						"buffer_size": 3718,
+						"buffer_size": 1150,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2090,
-								2090
+								666,
+								666
 							]
 						],
 						"settings":
@@ -1140,7 +1228,87 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1257.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Scripts/Patroller.cs",
+					"settings":
+					{
+						"buffer_size": 1874,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								395,
+								395
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 90.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Scripts/Utils/Utils.cs",
+					"settings":
+					{
+						"buffer_size": 879,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/F/Dropbox/Projects/Unity/first/Assets/StateMachine.cs",
+					"settings":
+					{
+						"buffer_size": 2066,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								250,
+								250
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Unity3D/UnityC#.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1152,46 +1320,45 @@
 			"sheets":
 			[
 				{
-					"buffer": 1,
-					"file": "Scripts/NPCController.cs",
+					"buffer": 4,
+					"file": "/F/Dropbox/Projects/Unity/first/Assets/PlayerController.cs",
 					"settings":
 					{
-						"buffer_size": 1739,
+						"buffer_size": 386,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1106,
-								1106
+								350,
+								350
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/C#/C#.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 151.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "Scripts/WolfController.cs",
+					"buffer": 5,
+					"file": "Scripts/NPCController.cs",
 					"settings":
 					{
-						"buffer_size": 9243,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2901,
-								2901
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1200,7 +1367,142 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1575.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "Scripts/WolfController.cs",
+					"settings":
+					{
+						"buffer_size": 9403,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								748,
+								748
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 535.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "Scripts/AttackCollider.cs",
+					"settings":
+					{
+						"buffer_size": 462,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								139,
+								139
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "Scripts/WolfAnimation.cs",
+					"settings":
+					{
+						"buffer_size": 1313,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								574,
+								574
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 90.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "Scripts/Staff.cs",
+					"settings":
+					{
+						"buffer_size": 543,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "Scripts/Utils/Timer.cs",
+					"settings":
+					{
+						"buffer_size": 655,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								398,
+								398
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1269,12 +1571,40 @@
 		"selected_items":
 		[
 			[
-				"npc",
-				"Scripts/NPCController.cs"
+				"state",
+				"Scripts/Obsolete/StateMachine.cs"
 			],
 			[
-				"state",
-				"Scripts/StateMachine.cs"
+				"fini",
+				"Scripts/Obsolete/FiniteStateMachine.cs"
+			],
+			[
+				"utils",
+				"Scripts/Utils/Utils.cs"
+			],
+			[
+				"patr",
+				"Scripts/Patroller.cs"
+			],
+			[
+				"mort",
+				"Scripts/Mortal.cs"
+			],
+			[
+				"player",
+				"Scripts/Player/PlayerMovement.cs"
+			],
+			[
+				"wolfani",
+				"Scripts/WolfAnimation.cs"
+			],
+			[
+				"timer",
+				"Scripts/Utils/Timer.cs"
+			],
+			[
+				"npc",
+				"Scripts/NPCController.cs"
 			],
 			[
 				"ene",
@@ -1291,10 +1621,6 @@
 			[
 				"enemy",
 				"Scripts/Enemy.cs"
-			],
-			[
-				"timer",
-				"Scripts/Utils/Timer.cs"
 			],
 			[
 				"wolfcon",
@@ -1327,10 +1653,6 @@
 			[
 				"pla",
 				"Scripts/PlayerAnimation.cs"
-			],
-			[
-				"utils",
-				"Scripts/Utils.cs"
 			],
 			[
 				"camer",
