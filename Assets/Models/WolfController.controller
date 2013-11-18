@@ -94,14 +94,14 @@ Transition:
   m_TransitionDuration: .127659574
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: 
-    m_EventTreshold: 0
-    m_ExitTime: .872340441
   - m_ConditionMode: 2
     m_ConditionEvent: attacking
     m_EventTreshold: 0
     m_ExitTime: .872340441
+  - m_ConditionMode: 5
+    m_ConditionEvent: attacking
+    m_EventTreshold: 0
+    m_ExitTime: .00999999978
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
@@ -189,13 +189,13 @@ Transition:
   m_Name: 
   m_SrcState: {fileID: 0}
   m_DstState: {fileID: 110200545}
-  m_TransitionDuration: .100000001
+  m_TransitionDuration: .0465085767
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
     m_ConditionEvent: 
     m_EventTreshold: 0
-    m_ExitTime: .899999976
+    m_ExitTime: .00999999978
   - m_ConditionMode: 1
     m_ConditionEvent: attacking
     m_EventTreshold: 0
@@ -232,7 +232,7 @@ State:
   m_Position: {x: 336, y: 156, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
-  m_Tag: 
+  m_Tag: AttackState
 --- !u!1102 &110242785
 State:
   m_ObjectHideFlags: 3

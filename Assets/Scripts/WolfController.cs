@@ -59,6 +59,9 @@ public class WolfController : MonoBehaviour
 	protected Mortal mortal;
 
 	private Timer attackTimer;
+	private GameObject attacker;
+
+	private WolfAnimation animation;
 
 //============================================================================//
 //============================== METHODS =====================================//
@@ -76,6 +79,9 @@ public class WolfController : MonoBehaviour
 
 		defaultPosition = transform.position;
 		defaultRotation = transform.rotation;
+
+		animation = GetComponent<WolfAnimation>();
+
 	}
 
 	protected virtual void Update()
@@ -179,6 +185,8 @@ public class WolfController : MonoBehaviour
 		{
 			lastKnownPlayerPos = Vector3.zero;
 		}
+
+		animation.OnStateChange(oldState, newState);
 
 
 	}
