@@ -1,0 +1,138 @@
+fileFormatVersion: 2
+guid: 407967cd41e20da48b35c127439aadff
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: end_tail
+    100002: front_carpal_left
+    100004: front_carpal_right
+    100006: front_elbow_left
+    100008: front_elbow_right
+    100010: front_foot_left
+    100012: front_foot_right
+    100014: front_leg_left
+    100016: front_leg_right1
+    100018: front_shoulder_left
+    100020: front_shoulder_right
+    100022: front_toe_left
+    100024: front_toe_right
+    100026: group1
+    100028: head
+    100030: lower_back
+    100032: mid_tail
+    100034: neck
+    100036: pCube2
+    100038: rear_foot_left
+    100040: rear_foot_right
+    100042: rear_hip_left
+    100044: rear_hip_right
+    100046: rear_knee_left
+    100048: rear_knee_right
+    100050: rear_leg_left
+    100052: rear_leg_right
+    100054: rear_tarsal_left
+    100056: rear_tarsal_right
+    100058: rear_toe_left
+    100060: rear_toe_right
+    100062: root
+    100064: start_tail
+    100066: upper_back
+    100068: wolf
+    100070: //RootNode
+    400000: end_tail
+    400002: front_carpal_left
+    400004: front_carpal_right
+    400006: front_elbow_left
+    400008: front_elbow_right
+    400010: front_foot_left
+    400012: front_foot_right
+    400014: front_leg_left
+    400016: front_leg_right1
+    400018: front_shoulder_left
+    400020: front_shoulder_right
+    400022: front_toe_left
+    400024: front_toe_right
+    400026: group1
+    400028: head
+    400030: lower_back
+    400032: mid_tail
+    400034: neck
+    400036: pCube2
+    400038: rear_foot_left
+    400040: rear_foot_right
+    400042: rear_hip_left
+    400044: rear_hip_right
+    400046: rear_knee_left
+    400048: rear_knee_right
+    400050: rear_leg_left
+    400052: rear_leg_right
+    400054: rear_tarsal_left
+    400056: rear_tarsal_right
+    400058: rear_toe_left
+    400060: rear_toe_right
+    400062: root
+    400064: start_tail
+    400066: upper_back
+    400068: wolf
+    400070: //RootNode
+    2300000: pCube2
+    2300002: wolf
+    3300000: pCube2
+    3300002: wolf
+    4300000: wolf
+    4300002: pCube2
+    7400000: attack
+    7400002: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 2
+  userData: 

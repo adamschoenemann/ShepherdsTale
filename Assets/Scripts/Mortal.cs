@@ -43,7 +43,7 @@ public class Mortal : MonoBehaviour
 	{
 		if(invincibleTimer != null && invincibleTimer.IsDone() == false)
 		{
-			invincibleTimer.tickSeconds(Time.deltaTime);
+			invincibleTimer.TickSeconds(Time.deltaTime);
 		}
 	}
 

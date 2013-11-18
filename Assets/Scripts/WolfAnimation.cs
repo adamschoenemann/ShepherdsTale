@@ -25,14 +25,21 @@ public class WolfAnimation : MonoBehaviour
 	{
 		switch(wolfState)
 		{
-			case State.Idle:
 			case State.Attacking:
 				anim.SetBool("running", false);
 				anim.SetBool("walking", false);
+				anim.SetBool("attacking", true);
+				break;
+			case State.Idle:
+				anim.SetBool("running", false);
+				anim.SetBool("walking", false);
+				anim.SetBool("attacking", false);
 				break;
 
 			case State.Alerted:
 			case State.Returning:
+				anim.SetBool("walking", false);
+				anim.SetBool("attacking", false);
 				anim.SetBool("running", true);
 				break;
 		}
