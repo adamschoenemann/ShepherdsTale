@@ -40,7 +40,7 @@ public class CheckPoint : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-	
+		
 	}
 	
 	public bool IsChecked()
@@ -50,6 +50,7 @@ public class CheckPoint : MonoBehaviour {
 	
 	void OnTriggerEnter (Collider other)
 	{
+		print("trigger finger is burning");
 		if(other.gameObject == GameObject.FindGameObjectWithTag(Tags.player))
 			gateChecked = true;
 	}

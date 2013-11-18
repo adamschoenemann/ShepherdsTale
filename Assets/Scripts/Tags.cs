@@ -6,5 +6,7 @@ public class Tags
 	public const string staff = "Staff";
 	public const string gameController = "GameController";
 	public const string checkPoint = "CheckPoint";
+	public const string loonie = "Loonie";
+	public const string raceCourse = "RaceCourse";
 
 }

@@ -4,7 +4,7 @@ using System.Collections;
 public class RaceCourse : MonoBehaviour {
 	
 	private CheckPoint [] raceCourse;
-	private int [] gateOrder;
+	private int gatesChecked = 0;
 	
 	// Use this for initialization
 	void Start () 
@@ -17,16 +17,46 @@ public class RaceCourse : MonoBehaviour {
 			CheckPoint cp = checkPoints[i].GetComponent<CheckPoint>();
 			raceCourse[i] = cp;
 		}
-		
-		gateOrder = new int[checkPoints.Length];		
-	
+			
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		Debug.Log ("kan du se mig=");
-
-		Debug.ClearDeveloperConsole();
+		if(IsFinished())
+			print ("FINISHED");
 	}
+	
+	//All gates checked
+	public bool IsFinished()
+	{
+		gatesChecked = 0;
+		for(int i = 0; i < raceCourse.Length; i++)
+		{
+			if(raceCourse[i].IsChecked() == true)
+			{
+				gatesChecked++;
+			}
+		}
+		
+		if(gatesChecked == raceCourse.Length)
+		{
+			return true;
+		}
+		return false;
+			
+	}
+	
+	public bool IsRaceStarted ()
+	{
+		for(int i = 0; i < raceCourse.Length; i++)
+		{
+			if(raceCourse[i].IsChecked() == true)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	
 }
