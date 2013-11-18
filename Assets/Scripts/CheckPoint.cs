@@ -3,7 +3,8 @@ using System.Collections;
 
 public class CheckPoint : MonoBehaviour {
 	
-	private bool gateChecked = false;
+	private bool gateCheckedPlayer = false;
+	private bool gateCheckedLoonie = false;
 	public int gateIndex = 0;
 	
 	/*
@@ -43,16 +44,20 @@ public class CheckPoint : MonoBehaviour {
 		
 	}
 	
-	public bool IsChecked()
+	public bool IsChecked(GameObject racer)
 	{
-		return gateChecked;
+		if(racer.gameObject == GameObject.FindGameObjectWithTag(Tags.player))		
+			return gateCheckedPlayer;
+		else
+			return gateCheckedLoonie;
 	}
 	
 	void OnTriggerEnter (Collider other)
 	{
-		print("trigger finger is burning");
 		if(other.gameObject == GameObject.FindGameObjectWithTag(Tags.player))
-			gateChecked = true;
+			gateCheckedPlayer = true;
+		else if(other.gameObject == GameObject.FindGameObjectWithTag(Tags.loonie))
+			gateCheckedLoonie = true;
 	}
 	
 	void OnTriggerStay (Collider other)

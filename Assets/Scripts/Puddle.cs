@@ -35,7 +35,7 @@ public class Puddle : MonoBehaviour {
 		
 		if(other.gameObject == loonie)
 		{
-			loonie.GetComponent<Enemy>().moveSpeed = puddleSpeed;	
+			loonie.GetComponent<LoonieRace>().moveSpeed = puddleSpeed;	
 		}
 		
 	}
@@ -49,7 +49,7 @@ public class Puddle : MonoBehaviour {
 		
 		if(other.gameObject == loonie)
 		{
-			loonie.GetComponent<Enemy>().moveSpeed = loonieRunSpeed;
+			loonie.GetComponent<LoonieRace>().moveSpeed = loonieRunSpeed;
 		}
 		
 		

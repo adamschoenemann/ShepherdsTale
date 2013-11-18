@@ -8,5 +8,6 @@ public class Tags
 	public const string checkPoint = "CheckPoint";
 	public const string loonie = "Loonie";
 	public const string raceCourse = "RaceCourse";
+	public const string wayPoint = "WayPoint";
 
 }
