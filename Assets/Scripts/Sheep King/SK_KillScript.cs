@@ -94,13 +94,12 @@ public class SK_KillScript : MonoBehaviour
 		if(hitHardObstacle)
 		{
 			hitHardObstacle = false;
-			// Stop
-			//rigidbody.velocity = Vector3.zero;
+			hitSoftObstacle = false;
 
 			// Check if velocity was high enough to require stunning
 			if(runSpeedCurve.Evaluate(distanceCoveredSquared / runDistanceTargetSquared) > speedFractionToStun)
 			{
-				StartStun();//state = States.stun;
+				StartStun();
 			} 
 			else 
 			{
@@ -111,20 +110,13 @@ public class SK_KillScript : MonoBehaviour
 		}
 		else if(hitSoftObstacle)
 		{
+			hitHardObstacle = false;
 			hitSoftObstacle = false;
-			/*rigidbody.velocity = Vector3.zero;
-			state = States.aim;	
-			timeSpentInState = 0.0f;
-			*/
+
 			StartAiming();
 		}
 		else if(distanceCoveredSquared > runDistanceTargetSquared)
 		{
-			
-			/*state = States.aim;
-
-			timeSpentInState = 0.0f;
-*/
 			StartAiming();
 		}
 		else 
@@ -137,8 +129,7 @@ public class SK_KillScript : MonoBehaviour
 	{
 		if(timer.IsDone())//timeSpentInState > stunTime)
 		{
-			state = States.aim;
-			timeSpentInState = 0.0f;
+			StartAiming();
 		}
 	}
 
