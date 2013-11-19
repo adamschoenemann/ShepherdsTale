@@ -5,13 +5,13 @@ public class SK_KillScript : MonoBehaviour
 	public float aimTime = 4.0f; // Seconds
 	public float stunTime = 5.0f; // Seconds
 	public float runSpeedMax = 8.5f; // Unit ?
-
-	public float runDistanceOvershoot = 2.5f; // Unity 3D distance units
+	public float runDistanceOvershootFactor = 0.2f; // How far beyond the target the SK should stop, as a fraction of the initial distance between SK and target.
 	public AnimationCurve runSpeedCurve;
 	public float turnSpeed = 3.0f;
 
 	private Vector3 runDirection;
 	private float timeSpentInState = 0.0f; // Seconds
+	private float speedFractionToStun = 0.8f;
 
 	private GameObject player;
 	private PlayerAnimation playerAnim;
@@ -24,11 +24,20 @@ public class SK_KillScript : MonoBehaviour
 	private float runDistanceTargetSquared;
 
 	private Mortal mortal;
+	private bool hitHardObstacle = false;
+	private bool hitSoftObstacle = false;
+
+	private Timer timer;
+
+	/*
+		TODO 
+		When player touches SK while aiming, make a short rush at the player, not slow running
+		Make throw-player-away thingy better.
+	*/
 
 	void Awake()
 	{
 		this.rigidbody.freezeRotation = true; // Avoid physics-based rotations.
-		Debug.Log("state: " + state);
 		player = GameObject.FindGameObjectWithTag(Tags.player);
 		playerAnim = player.GetComponent<PlayerAnimation>();
 		anim = GetComponent<Animator>();
@@ -39,11 +48,15 @@ public class SK_KillScript : MonoBehaviour
 			else
 				return false;
 		};
+		mortal.onDeathHandler = (mortalInstance) => {
+			Destroy(this.gameObject);
+		};
+
+		timer = new Timer(aimTime);
 	}
 
 	void Update()
 	{
-		//Debug.Log("SK state: " + state);
 		switch(state)
 		{
 			case States.aim:
@@ -61,38 +74,58 @@ public class SK_KillScript : MonoBehaviour
 		}
 
 		timeSpentInState += Time.deltaTime;
-	}
-	
-	private bool IsPlayer(GameObject obj)
-	{
-		return (obj.tag == Tags.player);
+		timer.TickSeconds(Time.deltaTime);
 	}
 
 	private void Aim(){
-		Vector3 target = player.transform.position;
-		LookAtLerp(target);
+		LookAtLerp(player.transform.position);
 
-		if(timeSpentInState > aimTime)
+		if(timer.IsDone())// timeSpentInState > aimTime)
 		{
-			state = States.run;
-			startRunPos = transform.position;
-			runDirection = transform.forward;
-			runDistanceTargetSquared = (target - startRunPos).sqrMagnitude + runDistanceOvershoot * runDistanceOvershoot;
-			timeSpentInState = 0.0f;
+			StartRunning();
 		}
 	}
 	
+	// Handles running speed, timing, and reacts to collisions.
 	private void Run()
 	{	
 		float distanceCoveredSquared = (transform.position - startRunPos).sqrMagnitude;
 
-		if(distanceCoveredSquared > runDistanceTargetSquared)
+		if(hitHardObstacle)
 		{
-			rigidbody.velocity = Vector3.zero;
-			//state = States.aim;
-			state = States.stun; // TODO correct back to aim - this is solely for testing purposes.
+			hitHardObstacle = false;
+			// Stop
+			//rigidbody.velocity = Vector3.zero;
+
+			// Check if velocity was high enough to require stunning
+			if(runSpeedCurve.Evaluate(distanceCoveredSquared / runDistanceTargetSquared) > speedFractionToStun)
+			{
+				StartStun();//state = States.stun;
+			} 
+			else 
+			{
+				StartAiming();
+			}
+			
+			timeSpentInState = 0.0f;
+		}
+		else if(hitSoftObstacle)
+		{
+			hitSoftObstacle = false;
+			/*rigidbody.velocity = Vector3.zero;
+			state = States.aim;	
+			timeSpentInState = 0.0f;
+			*/
+			StartAiming();
+		}
+		else if(distanceCoveredSquared > runDistanceTargetSquared)
+		{
+			
+			/*state = States.aim;
 
 			timeSpentInState = 0.0f;
+*/
+			StartAiming();
 		}
 		else 
 		{
@@ -102,11 +135,49 @@ public class SK_KillScript : MonoBehaviour
 
 	private void Stun()
 	{
-		if(timeSpentInState > stunTime)
+		if(timer.IsDone())//timeSpentInState > stunTime)
 		{
 			state = States.aim;
 			timeSpentInState = 0.0f;
 		}
+	}
+
+	private void StartAiming()
+	{
+		rigidbody.velocity = Vector3.zero;
+		timer = new Timer(aimTime);
+		state = States.aim;	
+	}
+
+	private void StartStun()
+	{
+		rigidbody.velocity = Vector3.zero;
+		timer = new Timer(stunTime);
+		state = States.stun;		
+	}
+
+	// Used to initiate and activate running towards the player
+	private void StartRunning()
+	{
+		state = States.run;
+		startRunPos = transform.position;
+		runDirection = transform.forward;
+		runDistanceTargetSquared = ((player.transform.position - startRunPos) * (1.0f + runDistanceOvershootFactor)).sqrMagnitude;
+		timeSpentInState = 0.0f;
+	}
+
+	// Used to rush the SK towards the player when the player comes too close during aiming state
+	private void StartRushing()
+	{
+		Vector3 target = player.transform.position;
+		runDirection = transform.forward;
+		startRunPos = transform.position - 2*(target - transform.position);
+
+		state = States.run;		
+		runDistanceTargetSquared = ((player.transform.position - startRunPos) * (1.0f + runDistanceOvershootFactor)).sqrMagnitude;
+		timeSpentInState = 0.0f;
+
+		float distanceCoveredSquared = (transform.position - startRunPos).sqrMagnitude;
 	}
 
 	void OnTriggerStay(Collider other)
@@ -163,33 +234,25 @@ public class SK_KillScript : MonoBehaviour
 				case States.run:
 					// Violently throw the player out of the way,
 					// Damage player
-					Vector3 flyDir = (other.transform.position - transform.position).normalized;
-					other.rigidbody.velocity = ((2*Vector3.up + flyDir).normalized * 100);//500*flyDir);
+					Vector3 flyDir = (other.transform.position - transform.position).normalized; // TODO make this MUCH nicer.
+					other.rigidbody.velocity = ((2*Vector3.up + flyDir).normalized * 100);//500*flyDir); 
 					break;
 				case States.aim:
 					// Start running, and throw player away
+					StartRushing();
 					break;
 				case States.stun:
 					// Take the pain
 					break;
 			}
 		} 
-		else if(other.tag == "Obstacle" && state == States.run)
+		else if(other.tag == "HardObstacle" && state == States.run)
 		{
-			//Record velocity squared
-			float vel = rigidbody.velocity.sqrMagnitude;
-			// Stop
-			rigidbody.velocity = Vector3.zero;
-
-			if(vel > (runSpeedMax * 0.5)*(runSpeedMax * 0.5))
-			{
-				state = States.stun;
-			} 
-			else 
-			{
-				state = States.aim;	
-			}
-			timeSpentInState = 0.0f;
+			hitHardObstacle = true;
+		}
+		else if(other.tag == "SoftObstacle" && state == States.run)
+		{
+			hitSoftObstacle = true;
 		}
 	}
 
@@ -223,11 +286,6 @@ public class SK_KillScript : MonoBehaviour
 		Quaternion targetRotation = Quaternion.LookRotation(direction.normalized);
 		RotateTowards(targetRotation);
 	}
-
-/*	void OnGUI()
-	{
-		
-	}*/
 }
 
 

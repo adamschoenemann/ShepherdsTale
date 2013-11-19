@@ -8,10 +8,15 @@ public class Timer
 	public delegate void OnTickDelegate(Timer self, long interval);
 	public OnTickDelegate onTick;
 
-	public Timer(long duration)
+	public Timer(long durationMillis)
 	{
-		this.duration = duration;
+		this.duration = durationMillis;
 		this.elapsed = 0L;
+	}
+
+	public Timer(float durationSeconds)
+	{
+		this.duration = (long) (durationSeconds * 1000);
 	}
 
 	public void TickMilliseconds(long interval)

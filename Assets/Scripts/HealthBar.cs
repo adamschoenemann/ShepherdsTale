@@ -38,15 +38,23 @@ public class HealthBar : FaceCamera {
 		{
 			return;
 		}
+
 		GameObject player = GameObject.FindWithTag(Tags.player);
 		if((transform.position - player.transform.position).magnitude > distanceThresh)
 		{
 			return;
 		}
+
+		if(Vector3.Dot(cam.transform.forward, transform.position - cam.transform.position) < 0)
+		{
+			return;
+		}
+
+
 		Vector3 screenPos = cam.camera.WorldToScreenPoint(transform.position);
 		float percentage = mortal.GetHealth() / (float) maxHealth;
 		float drawWidth = percentage * width;
-		//print("percentage: " + percentage);
+
 		GUI.DrawTexture(new Rect(screenPos.x - drawWidth/2, Screen.height - screenPos.y, drawWidth, 3), texture);
 	}
 

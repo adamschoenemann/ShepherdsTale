@@ -159,7 +159,7 @@
 						 * tex2D(_DiffMap4, float2(input.tex));
 				}
 			}
-		
+
 			ENDCG
 		}
 	} 
