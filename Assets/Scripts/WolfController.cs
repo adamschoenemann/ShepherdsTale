@@ -14,10 +14,12 @@ using Wolf;
  */
 namespace Wolf
 {
-	public enum State {Idle, Suspicious, Alerted, Engaging, Attacking, Returning};
+	public enum State {Idle, Patrolling, Suspicious, Alerted, Engaging, Attacking, Returning};
 }
 
-
+[RequireComponent(typeof(WolfAnimation))]
+[RequireComponent(typeof(Patroller))]
+[RequireComponent(typeof(Mortal))]
 public class WolfController : MonoBehaviour
 {
 
@@ -62,6 +64,7 @@ public class WolfController : MonoBehaviour
 	private GameObject attacker;
 
 	private WolfAnimation animation;
+	private Patroller patroller;
 
 //============================================================================//
 //============================== METHODS =====================================//
@@ -70,7 +73,6 @@ public class WolfController : MonoBehaviour
 //================================ CORE ======================================//
 	protected virtual void Awake()
 	{
-		state = State.Idle;
 		player = GameObject.FindWithTag(Tags.player);
 		playerController = player.GetComponent<PlayerController>();
 		mortal = GetComponent<Mortal>();
@@ -81,7 +83,8 @@ public class WolfController : MonoBehaviour
 		defaultRotation = transform.rotation;
 
 		animation = GetComponent<WolfAnimation>();
-
+		patroller = GetComponent<Patroller>();
+		state = State.Patrolling;
 	}
 
 	protected virtual void Update()
@@ -97,7 +100,15 @@ public class WolfController : MonoBehaviour
 			case State.Idle:
 				if(IsPlayerAudible()) return State.Suspicious;
 				if(IsPlayerVisible()) return State.Alerted;
+				if(patroller.IsWaiting() == false) return State.Patrolling;
 				return State.Idle;
+				break;
+
+			case State.Patrolling:
+				if(IsPlayerAudible()) return State.Suspicious;
+				if(IsPlayerVisible()) return State.Alerted;
+				if(patroller.IsWaiting()) return State.Idle;
+				return State.Patrolling;
 				break;
 
 			case State.Suspicious:
@@ -127,7 +138,7 @@ public class WolfController : MonoBehaviour
 				break;
 
 			case State.Returning:
-				if(IsReturnedHome()) return State.Idle;
+				if(patroller.IsReturnedHome(Time.deltaTime * moveSpeed)) return State.Patrolling;
 				return State.Returning;
 				break;
 
@@ -142,22 +153,34 @@ public class WolfController : MonoBehaviour
 		switch(state)
 		{
 			case State.Idle:
-				ResetRotation();
+				// ResetRotation();
+				patroller.WaitAtWaypoint();
 				break;
+
+			case State.Patrolling:
+				patroller.GoToWaypoint();
+				patroller.GetNextWaypoint();
+				break;
+
 			case State.Suspicious:
 				LookAtLerp(lastKnownPlayerPos);
 				break;
+
 			case State.Alerted:
 				ChasePlayer();
 				break;
+
 			case State.Engaging:
 				InitiateAttack();
 				break;
+
 			case State.Attacking:
 				TickAttack();
 				break;
+
 			case State.Returning:
-				ReturnToDefault();
+				// ReturnToDefault();
+				patroller.ReturnToLastPosition(moveSpeed);
 				break;
 		}
 	}
@@ -167,14 +190,19 @@ public class WolfController : MonoBehaviour
 		print("State change from: " + oldState + " to " + newState);
 		if(oldState == State.Returning)
 		{
-			if(newState == State.Idle){
-				transform.position = defaultPosition;
+			if(newState == State.Patrolling){
+				// transform.position = defaultPosition;
+				transform.position = patroller.lastPosition;
 				rigidbody.velocity = Vector3.zero;
 			}
 		}
 		else if(oldState == State.Suspicious)
 		{
 			suspiciousTimer = null;
+		}
+		else if(oldState == State.Idle || oldState == State.Patrolling)
+		{
+			patroller.StopPatrolling();
 		}
 		
 		if(newState == State.Suspicious)
@@ -219,6 +247,7 @@ public class WolfController : MonoBehaviour
 	protected virtual bool IsReturnedHome()
 	{
 		if((defaultPosition - transform.position).magnitude <  moveSpeed + 0.01)
+		// if((patroller.lastPosition - transform.position).magnitude <  Time.deltaTime * moveSpeed + 0.01)
 		{
 			return true;
 		}
@@ -227,7 +256,8 @@ public class WolfController : MonoBehaviour
 
 	protected virtual bool IsTooFarAwayFromHome()
 	{
-		if((transform.position - defaultPosition).magnitude > distanceFromHomeThresh)
+		// if((transform.position - defaultPosition).magnitude > distanceFromHomeThresh)
+		if((transform.position - patroller.lastPosition).magnitude > distanceFromHomeThresh)
 		{
 			return true;
 		}

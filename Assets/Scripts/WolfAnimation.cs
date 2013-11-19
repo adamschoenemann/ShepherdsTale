@@ -23,40 +23,88 @@ public class WolfAnimation : MonoBehaviour
 
 	void UpdateAnimation(State wolfState, AnimatorStateInfo animState)
 	{
+		ResetAnimationState();
 		switch(wolfState)
 		{
 			case State.Attacking:
-				anim.SetBool("running", false);
-				anim.SetBool("walking", false);
-				// anim.SetBool("attacking", true);
+				anim.SetBool("attacking", true);
 				break;
+
 			case State.Idle:
-				anim.SetBool("running", false);
-				anim.SetBool("walking", false);
-				// anim.SetBool("attacking", false);
 				break;
 
 			case State.Alerted:
 			case State.Returning:
-				anim.SetBool("walking", false);
 				anim.SetBool("running", true);
-				// anim.SetBool("attacking", false);
 				break;
+
+			case State.Patrolling:
+				anim.SetBool("walking", true) ;
+				break;
+		}
+	}
+
+	private void ResetAnimationState()
+	{
+		string[] keys = {
+			"running",
+			"walking",
+			"attacking"
+		};
+
+		foreach(string key in keys)
+		{
+			anim.SetBool(key, false);
 		}
 	}
 
 	public void OnStateChange(State oldState, State newState)
 	{
-		if(newState == State.Attacking)
-		{
-			anim.SetBool("attacking", true);
-			print("attacking true");
-		}
-		else if(oldState == State.Attacking)
-		{
-			anim.SetBool("attacking", false);
-			print("attacking false");
-		}
+		// if(newState == State.Attacking)
+		// {
+		// 	anim.SetBool("attacking", true);
+		// 	print("attacking true");
+		// }
+		// else if(newState == State.Engaging)
+		// {
+		// 	anim.SetBool("running", false);
+		// 	anim.SetBool("walking", false);
+		// }
+		// else if(newState == State.Idle)
+		// {
+		// 	anim.SetBool("running", false);
+		// 	anim.SetBool("walking", false);
+		// }
+		// else if(newState == State.Patrolling)
+		// {
+		// 	anim.SetBool("walking", true);
+		// }
+		// else if(newState == State.Alerted)
+		// {
+		// 	anim.SetBool("running", true);
+		// }
+		// else if(newState == State.Returning)
+		// {
+		// 	anim.SetBool("running", true);
+		// }
+
+		// if(oldState == State.Attacking)
+		// {
+		// 	anim.SetBool("attacking", false);
+		// 	print("attacking false");
+		// }
+		// else if(oldState == State.Patrolling)
+		// {
+		// 	anim.SetBool("walking", false);
+		// }
+		// else if(oldState == State.Alerted)
+		// {
+		// 	// anim.SetBool("running", false);
+		// }
+		// else if(oldState == State.Returning)
+		// {
+		// 	anim.SetBool("running", false);
+		// }
 	}
 
 }
