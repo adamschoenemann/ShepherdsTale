@@ -26,7 +26,6 @@ public class InteractionRoadSign: MonoBehaviour {
 	{
 		if(other.gameObject.tag == Tags.player)
 		{
-			print("hello Road");
 			isInteracting = true;
 		}
 	}
@@ -43,7 +42,6 @@ public class InteractionRoadSign: MonoBehaviour {
 	{
 		if(other.gameObject.tag == Tags.player)
 		{
-			print ("bye bye Road");
 			isInteracting = false;
 		}
 		

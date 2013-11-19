@@ -25,4 +25,9 @@ public class Timer
 	{
 		return (elapsed >= duration);
 	}
+	
+	public long GetElapsed()
+	{
+		return elapsed;
+	}
 }

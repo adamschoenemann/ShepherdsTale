@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: checkpoint_UV
+  m_Name: checkpoint_tex
   m_Shader: {fileID: 4800000, guid: 7e344cbacd5b94a498c64570ec4248c3, type: 3}
   m_ShaderKeywords: []
   m_SavedProperties:
@@ -23,7 +23,7 @@ Material:
         first:
           name: _DiffMap1
         second:
-          m_Texture: {fileID: 2800000, guid: 575c32e8bcb5b40b9808ccda65fda54e, type: 3}
+          m_Texture: {fileID: 2800000, guid: ef7a373b5b341482e84ecb1af1e6ee86, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:

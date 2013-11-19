@@ -16,7 +16,7 @@ public class Puddle : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag(Tags.player);
 		loonie = GameObject.FindGameObjectWithTag(Tags.loonie);
 		
-		loonieRunSpeed = loonie.GetComponent<LoonieRace>().moveSpeed;
+		loonieRunSpeed = loonie.GetComponent<LoonieRace>().defaultSpeed;
 		playerRunSpeed = player.GetComponent<PlayerMovement>().runSpeed;
 	}
 	
@@ -25,7 +25,7 @@ public class Puddle : MonoBehaviour {
 	{
 	
 	}
-	
+
 	void OnTriggerEnter (Collider other)
 	{
 		if(other.gameObject == player)

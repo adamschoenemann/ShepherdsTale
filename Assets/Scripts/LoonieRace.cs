@@ -9,19 +9,28 @@ public class LoonieRace : MonoBehaviour {
 	
 	public float seeingThresh = 10.0f;
 	public float fieldOfView = 100.0f;
-	public float moveSpeed = 200.0f;
 	
+	public float moveSpeed;
+	public float defaultSpeed = 320.0f;
+	private float walkSpeed = 120.0f;
+	private float turboSpeed = 450.0f;
+	
+	private bool timerRunning = false;
 	private bool raceStart = false;
 	private GameObject player;
 	private GameObject raceCourse;
 	private GameObject [] wayPoints;
 	private int atWayPointIndex = 0;
+	
+	private Timer timerBoost = new Timer(5000);
 
 
 	
 	// Use this for initialization
 	void Start () 
 	{
+		moveSpeed = defaultSpeed;
+		
 		anim 		= GetComponent<Animator>();
 		
 		raceCourse 	= GameObject.FindGameObjectWithTag(Tags.raceCourse);
@@ -34,12 +43,41 @@ public class LoonieRace : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if(raceStart == true)
+		if(raceStart == true && raceCourse.GetComponent<RaceCourse>().IsGoalReached() == false)
+		{
 			Race(GetWayPointIndex());
+			
+			//if the loonie is behind then wait 5 seconds and start running faster
+			if(IsBehind() && raceStart && timerRunning == false)
+				timerRunning = true;
+			
+			if(timerRunning)
+			{
+				timerBoost.tickSeconds(Time.deltaTime);
+				
+				if(timerBoost.IsDone())
+					timerRunning = false;	
+			}
+			
+			if(timerBoost.IsDone() && IsBehind())
+			{
+				IncreaseSpeed();
+			}
+			else
+			{
+				DecreaseSpeed();
+			}
+			
+			//print("loonie moveSpeed: " + moveSpeed);
+		}
+		else if(raceCourse.GetComponent<RaceCourse>().IsGoalReached())
+		{
+			print ("make loonie walk to finish line");
+			Walk (wayPoints[wayPoints.Length-1].GetComponent<WayPoint>().wayPointPos);
+		}
 		else
 			IsPlayerStarted();
 		
-		print(GetWayPointIndex());
 	}
 	
 	void Race (int moveTowardsWayPoint)
@@ -47,6 +85,7 @@ public class LoonieRace : MonoBehaviour {
 		Run(wayPoints[moveTowardsWayPoint].GetComponent<WayPoint>().wayPointPos);
 		
 	}
+	
 	
 	void Run(Vector3 wayPointPosition)
 	{
@@ -61,6 +100,21 @@ public class LoonieRace : MonoBehaviour {
 			anim.SetBool("Run", false);
 	}
 	
+	void Walk(Vector3 wayPointPosition)
+	{
+		Vector3 deltaPos = wayPointPosition - transform.position;
+		rigidbody.velocity = deltaPos.normalized * moveSpeed * Time.deltaTime;
+		if(raceCourse.GetComponent<RaceCourse>().IsGoalReached())
+		{
+			moveSpeed = walkSpeed;
+			anim.SetBool("Run",false);
+			anim.SetBool("Walk", true);
+			transform.LookAt(wayPoints[wayPoints.Length-1].GetComponent<WayPoint>().wayPointPos);
+		}
+		else
+			anim.SetBool("Walk", false);
+	}
+	
 	int GetWayPointIndex ()
 	{
 		for(int i = 0; i < wayPoints.Length; i ++)
@@ -72,6 +126,27 @@ public class LoonieRace : MonoBehaviour {
 		}
 
 		return 0;
+	}
+	
+	void IncreaseSpeed ()
+	{
+		if(moveSpeed < turboSpeed)
+			moveSpeed += 0.5f;
+	}
+	
+	void DecreaseSpeed ()
+	{
+		if(raceCourse.GetComponent<RaceCourse>().IsInFront() == this.gameObject && moveSpeed > 320.0f)
+			moveSpeed -= 0.5f;
+	}
+	
+	//Is loonie in first place?
+	bool IsBehind ()
+	{
+		if(raceCourse.GetComponent<RaceCourse>().IsInFront() == this.gameObject)
+			return false;
+		else
+			return true;
 	}
 	
 	void IsPlayerStarted ()
@@ -90,7 +165,14 @@ public class LoonieRace : MonoBehaviour {
 		switch (collision.gameObject.tag)
 		{
 			case Tags.wayPoint:
-				Race (GetWayPointIndex());
+				if(raceCourse.GetComponent<RaceCourse>().IsGoalReached() == false)
+					Race(GetWayPointIndex());
+				else
+				{
+					anim.SetBool("Run", false);
+					anim.SetBool("Walk", false);
+					anim.SetBool("Idle", true);
+				}
 				break;
 			default:
 				break;
