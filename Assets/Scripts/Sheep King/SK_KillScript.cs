@@ -3,11 +3,14 @@ using UnityEngine;
 public class SK_KillScript : MonoBehaviour
 {
 	public float aimTime = 4.0f; // Seconds
-	public float stunTime = 5.0f; // Seconds
-	public float runSpeedMax = 8.5f; // Unit ?
+	public float stunTime = 2.5f; // Seconds
+	public float runSpeedMax = 20.0f; // UnityUnits/sec
 	public float runDistanceOvershootFactor = 0.2f; // How far beyond the target the SK should stop, as a fraction of the initial distance between SK and target.
-	public AnimationCurve runSpeedCurve;
 	public float turnSpeed = 3.0f;
+	public float rushDistance = 2.0f;
+	public float rushDelay = 2.0f; // Seconds into aim time before rushing is allowed
+	public AnimationCurve runSpeedCurve;
+	
 
 	private Vector3 runDirection;
 	private float timeSpentInState = 0.0f; // Seconds
@@ -31,8 +34,8 @@ public class SK_KillScript : MonoBehaviour
 
 	/*
 		TODO 
-		When player touches SK while aiming, make a short rush at the player, not slow running
-		Make throw-player-away thingy better.
+		Make throw-player-away thingy nicer.
+		Make encounters with the player do damage to the player.
 	*/
 
 	void Awake()
@@ -50,6 +53,9 @@ public class SK_KillScript : MonoBehaviour
 		};
 		mortal.onDeathHandler = (mortalInstance) => {
 			Destroy(this.gameObject);
+
+			// Insert winning consequence here, e.g. go to scene or something like that.
+			print("You won against the sheep king! Now celebrate with a happy ending!");
 		};
 
 		timer = new Timer(aimTime);
@@ -80,9 +86,13 @@ public class SK_KillScript : MonoBehaviour
 	private void Aim(){
 		LookAtLerp(player.transform.position);
 
-		if(timer.IsDone())// timeSpentInState > aimTime)
+		if(timer.IsDone())
 		{
 			StartRunning();
+		} 
+		else if(timer.GetElapsedSeconds() > rushDelay && (player.transform.position - transform.position).sqrMagnitude < (rushDistance * rushDistance))
+		{
+			StartRushing();
 		}
 	}
 	

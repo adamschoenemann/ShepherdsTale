@@ -14,7 +14,7 @@ SceneSettings:
 --- !u!104 &2
 RenderSettings:
   m_Fog: 1
-  m_FogColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
+  m_FogColor: {r: .917647064, g: .784313738, b: .784313738, a: 1}
   m_FogMode: 3
   m_FogDensity: .159999996
   m_LinearFogStart: 0
@@ -5386,6 +5386,18 @@ Prefab:
       propertyPath: health
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: ca9cc47a9a84f483db5f9d4c92fc0c8c, type: 2}
+      propertyPath: aimTime
+      value: 2.3599999
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: ca9cc47a9a84f483db5f9d4c92fc0c8c, type: 2}
+      propertyPath: stunTime
+      value: 2.29999995
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: ca9cc47a9a84f483db5f9d4c92fc0c8c, type: 2}
+      propertyPath: rushDistance
+      value: 4.55999994
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400002, guid: ca9cc47a9a84f483db5f9d4c92fc0c8c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ca9cc47a9a84f483db5f9d4c92fc0c8c, type: 2}
@@ -5468,10 +5480,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed70fe7af9734a009576546026a9dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aimTime: 4
-  stunTime: 5
+  aimTime: 2.3599999
+  stunTime: 2.29999995
   runSpeedMax: 20
   runDistanceOvershootFactor: .200000003
+  turnSpeed: 3
+  rushDistance: 4.55999994
+  rushDelay: 2
   runSpeedCurve:
     serializedVersion: 2
     m_Curve:
@@ -5497,7 +5512,6 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-  turnSpeed: 3
 --- !u!23 &1289663111
 Renderer:
   m_ObjectHideFlags: 0
@@ -6385,7 +6399,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .784313738, g: .784313738, b: .784313738, a: 0}
+  m_BackGroundColor: {r: .905882359, g: .784313738, b: .784313738, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -9254,6 +9268,28 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6331ab6fdeaa49ebb0a2efa9e635a5f, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 

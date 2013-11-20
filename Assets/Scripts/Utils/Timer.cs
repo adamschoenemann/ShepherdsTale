@@ -40,4 +40,9 @@ public class Timer
 	{
 		return elapsed / (float) duration;
 	}
+
+	public float GetElapsedSeconds()
+	{
+		return (float)(elapsed/1000.0f);
+	}
 }
