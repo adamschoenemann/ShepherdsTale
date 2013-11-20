@@ -33,6 +33,7 @@ public class WolfAnimation : MonoBehaviour
 			case State.Idle:
 				break;
 
+			case State.Chasing:
 			case State.Alerted:
 			case State.Returning:
 				anim.SetBool("running", true);
@@ -79,7 +80,7 @@ public class WolfAnimation : MonoBehaviour
 		// {
 		// 	anim.SetBool("walking", true);
 		// }
-		// else if(newState == State.Alerted)
+		// else if(newState == State.Chasing)
 		// {
 		// 	anim.SetBool("running", true);
 		// }
@@ -97,7 +98,7 @@ public class WolfAnimation : MonoBehaviour
 		// {
 		// 	anim.SetBool("walking", false);
 		// }
-		// else if(oldState == State.Alerted)
+		// else if(oldState == State.Chasing)
 		// {
 		// 	// anim.SetBool("running", false);
 		// }

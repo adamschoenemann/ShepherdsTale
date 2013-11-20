@@ -14,7 +14,7 @@ using Wolf;
  */
 namespace Wolf
 {
-	public enum State {Idle, Patrolling, Suspicious, Alerted, Engaging, Attacking, Returning};
+	public enum State {Idle, Patrolling, Suspicious, Alerted, Chasing, Engaging, Attacking, Returning};
 }
 
 [RequireComponent(typeof(WolfAnimation))]
@@ -58,6 +58,9 @@ public class WolfController : MonoBehaviour
 	public float distanceFromHomeThresh = 15.0f;
 
 	protected Timer suspiciousTimer;
+
+	protected Timer alertedTimer;
+
 	protected Mortal mortal;
 
 	private Timer attackTimer;
@@ -85,6 +88,7 @@ public class WolfController : MonoBehaviour
 		animation = GetComponent<WolfAnimation>();
 		patroller = GetComponent<Patroller>();
 		state = State.Patrolling;
+
 	}
 
 	protected virtual void Update()
@@ -99,36 +103,44 @@ public class WolfController : MonoBehaviour
 		{
 			case State.Idle:
 				if(IsPlayerAudible()) return State.Suspicious;
-				if(IsPlayerVisible()) return State.Alerted;
+				if(IsPlayerVisible()) return State.Chasing;
 				if(patroller.IsWaiting() == false) return State.Patrolling;
 				return State.Idle;
 				break;
 
 			case State.Patrolling:
 				if(IsPlayerAudible()) return State.Suspicious;
-				if(IsPlayerVisible()) return State.Alerted;
+				if(IsPlayerVisible()) return State.Chasing;
 				if(patroller.IsWaiting()) return State.Idle;
 				return State.Patrolling;
 				break;
 
 			case State.Suspicious:
-				if(IsPlayerVisible()) return State.Alerted;
+				if(IsPlayerVisible()) return State.Chasing;
 				if(IsPlayerAudible()) return State.Suspicious;
 				if(IsSuspiciousTimerDone()) return State.Returning;
 				return State.Suspicious;
 				break;
 
 			case State.Alerted:
-				if(IsPlayerVisible() == false) return State.Suspicious;
+				if(IsPlayerVisible()) return State.Chasing;
+				if(IsPlayerAudible()) return State.Chasing;
+				if(IsAlertedTimerDone()) return State.Suspicious;
+				if(IsLastKnownPosReached()) return State.Suspicious;
+				return State.Alerted;
+				break;
+
+			case State.Chasing:
+				if(IsPlayerVisible() == false) return State.Alerted;
 				if(IsTooFarAwayFromHome()) return State.Returning;
 				if(IsPlayerTooFarAway()) return State.Returning;
 				if(IsPlayerReached()) return State.Engaging;
-				return State.Alerted;
+				return State.Chasing;
 				break;
 
 			case State.Engaging:
 				if(IsPlayerReached()) return State.Attacking;
-				return State.Alerted;
+				return State.Chasing;
 				break;
 
 			case State.Attacking:
@@ -170,6 +182,10 @@ public class WolfController : MonoBehaviour
 				ChasePlayer();
 				break;
 
+			case State.Chasing:
+				ChasePlayer();
+				break;
+
 			case State.Engaging:
 				InitiateAttack();
 				break;
@@ -200,6 +216,10 @@ public class WolfController : MonoBehaviour
 		{
 			suspiciousTimer = null;
 		}
+		else if(oldState == State.Alerted)
+		{
+			alertedTimer = null;
+		}
 		else if(oldState == State.Idle || oldState == State.Patrolling)
 		{
 			patroller.StopPatrolling();
@@ -208,6 +228,10 @@ public class WolfController : MonoBehaviour
 		if(newState == State.Suspicious)
 		{
 			suspiciousTimer = new Timer(5000);
+		}
+		else if(newState == State.Alerted)
+		{
+			alertedTimer = new Timer(5000);
 		}
 		else if(newState == State.Idle)
 		{
@@ -227,6 +251,29 @@ public class WolfController : MonoBehaviour
 		if(distance < nearThresh)
 		{
 			return true;
+		}
+		return false;
+	}
+
+	protected virtual bool IsLastKnownPosReached()
+	{
+		float distance = (lastKnownPlayerPos - transform.position).magnitude;
+		if(distance < nearThresh)
+		{
+			return true;
+		}
+		return false;
+	}
+
+	protected virtual bool IsAlertedTimerDone()
+	{
+		if(alertedTimer != null)
+		{
+			alertedTimer.TickSeconds(Time.deltaTime);
+			if(alertedTimer.IsDone())
+			{
+				return true;
+			}
 		}
 		return false;
 	}
@@ -327,7 +374,11 @@ public class WolfController : MonoBehaviour
 
 //============================== ACTIONS =====================================//
 	
-
+	protected void MoveTowards(Vector3 target, float extraSpeed = 1.0f)
+	{
+		LookAtLerp(target);
+		rigidbody.velocity = transform.forward * moveSpeed * extraSpeed;
+	}
 
 	protected void InitiateAttack()
 	{
@@ -359,18 +410,58 @@ public class WolfController : MonoBehaviour
 		}
 	}
 
-
+	// TODO: Find a way to avoid the FUCKING TREES!!!
 	protected virtual void ChasePlayer()
 	{
-		LookAtLerp(player.transform.position);
-
-		rigidbody.velocity = (transform.forward * moveSpeed);
+		RaycastHit hit;
+		Vector3 origin = transform.position + Vector3.up;
+		Vector3 playerPos = player.transform.position;
+		playerPos.y = origin.y;
+		Vector3 direction = (playerPos - transform.position).normalized;
+		float thresh = 10.0f;
+		// Path to player blocked?
+		if(Physics.Raycast(origin, direction, out hit, thresh))
+		{
+			if(hit.collider.gameObject.tag != Tags.player)
+			{
+				// Find a way around object, plz
+				Vector3 newDirection = 
+					Utils.FindClearPathDirection(
+						origin, 
+						playerPos, 
+						new string[]{Tags.player}
+					);
+				newDirection.y = transform.position.y;
+				MoveTowards(transform.position + newDirection, 1.5f);
+				return;
+			}
+		}
+		MoveTowards(lastKnownPlayerPos);
 	}
 
+	/**
+	 * Obsolete in favor of Patroller
+	 */
 	protected virtual void ReturnToDefault()
 	{
-		LookAtLerp(defaultPosition);
-		rigidbody.velocity = (transform.forward * moveSpeed);
+		RaycastHit hit;
+		Vector3 origin = transform.position + Vector3.up;
+		Vector3 playerPos = player.transform.position + Vector3.up;
+		Vector3 between = (origin - playerPos);
+		Vector3 direction = between.normalized;
+
+		if(Physics.Raycast(origin, direction, out hit, between.magnitude))
+		{
+			Vector3 newDirection =
+				Utils.FindClearPathDirection(origin, playerPos);
+			newDirection.y = transform.position.y;
+			LookAtLerp(newDirection);
+			rigidbody.velocity = transform.forward * moveSpeed;
+		}
+		else
+		{
+			MoveTowards(defaultPosition);
+		}
 	}
 
 //============================== CALLBACKS ===================================//
