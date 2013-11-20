@@ -4,6 +4,154 @@
 		"selected_items":
 		[
 			[
+				"wa",
+				"waitTimer"
+			],
+			[
+				"last",
+				"lastPosition"
+			],
+			[
+				"way",
+				"waypointIndex"
+			],
+			[
+				"NavMe",
+				"NavMeshAgent"
+			],
+			[
+				"Nav",
+				"NavMeshAgent"
+			],
+			[
+				"pla",
+				"playerPos"
+			],
+			[
+				"be",
+				"between"
+			],
+			[
+				"Rayc",
+				"RaycastHit"
+			],
+			[
+				"player",
+				"playerPos"
+			],
+			[
+				"new",
+				"newDirection"
+			],
+			[
+				"re",
+				"retries"
+			],
+			[
+				"vect",
+				"Vector3"
+			],
+			[
+				"state",
+				"State"
+			],
+			[
+				"Chas",
+				"ChasePlayer"
+			],
+			[
+				"IsPla",
+				"IsPlayerAudible"
+			],
+			[
+				"co",
+				"collider"
+			],
+			[
+				"Ray",
+				"Ray	origin, direction"
+			],
+			[
+				"ResetA",
+				"ResetAnimationState"
+			],
+			[
+				"Ro",
+				"RotateTowards"
+			],
+			[
+				"wai",
+				"waitTimer"
+			],
+			[
+				"waitT",
+				"waitTimer"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"Patr",
+				"Patrolling"
+			],
+			[
+				"Pa",
+				"Patrolling"
+			],
+			[
+				"Goto",
+				"GoToPosition"
+			],
+			[
+				"LookAt",
+				"LookAtLerp"
+			],
+			[
+				"pre",
+				"prevState"
+			],
+			[
+				"ju",
+				"jumpingState"
+			],
+			[
+				"GetP",
+				"GetPrevStateIndex"
+			],
+			[
+				"idle",
+				"idleState"
+			],
+			[
+				"Add",
+				"AddAction"
+			],
+			[
+				"Play",
+				"PlayerState"
+			],
+			[
+				"idl",
+				"idleState"
+			],
+			[
+				"enga",
+				"engagedState"
+			],
+			[
+				"State",
+				"StateMachine"
+			],
+			[
+				"en",
+				"engagedState"
+			],
+			[
+				"Tran",
+				"Transition"
+			],
+			[
 				"Perf",
 				"PerformDelegate"
 			],
@@ -14,14 +162,6 @@
 			[
 				"Tra",
 				"Transition"
-			],
-			[
-				"wa",
-				"waypointIndex"
-			],
-			[
-				"Tran",
-				"Transform"
 			],
 			[
 				"Perform",
@@ -46,10 +186,6 @@
 			[
 				"GetM",
 				"GetMesh"
-			],
-			[
-				"pla",
-				"player"
 			],
 			[
 				"LookA",
@@ -80,10 +216,6 @@
 				"defaultPosition"
 			],
 			[
-				"new",
-				"newState"
-			],
-			[
 				"Upda",
 				"UpdateSuspiciousTimer"
 			],
@@ -106,14 +238,6 @@
 			[
 				"GetCo",
 				"GetComponent	type"
-			],
-			[
-				"player",
-				"playerController"
-			],
-			[
-				"Ray",
-				"Ray	origin, direction"
 			],
 			[
 				"Up",
@@ -238,10 +362,6 @@
 			[
 				"tr",
 				"true"
-			],
-			[
-				"re",
-				"return"
 			],
 			[
 				"collision",
@@ -394,50 +514,6 @@
 			[
 				"map_",
 				"map_test2"
-			],
-			[
-				"sr",
-				"struct"
-			],
-			[
-				"P",
-				"Printf"
-			],
-			[
-				"range",
-				"range_test"
-			],
-			[
-				"prin",
-				"Println"
-			],
-			[
-				"Pr",
-				"Println"
-			],
-			[
-				"c",
-				"cmplx"
-			],
-			[
-				"WINDOW_CLOS",
-				"WINDOW_CLOSING	int"
-			],
-			[
-				"HAI",
-				"HAIR_END	EHairColor"
-			],
-			[
-				"pre",
-				"_prev	LinkedList::Node *"
-			],
-			[
-				"be",
-				"begin()	LinkedList::Node"
-			],
-			[
-				"head",
-				"head	Node*"
 			]
 		]
 	},
@@ -455,47 +531,23 @@
 			"file": "Scripts/Patroller.cs",
 			"settings":
 			{
-				"buffer_size": 1874,
-				"line_ending": "Unix"
+				"buffer_size": 3037,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "Scripts/Utils/Utils.cs",
 			"settings":
 			{
-				"buffer_size": 879,
+				"buffer_size": 1867,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/F/Dropbox/Projects/Unity/first/Assets/StateMachine.cs",
+			"file": "Scripts/Waypoint.cs",
 			"settings":
 			{
-				"buffer_size": 2066,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/F/Dropbox/Projects/Unity/first/Assets/PlayerController.cs",
-			"settings":
-			{
-				"buffer_size": 386,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Scripts/NPCController.cs",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Scripts/WolfController.cs",
-			"settings":
-			{
-				"buffer_size": 9403,
+				"buffer_size": 150,
 				"line_ending": "Windows"
 			}
 		},
@@ -511,7 +563,7 @@
 			"file": "Scripts/WolfAnimation.cs",
 			"settings":
 			{
-				"buffer_size": 1313,
+				"buffer_size": 2196,
 				"line_ending": "Windows"
 			}
 		},
@@ -530,14 +582,42 @@
 				"buffer_size": 655,
 				"line_ending": "Windows"
 			}
+		},
+		{
+			"file": "Scripts/WolfController.cs",
+			"settings":
+			{
+				"buffer_size": 12901,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Scripts/NavMeshPatroller.cs",
+			"settings":
+			{
+				"buffer_size": 1971,
+				"line_ending": "Windows"
+			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 88.0,
+		"height": 288.0,
 		"selected_items":
 		[
+			[
+				"new fi",
+				"File: New File Relative to Current View"
+			],
+			[
+				"ref",
+				"Unity Reference: Search Selection"
+			],
+			[
+				"refe",
+				"Unity Reference: Search Selection"
+			],
 			[
 				"c#",
 				"Set Syntax: C#"
@@ -553,14 +633,6 @@
 			[
 				"rena",
 				"File: Rename"
-			],
-			[
-				"ref",
-				"Unity Reference: Search Selection"
-			],
-			[
-				"refe",
-				"Unity Reference: Search Selection"
 			],
 			[
 				"makrd",
@@ -589,10 +661,6 @@
 			[
 				"package",
 				"Package Control: Discover Packages"
-			],
-			[
-				"new fi",
-				"File: New File Relative to Current View"
 			],
 			[
 				"rei",
@@ -867,7 +935,7 @@
 				"Package Control: Remove Package"
 			]
 		],
-		"width": 485.0
+		"width": 568.0
 	},
 	"console":
 	{
@@ -884,9 +952,16 @@
 	},
 	"file_history":
 	[
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Wolf/WolfNavAgent.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/WolfController.cs",
+		"/F/Dropbox/Projects/Unity/first/Assets/NavAgentController.cs",
+		"/F/Dropbox/Projects/Unity/first/Assets/PlayerController.cs",
+		"/F/Dropbox/Projects/Unity/first/Assets/StateMachine.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Player/PlayerController.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Obsolete/StateMachine.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/NPCController.cs",
 		"/F/Dropbox/Projects/Unity/first/Assets/PlayerController.c",
 		"/F/Dropbox/Projects/Unity/first/Assets/PlayerController.js",
-		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Obsolete/StateMachine.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Player/PlayerMovement.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Obsolete/FiniteStateMachine.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Utils.meta",
@@ -894,7 +969,6 @@
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Agent.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Noises/NoiseManager.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/HealthBar.cs",
-		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Player/PlayerController.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Player/PlayerAnimation.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/WolfAnimation.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Mortal.cs",
@@ -906,7 +980,6 @@
 		"/F/Dropbox/Programs/SublimeText/Data/Packages/User/Default (Windows).sublime-keymap",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/WolfController.cs.meta",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Models/WolfController.controller",
-		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/WolfController.cs",
 		"/F/Dropbox/Programs/SublimeText/Data/Packages/Navigation History/Default (Windows).sublime-keymap",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/IMortal.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/PlayerMovement.cs",
@@ -1006,12 +1079,7 @@
 		"/F/Dropbox/Projects/TimeForTV/TimeForTV/proguard.cfg",
 		"/F/Dropbox/MED4/OOSE/3/ATM/src/BankAccount.java",
 		"/F/Dropbox/MED4/OOSE/3/ATM/src/Transaction.java",
-		"/F/Dropbox/MED4/OOSE/3/ATM/src/ATM.java",
-		"/F/Dropbox/MED4/OOSE/3/ATM/src/Bank.java",
-		"/F/Dropbox/MED4/OOSE/3/ATM/src/Keyboard.java",
-		"/F/Dropbox/Programs/SublimeText/Data/Packages/SublimeAStyleFormatter/SublimeAStyleFormatter.sublime-settings",
-		"/F/Dropbox/Projects/TimeForTV/TimeForTV/bin/AndroidManifest.xml",
-		"/F/Downloads/dBpoweramp Music Converter (dMC) R14.3 Final Registered [h33t][iahq76]/ReadMe!.txt"
+		"/F/Dropbox/MED4/OOSE/3/ATM/src/ATM.java"
 	],
 	"find":
 	{
@@ -1029,6 +1097,34 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"patroller",
+			"Patroller",
+			"Transform",
+			"print",
+			"FindWayAround",
+			"Alerted",
+			"susp",
+			"timer",
+			"suspiciousTimer",
+			"State.Alerted",
+			"ChasePlayer",
+			"IsReturnedHome",
+			"if",
+			"moveSpeed",
+			"running",
+			"break",
+			"void",
+			"Perform",
+			"idleState",
+			"Engaged",
+			"n",
+			"WhenInput",
+			"Transition",
+			"transitions",
+			"List<Action>",
+			"List",
+			"List<Transition>",
+			"List",
 			"Using",
 			"private",
 			"0",
@@ -1128,35 +1224,7 @@
 			"\\n+",
 			"\\n",
 			"\\r\\n",
-			"\\n\\r",
-			"\\r",
-			"\\n\\r",
-			"\\n",
-			"\\r\\n\\r\\n",
-			"Logger",
-			"Log",
-			"CanSeePlayer",
-			"IsNearPlayer",
-			"other",
-			"if",
-			"width",
-			"offset",
-			"c",
-			"y",
-			"MonoBehaviour",
-			"M",
-			"FaceCamera",
-			"C",
-			"=",
-			"Math",
-			"0.",
-			"speed",
-			"s",
-			"ProjectToPlane",
-			"Proj",
-			"shepherdController",
-			"return",
-			"="
+			"\\n\\r"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1238,15 +1306,15 @@
 					"file": "Scripts/Patroller.cs",
 					"settings":
 					{
-						"buffer_size": 1874,
+						"buffer_size": 3037,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								395,
-								395
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1255,7 +1323,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 90.0,
+						"translation.y": 1335.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1265,15 +1333,15 @@
 					"file": "Scripts/Utils/Utils.cs",
 					"settings":
 					{
-						"buffer_size": 879,
+						"buffer_size": 1867,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								879,
+								879
 							]
 						],
 						"settings":
@@ -1289,50 +1357,18 @@
 				},
 				{
 					"buffer": 3,
-					"file": "/F/Dropbox/Projects/Unity/first/Assets/StateMachine.cs",
+					"file": "Scripts/Waypoint.cs",
 					"settings":
 					{
-						"buffer_size": 2066,
+						"buffer_size": 150,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								250,
-								250
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Unity3D/UnityC#.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 4,
-					"file": "/F/Dropbox/Projects/Unity/first/Assets/PlayerController.cs",
-					"settings":
-					{
-						"buffer_size": 386,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								350,
-								350
+								85,
+								85
 							]
 						],
 						"settings":
@@ -1344,63 +1380,15 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 4,
+			"sheets":
+			[
 				{
-					"buffer": 5,
-					"file": "Scripts/NPCController.cs",
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "Scripts/WolfController.cs",
-					"settings":
-					{
-						"buffer_size": 9403,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								748,
-								748
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 535.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
+					"buffer": 4,
 					"file": "Scripts/AttackCollider.cs",
 					"settings":
 					{
@@ -1427,19 +1415,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 5,
 					"file": "Scripts/WolfAnimation.cs",
 					"settings":
 					{
-						"buffer_size": 1313,
+						"buffer_size": 2196,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								574,
-								574
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1448,13 +1436,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 90.0,
+						"translation.y": 199.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 6,
 					"file": "Scripts/Staff.cs",
 					"settings":
 					{
@@ -1481,7 +1469,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 7,
 					"file": "Scripts/Utils/Timer.cs",
 					"settings":
 					{
@@ -1492,8 +1480,8 @@
 						"selection":
 						[
 							[
-								398,
-								398
+								469,
+								469
 							]
 						],
 						"settings":
@@ -1503,6 +1491,87 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "Scripts/WolfController.cs",
+					"settings":
+					{
+						"buffer_size": 12901,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								185,
+								185
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "Scripts/NavMeshPatroller.cs",
+					"settings":
+					{
+						"buffer_size": 1971,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1418,
+								1418
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 630.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Scripts/Patroller.cs",
+					"settings":
+					{
+						"buffer_size": 3037,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1343,
+								1343
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 540.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1538,7 +1607,7 @@
 		"cols":
 		[
 			0.0,
-			0.489261378595,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -1571,6 +1640,18 @@
 		"selected_items":
 		[
 			[
+				"patr",
+				"Scripts/Patroller.cs"
+			],
+			[
+				"wolfcon",
+				"Scripts/WolfController.cs"
+			],
+			[
+				"playercon",
+				"Scripts/Player/PlayerController.cs"
+			],
+			[
 				"state",
 				"Scripts/Obsolete/StateMachine.cs"
 			],
@@ -1581,10 +1662,6 @@
 			[
 				"utils",
 				"Scripts/Utils/Utils.cs"
-			],
-			[
-				"patr",
-				"Scripts/Patroller.cs"
 			],
 			[
 				"mort",
@@ -1623,10 +1700,6 @@
 				"Scripts/Enemy.cs"
 			],
 			[
-				"wolfcon",
-				"Scripts/WolfController.cs"
-			],
-			[
 				"wolf",
 				"Models/WolfController.controller"
 			],
@@ -1637,10 +1710,6 @@
 			[
 				"playerani",
 				"Scripts/Player/PlayerAnimation.cs"
-			],
-			[
-				"playercon",
-				"Scripts/Player/PlayerController.cs"
 			],
 			[
 				"tags",

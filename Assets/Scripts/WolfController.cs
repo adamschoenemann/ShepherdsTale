@@ -5,11 +5,7 @@ using Wolf;
 
 /**
  * Controls the wolf
- * TODO: AI still needs some work.
- * 			 Patrolling still needs to be implemented.
- * 			 Listening and luring.
- * 			 Attacking and dying. <---- this
- * 			 Navigating around obstacles
+ * TODO: Redo much of the code to take advantage of the NavMeshAgent
  * @type {[type]}
  */
 namespace Wolf
@@ -18,8 +14,9 @@ namespace Wolf
 }
 
 [RequireComponent(typeof(WolfAnimation))]
-[RequireComponent(typeof(Patroller))]
+[RequireComponent(typeof(NavMeshPatroller))]
 [RequireComponent(typeof(Mortal))]
+[RequireComponent(typeof(NavMeshAgent))]
 public class WolfController : MonoBehaviour
 {
 
@@ -67,7 +64,9 @@ public class WolfController : MonoBehaviour
 	private GameObject attacker;
 
 	private WolfAnimation animation;
-	private Patroller patroller;
+	private NavMeshPatroller patroller;
+
+	private NavMeshAgent agent;
 
 //============================================================================//
 //============================== METHODS =====================================//
@@ -86,7 +85,9 @@ public class WolfController : MonoBehaviour
 		defaultRotation = transform.rotation;
 
 		animation = GetComponent<WolfAnimation>();
-		patroller = GetComponent<Patroller>();
+		patroller = GetComponent<NavMeshPatroller>();
+		agent = GetComponent<NavMeshAgent>();
+
 		state = State.Patrolling;
 
 	}
@@ -150,7 +151,7 @@ public class WolfController : MonoBehaviour
 				break;
 
 			case State.Returning:
-				if(patroller.IsReturnedHome(Time.deltaTime * moveSpeed)) return State.Patrolling;
+				if(patroller.IsReturnedHome()) return State.Patrolling;
 				return State.Returning;
 				break;
 
@@ -170,8 +171,7 @@ public class WolfController : MonoBehaviour
 				break;
 
 			case State.Patrolling:
-				patroller.GoToWaypoint();
-				patroller.GetNextWaypoint();
+				patroller.Patrol();
 				break;
 
 			case State.Suspicious:
@@ -196,7 +196,7 @@ public class WolfController : MonoBehaviour
 
 			case State.Returning:
 				// ReturnToDefault();
-				patroller.ReturnToLastPosition(moveSpeed);
+				patroller.ReturnToLastPosition();
 				break;
 		}
 	}
@@ -223,6 +223,11 @@ public class WolfController : MonoBehaviour
 		else if(oldState == State.Idle || oldState == State.Patrolling)
 		{
 			patroller.StopPatrolling();
+		}
+		else if(oldState == State.Chasing || oldState == State.Returning)
+		{
+			agent.Stop();
+			agent.ResetPath();
 		}
 		
 		if(newState == State.Suspicious)
@@ -413,34 +418,36 @@ public class WolfController : MonoBehaviour
 	// TODO: Find a way to avoid the FUCKING TREES!!!
 	protected virtual void ChasePlayer()
 	{
-		RaycastHit hit;
-		Vector3 origin = transform.position + Vector3.up;
-		Vector3 playerPos = player.transform.position;
-		playerPos.y = origin.y;
-		Vector3 direction = (playerPos - transform.position).normalized;
-		float thresh = 10.0f;
-		// Path to player blocked?
-		if(Physics.Raycast(origin, direction, out hit, thresh))
-		{
-			if(hit.collider.gameObject.tag != Tags.player)
-			{
-				// Find a way around object, plz
-				Vector3 newDirection = 
-					Utils.FindClearPathDirection(
-						origin, 
-						playerPos, 
-						new string[]{Tags.player}
-					);
-				newDirection.y = transform.position.y;
-				MoveTowards(transform.position + newDirection, 1.5f);
-				return;
-			}
-		}
-		MoveTowards(lastKnownPlayerPos);
+		agent.SetDestination(player.transform.position);
+
+		// RaycastHit hit;
+		// Vector3 origin = transform.position + Vector3.up;
+		// Vector3 playerPos = player.transform.position;
+		// playerPos.y = origin.y;
+		// Vector3 direction = (playerPos - transform.position).normalized;
+		// float thresh = 10.0f;
+		// // Path to player blocked?
+		// if(Physics.Raycast(origin, direction, out hit, thresh))
+		// {
+		// 	if(hit.collider.gameObject.tag != Tags.player)
+		// 	{
+		// 		// Find a way around object, plz
+		// 		Vector3 newDirection = 
+		// 			Utils.FindClearPathDirection(
+		// 				origin, 
+		// 				playerPos, 
+		// 				new string[]{Tags.player}
+		// 			);
+		// 		newDirection.y = transform.position.y;
+		// 		MoveTowards(transform.position + newDirection, 1.5f);
+		// 		return;
+		// 	}
+		// }
+		// MoveTowards(lastKnownPlayerPos);
 	}
 
 	/**
-	 * Obsolete in favor of Patroller
+	 * Obsolete in favor of NavMeshPatroller
 	 */
 	protected virtual void ReturnToDefault()
 	{
