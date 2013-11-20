@@ -506,6 +506,7 @@ GameObject:
   - 54: {fileID: 134319349}
   - 136: {fileID: 134319350}
   - 114: {fileID: 134319351}
+  - 114: {fileID: 134319352}
   m_Layer: 0
   m_Name: Loonie_prefab
   m_TagString: Untagged
@@ -624,6 +625,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 134319346}
+--- !u!114 &134319352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 134319344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743937439ed01514697107f87d223d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  target: {fileID: 0}
+  smooth: 5
 --- !u!1 &135304234
 GameObject:
   m_ObjectHideFlags: 0
@@ -11469,7 +11484,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400124, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 260.262207
+      value: 257.253204
       objectReference: {fileID: 0}
     - target: {fileID: 400124, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
       propertyPath: m_LocalPosition.y
@@ -11477,7 +11492,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400124, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 445.253754
+      value: 426.231842
       objectReference: {fileID: 0}
     - target: {fileID: 400124, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
       propertyPath: m_LocalRotation.x
@@ -11485,7 +11500,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400124, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -.97591877
+      value: .24200885
       objectReference: {fileID: 0}
     - target: {fileID: 400124, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
       propertyPath: m_LocalRotation.z
@@ -11493,7 +11508,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400124, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .218134299
+      value: .970274091
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
       propertyPath: sneakSpeed
@@ -11759,8 +11774,8 @@ Transform:
   m_PrefabParentObject: {fileID: 400124, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
   m_PrefabInternal: {fileID: 2025588932}
   m_GameObject: {fileID: 2055785871}
-  m_LocalRotation: {x: 0, y: -.97591877, z: 0, w: .218134299}
-  m_LocalPosition: {x: 260.262207, y: 0, z: 445.253754}
+  m_LocalRotation: {x: 0, y: .24200885, z: 0, w: .970274091}
+  m_LocalPosition: {x: 257.253204, y: 0, z: 426.231842}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1583723435}
