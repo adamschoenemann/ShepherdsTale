@@ -193,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeSize: 100
   nodesPerSecond: 1
-  inputPrecision: .166666999
+  inputPrecision: .333333313
   qteList: {fileID: 4900000, guid: aa2105002c34e4fe88ca9039247a80ec, type: 3}
   eventStyle:
     m_Name: 
