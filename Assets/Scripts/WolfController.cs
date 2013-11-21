@@ -206,10 +206,11 @@ public class WolfController : MonoBehaviour
 		print("State change from: " + oldState + " to " + newState);
 		if(oldState == State.Returning)
 		{
-			if(newState == State.Patrolling){
+			if(newState == State.Patrolling)
+			{
 				// transform.position = defaultPosition;
-				transform.position = patroller.lastPosition;
-				rigidbody.velocity = Vector3.zero;
+				// transform.position = patroller.lastPosition;
+				// rigidbody.velocity = Vector3.zero;
 			}
 		}
 		else if(oldState == State.Suspicious)
@@ -241,6 +242,14 @@ public class WolfController : MonoBehaviour
 		else if(newState == State.Idle)
 		{
 			lastKnownPlayerPos = Vector3.zero;
+		}
+		else if(newState == State.Attacking || newState == State.Engaging)
+		{
+			patroller.StopPatrolling();
+		}
+		else if(newState == State.Patrolling)
+		{
+			patroller.StopPatrolling();
 		}
 
 		animation.OnStateChange(oldState, newState);
@@ -392,18 +401,17 @@ public class WolfController : MonoBehaviour
 		Vector3 startPosition = transform.position;
 		Vector3 attackPosition = transform.position + transform.forward;
 		attackTimer = new Timer(attackTime);
-		attackTimer.onTick = (timer, interval) => {
-			float progress = timer.GetProgress();
-			// print(progress);
-			if(progress < 0.2f)
-			{
-				transform.position = Vector3.Lerp(transform.position, attackPosition, progress);
-			}
-			else
-			{
-				transform.position = Vector3.Lerp(transform.position, startPosition, progress);
-			}
-		};
+		// attackTimer.onTick = (timer, interval) => {
+		// 	float progress = timer.GetProgress();
+		// 	if(progress < 0.2f)
+		// 	{
+		// 		transform.position = Vector3.Lerp(transform.position, attackPosition, progress);
+		// 	}
+		// 	else
+		// 	{
+		// 		transform.position = Vector3.Lerp(transform.position, startPosition, progress);
+		// 	}
+		// };
 	}
 
 	protected void TickAttack()

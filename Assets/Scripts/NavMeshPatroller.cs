@@ -18,7 +18,6 @@ public class NavMeshPatroller : MonoBehaviour
 		lastPosition = transform.position;
 		lastRotation = transform.rotation;
 		currentWaypoint = waypointContainer.GetChild(waypointIndex).GetComponent<Waypoint>();
-
 		agent = GetComponent<NavMeshAgent>();
 	}
 
@@ -42,8 +41,14 @@ public class NavMeshPatroller : MonoBehaviour
 
 	public void StopPatrolling()
 	{
-		agent.Stop();
-		agent.ResetPath();
+		if(agent == null)
+			return;
+
+		if(agent.hasPath == true)
+		{
+			agent.Stop();
+			agent.ResetPath();
+		}
 		lastPosition = transform.position;
 		lastRotation = transform.rotation;
 	}
@@ -51,6 +56,7 @@ public class NavMeshPatroller : MonoBehaviour
 	public void StartPatrolling()
 	{
 		agent.SetDestination(currentWaypoint.transform.position);
+		agent.Resume();
 	}
 
 	public void ReturnToLastPosition()
@@ -73,7 +79,7 @@ public class NavMeshPatroller : MonoBehaviour
 
 	public bool IsReturnedHome()
 	{
-		return (agent.hasPath || (transform.position - lastPosition).magnitude <= float.Epsilon);
+		return ((transform.position - lastPosition).magnitude <= float.Epsilon);
 	}
 
 	public void Patrol()
