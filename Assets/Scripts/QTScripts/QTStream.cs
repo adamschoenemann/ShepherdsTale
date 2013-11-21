@@ -34,7 +34,7 @@ public class QTStream {
 
 	public void Draw(int xCenter, int yCenter)
 	{
-		float progress = GetCurrentProgress();
+		float progress = GetProgress();
 
 		for(int i = 0; i < nodes.Length; i++)
 		{
@@ -46,11 +46,15 @@ public class QTStream {
 
 	public KeyCode GetCurrentKeyCode()
 	{
-		int currentIndex = (int)GetCurrentProgress();
+		int currentIndex = (int)GetProgress();
+		return GetKeyCode(currentIndex);
+	}
 
-		if(currentIndex >= 0 && currentIndex < nodes.Length)
+	public KeyCode GetKeyCode(int index)
+	{
+		if(index >= 0 && index < nodes.Length)
 		{
-			return nodes[currentIndex].GetKeyCode();
+			return nodes[index].GetKeyCode();
 		}
 		else
 		{
@@ -58,7 +62,7 @@ public class QTStream {
 		}
 	}
 
-	private float GetCurrentProgress()
+	public float GetProgress()
 	{
 		return (float)(timePassedMillis * speed) / 1000.0f;
 	}
