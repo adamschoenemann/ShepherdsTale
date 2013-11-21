@@ -9,9 +9,10 @@ public class QTStream {
 	private float speed; // Node widths per second
 	private long timePassedMillis = 0L;
 	private int nodeSize;
+	private int xOffset;
 
 
-	public QTStream(TextAsset input, float speed, int nodeSize)
+	public QTStream(TextAsset input, float speed, int nodeSize, int xOffset)
 	{
 		// Parse input
 		string text = input.text;
@@ -25,6 +26,7 @@ public class QTStream {
 
 		this.speed = speed;
 		this.nodeSize = nodeSize;
+		this.xOffset = xOffset;
 	}
 	
 	// Update is called once per frame
@@ -36,12 +38,22 @@ public class QTStream {
 	{
 		float progress = GetProgress();
 
+		Color col = GUI.color;
+
 		for(int i = 0; i < nodes.Length; i++)
 		{
-			int x = (int)((i - progress) * nodeSize + (xCenter - (nodeSize / 2)));
-			Rect rect = new Rect(x, yCenter - nodeSize/2, nodeSize, nodeSize);
+			int x = (int)((i - progress) * nodeSize + (xCenter - (nodeSize / 2))) + xOffset;
+			float alpha = System.Math.Max( 1.0f  - (System.Math.Abs(xCenter  - nodeSize/2 - x))/ (float)(3*nodeSize), 0.0f); // More alpha when in centre, less otherwise
+
+			col.a = alpha;
+			GUI.color = col;
+
+			Rect rect = new Rect(x + xOffset, yCenter - nodeSize/2, nodeSize, nodeSize);
 			nodes[i].Draw(rect);
 		}
+
+		col.a = 1.0f;
+		GUI.color = col;
 	}
 
 	public KeyCode GetCurrentKeyCode()

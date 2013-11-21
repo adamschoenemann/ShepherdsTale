@@ -162,6 +162,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 770261868}
   - 114: {fileID: 770261869}
+  - 82: {fileID: 770261870}
+  - 114: {fileID: 770261871}
   m_Layer: 0
   m_Name: QuickTimeEvents
   m_TagString: Untagged
@@ -194,7 +196,7 @@ MonoBehaviour:
   nodeSize: 100
   nodesPerSecond: 1
   inputPrecision: .333333313
-  qteList: {fileID: 4900000, guid: aa2105002c34e4fe88ca9039247a80ec, type: 3}
+  quickTimeEventList: {fileID: 4900000, guid: aa2105002c34e4fe88ca9039247a80ec, type: 3}
   eventStyle:
     m_Name: 
     m_Normal:
@@ -313,3 +315,75 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  audio: {fileID: 770261871}
+--- !u!82 &770261870
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 770261867}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: a7a6805b5208c43a780ccc11d7447422, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!114 &770261871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 770261867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54fea37d6ae884d0bb34ec07a2eadda5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  failSound: {fileID: 770261870}
+  correctSound: {fileID: 0}
