@@ -204,16 +204,8 @@ public class WolfController : MonoBehaviour
 	protected virtual void OnStateChange(State oldState, State newState)
 	{
 		print("State change from: " + oldState + " to " + newState);
-		if(oldState == State.Returning)
-		{
-			if(newState == State.Patrolling)
-			{
-				// transform.position = defaultPosition;
-				// transform.position = patroller.lastPosition;
-				// rigidbody.velocity = Vector3.zero;
-			}
-		}
-		else if(oldState == State.Suspicious)
+
+		if(oldState == State.Suspicious)
 		{
 			suspiciousTimer = null;
 		}
@@ -225,12 +217,7 @@ public class WolfController : MonoBehaviour
 		{
 			patroller.StopPatrolling();
 		}
-		else if(oldState == State.Chasing || oldState == State.Returning)
-		{
-			agent.Stop();
-			agent.ResetPath();
-		}
-		
+
 		if(newState == State.Suspicious)
 		{
 			suspiciousTimer = new Timer(5000);
@@ -239,17 +226,13 @@ public class WolfController : MonoBehaviour
 		{
 			alertedTimer = new Timer(5000);
 		}
-		else if(newState == State.Idle)
+		else if(newState == State.Idle || newState == State.Patrolling)
 		{
 			lastKnownPlayerPos = Vector3.zero;
 		}
-		else if(newState == State.Attacking || newState == State.Engaging)
-		{
-			patroller.StopPatrolling();
-		}
 		else if(newState == State.Patrolling)
 		{
-			patroller.StopPatrolling();
+			patroller.StartPatrolling();
 		}
 
 		animation.OnStateChange(oldState, newState);
@@ -262,7 +245,7 @@ public class WolfController : MonoBehaviour
 	protected virtual bool IsPlayerReached()
 	{
 		float distance = (player.transform.position - transform.position).magnitude;
-		if(distance < nearThresh)
+		if(distance < nearThresh + 0.2)
 		{
 			return true;
 		}
@@ -388,6 +371,10 @@ public class WolfController : MonoBehaviour
 
 //============================== ACTIONS =====================================//
 	
+	/**
+	 * Not in use currently, in favor of NavMeshAgent
+	 * @type {[type]}
+	 */
 	protected void MoveTowards(Vector3 target, float extraSpeed = 1.0f)
 	{
 		LookAtLerp(target);
@@ -401,17 +388,17 @@ public class WolfController : MonoBehaviour
 		Vector3 startPosition = transform.position;
 		Vector3 attackPosition = transform.position + transform.forward;
 		attackTimer = new Timer(attackTime);
-		// attackTimer.onTick = (timer, interval) => {
-		// 	float progress = timer.GetProgress();
-		// 	if(progress < 0.2f)
-		// 	{
-		// 		transform.position = Vector3.Lerp(transform.position, attackPosition, progress);
-		// 	}
-		// 	else
-		// 	{
-		// 		transform.position = Vector3.Lerp(transform.position, startPosition, progress);
-		// 	}
-		// };
+		attackTimer.onTick = (timer, interval) => {
+			float progress = timer.GetProgress();
+			if(progress < 0.2f)
+			{
+				transform.position = Vector3.Lerp(transform.position, attackPosition, progress);
+			}
+			else
+			{
+				transform.position = Vector3.Lerp(transform.position, startPosition, progress);
+			}
+		};
 	}
 
 	protected void TickAttack()

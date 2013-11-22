@@ -4,24 +4,20 @@
 		"selected_items":
 		[
 			[
-				"wa",
-				"waitTimer"
+				"Star",
+				"StopPatrolling"
 			],
 			[
-				"last",
-				"lastPosition"
+				"Stop",
+				"StopPatrolling"
 			],
 			[
-				"way",
-				"waypointIndex"
+				"Chas",
+				"Chasing"
 			],
 			[
-				"NavMe",
-				"NavMeshAgent"
-			],
-			[
-				"Nav",
-				"NavMeshAgent"
+				"new",
+				"newState"
 			],
 			[
 				"pla",
@@ -40,10 +36,6 @@
 				"playerPos"
 			],
 			[
-				"new",
-				"newDirection"
-			],
-			[
 				"re",
 				"retries"
 			],
@@ -56,12 +48,12 @@
 				"State"
 			],
 			[
-				"Chas",
-				"ChasePlayer"
-			],
-			[
 				"IsPla",
 				"IsPlayerAudible"
+			],
+			[
+				"last",
+				"lastKnownPlayerPos"
 			],
 			[
 				"co",
@@ -162,6 +154,10 @@
 			[
 				"Tra",
 				"Transition"
+			],
+			[
+				"wa",
+				"waypointIndex"
 			],
 			[
 				"Perform",
@@ -514,6 +510,10 @@
 			[
 				"map_",
 				"map_test2"
+			],
+			[
+				"sr",
+				"struct"
 			]
 		]
 	},
@@ -532,7 +532,7 @@
 			"settings":
 			{
 				"buffer_size": 3037,
-				"line_ending": "Windows"
+				"line_ending": "Unix"
 			}
 		},
 		{
@@ -540,6 +540,22 @@
 			"settings":
 			{
 				"buffer_size": 1867,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Scripts/NavMeshPatroller.cs",
+			"settings":
+			{
+				"buffer_size": 2041,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Scripts/WolfController.cs",
+			"settings":
+			{
+				"buffer_size": 12738,
 				"line_ending": "Windows"
 			}
 		},
@@ -552,18 +568,10 @@
 			}
 		},
 		{
-			"file": "Scripts/AttackCollider.cs",
-			"settings":
-			{
-				"buffer_size": 462,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "Scripts/WolfAnimation.cs",
 			"settings":
 			{
-				"buffer_size": 2196,
+				"buffer_size": 2199,
 				"line_ending": "Windows"
 			}
 		},
@@ -584,32 +592,28 @@
 			}
 		},
 		{
-			"file": "Scripts/WolfController.cs",
+			"file": "Scripts/AttackCollider.cs",
 			"settings":
 			{
-				"buffer_size": 12901,
-				"line_ending": "Windows"
+				"buffer_size": 404,
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Scripts/NavMeshPatroller.cs",
+			"file": "Scripts/WolfSpotLight.cs",
 			"settings":
 			{
-				"buffer_size": 1971,
-				"line_ending": "Windows"
+				"buffer_size": 409,
+				"line_ending": "Unix"
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 288.0,
+		"height": 374.0,
 		"selected_items":
 		[
-			[
-				"new fi",
-				"File: New File Relative to Current View"
-			],
 			[
 				"ref",
 				"Unity Reference: Search Selection"
@@ -661,6 +665,10 @@
 			[
 				"package",
 				"Package Control: Discover Packages"
+			],
+			[
+				"new fi",
+				"File: New File Relative to Current View"
 			],
 			[
 				"rei",
@@ -935,7 +943,7 @@
 				"Package Control: Remove Package"
 			]
 		],
-		"width": 568.0
+		"width": 474.0
 	},
 	"console":
 	{
@@ -952,9 +960,7 @@
 	},
 	"file_history":
 	[
-		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Wolf/WolfNavAgent.cs",
-		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/WolfController.cs",
-		"/F/Dropbox/Projects/Unity/first/Assets/NavAgentController.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/AttackCollider.cs",
 		"/F/Dropbox/Projects/Unity/first/Assets/PlayerController.cs",
 		"/F/Dropbox/Projects/Unity/first/Assets/StateMachine.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Player/PlayerController.cs",
@@ -980,6 +986,7 @@
 		"/F/Dropbox/Programs/SublimeText/Data/Packages/User/Default (Windows).sublime-keymap",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/WolfController.cs.meta",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Models/WolfController.controller",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/WolfController.cs",
 		"/F/Dropbox/Programs/SublimeText/Data/Packages/Navigation History/Default (Windows).sublime-keymap",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/IMortal.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/PlayerMovement.cs",
@@ -1079,7 +1086,8 @@
 		"/F/Dropbox/Projects/TimeForTV/TimeForTV/proguard.cfg",
 		"/F/Dropbox/MED4/OOSE/3/ATM/src/BankAccount.java",
 		"/F/Dropbox/MED4/OOSE/3/ATM/src/Transaction.java",
-		"/F/Dropbox/MED4/OOSE/3/ATM/src/ATM.java"
+		"/F/Dropbox/MED4/OOSE/3/ATM/src/ATM.java",
+		"/F/Dropbox/MED4/OOSE/3/ATM/src/Bank.java"
 	],
 	"find":
 	{
@@ -1097,9 +1105,11 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			"patroller",
-			"Patroller",
-			"Transform",
+			"MoveTowards",
+			"veloci",
+			"vekicu",
+			"StopPa",
+			"agent",
 			"print",
 			"FindWayAround",
 			"Alerted",
@@ -1222,9 +1232,7 @@
 			"dbCommand",
 			"yourPassword",
 			"\\n+",
-			"\\n",
-			"\\r\\n",
-			"\\n\\r"
+			"\\n"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1313,8 +1321,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								2176,
+								2176
 							]
 						],
 						"settings":
@@ -1323,7 +1331,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1335.0,
+						"translation.y": 1440.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1340,8 +1348,8 @@
 						"selection":
 						[
 							[
-								879,
-								879
+								1664,
+								1664
 							]
 						],
 						"settings":
@@ -1350,33 +1358,34 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 484.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "Scripts/Waypoint.cs",
+					"file": "Scripts/NavMeshPatroller.cs",
 					"settings":
 					{
-						"buffer_size": 150,
+						"buffer_size": 2041,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								85,
-								85
+								1441,
+								1441
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C#/C#.tmLanguage"
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 615.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1384,23 +1393,23 @@
 			]
 		},
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 4,
-					"file": "Scripts/AttackCollider.cs",
+					"file": "Scripts/WolfController.cs",
 					"settings":
 					{
-						"buffer_size": 462,
+						"buffer_size": 12738,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								139,
-								139
+								8010,
+								8010
 							]
 						],
 						"settings":
@@ -1409,17 +1418,17 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3214.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "Scripts/WolfAnimation.cs",
+					"file": "Scripts/Waypoint.cs",
 					"settings":
 					{
-						"buffer_size": 2196,
+						"buffer_size": 150,
 						"regions":
 						{
 						},
@@ -1432,17 +1441,43 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/C#/C#.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 199.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 6,
+					"file": "Scripts/WolfAnimation.cs",
+					"settings":
+					{
+						"buffer_size": 2199,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								78,
+								78
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 37.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
 					"file": "Scripts/Staff.cs",
 					"settings":
 					{
@@ -1469,7 +1504,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "Scripts/Utils/Timer.cs",
 					"settings":
 					{
@@ -1496,19 +1531,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "Scripts/WolfController.cs",
+					"buffer": 9,
+					"file": "Scripts/AttackCollider.cs",
 					"settings":
 					{
-						"buffer_size": 12901,
+						"buffer_size": 404,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								185,
-								185
+								121,
+								121
 							]
 						],
 						"settings":
@@ -1523,55 +1558,27 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "Scripts/NavMeshPatroller.cs",
+					"buffer": 10,
+					"file": "Scripts/WolfSpotLight.cs",
 					"settings":
 					{
-						"buffer_size": 1971,
+						"buffer_size": 409,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1418,
-								1418
+								399,
+								399
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/C#/C#.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 630.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Scripts/Patroller.cs",
-					"settings":
-					{
-						"buffer_size": 3037,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1343,
-								1343
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 540.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1640,12 +1647,12 @@
 		"selected_items":
 		[
 			[
-				"patr",
-				"Scripts/Patroller.cs"
+				"attack",
+				"Scripts/AttackCollider.cs"
 			],
 			[
-				"wolfcon",
-				"Scripts/WolfController.cs"
+				"navmesho",
+				"Scripts/NavMeshPatroller.cs"
 			],
 			[
 				"playercon",
@@ -1662,6 +1669,10 @@
 			[
 				"utils",
 				"Scripts/Utils/Utils.cs"
+			],
+			[
+				"patr",
+				"Scripts/Patroller.cs"
 			],
 			[
 				"mort",
@@ -1698,6 +1709,10 @@
 			[
 				"enemy",
 				"Scripts/Enemy.cs"
+			],
+			[
+				"wolfcon",
+				"Scripts/WolfController.cs"
 			],
 			[
 				"wolf",

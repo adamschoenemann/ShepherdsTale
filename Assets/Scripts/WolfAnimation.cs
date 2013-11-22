@@ -1,7 +1,7 @@
 using UnityEngine;
 using Wolf;
 
-[RequireComponent(typeof (WolfController))]
+// [RequireComponent(typeof (WolfController))]
 public class WolfAnimation : MonoBehaviour
 {
 

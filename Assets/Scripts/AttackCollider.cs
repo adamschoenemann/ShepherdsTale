@@ -5,15 +5,6 @@ public class AttackCollider : MonoBehaviour {
 
 	public GameObject target;
 
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
 	void OnTriggerEnter(Collider other){
 		GameObject go = other.gameObject;
 		if(go.tag == target.tag)
@@ -26,6 +17,7 @@ public class AttackCollider : MonoBehaviour {
 			}
 
 			mortal.Damage(1);
+			print("Doing damage");
 
 		}
 	}
