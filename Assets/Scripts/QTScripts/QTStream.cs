@@ -1,18 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// This class handles 
+/*
+ *	This class handles initialization of a QT stream from a TextAsset,
+ *	display and movement of nodes, keeping track of which node is 
+ *	the current one, as well as offsetting the animation of nodes
+ *	along the x-axis by some specified value.
+ *
+ *	The offset should be used by the parent to ensure that when the current node
+ *	is in the middle of the time it can be selected, it is also in the middle
+ *	of some visual indication of which node the user should pay attention to.
+ *	Author: TW
+ */
 public class QTStream {
 
 	private QTNode[] nodes;
 	private long currentProgress = -1;
-	private float speed; // Node widths per second
+	private float speed; // Nodes per second
 	private long timePassedMillis = 0L;
 	private int nodeSize;
 	private int xOffset;
 
-
-	public QTStream(TextAsset input, float speed, int nodeSize, int xOffset)
+	public QTStream(TextAsset input, QTTextures textures, float speed, int nodeSize, int xOffset)
 	{
 		// Parse input
 		string text = input.text;
@@ -21,7 +30,28 @@ public class QTStream {
 		nodes = new QTNode[lines.Length];
 		for(int i = 0; i < nodes.Length; i++)
 		{
-			nodes[i] = new QTNode( KeyCodeParser.Parse(lines[i]));
+			KeyCode k = KeyCodeParser.Parse(lines[i]);
+
+			// If key matches WASD, use custom image rather than standard text.
+			switch(k)
+			{
+				case KeyCode.W:
+					nodes[i] = new QTNode(k, textures.upArrow);
+					break;
+				case KeyCode.A:
+					nodes[i] = new QTNode(k, textures.leftArrow);
+					break;
+				case KeyCode.S:
+					nodes[i] = new QTNode(k, textures.downArrow);
+					break;
+				case KeyCode.D:
+					nodes[i] = new QTNode(k, textures.rightArrow);
+					break;
+				default:
+					nodes[i] = new QTNode(k);
+					break;
+			}
+			
 		}
 
 		this.speed = speed;
@@ -29,7 +59,6 @@ public class QTStream {
 		this.xOffset = xOffset;
 	}
 	
-	// Update is called once per frame
 	public void Update () {
 		timePassedMillis += (long)(Time.deltaTime * 1000);
 	}
@@ -74,6 +103,7 @@ public class QTStream {
 		}
 	}
 
+	// Returns the floating-point index value, e.g. 2.5 if we're halfway past node 2 (0-based)
 	public float GetProgress()
 	{
 		return (float)(timePassedMillis * speed) / 1000.0f;

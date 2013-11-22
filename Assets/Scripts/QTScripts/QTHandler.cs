@@ -4,43 +4,46 @@ using System.Collections.Generic;
 
 
 /*
- * 	TODO
- *	Make images for WASD keys in the form of arrows
- *	Fix starting-up-you-get-an-error bug
+ *	This class controls all things related to the QT events: It ensures 
+ *	that a stream is set up from the given TextAsset, that the stream is
+ *	moved with proper timing, handles user input, and gives auditory (and 
+ *	optionally visual) feedback.
+ *	
+ *	author: TW
  */
-
 public class QTHandler : MonoBehaviour {
 
-	public int nodeSize = 100;
+	public int nodeSize = 100; 
 	public float nodesPerSecond = 1.0f;
-	public float inputPrecision = 0.166667f;
+	public float inputPrecision = 0.166667f; // User is allowed to be off by 1/6th to either side
+	
 	public TextAsset quickTimeEventList;
-	public GUIStyle eventStyle;
-	public GUIStyle markerFieldStyle;
-
 	public QTAudioManager audio;
+	public QTTextures textures;
 
-	private int xCenter, yCenter;
 	private QTStream stream;
+	//private List<QTFeedback> feedback;
+	private int xCenter, yCenter;
 	private bool keyPressed = false;
 	private int currentIndex = -1;
-	private int score = 0;
-
-	private List<QTFeedback> feedback;
+	private int score = 0; // Not currently used. Counts up when user hits proper key at proper time, down otherwise.
 
 	void Start ()
 	{
-		stream = new QTStream(quickTimeEventList, nodesPerSecond, nodeSize, (int)(nodeSize * inputPrecision));
+		stream = new QTStream(quickTimeEventList, textures, nodesPerSecond, nodeSize, (int)(nodeSize * inputPrecision)/2);
 		xCenter = Screen.width/2;
 		yCenter = Screen.height - (nodeSize/2 + 10);
-		feedback = new List<QTFeedback>();
+		//feedback = new List<QTFeedback>();
 	}
 
 	void Update ()
 	{
 		stream.Update();
 		CheckInput();
-
+		
+		// Uncomment the following if you require visual feedback labels. Also uncomment similar lines
+		// further down.
+		/*
 		for(int i = feedback.Count - 1; i >= 0; i--)
 		{
 			QTFeedback f = feedback[i];
@@ -51,31 +54,27 @@ public class QTHandler : MonoBehaviour {
 				feedback.Remove(f);
 			}
 		}
+		*/
 	}
 
 	void OnGUI()
 	{
-		// Draw the stream
 		stream.Draw(xCenter, yCenter);
 
-		// Draw marker box, indicating which events the user should pay attention to.
-		int sizeMod = 3;
-		if(System.Math.Abs(stream.GetProgress() - (int)stream.GetProgress()) < 2 * inputPrecision)
-		{
-			// If user can input now, indicate this by enlarging the marker box.
-			sizeMod /= 2;
-		}
+		// Draw marker, indicating which event the user should time their button push to.
+		GUI.Label(new Rect(Screen.width/2 - nodeSize / 2,
+						 yCenter 		- nodeSize / 2,
+						 nodeSize,
+						 nodeSize), textures.marker);
 
-		GUI.Box(new Rect(Screen.width/2 - nodeSize / 2 - sizeMod,
-						 yCenter 		- nodeSize / 2 - sizeMod,
-						 nodeSize + 2*sizeMod,
-						 nodeSize + 2*sizeMod), score.ToString(), markerFieldStyle);
-
-
+		// Uncomment the following if you require visual feedback labels. Also uncomment similar lines
+		// further down.
+		/*
 		foreach(QTFeedback f in feedback)
 		{
 			f.Draw();
 		}
+		*/
 	}
 
 	private void CheckInput()
@@ -120,33 +119,37 @@ public class QTHandler : MonoBehaviour {
 		}
 	}
 
+
+	// ---- Reactions to user input
+
 	private void MissedButtonPress()
 	{
 		score--;
-		Debug.Log("Missed a button press!");
-		feedback.Add(new QTFeedback("Missed", 2.0f, Screen.width/2, Screen.height/2, 50, 200));
-		audio.PlayFail();
+		//Debug.Log("Missed a button press!");
+		//feedback.Add(new QTFeedback("Missed", 2.0f, Screen.width/2, Screen.height/2, 50, 200)); // Uncomment these to get (crappy) visual feedback on errors. -TW
+		//audio.PlayFail(); // Removed audio here because it can be very misleading to get delayed feedback. -TW
 	}
 
 	private void PressedWrongButton()
 	{
 		score--;
-		Debug.Log("Pressed wrong button!");
-		feedback.Add(new QTFeedback("Wrong", 2.0f, Screen.width/2, Screen.height/2, 50, 200));
+		//Debug.Log("Pressed wrong button!");
+		//feedback.Add(new QTFeedback("Wrong", 2.0f, Screen.width/2, Screen.height/2, 50, 200));
 		audio.PlayFail();
 	}
 
 	private void PressedWhenNoButtonNeeded()
 	{
 		score--;
-		Debug.Log("Pressed button when none was needed!");
-		feedback.Add(new QTFeedback("None needed", 2.0f, Screen.width/2, Screen.height/2, 50, 200));
+		//Debug.Log("Pressed button when none was needed!");
+		//feedback.Add(new QTFeedback("None needed", 2.0f, Screen.width/2, Screen.height/2, 50, 200));
 		audio.PlayFail();
 	}
 
 	private void PressedCorrectly()
 	{
 		score++;
-		Debug.Log("P-p-p-perfect!");
+		//Debug.Log("P-p-p-perfect!");
+		audio.PlayCorrect();
 	}
 }

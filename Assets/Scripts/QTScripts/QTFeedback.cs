@@ -1,12 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ *	Provides a label that will go from startSize to endSize over the specified lifetime,
+ *	then mark itself for destruction (IsTimeToDisappear) by parent object.
+ *	Author: TW
+ */
 public class QTFeedback {
 
 	private string message;
 	private int lifetime, elapsedTime; // ms
 	private int xCenter, yCenter, startSize, endSize; // pixels
 	private bool timeToDisappear = false;
+
 
 	public QTFeedback(string message, float lifetime, int xCenter, int yCenter, int startSize, int endSize)
 	{
@@ -18,13 +24,6 @@ public class QTFeedback {
 		this.endSize = endSize;
 		elapsedTime = 0;
 	}
-
-	public QTFeedback(string message, float lifetime, int xCenter, int yCenter, int startSize, int endSize, AudioSource sound) :
-		this(message, lifetime, xCenter, yCenter, startSize, endSize)
-	{
-		sound.Play();
-	}
-
 
 	public void Update()
 	{
