@@ -1138,7 +1138,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 107072939}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 234.747742, y: 1.02577925, z: 448.931152}
+  m_LocalPosition: {x: 234.747742, y: .507334292, z: 448.931152}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 380428436}
@@ -17223,7 +17223,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400006, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
       propertyPath: runSpeed
-      value: 200
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400004, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
@@ -17573,7 +17573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69cde2a20f757a2489cea30f607fc454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 200
+  runSpeed: 500
   sneakSpeed: 100
 --- !u!82 &2055785878
 AudioSource:

@@ -20,7 +20,6 @@ public class LoonieRace : MonoBehaviour {
 	private GameObject player;
 	private GameObject raceCourse;
 	private GameObject [] wayPoints;
-	private int atWayPointIndex = 0;
 	
 	private Timer timerBoost = new Timer(5000);
 
@@ -43,7 +42,8 @@ public class LoonieRace : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if(raceStart == true && raceCourse.GetComponent<RaceCourse>().IsGoalReached() == false)
+		//If the no one have passed the goal line, keep running
+		if(raceStart == true && raceCourse.GetComponent<RaceCourse>().IsGoalReached() == false) 
 		{
 			Race(GetWayPointIndex());
 			
@@ -67,13 +67,26 @@ public class LoonieRace : MonoBehaviour {
 			{
 				DecreaseSpeed();
 			}
-			
-			//print("loonie moveSpeed: " + moveSpeed);
 		}
+		// walks towards last way point and stops
 		else if(raceCourse.GetComponent<RaceCourse>().IsGoalReached())
 		{
-			print ("make loonie walk to finish line");
-			Walk (wayPoints[wayPoints.Length-1].GetComponent<WayPoint>().wayPointPos);
+			if(wayPoints[wayPoints.Length-1].GetComponent<WayPoint>().wayPointChecked == false)
+			{
+				print ("make loonie walk to finish line");
+				Walk (wayPoints[wayPoints.Length-1].GetComponent<WayPoint>().wayPointPos);	
+			}
+			else
+			{
+				print ("at end point");
+				anim.SetBool("Run", false);
+				anim.SetBool("Walk", false);
+				anim.SetBool("Idle", true);
+				transform.position = wayPoints[wayPoints.Length-1].GetComponent<WayPoint>().wayPointPos;
+				transform.rotation = Quaternion.identity;
+				transform.LookAt(player.transform);
+			}
+			
 		}
 		else
 			IsPlayerStarted();
@@ -167,12 +180,6 @@ public class LoonieRace : MonoBehaviour {
 			case Tags.wayPoint:
 				if(raceCourse.GetComponent<RaceCourse>().IsGoalReached() == false)
 					Race(GetWayPointIndex());
-				else
-				{
-					anim.SetBool("Run", false);
-					anim.SetBool("Walk", false);
-					anim.SetBool("Idle", true);
-				}
 				break;
 			default:
 				break;
