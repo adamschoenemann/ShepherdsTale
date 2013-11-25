@@ -1,30 +1,31 @@
 Statement,Counterstatement,Inverse grading,Type
-I complete tasks successfully.,I get others to do my duties.,n,C
-I love large parties,I don't like crowded events.,n,E
-I have a good word for everyone.,I have a sharp tongue.,n,A
-I avoid mistakes.,I jump into things without thinking.,n,C
-I believe in the importance of art.,I believe that too much tax money goes to support artists.,n,O
-I have frequent mood swings.,I rarely lose my composure.,n,N
-I am concerned about others.,I am out for my own personal gain.,n,A
-I love to daydream.,I seldom daydream.,n,O
-I make friends easily.,I am hard to get to know.,n,E
-I love to read challenging material.,I avoid difficult reading material.,n,O
-I prefer variety to routine.,I am a creature of habit.,n,O
-I can't stand confrontations.,I love a good fight.,n,A
-I feel comfortable with myself.,I dislike myself.,y,N
-I like to tidy up.,I often forget to put things back in their proper place.,n,C
-I don't like to draw attention to myself.,I don't mind being the center of attention.,y,E
-I am often in a bad mood.,I am not easily annoyed.,n,N
-I stick to the rules.,I cheat to get ahead.,n,CA
-I get stressed out easily.,I remain calm under pressure.,n,N
-I excel in what I do.,I do just enough work to get by.,n,C
-I often eat too much.,I am able to control my cravings.,n,N
-I amuse my friends.,I seldom joke around.,y,E
-I am easily intimidated.,I am able to stand up for myself.,n,NE
-I become overwhelmed by events.,I readily overcome setbacks.,n,NC
-I waste my time.,I make plans and stick to them.,y,C
-I take control of things.,I wait for others to lead the way.,n,CE
-I consider myself an average person.,I believe that I am better than others.,n,A
-I experience my emotions intensely.,I seldom get emotional.,n,NO
-I start conversations.,I don't talk a lot.,n,E
-I suspect hidden motives in others.,I believe that others have good intentions.,y,A
+I love to read challenging material., I avoid difficult reading material.,n,O
+I leave a mess in my room., I love to tidy up.,y,C
+I often feel uncomfortable about others., I feel comfortable around people.,y,E
+I am interested in others., I am not interested in other people's problems.,n,A
+I am relaxed all the time., I get stressed out easily.,n,N
+I have a vivid imagination., I do not have a good imagination.,n,O
+I follow a schedule., I waste my time.,n,C
+I don't like to draw attention to myself., I don't mind being in the center of attention.,y,E
+I have a good word for everyone., I have a sharp tongue.,n,A
+I seldom feel blue., I often feel blue.,n,N
+I carry the conversation to a higher level., I will not probe deeply into a subject.,n,O
+I continue until everything is perfect., I do things in a half-way manner.,n,C
+I start conversations., I don't talk a lot.,n,E
+I feel little concern of others., I inquire about others' well being.,y,A
+I rarely get irritated., I get irritated easily.,n,N
+I catch on to things easily., I am not quick to understand things.,n,O
+I find it difficult to get down to work., I get chores done right away.,y,C
+I make friends easily.,I am a very private person.,n,E
+I am indifferent to the feeling of others., I sympathize with others' feelings.,y,A
+I worry about things., I am not easily bothered by things.,y,N
+I have a difficulty imagining things., I spend my time reflecting on things.,y,O
+I complete my duties., I shirk my duties.,n,C
+I take control of things., I wait for others to lead the way.,n,E
+I make people feel at ease., I do not know how to comfort others.,n,A
+I get angry easily., I seldom get mad.,y,N
+I have a rich vocabulary., I do not use any difficult words.,n,O
+I am always prepared., I make a mess of things.,n,C
+I talk to a lot of people at parties., I find it difficult to approach others.,n,E
+I can't stand conversations., I love a good fight.,n,A
+I get overwhelmed by emotion., I seldom get emotional.,y,N

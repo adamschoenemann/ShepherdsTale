@@ -46,7 +46,7 @@ public class Questionnaire : MonoBehaviour {
 									defaultHeight)
 							); 
 
-		progressBar = new ProgressBar(layout.ElementRect(0, 7));
+		progressBar = new ProgressBar(layout.ElementRect(0, 8));
 		demoPage = new DemographicPage(layout);
 
 		// Initialize personalityQuestions
@@ -104,7 +104,7 @@ public class Questionnaire : MonoBehaviour {
 		progressBar.Draw();
 
 		// Next page button
-		if(GUI.Button(layout.ElementRect(1, 6), "Next page"))
+		if(GUI.Button(layout.ElementRect(1, 7), "Next page"))
 		{
 			if((personalityPageIndex == -1) || (personalityPageIndex == -2 && demoPage.Answered)) // Still on demographics page, but it is answered
 			{
@@ -130,7 +130,7 @@ public class Questionnaire : MonoBehaviour {
 		if(fillOutAllAnswersLabelTimer > 0)
 		{
 			fillOutAllAnswersLabelTimer--;
-			GUI.Label(layout.ElementRect(1,5), "Please answer all the questions.", "box");
+			GUI.Label(layout.ElementRect(1,6), "Please answer all the questions.", "box");
 		}		
 	}
 
