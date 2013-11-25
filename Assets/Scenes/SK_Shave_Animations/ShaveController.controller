@@ -10,7 +10,6 @@ AnimatorController:
   m_AnimatorParameters:
   - m_Name: mistake
     m_Type: 4
-    m_DefaultVector: {x: 0, y: 0, z: 0}
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -68,7 +67,7 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Take 001
+  m_Name: Cut
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
@@ -83,7 +82,7 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Take 001 0
+  m_Name: Error
   m_Speed: 1.5
   m_CycleOffset: 0
   m_Motions:
