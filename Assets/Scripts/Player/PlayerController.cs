@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
 	private Quaternion defaultRotation;
 
+	private List<Collectible> collectibles = new List<Collectible>();
+
 	public float rotateSpeed = 200.0f;
 
 	void Awake()
@@ -66,8 +68,9 @@ public class PlayerController : MonoBehaviour
 		return animation.IsAttacking();
 	}
 
-	void LateUpdate()
+	public void Collect(Collectible c)
 	{
+		collectibles.Add(c);
 	}
 
 }

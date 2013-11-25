@@ -69,7 +69,7 @@ public class WolfController : MonoBehaviour
 
 	private NavMeshAgent agent;
 
-	public event EventHandler onPlayerSeen;
+	public static event EventHandler onPlayerSeen;
 
 //============================================================================//
 //============================== METHODS =====================================//
@@ -425,7 +425,6 @@ public class WolfController : MonoBehaviour
 		}
 	}
 
-	// TODO: Find a way to avoid the FUCKING TREES!!!
 	protected virtual void ChasePlayer()
 	{
 		agent.SetDestination(player.transform.position);

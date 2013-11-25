@@ -31,14 +31,6 @@ Material:
         second: 1
       data:
         first:
-          name: _TranslucencyViewDependency
-        second: .699999988
-      data:
-        first:
-          name: _ShadowStrength
-        second: 1
-      data:
-        first:
           name: _BaseLight
         second: .349999994
       data:
@@ -47,13 +39,21 @@ Material:
         second: 2.4000001
       data:
         first:
+          name: _TranslucencyViewDependency
+        second: .699999988
+      data:
+        first:
+          name: _ShadowStrength
+        second: 1
+      data:
+        first:
           name: _Occlusion
         second: 7.5
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: .0393249989, g: .5, b: 0, a: 1}
+        second: {r: 0, g: .602941155, b: .203752607, a: 1}
       data:
         first:
           name: _Scale

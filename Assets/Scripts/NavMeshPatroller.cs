@@ -117,7 +117,7 @@ public class NavMeshPatroller : MonoBehaviour
 
 	public bool IsReturnedHome()
 	{
-		return ((transform.position - lastPosition).magnitude <= float.Epsilon);
+		return ((transform.position - lastPosition).magnitude <= 0.8f);
 	}
 
 	public void OnArriveAtWaypoint(GameObject go)

@@ -10,14 +10,8 @@ public class SneakGameController : MonoBehaviour
 
 	void Awake()
 	{
-		GameObject[] wolves = GameObject.FindGameObjectsWithTag(Tags.enemy);
-		foreach(GameObject go in wolves)
-		{
-			WolfController wolf = go.GetComponent<WolfController>();
-			wolf.onPlayerSeen += OnPlayerSeenHandler;
-		}
-		// GameObject lvlCompleteTrigger = GameObject.Find("LevelCompleteTrigger");
-		// LevelComplete lvlComplete = lvlCompleteTrigger.GetComponent<LevelComplete>();
+	
+		WolfController.onPlayerSeen += OnPlayerSeenHandler;
 		LevelComplete.onPlayerEntered += OnLevelComplete;
 	}
 
