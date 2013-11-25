@@ -14,7 +14,7 @@ public class LoonieController : WolfController {
 	{
 		Vector3 playerPos = player.transform.position;
 		Vector3 direction = playerPos - transform.position;
-		if(Vector3.Dot(playerPos.normalized, transform.forward) < 0)
+		if(Vector3.Dot(playerPos.normalized, transform.forward) < 0.5f)
 		{
 			return false;
 		}

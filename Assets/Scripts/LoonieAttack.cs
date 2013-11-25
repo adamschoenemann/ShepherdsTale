@@ -3,26 +3,32 @@ using System.Collections;
 
 public class LoonieAttack : MonoBehaviour {
 	
-	float rayLength = 2.0f;
+	float rayLength = 1.8f;
 	LoonieAnimator loonieScript;
 	GameObject player;
 	PlayerMovement playerScript;
-	bool stuckToPlayer;
+	PlayerAnimation playerAnimationScript;
+	bool startCounter;
 	
 	//LERP VARIABLES
     public float speed = 1.0F;
     private float startTime;
     private float journeyLength;
-    public Transform target;
     public float smooth = 5.0F;
+	
+	Timer timer;
 	
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag("Player");
+		playerScript = player.gameObject.GetComponent<PlayerMovement>();
+		playerAnimationScript = player.gameObject.GetComponent<PlayerAnimation>();
 		loonieScript = gameObject.GetComponent<LoonieAnimator>();
 		
 		startTime = Time.time;
         journeyLength = Vector3.Distance(transform.position, player.transform.position);
+		
+		timer = new Timer(500);
 	}
 	
 	// Update is called once per frame
@@ -44,10 +50,30 @@ public class LoonieAttack : MonoBehaviour {
 				transform.position = Vector3.Lerp(transform.position, player.transform.position, fracJourney);
 				loonieScript.anim.SetBool("Jump", true);
 				Debug.Log("YOU ARE CAUGHT!");
-				
-				if(loonieScript.anim.GetBool("Jump") == false)
-					transform.parent = player.transform;
+				playerScript.runSpeed = 0.0f;
+				playerAnimationScript.anim.SetBool("LoonieStuck", true);
+				startCounter = true;
 			}
 		}
+		
+		if(startCounter)
+		{
+			timer.TickSeconds (Time.deltaTime);
+			if(timer.IsDone ())
+			{
+				print ("NU");
+				transform.parent = player.transform;
+				//Time.timeScale = 0.0f;
+				if(Input.GetButtonDown("Fire3"))
+				{
+					Application.LoadLevel("kill_Loonie");
+				}
+			}
+		}
+	}
+	
+	void OnGUI () {
+		if(startCounter)
+			GUI.Box(new Rect(100,20,Screen.height/2,Screen.width/2), "You got caught!\n Press Q to start over.");
 	}
 }

@@ -188,7 +188,7 @@ public class WolfController : MonoBehaviour
 	{
 		if(suspiciousTimer != null)
 		{
-			suspiciousTimer.tickSeconds(Time.deltaTime);
+			suspiciousTimer.TickSeconds(Time.deltaTime);
 			if(suspiciousTimer.IsDone())
 			{
 				return true;

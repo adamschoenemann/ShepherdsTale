@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+guid: a6fd5ef6a6cc4f84984ac71c719a664c
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - wool_1: {fileID: 100000, guid: 80acc1c37f1935945944b2e38720b85b, type: 2}
+  - wool_2: {fileID: 100004, guid: 61bdea41c6b42224694e113f92d90d48, type: 2}
+  - wool_3: {fileID: 100006, guid: a5da1330148a3f545a764d1d0edac08b, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
