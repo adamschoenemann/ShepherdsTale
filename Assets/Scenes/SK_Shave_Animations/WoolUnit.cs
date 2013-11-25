@@ -1,16 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class addForceMan : MonoBehaviour {
+public class WoolUnit : MonoBehaviour {
 
 	public float powerUpwards = 1.0f;
 	public float powerSideways = 1.0f;
 
-	Timer timer;
+	private Timer timer;
+	private static readonly int lifeTimeMillis = 5000;
 
 	// Use this for initialization
 	void Start () {
-		timer = new Timer(5000);
+		timer = new Timer(lifeTimeMillis);
 
 		float r = Random.value*2;
 		float direction = r-1.0f;
@@ -25,7 +26,6 @@ public class addForceMan : MonoBehaviour {
 		timer.TickSeconds (Time.deltaTime);
 		if(timer.IsDone())
 		{
-			print("destroy");
 			Destroy(gameObject);
 		}
 	}

@@ -4,6 +4,7 @@ using System.Collections;
 public class ShaveManager : MonoBehaviour {
 
 	public WoolSpawnerScript woolspawner;
+	public WoolProgressVisualizer progressVisualization;
 	public GameObject quicktimeEvents;
 	public GameObject player;
 	public float woolSpawnDelay = 0.0f;
@@ -40,17 +41,18 @@ public class ShaveManager : MonoBehaviour {
 
 			woolspawner.SpawnWool(woolSpawnDelay, correctStreak);
 			UpdateTotalCuts();
+			progressVisualization.SetProgress(System.Math.Min(1.0f, totalCuts/(float)woolsToCutOff));
 		}
 	}
 
 	private void UpdateTotalCuts()
 	{
 		totalCuts += correctStreak;
-		Debug.Log("totalCuts: " + totalCuts);
+		//Debug.Log("totalCuts: " + totalCuts);
 		if(totalCuts >= woolsToCutOff)
 		{
 			// Win.
-			Debug.Log("Game over D");
+			//Debug.Log("Game over D");
 		}
 	}
 
