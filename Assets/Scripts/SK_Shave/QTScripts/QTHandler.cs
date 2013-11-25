@@ -27,6 +27,9 @@ public class QTHandler : MonoBehaviour {
 	private bool keyPressed = false;
 	private int currentIndex = -1;
 	private int score = 0; // Not currently used. Counts up when user hits proper key at proper time, down otherwise.
+	private Animator playerAnim;
+
+	private bool hasError = false, hasCorrect = false;
 
 	void Start ()
 	{
@@ -34,6 +37,8 @@ public class QTHandler : MonoBehaviour {
 		xCenter = Screen.width/2;
 		yCenter = Screen.height - (nodeSize/2 + 10);
 		//feedback = new List<QTFeedback>();
+
+		playerAnim = GameObject.FindGameObjectWithTag(Tags.player).GetComponent<Animator>();
 	}
 
 	void Update ()
@@ -122,9 +127,13 @@ public class QTHandler : MonoBehaviour {
 
 	// ---- Reactions to user input
 
+	// Missed press turned off as an error, as the way of determining success will not be 
+	// using this. Also, the feedback is confusing as fuck. -TW
 	private void MissedButtonPress()
 	{
-		score--;
+		//score--;
+		//MadeError();
+
 		//Debug.Log("Missed a button press!");
 		//feedback.Add(new QTFeedback("Missed", 2.0f, Screen.width/2, Screen.height/2, 50, 200)); // Uncomment these to get (crappy) visual feedback on errors. -TW
 		//audio.PlayFail(); // Removed audio here because it can be very misleading to get delayed feedback. -TW
@@ -132,24 +141,52 @@ public class QTHandler : MonoBehaviour {
 
 	private void PressedWrongButton()
 	{
-		score--;
+		MadeError();
 		//Debug.Log("Pressed wrong button!");
 		//feedback.Add(new QTFeedback("Wrong", 2.0f, Screen.width/2, Screen.height/2, 50, 200));
-		audio.PlayFail();
 	}
 
 	private void PressedWhenNoButtonNeeded()
 	{
-		score--;
+		MadeError();
 		//Debug.Log("Pressed button when none was needed!");
 		//feedback.Add(new QTFeedback("None needed", 2.0f, Screen.width/2, Screen.height/2, 50, 200));
-		audio.PlayFail();
 	}
 
 	private void PressedCorrectly()
+	{	
+		MadeCut();	
+	}
+
+	private void MadeError()
 	{
-		score++;
-		//Debug.Log("P-p-p-perfect!");
+		audio.PlayFail();
+		score--;
+
+		hasError = true;
+		hasCorrect = false;
+	}
+
+	private void MadeCut()
+	{
 		audio.PlayCorrect();
+		score++;
+
+		hasCorrect = true;
+		hasError = false;
+	}
+
+	public bool HasMadeError()
+	{
+		bool output = hasError;
+		hasError = false;
+		return output;
+	}
+
+	public bool HasMadeCorrect()
+	{
+		bool output = hasCorrect;
+		hasCorrect = false;
+		return output;
 	}
 }
