@@ -4,8 +4,68 @@
 		"selected_items":
 		[
 			[
+				"dis",
+				"displayComplete"
+			],
+			[
+				"lvl",
+				"lvlCompleteTrigger"
+			],
+			[
+				"Find",
+				"Find	name"
+			],
+			[
+				"load",
+				"loadedLevelName"
+			],
+			[
+				"Wolf",
+				"WolfController"
+			],
+			[
+				"wai",
+				"waitTimer"
+			],
+			[
+				"Wait",
+				"WaitAtWaypoint"
+			],
+			[
+				"wait",
+				"waitTimer"
+			],
+			[
+				"way",
+				"waypointIndex"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"de",
+				"debug"
+			],
+			[
 				"Star",
-				"StopPatrolling"
+				"StartPatrolling"
+			],
+			[
+				"distance",
+				"remainingDistance"
+			],
+			[
+				"t",
+				"thresh"
+			],
+			[
+				"wa",
+				"waypoints"
+			],
+			[
+				"waypo",
+				"waypointContainer"
 			],
 			[
 				"Stop",
@@ -34,10 +94,6 @@
 			[
 				"player",
 				"playerPos"
-			],
-			[
-				"re",
-				"retries"
 			],
 			[
 				"vect",
@@ -70,10 +126,6 @@
 			[
 				"Ro",
 				"RotateTowards"
-			],
-			[
-				"wai",
-				"waitTimer"
 			],
 			[
 				"waitT",
@@ -154,10 +206,6 @@
 			[
 				"Tra",
 				"Transition"
-			],
-			[
-				"wa",
-				"waypointIndex"
 			],
 			[
 				"Perform",
@@ -244,10 +292,6 @@
 				"playerPos"
 			],
 			[
-				"de",
-				"deltaTime"
-			],
-			[
 				"loca",
 				"localRotation"
 			],
@@ -282,10 +326,6 @@
 			[
 				"FindO",
 				"FindGameObjectsWithTag	tag"
-			],
-			[
-				"dis",
-				"Dispose"
 			],
 			[
 				"dbC",
@@ -408,10 +448,6 @@
 				"collision"
 			],
 			[
-				"Find",
-				"FindGameObjectsWithTag	tag"
-			],
-			[
 				"att",
 				"attackRunState"
 			],
@@ -478,42 +514,6 @@
 			[
 				"String",
 				"StringBuilder"
-			],
-			[
-				"sw",
-				"switch"
-			],
-			[
-				"swi",
-				"switch_test"
-			],
-			[
-				"Prin",
-				"Printf"
-			],
-			[
-				"Print",
-				"Println"
-			],
-			[
-				"swith",
-				"Switch"
-			],
-			[
-				"prev",
-				"prevprev"
-			],
-			[
-				"fi",
-				"fib_test"
-			],
-			[
-				"map_",
-				"map_test2"
-			],
-			[
-				"sr",
-				"struct"
 			]
 		]
 	},
@@ -547,15 +547,23 @@
 			"file": "Scripts/NavMeshPatroller.cs",
 			"settings":
 			{
-				"buffer_size": 2041,
+				"buffer_size": 4044,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Scripts/SneakGameController.cs",
+			"settings":
+			{
+				"buffer_size": 1604,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "Scripts/WolfController.cs",
 			"settings":
 			{
-				"buffer_size": 12738,
+				"buffer_size": 13023,
 				"line_ending": "Windows"
 			}
 		},
@@ -576,6 +584,14 @@
 			}
 		},
 		{
+			"file": "Scripts/LevelComplete.cs",
+			"settings":
+			{
+				"buffer_size": 358,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "Scripts/Staff.cs",
 			"settings":
 			{
@@ -587,7 +603,7 @@
 			"file": "Scripts/Utils/Timer.cs",
 			"settings":
 			{
-				"buffer_size": 655,
+				"buffer_size": 795,
 				"line_ending": "Windows"
 			}
 		},
@@ -619,6 +635,26 @@
 				"Unity Reference: Search Selection"
 			],
 			[
+				"new",
+				"File: New File Relative to Current View"
+			],
+			[
+				"mark",
+				"Markdown Preview: Python Markdown: Copy to Clipboard"
+			],
+			[
+				"ren",
+				"File: Rename"
+			],
+			[
+				"markd",
+				"Markdown Preview: Python Markdown: Preview in Browser"
+			],
+			[
+				"markdo",
+				"Markdown Preview: Open Markdown Cheat sheet"
+			],
+			[
 				"refe",
 				"Unity Reference: Search Selection"
 			],
@@ -631,20 +667,12 @@
 				"Set Syntax: Unity C#"
 			],
 			[
-				"ren",
-				"File: Rename"
-			],
-			[
 				"rena",
 				"File: Rename"
 			],
 			[
 				"makrd",
 				"Markdown Preview: Python Markdown: Preview in Browser"
-			],
-			[
-				"new",
-				"File: New File Relative to Current View"
 			],
 			[
 				"ctags",
@@ -685,10 +713,6 @@
 			[
 				"new f",
 				"File: New File Relative to Current View"
-			],
-			[
-				"markd",
-				"Set Syntax: Markdown"
 			],
 			[
 				"togg",
@@ -943,7 +967,7 @@
 				"Package Control: Remove Package"
 			]
 		],
-		"width": 474.0
+		"width": 472.0
 	},
 	"console":
 	{
@@ -960,6 +984,10 @@
 	},
 	"file_history":
 	[
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Tags.cs",
+		"/F/Dropbox/Medialogy/MED5/CGR/HDRI Hand-In/documentation.md",
+		"/F/Dropbox/Medialogy/MED5/CGR/HDRI Hand-In/documentation.html",
+		"/F/Dropbox/Medialogy/MED5/CGR/HDRI Hand-In/documentation.txt",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/AttackCollider.cs",
 		"/F/Dropbox/Projects/Unity/first/Assets/PlayerController.cs",
 		"/F/Dropbox/Projects/Unity/first/Assets/StateMachine.cs",
@@ -1000,7 +1028,6 @@
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/CameraController.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Utils.cs",
 		"/F/Dropbox/MED5/Implementation/wolf_notes.md",
-		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Tags.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/WolfAnimation.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/NoiseListener.cs",
 		"/F/Projects/MED5/ShepherdsTale/.gitignore",
@@ -1084,10 +1111,7 @@
 		"/F/Dropbox/MED4/OOSE/3/Exercise1/Exercise1.java",
 		"/F/Dropbox/MED4/OOSE/3/Exercise1/Duck.java",
 		"/F/Dropbox/Projects/TimeForTV/TimeForTV/proguard.cfg",
-		"/F/Dropbox/MED4/OOSE/3/ATM/src/BankAccount.java",
-		"/F/Dropbox/MED4/OOSE/3/ATM/src/Transaction.java",
-		"/F/Dropbox/MED4/OOSE/3/ATM/src/ATM.java",
-		"/F/Dropbox/MED4/OOSE/3/ATM/src/Bank.java"
+		"/F/Dropbox/MED4/OOSE/3/ATM/src/BankAccount.java"
 	],
 	"find":
 	{
@@ -1105,6 +1129,14 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"displayMessage",
+			"Returning",
+			"OnPlayerSeen",
+			"playerSeen",
+			"gameController",
+			"GoToCurrentWaypoint",
+			"waitTimer",
+			"file://F:\\Dropbox\\Medialogy\\MED5\\CGR\\HDRI Hand-In/",
 			"MoveTowards",
 			"veloci",
 			"vekicu",
@@ -1224,15 +1256,7 @@
 			"private",
 			"forwardA",
 			"localPositon",
-			"rotation",
-			"bite",
-			"->",
-			"uint",
-			"Game",
-			"dbCommand",
-			"yourPassword",
-			"\\n+",
-			"\\n"
+			"rotation"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1279,7 +1303,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -1368,15 +1392,15 @@
 					"file": "Scripts/NavMeshPatroller.cs",
 					"settings":
 					{
-						"buffer_size": 2041,
+						"buffer_size": 4044,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1441,
-								1441
+								2337,
+								2337
 							]
 						],
 						"settings":
@@ -1385,7 +1409,33 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 615.0,
+						"translation.y": 1066.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Scripts/SneakGameController.cs",
+					"settings":
+					{
+						"buffer_size": 1604,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								420,
+								420
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 45.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1393,23 +1443,23 @@
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "Scripts/WolfController.cs",
 					"settings":
 					{
-						"buffer_size": 12738,
+						"buffer_size": 13023,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8010,
-								8010
+								5011,
+								5011
 							]
 						],
 						"settings":
@@ -1418,13 +1468,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3214.0,
+						"translation.y": 585.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "Scripts/Waypoint.cs",
 					"settings":
 					{
@@ -1450,7 +1500,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "Scripts/WolfAnimation.cs",
 					"settings":
 					{
@@ -1461,8 +1511,8 @@
 						"selection":
 						[
 							[
-								78,
-								78
+								711,
+								711
 							]
 						],
 						"settings":
@@ -1471,13 +1521,39 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 37.0,
+						"translation.y": 127.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
+					"file": "Scripts/LevelComplete.cs",
+					"settings":
+					{
+						"buffer_size": 358,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								330,
+								330
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
 					"file": "Scripts/Staff.cs",
 					"settings":
 					{
@@ -1504,19 +1580,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 10,
 					"file": "Scripts/Utils/Timer.cs",
 					"settings":
 					{
-						"buffer_size": 655,
+						"buffer_size": 795,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								469,
-								469
+								651,
+								651
 							]
 						],
 						"settings":
@@ -1531,7 +1607,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 11,
 					"file": "Scripts/AttackCollider.cs",
 					"settings":
 					{
@@ -1542,8 +1618,8 @@
 						"selection":
 						[
 							[
-								121,
-								121
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1558,7 +1634,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 12,
 					"file": "Scripts/WolfSpotLight.cs",
 					"settings":
 					{
@@ -1569,13 +1645,14 @@
 						"selection":
 						[
 							[
-								399,
-								399
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C#/C#.tmLanguage"
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1647,6 +1724,14 @@
 		"selected_items":
 		[
 			[
+				"tags",
+				"Scripts/Tags.cs"
+			],
+			[
+				"timer",
+				"Scripts/Utils/Timer.cs"
+			],
+			[
 				"attack",
 				"Scripts/AttackCollider.cs"
 			],
@@ -1687,10 +1772,6 @@
 				"Scripts/WolfAnimation.cs"
 			],
 			[
-				"timer",
-				"Scripts/Utils/Timer.cs"
-			],
-			[
 				"npc",
 				"Scripts/NPCController.cs"
 			],
@@ -1725,10 +1806,6 @@
 			[
 				"playerani",
 				"Scripts/Player/PlayerAnimation.cs"
-			],
-			[
-				"tags",
-				"Scripts/Tags.cs"
 			],
 			[
 				"shep",

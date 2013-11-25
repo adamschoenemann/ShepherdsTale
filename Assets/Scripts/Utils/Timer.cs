@@ -8,6 +8,9 @@ public class Timer
 	public delegate void OnTickDelegate(Timer self, long interval);
 	public OnTickDelegate onTick;
 
+	public delegate void OnDoneDelegate(Timer self);
+	public OnDoneDelegate onDone;
+
 	public Timer(long duration)
 	{
 		this.duration = duration;
@@ -24,6 +27,10 @@ public class Timer
 	public void TickSeconds(float seconds)
 	{
 		TickMilliseconds((long) (seconds * 1000));
+		if(IsDone() && onDone != null)
+		{
+			onDone(this);
+		}
 	}
 
 	public bool IsDone()

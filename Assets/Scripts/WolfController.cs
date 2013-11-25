@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using Wolf;
 
@@ -67,6 +68,8 @@ public class WolfController : MonoBehaviour
 	private NavMeshPatroller patroller;
 
 	private NavMeshAgent agent;
+
+	public event EventHandler onPlayerSeen;
 
 //============================================================================//
 //============================== METHODS =====================================//
@@ -167,7 +170,7 @@ public class WolfController : MonoBehaviour
 		{
 			case State.Idle:
 				// ResetRotation();
-				patroller.WaitAtWaypoint();
+				patroller.Patrol();
 				break;
 
 			case State.Patrolling:
@@ -196,7 +199,7 @@ public class WolfController : MonoBehaviour
 
 			case State.Returning:
 				// ReturnToDefault();
-				patroller.ReturnToLastPosition();
+				
 				break;
 		}
 	}
@@ -212,10 +215,6 @@ public class WolfController : MonoBehaviour
 		else if(oldState == State.Alerted)
 		{
 			alertedTimer = null;
-		}
-		else if(oldState == State.Idle || oldState == State.Patrolling)
-		{
-			patroller.StopPatrolling();
 		}
 
 		if(newState == State.Suspicious)
@@ -233,6 +232,15 @@ public class WolfController : MonoBehaviour
 		else if(newState == State.Patrolling)
 		{
 			patroller.StartPatrolling();
+		}
+		else if(newState == State.Returning)
+		{
+			patroller.ReturnToLastPosition();
+			patroller.StartPatrolling();
+		}
+		if(newState >= State.Suspicious && newState != State.Returning)
+		{
+			patroller.StopPatrolling();
 		}
 
 		animation.OnStateChange(oldState, newState);
@@ -320,6 +328,11 @@ public class WolfController : MonoBehaviour
 	protected virtual bool IsPlayerVisible()
 	{
 		Vector3 direction = player.transform.position - transform.position;
+		if(Vector3.Dot(direction, transform.forward) < 0.0f)
+		{
+			return false;
+		}
+
 		float angle = Vector3.Angle(direction, transform.forward);
 
 		if(angle < fieldOfView * 0.5f)
@@ -332,6 +345,8 @@ public class WolfController : MonoBehaviour
 				if(go != null && go.tag == Tags.player)
 				{
 					lastKnownPlayerPos = player.transform.position;
+					if(onPlayerSeen != null)
+						onPlayerSeen(this, EventArgs.Empty);
 					return true;
 				}
 			}
