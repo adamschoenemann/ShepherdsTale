@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SheepButton : MonoBehaviour {
+public class SS_SheepButton : MonoBehaviour {
 	private bool debug = false;
 
-
+	GameObject gameController;
 	private Timer lightTimer;
 	private bool buttonChecked = false;
 	public int sheepPos = 0;
@@ -25,6 +25,7 @@ public class SheepButton : MonoBehaviour {
 		indicationLight.light.intensity = 0.0f;
 		indicationLight.transform.position = transform.position;
 
+		gameController = GameObject.FindGameObjectWithTag(Tags.simonGame);
 	}
 	
 	// Update is called once per frame
@@ -69,8 +70,10 @@ public class SheepButton : MonoBehaviour {
 		switch(collision.gameObject.tag)
 		{
 		case Tags.staff:
-			if(Input.GetButtonDown("Fire1") && buttonChecked == false)
-				buttonChecked = true;
+			if(Input.GetButtonDown("Fire1"))
+			{
+				gameController.GetComponent<SS_GameRules>().AddToPlayerSequence(sheepPos);
+			}
 			break;
 		default:
 			break;
