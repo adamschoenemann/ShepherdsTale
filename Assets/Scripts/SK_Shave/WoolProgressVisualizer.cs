@@ -19,14 +19,14 @@ public class WoolProgressVisualizer : MonoBehaviour {
 	void OnGUI () 
 	{
 		// TODO improve visualization!
-		GUI.Box(rect, progress.ToString());
+		GUI.Box(rect, "");
 	}
 
 	public void SetProgress(float progress)
 	{
-		this.progress = 1.0f - progress; // Use the inverse progress.
+		this.progress = progress;
 		y = (int)(progress * totalHeight + startY);
-		height = (int)(this.progress * totalHeight);
+		height = (int)((1 - progress) * totalHeight);
 
 		rect = new Rect(x, y, width, height);
 	}

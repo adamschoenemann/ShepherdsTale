@@ -6,8 +6,9 @@ public class ShaveManager : MonoBehaviour {
 	public WoolSpawnerScript woolspawner;
 	public WoolProgressVisualizer progressVisualization;
 	public GameObject quicktimeEvents;
+	public ShaveAudioManager audio;
 	public GameObject player;
-	public float woolSpawnDelay = 0.0f;
+	public float woolSpawnDelay = 0.21f; // Ensure that wool spawn matches shepherd animation
 	public int woolsToCutOff = 100;
 
 	private QTHandler qtHandler;
@@ -28,12 +29,16 @@ public class ShaveManager : MonoBehaviour {
 		{
 			playerAnim.SetTrigger("MadeError");
 			playerAnim.ResetTrigger("MadeCut");
+			audio.PlayFail();
+
 			correctStreak = 0;
 		}
 		else if(qtHandler.HasMadeCorrect())
 		{
 			playerAnim.SetTrigger("MadeCut");
 			playerAnim.ResetTrigger("MadeError");
+			audio.PlayCorrect();
+
 			correctStreak++;
 
 			if(correctStreak > 5)

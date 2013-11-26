@@ -3,12 +3,12 @@ using System.Collections;
 
 /*
  *	This class handles the slightly annoying need to check whether sounds are
- *	provided or not. Use like: myQTAudioManager.PlayCorrect();, and it will play
+ *	provided or not. Use like: myAudioManager.PlayCorrect();, and it will play
  *	the sound if it exists and is not already playing.
  *	Expand as needed.
  *	Author: TW
  */
-public class QTAudioManager : MonoBehaviour {
+public class ShaveAudioManager : MonoBehaviour {
 
 	public AudioSource failSound;
 	public AudioSource correctSound;

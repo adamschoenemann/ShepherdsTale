@@ -6,8 +6,7 @@ using System.Collections.Generic;
 /*
  *	This class controls all things related to the QT events: It ensures 
  *	that a stream is set up from the given TextAsset, that the stream is
- *	moved with proper timing, handles user input, and gives auditory (and 
- *	optionally visual) feedback.
+ *	moved with proper timing, and also takes care of user input.
  *	
  *	author: TW
  */
@@ -18,16 +17,12 @@ public class QTHandler : MonoBehaviour {
 	public float inputPrecision = 0.166667f; // User is allowed to be off by 1/6th to either side
 	
 	public TextAsset quickTimeEventList;
-	public QTAudioManager audio;
 	public QTTextures textures;
 
 	private QTStream stream;
-	//private List<QTFeedback> feedback;
 	private int xCenter, yCenter;
 	private bool keyPressed = false;
 	private int currentIndex = -1;
-	private int score = 0; // Not currently used. Counts up when user hits proper key at proper time, down otherwise.
-	private Animator playerAnim;
 
 	private bool hasError = false, hasCorrect = false;
 
@@ -36,30 +31,12 @@ public class QTHandler : MonoBehaviour {
 		stream = new QTStream(quickTimeEventList, textures, nodesPerSecond, nodeSize, (int)(nodeSize * inputPrecision)/2);
 		xCenter = Screen.width/2;
 		yCenter = Screen.height - (nodeSize/2 + 10);
-		//feedback = new List<QTFeedback>();
-
-		playerAnim = GameObject.FindGameObjectWithTag(Tags.player).GetComponent<Animator>();
 	}
 
 	void Update ()
 	{
 		stream.Update();
 		CheckInput();
-		
-		// Uncomment the following if you require visual feedback labels. Also uncomment similar lines
-		// further down.
-		/*
-		for(int i = feedback.Count - 1; i >= 0; i--)
-		{
-			QTFeedback f = feedback[i];
-			f.Update();
-
-			if(f.IsTimeToDisappear())
-			{
-				feedback.Remove(f);
-			}
-		}
-		*/
 	}
 
 	void OnGUI()
@@ -71,15 +48,6 @@ public class QTHandler : MonoBehaviour {
 						 yCenter 		- nodeSize / 2,
 						 nodeSize,
 						 nodeSize), textures.marker);
-
-		// Uncomment the following if you require visual feedback labels. Also uncomment similar lines
-		// further down.
-		/*
-		foreach(QTFeedback f in feedback)
-		{
-			f.Draw();
-		}
-		*/
 	}
 
 	private void CheckInput()
@@ -131,47 +99,32 @@ public class QTHandler : MonoBehaviour {
 	// using this. Also, the feedback is confusing as fuck. -TW
 	private void MissedButtonPress()
 	{
-		//score--;
 		//MadeError();
-
-		//Debug.Log("Missed a button press!");
-		//feedback.Add(new QTFeedback("Missed", 2.0f, Screen.width/2, Screen.height/2, 50, 200)); // Uncomment these to get (crappy) visual feedback on errors. -TW
-		//audio.PlayFail(); // Removed audio here because it can be very misleading to get delayed feedback. -TW
 	}
 
 	private void PressedWrongButton()
 	{
 		MadeError();
-		//Debug.Log("Pressed wrong button!");
-		//feedback.Add(new QTFeedback("Wrong", 2.0f, Screen.width/2, Screen.height/2, 50, 200));
 	}
 
 	private void PressedWhenNoButtonNeeded()
 	{
 		MadeError();
-		//Debug.Log("Pressed button when none was needed!");
-		//feedback.Add(new QTFeedback("None needed", 2.0f, Screen.width/2, Screen.height/2, 50, 200));
 	}
 
 	private void PressedCorrectly()
 	{	
-		MadeCut();	
+		MadeCorrect();	
 	}
 
 	private void MadeError()
 	{
-		audio.PlayFail();
-		score--;
-
 		hasError = true;
 		hasCorrect = false;
 	}
 
-	private void MadeCut()
+	private void MadeCorrect()
 	{
-		audio.PlayCorrect();
-		score++;
-
 		hasCorrect = true;
 		hasError = false;
 	}

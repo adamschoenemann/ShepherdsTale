@@ -59,7 +59,7 @@ public class WoolSpawnerScript : MonoBehaviour {
 
 	public void SpawnWool(float delay, int number)
 	{
-		timer = new Timer((int)delay * 1000);
+		timer = new Timer((int)(delay * 1000));
 		numberOfInstancesToMake = number;
 	}
 }
