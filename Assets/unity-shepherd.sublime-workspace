@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"Log",
+				"LogAPI"
+			],
+			[
+				"ses",
+				"sessionClosed"
+			],
+			[
+				"Sta",
+				"StartLogging"
+			],
+			[
+				"Dis",
+				"Disable"
+			],
+			[
 				"dis",
 				"displayComplete"
 			],
@@ -498,129 +514,41 @@
 			[
 				"gra",
 				"graph"
-			],
-			[
-				"G",
-				"Graph"
-			],
-			[
-				"g",
-				"getX"
-			],
-			[
-				"ge",
-				"getRight()"
-			],
-			[
-				"String",
-				"StringBuilder"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "Scripts/Mortal.cs",
+			"file": "Scripts/Player/PlayerController.cs",
 			"settings":
 			{
-				"buffer_size": 1150,
+				"buffer_size": 1422,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Scripts/Patroller.cs",
+			"file": "Scripts/Logging/Logger.cs",
 			"settings":
 			{
-				"buffer_size": 3037,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Scripts/Utils/Utils.cs",
-			"settings":
-			{
-				"buffer_size": 1867,
+				"buffer_size": 525,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Scripts/NavMeshPatroller.cs",
-			"settings":
-			{
-				"buffer_size": 4044,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Scripts/SneakGameController.cs",
-			"settings":
-			{
-				"buffer_size": 1604,
-				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "Scripts/WolfController.cs",
 			"settings":
 			{
-				"buffer_size": 13023,
+				"buffer_size": 12979,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Scripts/Waypoint.cs",
+			"file": "Scripts/Logging/LogAPI.cs",
 			"settings":
 			{
-				"buffer_size": 150,
+				"buffer_size": 2928,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Scripts/WolfAnimation.cs",
-			"settings":
-			{
-				"buffer_size": 2199,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Scripts/LevelComplete.cs",
-			"settings":
-			{
-				"buffer_size": 358,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Scripts/Staff.cs",
-			"settings":
-			{
-				"buffer_size": 543,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Scripts/Utils/Timer.cs",
-			"settings":
-			{
-				"buffer_size": 795,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Scripts/AttackCollider.cs",
-			"settings":
-			{
-				"buffer_size": 404,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Scripts/WolfSpotLight.cs",
-			"settings":
-			{
-				"buffer_size": 409,
-				"line_ending": "Unix"
 			}
 		}
 	],
@@ -984,11 +912,26 @@
 	},
 	"file_history":
 	[
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Waypoint.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/WolfAnimation.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/LevelComplete.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Staff.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Utils/Timer.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/AttackCollider.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/WolfSpotLight.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Mortal.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Patroller.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Utils/Utils.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/NavMeshPatroller.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/SneakGameController.cs",
+		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Collectible.cs",
+		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Standard Assets/Log_code/Logger2.cs",
+		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Standard Assets/Log_code/Log.cs",
+		"/F/Dropbox/MED5/Implementation/Prototype/Unity/Assets/Standard Assets/Log_code/Logger.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Tags.cs",
 		"/F/Dropbox/Medialogy/MED5/CGR/HDRI Hand-In/documentation.md",
 		"/F/Dropbox/Medialogy/MED5/CGR/HDRI Hand-In/documentation.html",
 		"/F/Dropbox/Medialogy/MED5/CGR/HDRI Hand-In/documentation.txt",
-		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/AttackCollider.cs",
 		"/F/Dropbox/Projects/Unity/first/Assets/PlayerController.cs",
 		"/F/Dropbox/Projects/Unity/first/Assets/StateMachine.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Player/PlayerController.cs",
@@ -1004,10 +947,6 @@
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Noises/NoiseManager.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/HealthBar.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Player/PlayerAnimation.cs",
-		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/WolfAnimation.cs",
-		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Mortal.cs",
-		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Staff.cs",
-		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Utils/Timer.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Obsolete/ShepherdController.cs",
 		"/F/Projects/MED5/ShepherdsTale/Assets/Scripts/Enemy.cs",
 		"/F/Dropbox/Programs/SublimeText/Data/Packages/Default/Default (Windows).sublime-keymap",
@@ -1100,18 +1039,7 @@
 		"/F/Dropbox/Projects/TimeForTV/TimeForTV/key.txt",
 		"/F/Dropbox/MED4/DAE/Homework 3/Homework_3.m",
 		"/F/Dropbox/MED4/OOSE/5/SwingExample/SwingExample.java",
-		"/F/Dropbox/MED4/OOSE/3/SwingExample/SwingExample.java",
-		"/F/Dropbox/MED4/OOSE/3/ATM/bin/ATM.class",
-		"/C/Users/Adam/AppData/Local/Temp/fz3temp-1/error_log",
-		"/F/Dropbox/MED4/OOSE/3/ATM/bin/BankAccount.class",
-		"/F/Dropbox/MED4/OOSE/3/ATM/bin/Bank.class",
-		"/C/Users/Adam/AppData/Local/Temp/Rar$DI01.929/Duck.java",
-		"/C/Users/Adam/AppData/Local/Temp/Rar$DI00.026/Exercise1.java",
-		"/F/Dropbox/MED4/OOSE/3/README.txt",
-		"/F/Dropbox/MED4/OOSE/3/Exercise1/Exercise1.java",
-		"/F/Dropbox/MED4/OOSE/3/Exercise1/Duck.java",
-		"/F/Dropbox/Projects/TimeForTV/TimeForTV/proguard.cfg",
-		"/F/Dropbox/MED4/OOSE/3/ATM/src/BankAccount.java"
+		"/F/Dropbox/MED4/OOSE/3/SwingExample/SwingExample.java"
 	],
 	"find":
 	{
@@ -1129,6 +1057,13 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"bool",
+			"objects",
+			"instance",
+			"private",
+			"public",
+			"Instance",
+			"instance",
 			"displayMessage",
 			"Returning",
 			"OnPlayerSeen",
@@ -1249,14 +1184,7 @@
 			"Vector3",
 			"defaultTransform",
 			"100",
-			"CheckForPlayer",
-			"=",
-			"run",
-			",",
-			"private",
-			"forwardA",
-			"localPositon",
-			"rotation"
+			"CheckForPlayer"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1303,23 +1231,50 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Scripts/Mortal.cs",
+					"file": "Scripts/Player/PlayerController.cs",
 					"settings":
 					{
-						"buffer_size": 1150,
+						"buffer_size": 1422,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								666,
-								666
+								685,
+								685
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Scripts/Logging/Logger.cs",
+					"settings":
+					{
+						"buffer_size": 525,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								303,
+								303
 							]
 						],
 						"settings":
@@ -1329,113 +1284,6 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Scripts/Patroller.cs",
-					"settings":
-					{
-						"buffer_size": 3037,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2176,
-								2176
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1440.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Scripts/Utils/Utils.cs",
-					"settings":
-					{
-						"buffer_size": 1867,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1664,
-								1664
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 484.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Scripts/NavMeshPatroller.cs",
-					"settings":
-					{
-						"buffer_size": 4044,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2337,
-								2337
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1066.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "Scripts/SneakGameController.cs",
-					"settings":
-					{
-						"buffer_size": 1604,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								420,
-								420
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 45.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1443,23 +1291,23 @@
 			]
 		},
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
-					"buffer": 5,
+					"buffer": 2,
 					"file": "Scripts/WolfController.cs",
 					"settings":
 					{
-						"buffer_size": 13023,
+						"buffer_size": 12979,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5011,
-								5011
+								9456,
+								9456
 							]
 						],
 						"settings":
@@ -1468,185 +1316,29 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 585.0,
+						"translation.y": 6118.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "Scripts/Waypoint.cs",
+					"buffer": 3,
+					"file": "Scripts/Logging/LogAPI.cs",
 					"settings":
 					{
-						"buffer_size": 150,
+						"buffer_size": 2928,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "Scripts/WolfAnimation.cs",
-					"settings":
-					{
-						"buffer_size": 2199,
-						"regions":
-						{
-						},
-						"selection":
-						[
+								284,
+								284
+							],
 							[
-								711,
-								711
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 127.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "Scripts/LevelComplete.cs",
-					"settings":
-					{
-						"buffer_size": 358,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								330,
-								330
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "Scripts/Staff.cs",
-					"settings":
-					{
-						"buffer_size": 543,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "Scripts/Utils/Timer.cs",
-					"settings":
-					{
-						"buffer_size": 795,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								651,
-								651
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "Scripts/AttackCollider.cs",
-					"settings":
-					{
-						"buffer_size": 404,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "Scripts/WolfSpotLight.cs",
-					"settings":
-					{
-						"buffer_size": 409,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
+								328,
+								328
 							]
 						],
 						"settings":
@@ -1724,6 +1416,14 @@
 		"selected_items":
 		[
 			[
+				"collec",
+				"Scripts/Collectible.cs"
+			],
+			[
+				"playercon",
+				"Scripts/Player/PlayerController.cs"
+			],
+			[
 				"tags",
 				"Scripts/Tags.cs"
 			],
@@ -1738,10 +1438,6 @@
 			[
 				"navmesho",
 				"Scripts/NavMeshPatroller.cs"
-			],
-			[
-				"playercon",
-				"Scripts/Player/PlayerController.cs"
 			],
 			[
 				"state",
@@ -1887,6 +1583,10 @@
 		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"she",
+				"/F/Dropbox/xampp/htdocs/shepherd_log/shepherd_log.sublime-project"
+			],
 			[
 				"naja",
 				"/F/Dropbox/xampp/htdocs/najas/najas.sublime-project"

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
+[Obsolete("Mathias already did this")]
 public class Collectible : MonoBehaviour
 {
 
