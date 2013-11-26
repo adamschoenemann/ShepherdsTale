@@ -12,4 +12,5 @@ public class QTTextures : MonoBehaviour {
 	public Texture  leftArrow;
 	public Texture rightArrow;
 	public Texture marker;
+	public Texture errorMarker;
 }

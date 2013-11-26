@@ -3057,6 +3057,7 @@ MonoBehaviour:
   leftArrow: {fileID: 2800000, guid: 26b8869f3835442c8b19e5c8ebfda996, type: 3}
   rightArrow: {fileID: 2800000, guid: 134e7f26a8e89485db6987939a393b0d, type: 3}
   marker: {fileID: 2800000, guid: a0ff67eacf60a4b37afbb6ae1aeb1c06, type: 3}
+  errorMarker: {fileID: 2800000, guid: 33502d96f88094eb8b359030cfc4304a, type: 3}
 --- !u!114 &1059771562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3072,6 +3073,7 @@ MonoBehaviour:
   nodeSize: 50
   nodesPerSecond: 1
   inputPrecision: .166666701
+  errorMarkerTime: .25
   quickTimeEventList: {fileID: 4900000, guid: aa2105002c34e4fe88ca9039247a80ec, type: 3}
   textures: {fileID: 1059771560}
 --- !u!4 &1059771563
@@ -3983,6 +3985,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 13c130260951440f191b0772c5ee3a31, type: 2}
+      propertyPath: errorMarker
+      value: 
+      objectReference: {fileID: 2800000, guid: 33502d96f88094eb8b359030cfc4304a, type: 3}
     m_RemovedComponents:
     - {fileID: 8200000, guid: 13c130260951440f191b0772c5ee3a31, type: 2}
     - {fileID: 8200002, guid: 13c130260951440f191b0772c5ee3a31, type: 2}

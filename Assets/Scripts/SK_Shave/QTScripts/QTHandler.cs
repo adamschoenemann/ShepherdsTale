@@ -15,6 +15,7 @@ public class QTHandler : MonoBehaviour {
 	public int nodeSize = 100; 
 	public float nodesPerSecond = 1.0f;
 	public float inputPrecision = 0.166667f; // User is allowed to be off by 1/6th to either side
+	public float errorMarkerTime = 0.25f;
 	
 	public TextAsset quickTimeEventList;
 	public QTTextures textures;
@@ -23,6 +24,7 @@ public class QTHandler : MonoBehaviour {
 	private int xCenter, yCenter;
 	private bool keyPressed = false;
 	private int currentIndex = -1;
+	private float errorMarkerTimeElapsed = 0.0f;
 
 	private bool hasError = false, hasCorrect = false;
 
@@ -35,6 +37,7 @@ public class QTHandler : MonoBehaviour {
 
 	void Update ()
 	{
+		errorMarkerTimeElapsed += Time.deltaTime;
 		stream.Update();
 		CheckInput();
 	}
@@ -43,11 +46,13 @@ public class QTHandler : MonoBehaviour {
 	{
 		stream.Draw(xCenter, yCenter);
 
+		Texture marker = (errorMarkerTimeElapsed < errorMarkerTime) ? textures.errorMarker : textures.marker;
+
 		// Draw marker, indicating which event the user should time their button push to.
 		GUI.Label(new Rect(Screen.width/2 - nodeSize / 2,
 						 yCenter 		- nodeSize / 2,
 						 nodeSize,
-						 nodeSize), textures.marker);
+						 nodeSize), marker);
 	}
 
 	private void CheckInput()
@@ -121,6 +126,7 @@ public class QTHandler : MonoBehaviour {
 	{
 		hasError = true;
 		hasCorrect = false;
+		errorMarkerTimeElapsed = 0.0f;
 	}
 
 	private void MadeCorrect()
