@@ -14,6 +14,12 @@ public class Timer
 		this.elapsed = 0L;
 	}
 
+	public Timer(float durationSeconds) :
+		this((long)(durationSeconds * 1000))
+	{
+		// Deliberately empty
+	}
+
 	public void TickMilliseconds(long interval)
 	{
 		elapsed += interval;
@@ -34,5 +40,10 @@ public class Timer
 	public float GetProgress()
 	{
 		return elapsed / (float) duration;
+	}
+
+	public void Reset()
+	{
+		elapsed = 0L;
 	}
 }
