@@ -5,32 +5,31 @@ using System.Collections.Generic;
 class Logger : MonoBehaviour
 {
 
-	private List<GameObject> objects = new List<GameObject>();
-
-	public void StartLogging()
+	
+	public void Log(LogEntry e)
 	{
-		print("Adding new GameObjects");
-		objects.Clear();
-		objects.Add(GameObject.FindWithTag(Tags.player));
-		objects.AddRange(GameObject.FindGameObjectsWithTag(Tags.enemy));
 
-		foreach(GameObject obj in objects)
-		{
-			print("Object: " + obj);
-		}
-		StartCoroutine(LogAPI.instance.StartSession(objects));
-		StartCoroutine(LogAPI.instance.StartLogging(this));
 	}
 
 	void Awake()
 	{
-		print("Start");
-		StartLogging();
+		StartCoroutine(LogAPI.instance.StartSession());
+		StartCoroutine(
+			LogAPI.instance.RegisterScene(Application.loadedLevelName, this)
+		);
 	}
 
+	public void Enqueue(LogEntry entry)
+	{
+		LogAPI.instance.Enqueue(entry, this);
+	}
+
+	// Find a way to clean up properly, goddammit!
+	// Try with a eval solution when going to web environment
 	void OnDestroy()
 	{
-		StopAllCoroutines();
+		LogAPI.instance.CloseScene();
+		// StopAllCoroutines();
 	}
 
 	void OnApplicationQuit()

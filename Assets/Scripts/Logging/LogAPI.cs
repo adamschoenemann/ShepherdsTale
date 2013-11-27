@@ -8,6 +8,7 @@ public class LogAPI {
 	const string host = "http://localhost/shepherd_log/api/log";
 
 	public int session_id {get; private set;}
+	public int scene_id {get; private set;}
 	public float logRate = 0.5f;
 
 	private static LogAPI _instance;
@@ -32,7 +33,8 @@ public class LogAPI {
 		private set {_sessionClosed = value;}
 	}
 
-	private List<GameObject> objects;
+	private const int size = 4;
+	private Queue<LogEntry> entryQueue = new Queue<LogEntry>(size);
 
 	// ----------------------------- Methods -------------------------
 
@@ -40,30 +42,103 @@ public class LogAPI {
 	{
 		Debug.Log("New LogAPI created");
 		session_id = 0;
+		scene_id = 0;
+	}
+
+	public void Enqueue(LogEntry e, MonoBehaviour context)
+	{
+		e.session_id = session_id;
+		e.scene_id = scene_id;
+		entryQueue.Enqueue(e);
+		if(entryQueue.Count >= size - 1)
+		{
+			Flush(context);
+		}
+	}
+
+	public void Flush(MonoBehaviour context)
+	{
+		Debug.Log("Flushing...");
+		WWWForm form = new WWWForm();
+		LogEntry[] entries = new LogEntry[entryQueue.Count];
+		entryQueue.CopyTo(entries, 0);
+		entryQueue.Clear();
+		for(int i = 0; i < entries.Length; i++)
+		{
+			LogEntry e = entries[i];
+			e.ToForm(form, i);
+		}
+		
+		context.StartCoroutine(LogEntries(form));
+	}
+
+	public IEnumerator LogEntries(WWWForm form)
+	{
+		WWW www = new WWW(host + "/batch_entries", form);
+		yield return www;
+		JSONObject json = HandleResponse(www);
+		Debug.Log("Entry post: " + json.ToString());
+	}
+
+	public IEnumerator RegisterScene(String name, MonoBehaviour context)
+	{
+		while(session_id == 0)
+		{
+			yield return true;
+		}
+
+		if(scene_id != 0)
+		{
+			Debug.Log("I want to close the current scene");
+			yield return context.StartCoroutine(CloseScene());
+		}
+
+		Debug.Log("Registering scene");
+		WWWForm form = new WWWForm();
+		form.AddField("session_id", session_id);
+		form.AddField("name", name);
+
+		WWW www = new WWW(host + "/register_scene", form);
+		yield return www;
+		
+		JSONObject json = HandleResponse(www);
+		scene_id = (int) json[0]["id"].n;
+		Debug.Log(json[0]["id"]);
+	}
+
+	private JSONObject HandleResponse(WWW www)
+	{
+		if(String.IsNullOrEmpty(www.error) == false){
+			Debug.Log("error: " + www.error);
+		}
+
+		JSONObject json = new JSONObject(www.text);
+		return json;
+	}
+
+	// Still not working
+	public IEnumerator CloseScene()
+	{
+		string url = host + "/close_scene/";
+		WWWForm form = new WWWForm();
+		form.AddField("id", scene_id);
+		WWW www = new WWW(url, form);
+		yield return www;
+		HandleResponse(www);
 	}
 
 	/**
 	 * Starts a new session server-side
 	 */
-	public IEnumerator StartSession(List<GameObject> gObjs)
+	public IEnumerator StartSession()
 	{
 		if(session_id != 0)
 		{
 			return false;
 		}
 
-		objects = gObjs;
 		WWWForm form = new WWWForm();
-		form.AddField("app_version", "1");
-		int i = 0;
-		foreach(GameObject obj in objects)
-		{
-			string field = "gameobjects[" + i + "]";
-			form.AddField(field + "[instance_id]", obj.GetInstanceID());
-			form.AddField(field + "[name]", obj.name);
-			form.AddField(field + "[tag]", obj.tag);
-			i++;
-		}
+		form.AddField("app_version", "1");	
 
 		WWW www = new WWW(host + "/start_session", form);
 		yield return www;
@@ -83,43 +158,18 @@ public class LogAPI {
 		return (session_id == 0);
 	}
 
-	public void Log(MonoBehaviour context, string eventName = "none")
-	{
-		try
-		{
-			Debug.Log("Logging... " + objects);
-			foreach(GameObject obj in objects){
-				if(obj == null)
-				{
-					Debug.Log("Logging null object");
-					continue;
-				}
-				context.StartCoroutine(LogGameObject(obj, eventName));
-			}
-			return;
-		}
-		catch(NullReferenceException e)
-		{
-			Debug.Log(e);
-		}
-	}
+	// private IEnumerator
+	// LogEntry(LogEntry entry, string endpoint, Func<WWW, void> onDone = null)
+	// {
+	// 	WWWForm form = entry.ToForm();
+	// 	WWW www = new WWW(host + endpoint, form);
+	// 	yield return www;
+	// 	if(onDone != null)
+	// 	{
+	// 		onDone(www);
+	// 	}
 
-	/**
-	 * Begins logging all the registered gameobjects
-	 * @type {String}
-	 */
-	public IEnumerator StartLogging(MonoBehaviour context, string eventName = "none")
-	{
-		while(true)
-		{
-			if(session_id == 0) // Wait with logging till we've got an id
-			{
-				yield return true;
-			}
-			Log(context, eventName);
-			yield return new WaitForSeconds(logRate);
-		}
-	}
+	// }
 
 	private IEnumerator LogGameObject(GameObject obj, string eventName)
 	{

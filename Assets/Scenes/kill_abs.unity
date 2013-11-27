@@ -13475,6 +13475,7 @@ GameObject:
   - 114: {fileID: 2055785881}
   - 114: {fileID: 2055785882}
   - 114: {fileID: 2055785874}
+  - 114: {fileID: 2055785883}
   m_Layer: 8
   m_Name: Shepherd_prefab
   m_TagString: Player
@@ -13774,6 +13775,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 200
+--- !u!114 &2055785883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2055785871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860d5fd623c06a444aa6ddc12ea0324c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Players
 --- !u!1 &2060280509
 GameObject:
   m_ObjectHideFlags: 0
