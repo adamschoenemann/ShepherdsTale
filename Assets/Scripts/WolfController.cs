@@ -6,7 +6,6 @@ using Wolf;
 
 /**
  * Controls the wolf
- * TODO: Redo much of the code to take advantage of the NavMeshAgent
  * @type {[type]}
  */
 namespace Wolf
@@ -27,10 +26,7 @@ public class WolfController : MonoBehaviour
 	private State _state = State.Idle;
 	public State state
 	{
-		get
-		{
-			return _state;
-		}
+		get { return _state; }
 		protected set
 		{
 			if(_state != value)
@@ -44,7 +40,8 @@ public class WolfController : MonoBehaviour
 	protected GameObject player;
 	protected PlayerController playerController;
 	protected Vector3 lastKnownPlayerPos;
-	protected Dictionary<string, Collision> collisionFlags = new Dictionary<string, Collision>();
+	protected Dictionary<string, Collision> collisionFlags =
+		 new Dictionary<string, Collision>();
 
 	public float hearing = 2.0f;
 	public float seeingThresh = 10.0f;
@@ -82,7 +79,7 @@ public class WolfController : MonoBehaviour
 		playerController = player.GetComponent<PlayerController>();
 		mortal = GetComponent<Mortal>();
 
-		mortal.onDeathHandler = OnDeath;
+		mortal.onDeathHandler += OnDeath;
 
 		defaultPosition = transform.position;
 		defaultRotation = transform.rotation;

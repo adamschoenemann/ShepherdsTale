@@ -9,6 +9,7 @@ TagManager:
   - Waypoint
   - Trap
   - Collectible
+  - Logger
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
