@@ -2,11 +2,11 @@
 using System.Collections;
 
 // This class is used for displaying an instructions page to help users understand their task.
-public class InstructionsPage {
+public class UInstructionsPage {
 
 	private Layout layout;
 
-	public InstructionsPage(Layout layout)
+	public UInstructionsPage(Layout layout)
 	{
 		this.layout = layout;
 	}
@@ -14,7 +14,8 @@ public class InstructionsPage {
 	public void Draw()
 	{
 		GUI.Label(new Rect(layout.startX, layout.startY, 3 * layout.elementWidth, 3 * layout.elementHeight),
-			"In the following pages, you are asked to indicate which of the two opposed statements you agree with the most. This is done by clicking the boxes. You can see your progress on the bottom of the page.",
+			"In the following pages, you are asked to comment on a few aspects and to rate a few affirmations about the game you just played. "+			
+		          "\n \t We thank you very much for your patience and cooperation! ",
 			"box");
 	}
 }

@@ -3,29 +3,30 @@ using System.Collections;
 using System;
 
 // This class handles GUI layout and display, 
-// retrieving questions thru the PersonalityQuestions class,
+// retrieving questions thru the UQuestions class,
 // keeping track of progress in the questionnaire, 
 // and checking that everything has been answered by the user.
 // Finally, it also stores the information to .../Assets/Output/QuestionnaireResponses.csv
 // including a time stamp
 public class Questionnaire : MonoBehaviour {
 
-	public PersonalityQuestions personalityQuestions;
+	public UsabilityQuestions usabilityQuestions;
 	public GUISkin skin;
 
 	private ProgressBar progressBar;
-	private DemographicPage demoPage;
-	private InstructionsPage instructionsPage;
-	private PersonalityPage[] personalityPages;
-	private PersonalityResultsPage personalityResultsPage;
+	private UDemographicPage demoPage;
+	private commentsPage comPage;
+	private UInstructionsPage instructionsPage;
+	private UPage[] personalityPages;
+	//private UResultsPage personalityResultsPage;
 
-	private int personalityPageIndex = -2; // -2: demographics, -1: instructions page
+	private int personalityPageIndex = -3; // -2: demographics, -1: instructions page
 	private readonly int noOfDemographicQuestions = 3;
 
 	// Layout
 	private Layout layout;
 	private int questionsPerPage = 5;
-	private int maxNoElementsY = 8;
+	private int maxNoElementsY = 7;
 
 	private int fillOutAllAnswersLabelTimer = 0;
 
@@ -46,25 +47,25 @@ public class Questionnaire : MonoBehaviour {
 									defaultHeight)
 							); 
 
-		progressBar = new ProgressBar(layout.ElementRect(0, 8));
-		demoPage = new DemographicPage(layout);
+		progressBar = new ProgressBar(layout.ElementRect(0, 6));
+		demoPage = new UDemographicPage(layout);
+		comPage = new commentsPage(layout);
 
 		// Initialize personalityQuestions
-		string[] left = personalityQuestions.GetLefthandQuestions();
-		string[] right = personalityQuestions.GetRighthandQuestions();
+		string[] left = usabilityQuestions.GetUQuestions();
 
-		personalityPages = new PersonalityPage[ (int)Math.Ceiling((float)(left.Length)/questionsPerPage)];
+		personalityPages = new UPage[ (int)Math.Ceiling((float)(left.Length)/questionsPerPage)];
 
 		for(int i = 0; i < personalityPages.Length; i++)
 		{
-			personalityPages[i] = new PersonalityPage(left, right, 
+			personalityPages[i] = new UPage(left,  
 				i * questionsPerPage, // Startindex
 				Math.Min((i + 1) * questionsPerPage - 1, left.Length - 1), // Endindex
 				layout);
 		}
 
 		// Initialize instructions page
-		instructionsPage = new InstructionsPage(layout);
+		instructionsPage = new UInstructionsPage(layout);
 
 		//PrimeOutputFile(); // Insert suitable header in the output file
 		//personalityPageIndex = 5; // Go to last page
@@ -75,20 +76,25 @@ public class Questionnaire : MonoBehaviour {
 
 		GUI.skin = this.skin;
 
-		if(personalityPageIndex == -2)
+		if(personalityPageIndex == -3)
 		{
 			demoPage.Draw();
 		}
-		else if(personalityPageIndex == -1)
+		else if(personalityPageIndex == -2)
 		{
 			instructionsPage.Draw();
 		}
+		else if (personalityPageIndex ==-1) 
+		{ comPage.Draw ();
+		}
 		else if(personalityPageIndex >= personalityPages.Length)
 		{
-			if(personalityResultsPage == null){
-				personalityResultsPage = new PersonalityResultsPage(layout, GetPersonalityAnswers(), personalityQuestions.GetTypes(), personalityQuestions.GetFlipRatings());
-			}
-			personalityResultsPage.Draw();
+			
+
+			//if(personalityResultsPage == null){
+		//		personalityResultsPage = new UResultsPage(layout, GetUAnswers(), usabilityQuestions.GetTypes(), usabilityQuestions.GetFlipRatings());
+			//}
+		//	personalityResultsPage.Draw();
 			/*GUI.Label(new Rect(layout.startX, layout.startY, layout.elementWidth * 3, layout.elementHeight * maxNoElementsY), 
 				"Thank you very much for your participation!",
 				"box");
@@ -106,19 +112,21 @@ public class Questionnaire : MonoBehaviour {
 		// Next page button
 		if(GUI.Button(layout.ElementRect(1, 7), "Next page"))
 		{
-			if((personalityPageIndex == -1) || (personalityPageIndex == -2 && demoPage.Answered)) // Still on demographics page, but it is answered
+			if( (personalityPageIndex==-1)|| (personalityPageIndex == -2) || (personalityPageIndex == -3 && demoPage.Answered)) // Still on demographics page, but it is answered
 			{
 				personalityPageIndex++; // Move into personality pages	
 			}
 			else if(personalityPageIndex > -1 && personalityPages[personalityPageIndex].IsAnswered())
 			{
 				personalityPageIndex++;
-				if(personalityPageIndex >= personalityPages.Length) // Finished the questionnaire?
+
+				if((personalityPageIndex >= personalityPages.Length) && comPage.Answered) // Finished the questionnaire?
 				{
 					// Gather questionnaire data
 					// Save questionnaire data to disk
 					WriteAnswersToDisk();
 				}
+
 			}
 			else
 			{
@@ -130,25 +138,29 @@ public class Questionnaire : MonoBehaviour {
 		if(fillOutAllAnswersLabelTimer > 0)
 		{
 			fillOutAllAnswersLabelTimer--;
-			GUI.Label(layout.ElementRect(1,6), "Please answer all the questions.", "box");
+			GUI.Label(layout.ElementRect(1,5), "Please answer all the questions.", "box");
 		}		
 	}
 
 	public float GetProgress()
 	{
-		return Math.Min(1.0f, Math.Max(0.0f, (float)(personalityPageIndex + 1)/personalityPages.Length)); // Ya, clamp to range [0;1]
+		return Math.Min(1.0f, Math.Max(0.0f, (float)(personalityPageIndex+1)/personalityPages.Length)); // Ya, clamp to range [0;1]
 	}
 
 	private string[] GetAnswers()
 	{
-		string[] output = new string[personalityQuestions.Length + noOfDemographicQuestions];
+		string[] output = new string[usabilityQuestions.Length + noOfDemographicQuestions+4];
 
 		// Demographic responses
 		output[0] = demoPage.Gender;
 		output[1] = demoPage.Age;
 		output[2] = demoPage.Nationality;
+		output[3] = comPage.playTime;
+		output[4] = comPage.comAppearance;
+		output[5] = comPage.comChoices;
+		output[6] = comPage.comOther;
 
-		// Personality question responses
+		// U question responses
 		/*int index = noOfDemographicQuestions;
 		for(int page = 0; page < personalityPages.Length; page++)
 		{
@@ -157,15 +169,15 @@ public class Questionnaire : MonoBehaviour {
 			Array.Copy(pageAnswers, 0, output, index, pageAnswers.Length);
 			index += pageAnswers.Length;
 		}*/
-		string[] personalityAnswers = GetPersonalityAnswers();
-		personalityAnswers.CopyTo(output, 3);
+		string[] personalityAnswers = GetUAnswers();
+		personalityAnswers.CopyTo(output, 7);
 
 		return output;
 	}
 
-	private string[] GetPersonalityAnswers()
+	private string[] GetUAnswers()
 	{
-		string[] output = new string[personalityQuestions.Length];
+		string[] output = new string[usabilityQuestions.Length];
 
 		int index = 0;
 		for(int page = 0; page < personalityPages.Length; page++)
@@ -181,14 +193,19 @@ public class Questionnaire : MonoBehaviour {
 
 	private void PrimeOutputFile()
 	{
-		string[] header = new string[personalityQuestions.Length + noOfDemographicQuestions + 1];
+		string[] header = new string[usabilityQuestions.Length + noOfDemographicQuestions + 5];
 		header[0] = "Timestamp";
 		header[1] = "Gender";
 		header[2] = "Age";
 		header[3] = "Nationality";
-		for(int i = 4; i < header.Length; i++)
+		header[4] = "EPlayTime";
+		header[5] = "ComAppearance";
+		header[6] = "ComChoices";
+		header[7] = "ComOther";
+
+		for(int i = 8; i < header.Length; i++)
 		{
-			header[i] = "q" + (i - 3).ToString();
+			header[i] = "q" + (i - 7).ToString();
 		}
 		
 		WriteLine(header);

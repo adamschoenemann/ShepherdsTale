@@ -4,27 +4,29 @@ using System.Collections;
 // This class is used to manage a page of personality questions
 // That is to display, check whether answers have been given, and 
 // read the answer in each row.
-public class PersonalityPage
+public class UPage
 {
-	private PersonalityRow[] questions;
+	private URow[] questions;
 
-	public PersonalityPage(string[] left, string[] right, int startIndex, int endIndex, Layout layout)
+	public UPage(string[] left, int startIndex, int endIndex, Layout layout)
 	{
-		questions = new PersonalityRow[endIndex - startIndex + 1];
+		questions = new URow[endIndex - startIndex + 1];
 		
 		for(int i = 0; i < questions.Length; i++)
 		{
 			Layout rowLayout = new Layout(layout);
 			rowLayout.MoveDown(i);
-			questions[i] = new PersonalityRow(left[i + startIndex], right[i + startIndex], rowLayout);
+			questions[i] = new URow(left[i + startIndex], rowLayout);
 		}	
 	}
 
 	public void Draw()
 	{
-		for(int i = 0; i < questions.Length; i++)
+		for(int i = 0; i < questions.Length+1; i++)
 		{
-			questions[i].Draw();
+			if (i==0) questions[i].Draw(i);
+			else {
+				questions[i-1].Draw(i);}
 		}
 	}
 

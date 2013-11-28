@@ -6,7 +6,7 @@ using System;
 // This is somewhat fragile code, in that the number of demographic questions
 // will have to be changed a few places in the Questionnaire class if any change to the number of
 // questions is made here.
-public class DemographicPage
+public class UDemographicPage
 {
 	public bool Answered { 
 		get 
@@ -28,7 +28,7 @@ public class DemographicPage
 
 	private Layout layout;
 
-	public DemographicPage(Layout layout)
+	public UDemographicPage(Layout layout)
 	{
 		this.layout = layout;
 		Answered = false;
