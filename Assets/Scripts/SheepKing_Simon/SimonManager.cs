@@ -6,6 +6,8 @@ using System.Collections;
 	TODO
 	Proper end/win
 	Proper explanation of the game before starting it.
+
+	Author: TW
 */
 
 public class SimonManager : MonoBehaviour {
@@ -15,18 +17,21 @@ public class SimonManager : MonoBehaviour {
 	public GameObject player;
 	public GameObject activator;
 	public AudioSource winSound;
+	public AudioSource finishedLevelSound;
 	public float noteBaseDuration = 1.0f;
+	public float delayBeforeShow = 2.0f;
 	public int numberOfLevels = 10;
 
 	private SimonSheep[] sheep;
-	private enum State { ShowToPlayer, ListenToPlayer, Finished, WaitToShow };
+	private enum State { ShowToPlayer, ListenToPlayer, Finished, WaitToStart, WaitToShow };
 	private State state;
 	private byte[] notes = {3,0,1,2,0,2,0,3,2,3,0,1,2,0,1,0,3,1,2,3,0,1,2,3,0,3,0,1,2,1,2,1,0,2,3,2,0,1,0,3,1,3,2,1,0,2,1,0,1,2};
-	private static readonly int startLevel = 2;
+	private static readonly int startLevel = 9;
 	private int level = startLevel;
 	private int progress = 0;
 
 	private Timer noteDurationTimer;
+	private Timer waitToShowTimer;
 
 	// Initialization
 	void Start () {
@@ -38,7 +43,7 @@ public class SimonManager : MonoBehaviour {
 		}
 
 		noteDurationTimer = new Timer(noteBaseDuration);
-		state = State.WaitToShow;
+		waitToShowTimer = new Timer(delayBeforeShow);
 
 		StartGame();
 	}
@@ -54,6 +59,9 @@ public class SimonManager : MonoBehaviour {
 				ListenToPlayer();
 				break;
 			case State.WaitToShow:
+				WaitToShow();
+				break;
+			case State.WaitToStart:
 				WaitForPlayerToActivateShow();
 				break;
 		}
@@ -61,7 +69,7 @@ public class SimonManager : MonoBehaviour {
 
 	private void StartGame()
 	{
-		GoToState(State.WaitToShow);
+		GoToState(State.WaitToStart);
 		((SimonActivator)(activator.GetComponent("SimonActivator"))).Listen();
 	}
 
@@ -123,7 +131,9 @@ public class SimonManager : MonoBehaviour {
 			if(progress > level)
 			{
 				level++;
-				noteDurationTimer = new Timer(noteBaseDuration * (1.0f - 0.4f *((numberOfLevels - level) / (float)numberOfLevels)));
+				noteDurationTimer.Reset();
+				//noteDurationTimer = new Timer(noteBaseDuration * (1.0f - 0.4f *((numberOfLevels - level) / (float)numberOfLevels)));
+				finishedLevelSound.Play();
 
 				if(level >= numberOfLevels)
 				{
@@ -136,7 +146,7 @@ public class SimonManager : MonoBehaviour {
 				{
 					// Go to next level
 					progress = 0;
-					GoToState(State.ShowToPlayer);
+					GoToState(State.WaitToShow);
 				}
 			}
 		}
@@ -151,8 +161,8 @@ public class SimonManager : MonoBehaviour {
 			//Debug.Log("Hit wrong sheep: " + sheepHit + " shouldve hit " + notes[progress] + " at " + progress);
 
 			progress = 0;
-			level = startLevel;
-			GoToState(State.ShowToPlayer);
+			//level = startLevel;
+			GoToState(State.WaitToShow);
 		}
 
 		SheepKingLookAt(player);
@@ -167,6 +177,17 @@ public class SimonManager : MonoBehaviour {
 		}
 
 		SheepKingLookAt(player);
+	}
+
+	private void WaitToShow()
+	{
+		waitToShowTimer.TickSeconds(Time.deltaTime);
+
+		if(waitToShowTimer.IsDone())
+		{
+			waitToShowTimer.Reset();
+			GoToState(State.ShowToPlayer);
+		}
 	}
 
 	private void GoToState(State state)

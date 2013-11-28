@@ -159,7 +159,8 @@ MonoBehaviour:
   audio: {fileID: 8200000}
   lightDuration: .5
   lightColor: {r: 1, g: 0, b: 0, a: 0}
-  position: 0
+  playingMaterial: {fileID: 2100000, guid: ed4cd9e7bd4c24e24bee5e8177a90a65, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: 1c2a94209b2c33b4a90c9c88959adba5, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
