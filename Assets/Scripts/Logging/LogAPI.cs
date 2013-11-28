@@ -8,7 +8,6 @@ public class LogAPI {
 	const string host = "http://localhost/shepherd_log/api/log";
 
 	public int session_id {get; private set;}
-	public int scene_id {get; private set;}
 	public float logRate = 0.5f;
 
 	private static LogAPI _instance;
@@ -30,10 +29,10 @@ public class LogAPI {
 	public bool sessionClosed
 	{
 		get {return _sessionClosed;}
-		private set {_sessionClosed = value;}
+		private set { _sessionClosed = value; }
 	}
 
-	private const int size = 4;
+	private const int size = 40;
 	private Queue<LogEntry> entryQueue = new Queue<LogEntry>(size);
 
 	// ----------------------------- Methods -------------------------
@@ -42,21 +41,46 @@ public class LogAPI {
 	{
 		Debug.Log("New LogAPI created");
 		session_id = 0;
-		scene_id = 0;
 	}
 
-	public void Enqueue(LogEntry e, MonoBehaviour context)
+	public IEnumerator RegisterLoggable(Loggable l, Logger logger, Action<int> cb = null)
 	{
-		e.session_id = session_id;
-		e.scene_id = scene_id;
-		entryQueue.Enqueue(e);
-		if(entryQueue.Count >= size - 1)
+		while(session_id == 0)
 		{
-			Flush(context);
+			yield return true;
+		}
+
+		while(logger.scene_id == 0)
+		{
+			yield return true;
+		}
+
+		WWWForm form = new WWWForm();
+		form.AddField("name", l.name);
+		form.AddField("scene_id", logger.scene_id);
+
+		WWW www = new WWW(host + "/register_loggable", form);
+		yield return www;
+		JSONObject json = HandleResponse(www);
+		Debug.Log("Registered: " + json.ToString());
+		if(cb != null)
+		{
+			cb((int) json[0]["id"].n);
 		}
 	}
 
-	public void Flush(MonoBehaviour context)
+	public bool Enqueue(LogEntry e)
+	{
+		e.session_id = session_id;
+		entryQueue.Enqueue(e);
+		if(entryQueue.Count >= size - 1)
+		{
+			return true;
+		}
+		return false;
+	}
+
+	public IEnumerator Flush()
 	{
 		Debug.Log("Flushing...");
 		WWWForm form = new WWWForm();
@@ -69,28 +93,29 @@ public class LogAPI {
 			e.ToForm(form, i);
 		}
 		
-		context.StartCoroutine(LogEntries(form));
-	}
-
-	public IEnumerator LogEntries(WWWForm form)
-	{
-		WWW www = new WWW(host + "/batch_entries", form);
+		WWW www = LogEntries(form);
 		yield return www;
 		JSONObject json = HandleResponse(www);
 		Debug.Log("Entry post: " + json.ToString());
 	}
 
-	public IEnumerator RegisterScene(String name, MonoBehaviour context)
+	private WWW LogEntries(WWWForm form)
+	{
+		WWW www = new WWW(host + "/batch_entries", form);
+		return www;
+	}
+
+	public IEnumerator RegisterScene(String name, Logger logger, Action<int> cb = null)
 	{
 		while(session_id == 0)
 		{
 			yield return true;
 		}
 
-		if(scene_id != 0)
+		if(logger.scene_id != 0)
 		{
 			Debug.Log("I want to close the current scene");
-			yield return context.StartCoroutine(CloseScene());
+			yield return logger.StartCoroutine(CloseScene(logger));
 		}
 
 		Debug.Log("Registering scene");
@@ -102,8 +127,11 @@ public class LogAPI {
 		yield return www;
 		
 		JSONObject json = HandleResponse(www);
-		scene_id = (int) json[0]["id"].n;
-		Debug.Log(json[0]["id"]);
+		if(cb != null)
+		{
+			int scene_id = (int) json[0]["id"].n;
+			cb(scene_id);
+		}
 	}
 
 	private JSONObject HandleResponse(WWW www)
@@ -117,11 +145,11 @@ public class LogAPI {
 	}
 
 	// Still not working
-	public IEnumerator CloseScene()
+	public IEnumerator CloseScene(Logger logger)
 	{
 		string url = host + "/close_scene/";
 		WWWForm form = new WWWForm();
-		form.AddField("id", scene_id);
+		form.AddField("id", logger.scene_id);
 		WWW www = new WWW(url, form);
 		yield return www;
 		HandleResponse(www);
@@ -158,19 +186,7 @@ public class LogAPI {
 		return (session_id == 0);
 	}
 
-	// private IEnumerator
-	// LogEntry(LogEntry entry, string endpoint, Func<WWW, void> onDone = null)
-	// {
-	// 	WWWForm form = entry.ToForm();
-	// 	WWW www = new WWW(host + endpoint, form);
-	// 	yield return www;
-	// 	if(onDone != null)
-	// 	{
-	// 		onDone(www);
-	// 	}
-
-	// }
-
+	
 	private IEnumerator LogGameObject(GameObject obj, string eventName)
 	{
 		WWWForm form = new WWWForm();

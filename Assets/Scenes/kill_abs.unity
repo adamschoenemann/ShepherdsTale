@@ -2296,6 +2296,7 @@ GameObject:
   - 114: {fileID: 415839576}
   - 114: {fileID: 415839575}
   - 114: {fileID: 415839570}
+  - 114: {fileID: 415839577}
   m_Layer: 0
   m_Name: Wolf3
   m_TagString: Enemy
@@ -2505,6 +2506,19 @@ MonoBehaviour:
   waypointContainer: {fileID: 764309413}
   reverse: 1
   debug: 1
+--- !u!114 &415839577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 415839566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8412e7a96f3a0a4d9e3b021696682d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  name: Wolf3
 --- !u!1 &417058694
 GameObject:
   m_ObjectHideFlags: 0
@@ -4120,6 +4134,7 @@ GameObject:
   - 114: {fileID: 659179929}
   - 114: {fileID: 659179928}
   - 114: {fileID: 659179927}
+  - 114: {fileID: 659179936}
   m_Layer: 0
   m_Name: Wolf1
   m_TagString: Enemy
@@ -4329,6 +4344,19 @@ Animator:
   m_ApplyRootMotion: 0
   m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
+--- !u!114 &659179936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 659179925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8412e7a96f3a0a4d9e3b021696682d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  name: Wolf1
 --- !u!1 &660583645
 GameObject:
   m_ObjectHideFlags: 0
@@ -5258,6 +5286,7 @@ GameObject:
   - 114: {fileID: 810045045}
   - 114: {fileID: 810045044}
   - 114: {fileID: 810045043}
+  - 114: {fileID: 810045052}
   m_Layer: 0
   m_Name: Wolf2
   m_TagString: Enemy
@@ -5467,6 +5496,19 @@ Animator:
   m_ApplyRootMotion: 0
   m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
+--- !u!114 &810045052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 810045041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8412e7a96f3a0a4d9e3b021696682d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  name: Wolf2
 --- !u!1 &825052876
 GameObject:
   m_ObjectHideFlags: 0
@@ -13783,10 +13825,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2055785871}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 860d5fd623c06a444aa6ddc12ea0324c, type: 3}
+  m_Script: {fileID: 11500000, guid: b9dc7aa762f822a45ad8358364909e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Players
+  enabled: 1
+  name: 
 --- !u!1 &2060280509
 GameObject:
   m_ObjectHideFlags: 0

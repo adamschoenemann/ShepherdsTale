@@ -1,38 +1,56 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
-class Loggable : MonoBehaviour
+public abstract class Loggable : MonoBehaviour
 {
 
-	public static float logRate = 1.0f;
+	public static float logRate = 0.5f;
+	public bool enabled = true;
 	public string name;
-	private Logger logger;
+	public int id {get; private set;}
+	protected Logger logger;
 
-	void Awake()
+	protected void Awake()
 	{
+		this.id = 0;
 		logger = GameObject.FindWithTag(Tags.logger).GetComponent<Logger>();
-
+		logger.RegisterLoggable(this, id => this.id = id);
+		if(String.IsNullOrEmpty(name))
+		{
+			name = gameObject.name;
+		}
 	}
 
-	void Start()
+	protected void Start()
 	{
-		StartCoroutine(LoggingRoutine());
+		StartLoggingRoutine();
 	}
 
-	public void Log()
+	protected void StartLoggingRoutine()
 	{
-		LogEntry entry = new LogEntry();
-		entry.AddGameObject(gameObject);
+		StartCoroutine(LoggingRoutine());	
+	}
+
+	protected virtual void Log()
+	{
+		if(id == 0) return;
+		LogEntry entry = new LogEntry(this);
+		
+		BeforeEnqueueEntry(entry);
 
 		logger.Enqueue(entry);
 	}
+
+	protected abstract void BeforeEnqueueEntry(LogEntry entry);
 
 	public IEnumerator LoggingRoutine()
 	{
 		while(true)
 		{
-			Log();
+			if(enabled)
+				Log();
 			yield return new WaitForSeconds(logRate);
 		}
 	}

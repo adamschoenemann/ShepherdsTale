@@ -1,34 +1,48 @@
 using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
-class Logger : MonoBehaviour
+public class Logger : MonoBehaviour
 {
 
+	public int scene_id {get; private set;}
 	
-	public void Log(LogEntry e)
+	public void RegisterLoggable(Loggable l, Action<int> cb = null)
 	{
-
+		StartCoroutine(LogAPI.instance.RegisterLoggable(l, this, cb));
 	}
 
 	void Awake()
 	{
+		scene_id = 0;
 		StartCoroutine(LogAPI.instance.StartSession());
 		StartCoroutine(
-			LogAPI.instance.RegisterScene(Application.loadedLevelName, this)
+			LogAPI.instance.RegisterScene(
+				Application.loadedLevelName, 
+				this,
+				(id) => {
+					scene_id = id;
+					Debug.Log("scene_id: " + scene_id);
+				}
+			)
 		);
 	}
 
 	public void Enqueue(LogEntry entry)
 	{
-		LogAPI.instance.Enqueue(entry, this);
+		entry.scene_id = scene_id;
+		if(LogAPI.instance.Enqueue(entry))
+		{
+			StartCoroutine(LogAPI.instance.Flush());
+		}
 	}
 
 	// Find a way to clean up properly, goddammit!
 	// Try with a eval solution when going to web environment
 	void OnDestroy()
 	{
-		LogAPI.instance.CloseScene();
+		LogAPI.instance.CloseScene(this);
 		// StopAllCoroutines();
 	}
 
