@@ -5,17 +5,7 @@ using System.Collections;
 /*
 	TODO
 	Proper end/win
-
-	DONE Only activate field in the beginning
-	DONE Enhance lighting so that sheep don't light each other up, but just themselves	
-	DONE Make note implementation so that each new level is a new set of notes
-
-
-	Note from user test
-	User could not by himself guess what to do - thought he had to hit the 'sheep' lighting up
-	during showtime, didn't understand he had to wait and observe SKs playing order.
-	K User did not make conscious use of glitter field.
-	K User thought there would be more levels.
+	Proper explanation of the game before starting it.
 */
 
 public class SimonManager : MonoBehaviour {
@@ -36,12 +26,9 @@ public class SimonManager : MonoBehaviour {
 	private int level = startLevel;
 	private int progress = 0;
 
-	// For testing
-	private bool mustEnterGlitter = true;
-
 	private Timer noteDurationTimer;
 
-	// Use this for initialization
+	// Initialization
 	void Start () {
 		sheep = new SimonSheep[sheepObjects.Length];
 
