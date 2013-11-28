@@ -3,6 +3,7 @@ using System.Collections;
 
 public class SimonActivator : MonoBehaviour {
 
+	public AudioSource listenSound;
 	private bool isHit = false;
 
 	void OnTriggerEnter(Collider other)
@@ -18,6 +19,7 @@ public class SimonActivator : MonoBehaviour {
 	public void Listen()
 	{
 		particleSystem.Play();
+		listenSound.Play();
 	}
 
 	public bool IsHit()

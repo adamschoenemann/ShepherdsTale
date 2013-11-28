@@ -4,8 +4,18 @@ using System.Collections;
 
 /*
 	TODO
-	Decide whether player should enter glitter every time showing is needed
 	Proper end/win
+
+	DONE Only activate field in the beginning
+	Enhance lighting so that sheep don't light each other up, but just themselves	
+	Make note implementation so that each new level is a new set of notes
+
+
+	Note from user test
+	User could not by himself guess what to do - thought he had to hit the 'sheep' lighting up
+	during showtime, didn't understand he had to wait and observe SKs playing order.
+	User did not make conscious use of glitter field.
+	User thought there would be more levels.
 */
 
 public class SimonManager : MonoBehaviour {
@@ -14,7 +24,7 @@ public class SimonManager : MonoBehaviour {
 	public GameObject sheepKing;
 	public GameObject player;
 	public GameObject activator;
-	public AudioSource finishSequenceSound;
+	public AudioSource winSound;
 	public float noteBaseDuration = 1.0f;
 	public int numberOfLevels = 10;
 
@@ -25,6 +35,9 @@ public class SimonManager : MonoBehaviour {
 	private static readonly int startLevel = 2;
 	private int level = startLevel;
 	private int progress = 0;
+
+	// For testing
+	private bool mustEnterGlitter = true;
 
 	private Timer noteDurationTimer;
 
@@ -80,9 +93,14 @@ public class SimonManager : MonoBehaviour {
 			}
 			else
 			{
+				// Clean sheep interaction history
+				foreach(SimonSheep s in sheep)
+				{
+					s.IsHit();
+				}
+
 				// Change state
 				GoToState(State.ListenToPlayer);
-				finishSequenceSound.Play();
 				progress = 0;
 			}
 
@@ -117,21 +135,21 @@ public class SimonManager : MonoBehaviour {
 
 			if(progress > level)
 			{
-				finishSequenceSound.Play();
 				level++;
-				noteDurationTimer = new Timer(noteBaseDuration * (1.0f - 0.6f *((numberOfLevels - level) / (float)numberOfLevels)));
+				noteDurationTimer = new Timer(noteBaseDuration * (1.0f - 0.4f *((numberOfLevels - level) / (float)numberOfLevels)));
 
 				if(level >= numberOfLevels)
 				{
-					// win
+					// win; finish game
 					GoToState(State.Finished);
+					Debug.Log("You won the game!");
+					winSound.Play();
 				}
 				else
 				{
+					// Go to next level
 					progress = 0;
-					GoToState(State.WaitToShow);
-					((SimonActivator)(activator.GetComponent("SimonActivator"))).Listen();
-					// Play sound indicating that player has succeeded in playing them in the right order.
+					GoToState(State.ShowToPlayer);
 				}
 			}
 		}
@@ -142,6 +160,8 @@ public class SimonManager : MonoBehaviour {
 			{
 				s.Activate();
 			}
+
+			//Debug.Log("Hit wrong sheep: " + sheepHit + " shouldve hit " + notes[progress] + " at " + progress);
 
 			progress = 0;
 			level = startLevel;
