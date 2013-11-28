@@ -7,15 +7,15 @@ using System.Collections;
 	Proper end/win
 
 	DONE Only activate field in the beginning
-	Enhance lighting so that sheep don't light each other up, but just themselves	
-	Make note implementation so that each new level is a new set of notes
+	DONE Enhance lighting so that sheep don't light each other up, but just themselves	
+	DONE Make note implementation so that each new level is a new set of notes
 
 
 	Note from user test
 	User could not by himself guess what to do - thought he had to hit the 'sheep' lighting up
 	during showtime, didn't understand he had to wait and observe SKs playing order.
-	User did not make conscious use of glitter field.
-	User thought there would be more levels.
+	K User did not make conscious use of glitter field.
+	K User thought there would be more levels.
 */
 
 public class SimonManager : MonoBehaviour {
@@ -88,7 +88,7 @@ public class SimonManager : MonoBehaviour {
 			if(progress <= level)
 			{
 				// Play next note
-				sheep[notes[progress]].Activate();
+				sheep[GetNoteAt(level, progress)].Activate();
 				progress++;
 			}
 			else
@@ -110,7 +110,7 @@ public class SimonManager : MonoBehaviour {
 			noteDurationTimer.TickSeconds(Time.deltaTime);
 		}
 
-		SheepKingLookAt(sheep[notes[ (progress - 1 >= 0 ? progress - 1 : 0) ]].gameObject);
+		SheepKingLookAt(sheep[GetNoteAt(level, progress - 1 >= 0 ? progress - 1 : 0)].gameObject);
 	}
 
 	private void ListenToPlayer()
@@ -127,7 +127,7 @@ public class SimonManager : MonoBehaviour {
 		}
 
 		// Determine if the sheep hit is the right one
-		if(sheepHit == notes[progress])
+		if(sheepHit == GetNoteAt(level, progress))
 		{
 			// If it is, activate only that
 			sheep[sheepHit].Activate();
@@ -213,5 +213,24 @@ public class SimonManager : MonoBehaviour {
 	private void SheepKingLookAt(GameObject target)
 	{
 		LookAtLerp(sheepKing.transform, target.transform, 6.0f);
+	}
+
+	private int GetNoteAt(int level, int progress)
+	{
+		return notes[GetNoteIndexAt(level, progress)];
+	}
+
+	private int GetNoteIndexAt(int level, int progress)
+	{
+		int i = level;
+		for(int k = 1; k < level; k++)
+		{
+			i += k;
+		}
+
+		i += progress;
+		i -= startLevel;
+
+		return i;
 	}
 }

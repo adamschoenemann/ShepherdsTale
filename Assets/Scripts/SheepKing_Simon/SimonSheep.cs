@@ -7,12 +7,13 @@ public class SimonSheep : MonoBehaviour {
 	public AudioSource audio;
 	public float lightDuration = 0.5f;
 	public Color lightColor;
-	public int position = -1;
+	public Material playingMaterial;
+	public Material defaultMaterial;
 
 	private bool isHit = false;
 	private PlayerAnimation playerAnim;
 	private GameObject lightObj;
-	private Light light;
+	//private Light light;
 	private Timer lightTimer;
 	private Timer collisionCooldown;
 	private static readonly float collisionCooldownTime = 1.5f;
@@ -21,12 +22,12 @@ public class SimonSheep : MonoBehaviour {
 	{
 		
 		playerAnim = GameObject.FindGameObjectWithTag(Tags.player).GetComponent<PlayerAnimation>();
-
-		this.gameObject.AddComponent<Light>();
+		renderer.material = defaultMaterial;
+		/*this.gameObject.AddComponent<Light>();
 		light = (Light)this.gameObject.GetComponent("Light");
 		light.color = lightColor;
 		light.type = LightType.Point;
-		light.enabled = false;
+		light.enabled = false;*/
 	}
 	
 	void Update () {
@@ -77,13 +78,18 @@ public class SimonSheep : MonoBehaviour {
 
 	private void ActivateLight(float duration)
 	{
-		light.enabled = true;
+		//light.enabled = true;
+
+		renderer.material  = playingMaterial;
+		renderer.material.SetColor("_Color", lightColor);
 		lightTimer = new Timer(duration);
 	}
 
 	private void DeactivateLight()
 	{
-		light.enabled = false;
+		//light.enabled = false;
+
+		renderer.material = defaultMaterial;
 	}
 
 	void OnCollisionStay(Collision collision) 
