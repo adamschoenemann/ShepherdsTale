@@ -22,7 +22,7 @@ public class Mortal : MonoBehaviour
 	{	
 		if(invincibleTimer != null && invincibleTimer.IsDone() == false)
 		{
-			print("hit, but invincible");
+			//print("hit, but invincible");
 			return health;
 		}
 		if(onDamageHandler != null)
@@ -34,9 +34,8 @@ public class Mortal : MonoBehaviour
 		}
 	
 		health -= amount;
-		print(health + " AV");
 		invincibleTimer = new Timer(invincibleTime);
-		print("Taking " + amount + " in damage");
+
 		if(IsAlive() == false)
 		{
 			Die();

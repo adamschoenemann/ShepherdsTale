@@ -24,8 +24,8 @@ public class LoonieAnimator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		print(anim.GetBool("Walk"));
-		print (loonieControl.state);
+		//print(anim.GetBool("Walk"));
+		//print (loonieControl.state);
 		
 		if(loonieControl.state == State.Alerted)
 		{

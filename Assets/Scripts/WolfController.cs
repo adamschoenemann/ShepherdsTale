@@ -147,7 +147,7 @@ public class WolfController : MonoBehaviour
 
 	protected virtual void OnStateChange(State oldState, State newState)
 	{
-		print("State change from: " + oldState + " to " + newState);
+		//print("State change from: " + oldState + " to " + newState);
 		if(oldState == State.Returning)
 		{
 			if(newState == State.Idle){
@@ -276,7 +276,7 @@ public class WolfController : MonoBehaviour
 	{
 		rigidbody.velocity = Vector3.zero;
 		LookAtLerp(player.transform.position);
-		print("AttackPlayer");
+		//print("AttackPlayer");
 		// StartCoroutine(DoAttack());
 	}
 
@@ -345,7 +345,7 @@ public class WolfController : MonoBehaviour
 		{
 			if(obj.tag == Tags.player)
 			{
-				print("Player collided");
+				//print("Player collided");
 				collisionFlags[obj.tag] = collision;
 			}
 		}

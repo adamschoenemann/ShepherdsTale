@@ -3,11 +3,14 @@ using System.Collections;
 
 public class HealthBar2 : FaceCamera {
 
-	private Texture2D texture;
+
 	public GameObject subject;
-	private Mortal mortal;
 	public float width = 30;
 	public float distanceThresh = 10.0f;
+
+	private Texture2D texture;
+	private Texture2D bgTexture;
+	private Mortal mortal;
 	private int maxHealth;
 
 	// Use this for initialization
@@ -26,6 +29,16 @@ public class HealthBar2 : FaceCamera {
 			}
 		}
 		texture.Apply();
+
+		bgTexture = new Texture2D(1, 1);
+		for(int y = 0; y < bgTexture.height; y++)
+		{
+			for(int x = 0; x < bgTexture.width; x++)
+			{
+				bgTexture.SetPixel(x, y, Color.grey);
+			}
+		}
+		bgTexture.Apply();
 	}
 	
 	// Update is called once per frame
@@ -47,6 +60,7 @@ public class HealthBar2 : FaceCamera {
 		float percentage = mortal.GetHealth() / (float) maxHealth;
 		float drawWidth = percentage * width;
 		//print("percentage: " + percentage);
+		GUI.DrawTexture(new Rect(screenPos.x - drawWidth/2, Screen.height - screenPos.y, width, 3), bgTexture);
 		GUI.DrawTexture(new Rect(screenPos.x - drawWidth/2, Screen.height - screenPos.y, drawWidth, 3), texture);
 	}
 }
