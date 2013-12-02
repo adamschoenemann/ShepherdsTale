@@ -5790,17 +5790,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c94490edf8dc4b8a9e34f894118a92e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wolf_fightImage: {fileID: 0}
-  wolf_alternativeImage: {fileID: 0}
-  wolf_puzzleImage: {fileID: 0}
-  loonie_fightImage: {fileID: 0}
-  loonie_alternativeImage: {fileID: 0}
-  loonie_puzzleImage: {fileID: 0}
-  SK_fightImage: {fileID: 0}
-  SK_alternativeImage: {fileID: 0}
-  SK_puzzleImage: {fileID: 0}
+  wolf_fightImage: {fileID: 2800000, guid: 5c6da7ebe15624756ad1845e38ee2360, type: 3}
+  wolf_sneakImage: {fileID: 2800000, guid: 5c6da7ebe15624756ad1845e38ee2360, type: 3}
+  wolf_lureImage: {fileID: 2800000, guid: 5c6da7ebe15624756ad1845e38ee2360, type: 3}
+  loonie_fightImage: {fileID: 2800000, guid: 5c6da7ebe15624756ad1845e38ee2360, type: 3}
+  loonie_raceImage: {fileID: 2800000, guid: 5c6da7ebe15624756ad1845e38ee2360, type: 3}
+  loonie_puzzleImage: {fileID: 2800000, guid: 5c6da7ebe15624756ad1845e38ee2360, type: 3}
+  SK_fightImage: {fileID: 2800000, guid: 73920355fed882144a86329f74b10c11, type: 3}
+  SK_shaveImage: {fileID: 2800000, guid: 4e5298656be879746bb47c7dbcd2c417, type: 3}
+  SK_simonImage: {fileID: 2800000, guid: 8679f7959d6f0134ca34134867645800, type: 3}
   skin: {fileID: 11400000, guid: e8920fe49b85d074a838f5bc56b47ecf, type: 2}
-  epi: 1
+  episode: 2
 --- !u!136 &1393358826
 CapsuleCollider:
   m_ObjectHideFlags: 0

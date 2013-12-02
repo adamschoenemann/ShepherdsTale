@@ -39,7 +39,7 @@ public class RaceCourse : MonoBehaviour {
 		print (raceCourse.Length);
 	}
 	
-	//All gates checked
+	// All gates checked
 	public int GetRacerProgress(GameObject racer)
 	{
 		gatesChecked = 0;	
@@ -58,11 +58,13 @@ public class RaceCourse : MonoBehaviour {
 	{
 		if(GetRacerProgress(racers[0]) == raceCourse.Length)
 		{
+			// Lose
 			print ("goal reached loonie");
 			return true;
 		}
 		else if(GetRacerProgress(racers[1]) == raceCourse.Length)
 		{
+			// Win
 			print ("goal reached player");
 			return true;
 		}
@@ -70,7 +72,7 @@ public class RaceCourse : MonoBehaviour {
 		return false;
 	}
 	
-	//Check to see if sheperd have passed its first checkpoint
+	//Check to see if shepherd have passed its first checkpoint
 	public bool IsRaceStarted ()
 	{
 		for(int i = 0; i < raceCourse.Length; i++)
@@ -114,8 +116,6 @@ public class RaceCourse : MonoBehaviour {
 		}
 			
 	}
-	
-	
 	
 	void SortCheckPoints ()
 	{

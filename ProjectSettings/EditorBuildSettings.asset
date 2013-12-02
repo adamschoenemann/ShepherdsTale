@@ -25,3 +25,13 @@ EditorBuildSettings:
     path: Assets/Scenes/SheepKing/sheepking_puzzle.unity
   - enabled: 1
     path: Assets/Scenes/SheepKing/sheepking_alternative.unity
+  - enabled: 1
+    path: Assets/Scenes/Wolf/wolf_main_scene.unity
+  - enabled: 1
+    path: Assets/Scenes/Wolf/wolf_fight.unity
+  - enabled: 0
+    path: Assets/Scenes/Wolf/wolf_main_scene.unity
+  - enabled: 1
+    path: Assets/Scenes/Wolf/wolf_puzzle.unity
+  - enabled: 1
+    path: Assets/Scenes/Wolf/wolf_sneak.unity
