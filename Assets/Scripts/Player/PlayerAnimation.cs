@@ -95,7 +95,6 @@ public class PlayerAnimation : MonoBehaviour
 		{
 			if(Input.GetButtonDown("Fire1"))
 			{
-				//print("attack!");
 				anim.SetBool("Attack", true);
 			}
 		}

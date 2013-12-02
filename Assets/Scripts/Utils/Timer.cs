@@ -8,16 +8,21 @@ public class Timer
 	public delegate void OnTickDelegate(Timer self, long interval);
 	public OnTickDelegate onTick;
 
-	public Timer(float durationSeconds)
-	{
-		this.duration = (long) (durationSeconds * 1000);
-	}
+	public delegate void OnDoneDelegate(Timer self);
+	public OnDoneDelegate onDone;
 
 	public Timer(long duration)
 	{
 		this.duration = duration;
 		this.elapsed = 0L;
 	}
+
+	public Timer(float durationSeconds) :
+		this((long)(durationSeconds * 1000))
+	{
+		// Deliberately empty
+	}
+
 
 	public void TickMilliseconds(long interval)
 	{
@@ -29,11 +34,15 @@ public class Timer
 	public void TickSeconds(float seconds)
 	{
 		TickMilliseconds((long) (seconds * 1000));
+		if(IsDone() && onDone != null)
+		{
+			onDone(this);
+		}
 	}
 
 	public bool IsDone()
 	{
-		return (elapsed >= duration);
+		return (elapsed > duration);
 	}
 
 	public float GetProgress()
@@ -42,12 +51,12 @@ public class Timer
 	}
 
 	public float GetElapsedSeconds()
-	{
-		return (float)(elapsed/1000.0f);
-	}
+    {
+        return (float)(elapsed/1000.0f);
+    }
 
-	public void Reset()
-	{
-		elapsed = 0L;
-	}
+    public void Reset()
+    {
+        elapsed = 0L;
+    }
 }

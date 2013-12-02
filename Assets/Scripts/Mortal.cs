@@ -18,24 +18,26 @@ public class Mortal : MonoBehaviour
 		return health;
 	}
 
+	public void AddHealth(int h)
+	{
+		health += h;
+	}
+
 	public int Damage(int amount)
 	{	
 		if(invincibleTimer != null && invincibleTimer.IsDone() == false)
 		{
-			//print("hit, but invincible");
+			print("hit, but invincible");
 			return health;
 		}
 		if(onDamageHandler != null)
 		{
 			if(onDamageHandler(this, amount) == false)
-			{
 				return health;
-			}
 		}
-	
 		health -= amount;
 		invincibleTimer = new Timer(invincibleTime);
-
+		print("Taking " + amount + " in damage");
 		if(IsAlive() == false)
 		{
 			Die();

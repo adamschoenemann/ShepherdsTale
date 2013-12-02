@@ -24,9 +24,10 @@ public class LoonieController : WolfController {
 		}
 	}
 	
-	protected override bool IsPlayerAudible()
+	/*
+	protected override float IsPlayerAudible()
 	{
-		bool result = base.IsPlayerAudible();
+		float result = base.IsPlayerAudible();
 		if(result)
 		{
 			if(playerController.IsSneaking())
@@ -35,7 +36,7 @@ public class LoonieController : WolfController {
 			}
 		}
 		return result;
-	}
+	}*/
 	
 	void OnCollisionEnter(Collision other)
 	{

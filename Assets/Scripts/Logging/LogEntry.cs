@@ -1,0 +1,146 @@
+using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using System;
+
+public class LogEntry
+{
+
+	private LinkedList<KeyValuePair<string, string>> strings;
+	private LinkedList<KeyValuePair<string, int>> ints;
+	private LinkedList<KeyValuePair<string, float>> floats;
+	private LinkedList<KeyValuePair<string, Vector3>> vector3s;
+	private LinkedList<KeyValuePair<string, Quaternion>> quaternions;
+
+	public int scene_id;
+	public int session_id; // TODO: REMOVE THIS, NOT USED SINCE WE HAVE scene_id
+	private Loggable origin;
+	private string event_name;
+
+	public LogEntry(Loggable origin, string event_name = "None")
+	{
+		this.origin = origin;
+		this.event_name = event_name;
+		strings = new LinkedList<KeyValuePair<string, string>>();
+		ints = new LinkedList<KeyValuePair<string, int>>();
+		floats = new LinkedList<KeyValuePair<string, float>>();
+		vector3s = new LinkedList<KeyValuePair<string, Vector3>>();
+		quaternions = new LinkedList<KeyValuePair<string, Quaternion>>();
+	}
+
+	public void AddString(string key, string val)
+	{
+		strings.AddLast(new KeyValuePair<string, string>(key, val));
+	}
+
+	public void AddInt(string key, int val)
+	{
+		ints.AddLast(new KeyValuePair<string, int>(key, val));
+	}
+
+	public void AddFloat(string key, float val)
+	{
+		floats.AddLast(new KeyValuePair<string, float>(key, val));
+	}
+
+	public void AddQuaternion(string key, Quaternion val)
+	{
+		quaternions.AddLast(new KeyValuePair<string, Quaternion>(key, val));
+	}
+
+	public void AddVector3(string key, Vector3 val)
+	{
+		vector3s.AddLast(new KeyValuePair<string, Vector3>(key, val));
+	}
+
+	public void AddGameObject(string name, GameObject go)
+	{
+		AddString("go_name", name);
+		AddString(name + "_tag", go.tag);
+		AddVector3(name + "_position", go.transform.position);
+		AddQuaternion(name + "_rotation", go.transform.rotation);
+		AddInt(name + "_instance_id", go.GetInstanceID());
+	}
+
+	// TODO: Maybe ref form?
+	public void ToForm(WWWForm form, int i)
+	{
+		if(session_id == 0 || scene_id == 0)
+		{
+			Debug.Log("Logging invalid Entry!!!!!");
+			return;
+		}
+		string entryKey = "entries[" + i + "]";
+		form.AddField(entryKey + "[session_id]", session_id);
+		form.AddField(entryKey + "[scene_id]", scene_id);
+		form.AddField(entryKey + "[loggable_id]", origin.id);
+		form.AddField(entryKey + "[event]", event_name);
+
+		
+		PutMetaData(entryKey + "[strings]", strings, form);
+		PutMetaData(entryKey + "[ints]", ints, form);
+		PutMetaData(entryKey + "[floats]", floats, form);
+		PutVector3(entryKey + "[vector3s]", vector3s, form);
+		PutQuaternion(entryKey + "[quaternions]", quaternions, form);
+
+		Debug.Log("Entry converted to form");
+
+	}
+
+	private void
+	PutQuaternion(string key, LinkedList<KeyValuePair<string, Quaternion>> list, WWWForm form)
+	{
+		if(list.Count > 0)
+		{
+			int j = 0;
+			foreach(KeyValuePair<string, Quaternion> kvp in list)
+			{
+				string kbase = key + "[" + j + "]";
+				form.AddField(kbase + "[key]", kvp.Key);
+				Quaternion v = kvp.Value;
+				form.AddField(kbase + "[x]", v.x.ToString());
+				form.AddField(kbase + "[y]", v.y.ToString());
+				form.AddField(kbase + "[z]", v.z.ToString());
+				form.AddField(kbase + "[w]", v.w.ToString());
+				j++;
+			}
+		}
+	}
+
+	private void
+	PutVector3(string key, LinkedList<KeyValuePair<string, Vector3>> list, WWWForm form)
+	{
+		if(list.Count > 0)
+		{
+			int j = 0;
+			foreach(KeyValuePair<string, Vector3> kvp in list)
+			{
+				string kbase = key + "[" + j + "]";
+				form.AddField(kbase + "[key]", kvp.Key);
+				Vector3 v = kvp.Value;
+				form.AddField(kbase + "[x]", v.x.ToString());
+				form.AddField(kbase + "[y]", v.y.ToString());
+				form.AddField(kbase + "[z]", v.z.ToString());
+				j++;
+			}
+		}
+	}
+
+	private void 
+	PutMetaData<V>(string key, LinkedList<KeyValuePair<string, V>> list, WWWForm form)
+	{
+		if(list.Count > 0)
+		{
+			int j = 0;
+			foreach(KeyValuePair<string, V> kvp in list)
+			{
+				string k = key + "[" + j + "][key]";
+				form.AddField(k, kvp.Key);
+				string v = key + "[" + j + "][value]";
+				form.AddField(v, kvp.Value.ToString());
+				j++;
+			}
+		}
+	}
+
+}

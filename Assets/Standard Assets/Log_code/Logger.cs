@@ -27,14 +27,18 @@ public class Logger : MonoBehaviour
 	void Awake ()
 	{
 		trackedObjects = new List<GameObject>();
-		trackedObjects.Add(GameObject.Find("Shepherd"));
-		trackedObjects.Add(GameObject.Find("Wolf"));
+		GameObject player = GameObject.FindWithTag("Player");
+		trackedObjects.Add(player);
+		GameObject[] wolves = GameObject.FindGameObjectsWithTag("Enemy");
+		foreach(GameObject wolf in wolves){
+			trackedObjects.Add(wolf);
+		}
 
 		log = Log.CreateNew(trackedObjects);
 
-		//StartCoroutine(RecordSession());
+		StartCoroutine(RecordSession());
 	}
-	
+
 	void OnApplicationQuit ()
 	{
 		if (log != null) {

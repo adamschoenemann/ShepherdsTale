@@ -12,8 +12,12 @@ public class PlayerController : MonoBehaviour
 	private PlayerMovement movement;
 	private PlayerAnimation animation;
 	private CameraController cam;
+	private Mortal mortal;
+	private ParticleSystem particles;
 
 	private Quaternion defaultRotation;
+
+	private List<Collectible> collectibles = new List<Collectible>();
 
 	public float rotateSpeed = 200.0f;
 
@@ -23,6 +27,14 @@ public class PlayerController : MonoBehaviour
 		animation = GetComponent<PlayerAnimation>();
 		cam = Camera.main.GetComponent<CameraController>();
 		defaultRotation = transform.localRotation;
+
+		mortal = GetComponent<Mortal>();
+		particles = transform.Find("Particles").GetComponent<ParticleSystem>();
+
+		mortal.onDamageHandler += (self, dmg) => {
+			particles.Play();
+			return true;
+		};
 
 		Screen.showCursor = false;
 	}
@@ -66,8 +78,9 @@ public class PlayerController : MonoBehaviour
 		return animation.IsAttacking();
 	}
 
-	void LateUpdate()
+	public void Collect(Collectible c)
 	{
+		collectibles.Add(c);
 	}
 
 }

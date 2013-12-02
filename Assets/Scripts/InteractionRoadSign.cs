@@ -26,7 +26,7 @@ public class InteractionRoadSign: MonoBehaviour {
 	{
 		if(other.gameObject.tag == Tags.player)
 		{
-			//print("hello Road");
+			print("hello Road");
 			isInteracting = true;
 		}
 	}
@@ -35,7 +35,7 @@ public class InteractionRoadSign: MonoBehaviour {
 	{
 		if(other.gameObject.tag == Tags.player && Input.GetKeyDown(KeyCode.E))
 		{
-			Application.LoadLevel("loonie_three_options");
+			Application.LoadLevel("three_options");
 		}
 	}
 	
