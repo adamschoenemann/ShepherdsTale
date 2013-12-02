@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400016}
   m_Layer: 0
-  m_Name: group1
+  m_Name: rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -345,17 +345,17 @@ GameObject:
   m_Component:
   - 4: {fileID: 400044}
   - 95: {fileID: 9500000}
-  - 114: {fileID: 11400002}
   - 54: {fileID: 5400000}
   - 136: {fileID: 13600000}
-  - 135: {fileID: 13500000}
   - 82: {fileID: 8200000}
+  - 114: {fileID: 11400006}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: Wolf_prefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &100046
 GameObject:
@@ -780,7 +780,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100034}
-  m_LocalRotation: {x: -.0205990262, y: .706806719, z: -.0205990262, w: .706806719}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .00555281201, y: -.0855998844, z: -.00266111409}
   m_LocalScale: {x: 1.2378087, y: .999854505, z: .999854565}
   m_Children: []
@@ -792,7 +792,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100036}
   m_LocalRotation: {x: .0496796779, y: 0, z: 0, w: .99876523}
-  m_LocalPosition: {x: 0, y: .629086077, z: .719421387}
+  m_LocalPosition: {x: 0, y: .405156016, z: .50088501}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400044}
@@ -838,7 +838,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 253.225037, y: -.528045416, z: 409.926758}
+  m_LocalPosition: {x: 253.225037, y: -.0274777412, z: 409.926758}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400016}
@@ -1035,9 +1035,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100044}
   serializedVersion: 2
-  m_Mass: 5
-  m_Drag: 0
-  m_AngularDrag: .0500000007
+  m_Mass: 1
+  m_Drag: 1
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1144,9 +1144,9 @@ Light:
   serializedVersion: 3
   m_Type: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 3.38000011
-  m_Range: 11.1099997
-  m_SpotAngle: 107
+  m_Intensity: 8
+  m_Range: 8.10999966
+  m_SpotAngle: 52
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -1180,6 +1180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8631d5df00aa3b4aa21902ba8a7aba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 100044}
   width: 30
 --- !u!114 &11400002
 MonoBehaviour:
@@ -1189,42 +1190,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 100044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04453b7853427ae49819644a29f09a4b, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 200
-  fieldOfView: 110
-  col: {fileID: 0}
-  startHealth: 5
-  runSpeed: 200
-  walkSpeed: 100
-  state: 0
-  listeningRadius: 2
-  skin: {fileID: 0}
-  startPos: {x: 0, y: 0, z: 0}
+  health: 5
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100036}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1ff382f1773f764faa6292ea823def0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &13500000
-SphereCollider:
+--- !u!114 &11400006
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100044}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 8
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b78dbfeeb4a9d164d9d552fc8e95a72f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hearing: 1.5
+  seeingThresh: 8
+  fieldOfView: 120
+  turnSpeed: 5
+  playerDistanceThresh: 15
+  moveSpeed: 6
+  nearThresh: 1.70000005
+  distanceFromHomeThresh: 21.9799995
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

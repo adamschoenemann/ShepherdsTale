@@ -5,25 +5,23 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/main_scene.unity
-  - enabled: 0
-    path: Assets/Scenes/Kill.unity
-  - enabled: 0
-    path: Assets/Scenes/three_options.unity
-  - enabled: 0
-    path: Assets/Scenes/Lure.unity
-  - enabled: 0
-    path: Assets/Scenes/Sneak.unity
   - enabled: 1
-    path: Assets/Scenes/PersonalityTest.unity
+    path: Assets/Scenes/Loonie/loonie_main.unity
   - enabled: 1
-    path: Assets/Scenes/kill.unity
+    path: Assets/Scenes/Loonie/loonie_three_options.unity
   - enabled: 1
-    path: Assets/Scenes/lure.unity
+    path: Assets/Scenes/Loonie/loonie_fight.unity
   - enabled: 1
-    path: Assets/Scenes/main_scene.unity
+    path: Assets/Scenes/Loonie/loonie_puzzle.unity
   - enabled: 1
-    path: Assets/Scenes/sneak.unity
+    path: Assets/Scenes/Loonie/loonie_alternative.unity
   - enabled: 1
-    path: Assets/Scenes/three_options.unity
+    path: Assets/Scenes/SheepKing/sheepking_main.unity
+  - enabled: 1
+    path: Assets/Scenes/SheepKing/sheepking_three_options.unity
+  - enabled: 1
+    path: Assets/Scenes/SheepKing/sheepking_fight.unity
+  - enabled: 1
+    path: Assets/Scenes/SheepKing/sheepking_puzzle.unity
+  - enabled: 1
+    path: Assets/Scenes/SheepKing/sheepking_alternative.unity

@@ -181,7 +181,7 @@ public class Log : IEnumerable
 		if (!System.IO.Directory.Exists(Application.dataPath + "/Logs/"))
 			System.IO.Directory.CreateDirectory(Application.dataPath + "/Logs/");
 
-		logFileName = Application.dataPath + "/Logs/" + System.DateTime.UtcNow.ToString ("yyyy_MM_dd_HH_mm_ss") + ".csv";
+		logFileName = Application.dataPath + "/Logs/" + System.DateTime.UtcNow.ToString ("yyyy_MM_dd_HH_mm") + ".csv";
 		Header = new LogHeader(trackedObjects);
 		Entries = new List<LogEntry> ();
 		this.trackedObjects = trackedObjects;

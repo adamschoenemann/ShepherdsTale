@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: checkpoint_tex
+  m_Shader: {fileID: 4800000, guid: da7ed27f0a1aa402787e97941cb9a8d4, type: 3}
+  m_ShaderKeywords: []
+  m_CustomRenderQueue: -1
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 575c32e8bcb5b40b9808ccda65fda54e, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DiffMap1
+        second:
+          m_Texture: {fileID: 2800000, guid: ef7a373b5b341482e84ecb1af1e6ee86, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DiffMap2
+        second:
+          m_Texture: {fileID: 2800000, guid: 5c6da7ebe15624756ad1845e38ee2360, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DiffMap3
+        second:
+          m_Texture: {fileID: 2800000, guid: 5ce82099850494682a3de30e847e6036, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _DiffMap4
+        second:
+          m_Texture: {fileID: 2800000, guid: f36f46cf6bad5470789235f1a129bc1a, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Texture
+        second:
+          m_Texture: {fileID: 2800000, guid: ef7a373b5b341482e84ecb1af1e6ee86, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _Threshold1
+        second: .600000024
+      data:
+        first:
+          name: _Threshold2
+        second: .200000003
+      data:
+        first:
+          name: _Threshold3
+        second: -.300000012
+      data:
+        first:
+          name: _Overlap1
+        second: .0500000007
+      data:
+        first:
+          name: _Overlap2
+        second: .0500000007
+      data:
+        first:
+          name: _Overlap3
+        second: .0500000007
+      data:
+        first:
+          name: _DiffuseThreshold1
+        second: .100000024
+      data:
+        first:
+          name: _DiffuseThreshold2
+        second: -.428571433
+    m_Colors:
+      data:
+        first:
+          name: _Color
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _ScaleOffset
+        second: {r: .300000012, g: .0500000007, b: 0, a: 0}
+      data:
+        first:
+          name: _PivotOffset
+        second: {r: .0500000007, g: 1.70000005, b: 0, a: 0}
+      data:
+        first:
+          name: _Colour
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _Shading1
+        second: {r: .5, g: .5, b: .5, a: 1}
+      data:
+        first:
+          name: _Shading2
+        second: {r: .323529422, g: .323529422, b: .323529422, a: 1}

@@ -7,8 +7,9 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: blinn1
-  m_Shader: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: da7ed27f0a1aa402787e97941cb9a8d4, type: 3}
   m_ShaderKeywords: []
+  m_CustomRenderQueue: -1
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
@@ -19,9 +20,36 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
-    m_Floats: {}
+      data:
+        first:
+          name: _Texture
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _DiffuseThreshold1
+        second: .600000024
+      data:
+        first:
+          name: _DiffuseThreshold2
+        second: 0
     m_Colors:
       data:
         first:
           name: _Color
         second: {r: .5, g: .5, b: .5, a: 1}
+      data:
+        first:
+          name: _Colour
+        second: {r: .501960814, g: .298039228, b: 0, a: 1}
+      data:
+        first:
+          name: _Shading1
+        second: {r: .5, g: .5, b: .5, a: 1}
+      data:
+        first:
+          name: _Shading2
+        second: {r: 0, g: 0, b: 0, a: 1}
