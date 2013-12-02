@@ -27,22 +27,32 @@ public class NavMeshPatroller : MonoBehaviour
 		lastRotation = transform.rotation;
 
 		waypoints = new List<GameObject>();
-		for(int i = 0; i < waypointContainer.childCount; i++)
+		if(waypointContainer != null)
 		{
-			waypoints.Add(waypointContainer.GetChild(i).gameObject);
+			for(int i = 0; i < waypointContainer.childCount; i++)
+			{
+				waypoints.Add(waypointContainer.GetChild(i).gameObject);
+			}
+			waypoints.Sort((a, b) => {
+			 return a.name.CompareTo(b.name);
+			});
+			if(debug)
+			{
+				foreach(GameObject go in waypoints)
+					print(go.name);
+			}		
 		}
-		waypoints.Sort((a, b) => {
-		 return a.name.CompareTo(b.name);
-		});
-		if(debug)
+		else
 		{
-			foreach(GameObject go in waypoints)
-				print(go.name);
+			GameObject wp = Waypoint.CreateWaypoint(transform.position);
+			wp.GetComponent<Waypoint>().permanent = true;
+			waypoints.Add(wp);
 		}
-
+		
 		currentWaypoint = waypoints[waypointIndex].GetComponent<Waypoint>();
 		agent = GetComponent<NavMeshAgent>();
-		StartPatrolling();
+		OnArriveAtWaypoint(currentWaypoint.gameObject);
+		// StartPatrolling();
 	}
 
 	public void GoToCurrentWaypoint()
@@ -52,10 +62,9 @@ public class NavMeshPatroller : MonoBehaviour
 
 	public bool IsAtWaypoint(float thresh = float.Epsilon)
 	{
-		// print((currentWaypoint.transform.position - transform.position).magnitude);
 		Debug.DrawLine(transform.position, currentWaypoint.transform.position);
-		// if(debug) print((currentWaypoint.transform.position - transform.position).magnitude);
-		return (currentWaypoint.transform.position - transform.position).magnitude < thresh;
+		return (currentWaypoint.transform.position - transform.position)
+			.magnitude < thresh;
 		// return agent.remainingDistance < thresh;
 	}
 
@@ -82,6 +91,7 @@ public class NavMeshPatroller : MonoBehaviour
 			return;
 
 		agent.Stop();
+		rigidbody.velocity = Vector3.zero;
 		if(agent.hasPath == true)
 		{
 			agent.ResetPath();
@@ -123,15 +133,15 @@ public class NavMeshPatroller : MonoBehaviour
 	public void OnArriveAtWaypoint(GameObject go)
 	{
 		Waypoint wp = go.GetComponent<Waypoint>();
-		if(wp.waitTime > 0)
+		if(wp.waitTime > 0 || wp.permanent == true)
 		{
 			if(waitTimer != null && waitTimer.IsDone() == false)
 				return;
 
-			print("Gonna wait");
+			if(debug) print("Gonna wait");
 			waitTimer = new Timer(wp.waitTime);
 			waitTimer.onDone = self => {
-				print("Done");
+				if(debug) print("Timer Done");
 				waitTimer = null;
 				currentWaypoint = GetNextWaypoint();
 				StartPatrolling();

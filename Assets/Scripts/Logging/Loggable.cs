@@ -14,6 +14,13 @@ public abstract class Loggable : MonoBehaviour
 
 	protected void Awake()
 	{
+		if(enabled == false)
+			return;
+		SetupLogging();
+	}
+
+	protected virtual void SetupLogging()
+	{
 		this.id = 0;
 		logger = GameObject.FindWithTag(Tags.logger).GetComponent<Logger>();
 		logger.RegisterLoggable(this, id => this.id = id);

@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
 	private PlayerMovement movement;
 	private PlayerAnimation animation;
 	private CameraController cam;
+	private Mortal mortal;
+	private ParticleSystem particles;
 
 	private Quaternion defaultRotation;
 
@@ -25,6 +27,14 @@ public class PlayerController : MonoBehaviour
 		animation = GetComponent<PlayerAnimation>();
 		cam = Camera.main.GetComponent<CameraController>();
 		defaultRotation = transform.localRotation;
+
+		mortal = GetComponent<Mortal>();
+		particles = transform.Find("Particles").GetComponent<ParticleSystem>();
+
+		mortal.onDamageHandler += (self, dmg) => {
+			particles.Play();
+			return true;
+		};
 
 		Screen.showCursor = false;
 	}

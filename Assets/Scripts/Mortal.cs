@@ -18,6 +18,11 @@ public class Mortal : MonoBehaviour
 		return health;
 	}
 
+	public void AddHealth(int h)
+	{
+		health += h;
+	}
+
 	public int Damage(int amount)
 	{	
 		if(invincibleTimer != null && invincibleTimer.IsDone() == false)

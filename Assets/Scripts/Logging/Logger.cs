@@ -7,6 +7,7 @@ public class Logger : MonoBehaviour
 {
 
 	public int scene_id {get; private set;}
+	public bool enabled = true;
 	
 	public void RegisterLoggable(Loggable l, Action<int> cb = null)
 	{
@@ -15,6 +16,8 @@ public class Logger : MonoBehaviour
 
 	void Awake()
 	{
+		if(enabled == false)
+			return;
 		scene_id = 0;
 		StartCoroutine(LogAPI.instance.StartSession());
 		StartCoroutine(

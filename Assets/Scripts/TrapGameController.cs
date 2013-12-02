@@ -1,26 +1,37 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System;
 
-public class KillGameController : MonoBehaviour 
+public class TrapGameController : MonoBehaviour 
 {
 
 	private bool displayRestart = false,
 							 displayComplete = false;
 
-	private int wolvesLeft;
+	private int nWolvesLeft;
+
+	private GameObject player;
 
 	void Start()
 	{
 	
 		GameObject[] wolves = GameObject.FindGameObjectsWithTag(Tags.enemy);
-		wolvesLeft = wolves.Length;
-		foreach(GameObject wolf in wolves)
+		List<GameObject> activeWolves = new List<GameObject>(wolves)
+			.FindAll(w => w.activeSelf);
+		nWolvesLeft = activeWolves.Count;
+		foreach(GameObject wolf in activeWolves)
 		{
 			Mortal mortal = wolf.GetComponent<Mortal>();
 			if(mortal == null) continue;
 			mortal.onDeathHandler += OnWolfDiedHandler; 
 		}
+		player = GameObject.FindWithTag(Tags.player);
+		player.GetComponent<Mortal>().onDeathHandler = mortal => {
+			Debug.Log("You died...");
+			displayRestart = true;
+			StartCoroutine(RestartLevel());
+		};
 
 	}
 
@@ -28,10 +39,11 @@ public class KillGameController : MonoBehaviour
 	void OnWolfDiedHandler(Mortal mortal)
 	{
 		Debug.Log("Wolf died... :(");
-		wolvesLeft--;
-		if(wolvesLeft <= 0)
+		nWolvesLeft--;
+		if(nWolvesLeft <= 0)
 		{
 			Debug.Log("Level completed!");
+			displayComplete = true;
 		}
 	}
 

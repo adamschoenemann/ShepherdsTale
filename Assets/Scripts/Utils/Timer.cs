@@ -35,7 +35,7 @@ public class Timer
 
 	public bool IsDone()
 	{
-		return (elapsed >= duration);
+		return (elapsed > duration);
 	}
 
 	public float GetProgress()

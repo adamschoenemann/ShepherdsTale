@@ -63,6 +63,7 @@ public class WolfController : MonoBehaviour
 
 	private WolfAnimation animation;
 	private NavMeshPatroller patroller;
+	private ParticleSystem particles;
 
 	private NavMeshAgent agent;
 
@@ -80,6 +81,7 @@ public class WolfController : MonoBehaviour
 		mortal = GetComponent<Mortal>();
 
 		mortal.onDeathHandler += OnDeath;
+		mortal.onDamageHandler += OnDamage;
 
 		defaultPosition = transform.position;
 		defaultRotation = transform.rotation;
@@ -87,6 +89,7 @@ public class WolfController : MonoBehaviour
 		animation = GetComponent<WolfAnimation>();
 		patroller = GetComponent<NavMeshPatroller>();
 		agent = GetComponent<NavMeshAgent>();
+		particles = transform.Find("Particles").GetComponent<ParticleSystem>();
 
 		state = State.Patrolling;
 
@@ -100,17 +103,28 @@ public class WolfController : MonoBehaviour
 
 	protected virtual State UpdateState()
 	{
+		float lvlThresh = 8.0f;
+		float level;
 		switch(state)
 		{
 			case State.Idle:
-				if(IsPlayerAudible()) return State.Suspicious;
+				level = IsPlayerAudible();
+				if(level > 0.0f)
+				{
+					print("Heard something");	
+					return level > lvlThresh ? State.Alerted : State.Suspicious;
+				}
 				if(IsPlayerVisible()) return State.Chasing;
 				if(patroller.IsWaiting() == false) return State.Patrolling;
 				return State.Idle;
 				break;
 
 			case State.Patrolling:
-				if(IsPlayerAudible()) return State.Suspicious;
+				level = IsPlayerAudible();
+				if(level > 0.0f)
+				{
+					return level > lvlThresh ? State.Alerted : State.Suspicious;
+				}
 				if(IsPlayerVisible()) return State.Chasing;
 				if(patroller.IsWaiting()) return State.Idle;
 				return State.Patrolling;
@@ -118,14 +132,22 @@ public class WolfController : MonoBehaviour
 
 			case State.Suspicious:
 				if(IsPlayerVisible()) return State.Chasing;
-				if(IsPlayerAudible()) return State.Suspicious;
+				level = IsPlayerAudible();
+				if(level > 0.0f)
+				{
+					return level > lvlThresh ? State.Alerted : State.Suspicious;
+				}
 				if(IsSuspiciousTimerDone()) return State.Returning;
 				return State.Suspicious;
 				break;
 
 			case State.Alerted:
 				if(IsPlayerVisible()) return State.Chasing;
-				if(IsPlayerAudible()) return State.Chasing;
+				level = IsPlayerAudible();
+				if(level > 0.0f)
+				{
+					return level > lvlThresh ? State.Alerted : State.Suspicious;
+				}
 				if(IsAlertedTimerDone()) return State.Suspicious;
 				if(IsLastKnownPosReached()) return State.Suspicious;
 				return State.Alerted;
@@ -158,7 +180,7 @@ public class WolfController : MonoBehaviour
 			default:
 				return state;
 		}
-		
+
 	}
 
 	protected virtual void TakeAction()
@@ -246,7 +268,7 @@ public class WolfController : MonoBehaviour
 	}
 
 //============================ STATE CHECKS ==================================//
-
+	
 	protected virtual bool IsPlayerReached()
 	{
 		float distance = (player.transform.position - transform.position).magnitude;
@@ -351,7 +373,7 @@ public class WolfController : MonoBehaviour
 		return false;
 	}
 
-	protected virtual bool IsPlayerAudible()
+	protected virtual float IsPlayerAudible()
 	{
 		NoiseManager nm = GameObject.FindWithTag(Tags.gameController).GetComponent<NoiseManager>();
 		if(nm != null)
@@ -362,15 +384,17 @@ public class WolfController : MonoBehaviour
 				Noise noise = e.Current;
 				if(noise.origin.tag == Tags.player)
 				{
-					if((noise.position - transform.position).magnitude < noise.intensity * hearing)
+					float d = noise.intensity * hearing - (noise.position - transform.position).magnitude;
+					// print("d: " + d);
+					if(d > 0.0f)
 					{
 						lastKnownPlayerPos = noise.position;
-						return true;
+						return d;
 					}
 				}
 			}
 		}
-		return false;
+		return -1.0f;
 	}
 
 	protected virtual bool IsAttackFinished()
@@ -482,6 +506,12 @@ public class WolfController : MonoBehaviour
 	protected virtual void OnDeath(Mortal mortal)
 	{
 		gameObject.SetActive(false);
+	}
+
+	protected virtual bool OnDamage(Mortal mortal, int damage)
+	{
+		particles.Play();
+		return true;
 	}
 
 //============================== MISC ========================================//

@@ -8,9 +8,9 @@ public class PlayerLoggable : Loggable
 
 	private Staff staff;
 
-	void Awake()
+	protected override void SetupLogging()
 	{
-		base.Awake();
+		base.SetupLogging();
 		staff = GameObject.FindWithTag(Tags.staff).GetComponent<Staff>();
 		staff.onHit += (collision, damage) => {
 			LogEntry entry = new LogEntry(this, "StaffHIt");
