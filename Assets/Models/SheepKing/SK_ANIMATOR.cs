@@ -29,13 +29,34 @@ public class SK_ANIMATOR : MonoBehaviour {
 
 	public void FixedUpdate()
 	{
+
+		switch(killScript.state)
+		{
+			case SK_KillScript.States.aim:
+				anim.SetBool("Aim", true);
+				anim.SetBool("Ram", false);
+				anim.SetBool("Stun", false);
+				break;
+			case SK_KillScript.States.run:
+				anim.SetBool("Aim", false);
+				anim.SetBool("Ram", true);
+				anim.SetBool("Stun", false);
+				break;
+			case SK_KillScript.States.stun:
+				anim.SetBool("Aim", false);
+				anim.SetBool("Ram", false);
+				anim.SetBool("Stun", true);
+				break;
+		}
+/*
+
 		currentBaseState = anim.GetCurrentAnimatorStateInfo(0);
-		run ();
+		//run ();
 
 		if(currentBaseState.nameHash == idleState)
 		{
 			anim.SetBool("FragileBool", false);
-		}
+		}*/
 	}
 	
 	void run()

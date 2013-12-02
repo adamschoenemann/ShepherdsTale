@@ -24,7 +24,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SheepKing/sheepking_puzzle.unity
   - enabled: 1
-    path: Assets/Scenes/SheepKing/sheepking_alternative.unity
+    path: Assets/Scenes/SheepKing/sheepking_shave.unity
   - enabled: 1
     path: Assets/Scenes/Wolf/wolf_main_scene.unity
   - enabled: 1
