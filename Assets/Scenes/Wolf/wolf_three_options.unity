@@ -7254,16 +7254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6331ab6fdeaa49ebb0a2efa9e635a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSmoothing: 3
-  normalSpeed: 400
-  sneakSpeed: 150
-  animSpeed: 2
-  lookSmoother: 3
-  useCurves: 0
-  preAttackState: 1948371315
-  attackState: 1130333774
-  preAttackRunState: -1206510790
-  attackRunState: 1585748427
 --- !u!136 &2055785875
 CapsuleCollider:
   m_ObjectHideFlags: 0

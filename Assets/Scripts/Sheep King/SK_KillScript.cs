@@ -181,60 +181,18 @@ public class SK_KillScript : MonoBehaviour
 		float distanceCoveredSquared = (transform.position - startRunPos).sqrMagnitude;
 	}
 
-	void OnTriggerStay(Collider other)
-	{	
-	/*	
-		if(IsPlayer(other.gameObject)){		// Collision with a gameObject with tag player
-			Vector3 direction = player.transform.position - transform.position;
-			float angle = Vector3.Angle(direction, transform.forward);
-			//RaycastHit hit;
-			//Debug.Log("Angle: " + angle + " fieldOfView: " + fieldOfView*0.5f + " CanAttackBool :" + canAttack);
-			/*
-			Debug.DrawLine(transform.position + (transform.up * 0.5f) + transform.forward, player.transform.position + (transform.up * 0.5f));
-			if(Physics.Raycast(transform.position + (transform.up * 0.5f) + transform.forward, direction.normalized, out hit, col.radius) == false){
-				canAttack = true;
-			}
-			/
-			
-			if(angle < fieldOfView * 0.5f){	// 110/2 == 55 on both sides of the wolf (therefore 110 field of view.
-				if(canAttack == false){
-					Debug.DrawLine(transform.position + (transform.up * 0.5f) + transform.forward, player.transform.position + (transform.up * 0.5f));
-					state = States.run;
-					youGotCaught = true;
-				}
-			}
-			
-		}
-		*/
-	}
-
-	void OnTriggerExit(Collider other)
-	{
-		/*
-		if(other.gameObject == GameObject.FindGameObjectWithTag("Player"))
-		{
-			//playerInSight = false;
-			//playerIsNear = false;
-//			healthBar.enabled = false;
-			//state = States.idle;
-		}*/
-	}
-
-	void OnTriggerEnter(Collider other)
-	{
-		
-	}
-
 	void OnCollisionEnter(Collision collision)
 	{
 		GameObject other = collision.gameObject;
-		if(other.tag == "Player")
+		if(other.tag == Tags.player)
 		{
 			switch(state)
 			{
 				case States.run:
 					// Violently throw the player out of the way,
 					// Damage player
+					Mortal playerLife = other.GetComponent<Mortal>();
+					playerLife.Damage(1);
 					Vector3 flyDir = (other.transform.position - transform.position).normalized; // TODO make this MUCH nicer.
 					other.rigidbody.velocity = ((2*Vector3.up + flyDir).normalized * 100);//500*flyDir); 
 					break;
