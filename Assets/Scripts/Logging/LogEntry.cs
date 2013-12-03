@@ -28,38 +28,44 @@ public class LogEntry
 		quaternions = new LinkedList<KeyValuePair<string, Quaternion>>();
 	}
 
-	public void AddString(string key, string val)
+	public LogEntry AddString(string key, string val)
 	{
 		strings.AddLast(new KeyValuePair<string, string>(key, val));
+		return this;
 	}
 
-	public void AddInt(string key, int val)
+	public LogEntry AddInt(string key, int val)
 	{
 		ints.AddLast(new KeyValuePair<string, int>(key, val));
+		return this;
 	}
 
-	public void AddFloat(string key, float val)
+	public LogEntry AddFloat(string key, float val)
 	{
 		floats.AddLast(new KeyValuePair<string, float>(key, val));
+		return this;
 	}
 
-	public void AddQuaternion(string key, Quaternion val)
+	public LogEntry AddQuaternion(string key, Quaternion val)
 	{
 		quaternions.AddLast(new KeyValuePair<string, Quaternion>(key, val));
+		return this;
 	}
 
-	public void AddVector3(string key, Vector3 val)
+	public LogEntry AddVector3(string key, Vector3 val)
 	{
 		vector3s.AddLast(new KeyValuePair<string, Vector3>(key, val));
+		return this;
 	}
 
-	public void AddGameObject(string name, GameObject go)
+	public LogEntry AddGameObject(string name, GameObject go)
 	{
 		AddString("go_name", name);
 		AddString(name + "_tag", go.tag);
 		AddVector3(name + "_position", go.transform.position);
 		AddQuaternion(name + "_rotation", go.transform.rotation);
 		AddInt(name + "_instance_id", go.GetInstanceID());
+		return this;
 	}
 
 	// TODO: Maybe ref form?
