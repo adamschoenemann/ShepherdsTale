@@ -10,7 +10,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Loonie/loonie_three_options.unity
   - enabled: 1
-    path: Assets/Scenes/Loonie/loonie_fight.unity
+    path: Assets/Scenes/Loonie/DOES NOT WORK ON MATHIAS/loonie_fight_ERROR.unity
   - enabled: 1
     path: Assets/Scenes/Loonie/loonie_puzzle.unity
   - enabled: 1

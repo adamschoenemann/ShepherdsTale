@@ -34,6 +34,7 @@ public class Mortal : MonoBehaviour
 		}
 	
 		health -= amount;
+		audio.Play();
 		print(health + " AV");
 		invincibleTimer = new Timer(invincibleTime);
 		print("Taking " + amount + " in damage");

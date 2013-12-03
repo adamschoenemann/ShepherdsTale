@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class LoonieAttack : MonoBehaviour {
-	
-	float rayLength = 1.8f;
+
+	public float rayLength = 1.8f;
 	LoonieAnimator loonieScript;
 	GameObject player;
 	PlayerMovement playerScript;

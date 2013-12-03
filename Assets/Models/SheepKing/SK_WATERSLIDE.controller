@@ -12,19 +12,19 @@ AnimatorController:
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 0
+    m_DefaultBool: 1
     m_Controller: {fileID: 9100000}
   - m_Name: FragileBool
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 0
+    m_DefaultBool: 1
     m_Controller: {fileID: 9100000}
   - m_Name: PreRunBool
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 0
+    m_DefaultBool: 1
     m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 3
@@ -344,19 +344,6 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110214119}
-      second:
-      - {fileID: 110146628}
-    data:
-      first: {fileID: 110216380}
-      second:
-      - {fileID: 110168359}
-      - {fileID: 110150559}
-    data:
-      first: {fileID: 110235229}
-      second:
-      - {fileID: 110171986}
-    data:
       first: {fileID: 0}
       second: []
     data:
@@ -364,14 +351,18 @@ StateMachine:
       second:
       - {fileID: 110169211}
     data:
-      first: {fileID: 0}
-      second: []
+      first: {fileID: 110235229}
+      second:
+      - {fileID: 110171986}
     data:
-      first: {fileID: 0}
-      second: []
+      first: {fileID: 110216380}
+      second:
+      - {fileID: 110168359}
+      - {fileID: 110150559}
     data:
-      first: {fileID: 0}
-      second: []
+      first: {fileID: 110214119}
+      second:
+      - {fileID: 110146628}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: -12, y: 348, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
