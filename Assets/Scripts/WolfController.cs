@@ -52,6 +52,8 @@ public class WolfController : MonoBehaviour
 	public float nearThresh = 1.7f; // Adjust by hand for now
 	public float distanceFromHomeThresh = 15.0f;
 
+	public bool debug = false;
+
 	protected Timer suspiciousTimer;
 
 	protected Timer alertedTimer;
@@ -111,7 +113,7 @@ public class WolfController : MonoBehaviour
 				level = IsPlayerAudible();
 				if(level > 0.0f)
 				{
-					print("Heard something");	
+					if(debug) print("Heard something");	
 					return level > lvlThresh ? State.Alerted : State.Suspicious;
 				}
 				if(IsPlayerVisible()) return State.Chasing;
@@ -225,7 +227,7 @@ public class WolfController : MonoBehaviour
 
 	protected virtual void OnStateChange(State oldState, State newState)
 	{
-		print("State change from: " + oldState + " to " + newState);
+		if(debug) print("State change from: " + oldState + " to " + newState);
 
 		if(oldState == State.Suspicious)
 		{
@@ -385,7 +387,7 @@ public class WolfController : MonoBehaviour
 				if(noise.origin.tag == Tags.player)
 				{
 					float d = noise.intensity * hearing - (noise.position - transform.position).magnitude;
-					// print("d: " + d);
+					// if(debug) print("d: " + d);
 					if(d > 0.0f)
 					{
 						lastKnownPlayerPos = noise.position;
@@ -551,7 +553,7 @@ public class WolfController : MonoBehaviour
 		{
 			if(obj.tag == Tags.player)
 			{
-				print("Player collided");
+				if(debug) print("Player collided");
 				collisionFlags[obj.tag] = collision;
 			}
 		}

@@ -1244,10 +1244,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100038}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8631d5df00aa3b4aa21902ba8a7aba9, type: 3}
+  m_Script: {fileID: 11500000, guid: 661e0254932d84fcd80ca2d0ed173320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 100044}
+  subject: {fileID: 100044}
   width: 30
   distanceThresh: 10
 --- !u!114 &11400002

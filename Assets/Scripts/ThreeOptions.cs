@@ -28,7 +28,7 @@ public class ThreeOptions : MonoBehaviour {
 	public Episode episode = Episode.Loonie;
 	
 	private string[,] gameScene = new string[,]{
-		 {"wolf_fight", "wolf_trap", "wolf_puzzle"},
+		 {"wolf_kill", "wolf_trap", "wolf_sneak"},
 		 {"loonie_fight","loonie_puzzle","loonie_alternative"},
 		 {"sheepking_fight","sheepking_shave","sheepking_puzzle"}};
 		 
