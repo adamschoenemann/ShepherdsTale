@@ -37,6 +37,7 @@ public abstract class Loggable : MonoBehaviour
 
 	protected void StartLoggingRoutine()
 	{
+		// print("Log");
 		StartCoroutine(LoggingRoutine());	
 	}
 

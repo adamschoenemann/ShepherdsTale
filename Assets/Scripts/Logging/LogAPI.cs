@@ -1,7 +1,8 @@
 using UnityEngine;
+using System;
+using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
-using System;
 
 public class LogAPI {
 
@@ -32,7 +33,7 @@ public class LogAPI {
 		private set { _sessionClosed = value; }
 	}
 
-	private const int size = 40;
+	private const int size = 10;
 	private Queue<LogEntry> entryQueue = new Queue<LogEntry>(size);
 
 	// ----------------------------- Methods -------------------------
@@ -73,11 +74,17 @@ public class LogAPI {
 	{
 		e.session_id = session_id;
 		entryQueue.Enqueue(e);
-		if(entryQueue.Count >= size - 1)
+		Debug.Log("Enqueue");
+		if(entryQueue.Count >= size)
 		{
 			return true;
 		}
 		return false;
+	}
+
+	public int Enqueued()
+	{
+		return entryQueue.Count;
 	}
 
 	public IEnumerator Flush()
@@ -99,6 +106,7 @@ public class LogAPI {
 		Debug.Log("Entry post: " + json.ToString());
 	}
 
+	
 	private WWW LogEntries(WWWForm form)
 	{
 		WWW www = new WWW(host + "/batch_entries", form);
@@ -122,6 +130,7 @@ public class LogAPI {
 		WWWForm form = new WWWForm();
 		form.AddField("session_id", session_id);
 		form.AddField("name", name);
+		form.AddField("time", logger.time.ToString());
 
 		WWW www = new WWW(host + "/register_scene", form);
 		yield return www;
@@ -224,5 +233,4 @@ public class LogAPI {
 
 		Debug.Log("session finished: " + www.text);
 	}
-
 }

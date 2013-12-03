@@ -2,7 +2,11 @@ using UnityEngine;
 using System.Collections;
 using System;
 
-public class KillGameController : MonoBehaviour 
+/**
+ * Should be rewritten to use coroutines again!!
+ * @type {[type]}
+ */
+public class KillGameController : GameController
 {
 
 	private bool displayRestart = false,
@@ -10,7 +14,6 @@ public class KillGameController : MonoBehaviour
 
 	private int wolvesLeft;
 
-	private Timer restartLevelTimer = null;
 
 	void Start()
 	{
@@ -29,20 +32,6 @@ public class KillGameController : MonoBehaviour
 		playerMortal.onDeathHandler += OnPlayerDiedHandler;
 	}
 
-	void Update()
-	{
-		if(restartLevelTimer != null)
-		{
-			restartLevelTimer.TickSeconds(Time.deltaTime);
-
-			if(restartLevelTimer.IsDone())
-			{
-				RestartLevel();
-			}
-		}
-	}
-
-	
 	void OnWolfDiedHandler(Mortal mortal)
 	{
 		Debug.Log("Wolf died... :(");
@@ -50,7 +39,6 @@ public class KillGameController : MonoBehaviour
 		if(wolvesLeft <= 0)
 		{
 			Debug.Log("Level completed!");
-
 		}
 	}
 
@@ -60,8 +48,7 @@ public class KillGameController : MonoBehaviour
 		{
 			displayRestart = true;
 			displayComplete = false; // just to be sure...
-
-			restartLevelTimer = new Timer(4.0f);
+			StartCoroutine(RestartLevel());
 		}
 	}
 
@@ -71,12 +58,6 @@ public class KillGameController : MonoBehaviour
 		{
 			displayComplete = true;
 		}
-	}
-
-	/*IEnumerator*/ void RestartLevel()
-	{
-		//yield return new WaitForSeconds(4.0f);
-		Application.LoadLevel(Application.loadedLevelName);
 	}
 
 	void OnGUI()
