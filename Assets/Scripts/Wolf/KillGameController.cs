@@ -6,9 +6,11 @@ public class KillGameController : MonoBehaviour
 {
 
 	private bool displayRestart = false,
-							 displayComplete = false;
+				 displayComplete = false;
 
 	private int wolvesLeft;
+
+	private Timer restartLevelTimer = null;
 
 	void Start()
 	{
@@ -22,6 +24,22 @@ public class KillGameController : MonoBehaviour
 			mortal.onDeathHandler += OnWolfDiedHandler; 
 		}
 
+		GameObject player = GameObject.FindWithTag(Tags.player);
+		Mortal playerMortal = player.GetComponent<Mortal>();
+		playerMortal.onDeathHandler += OnPlayerDiedHandler;
+	}
+
+	void Update()
+	{
+		if(restartLevelTimer != null)
+		{
+			restartLevelTimer.TickSeconds(Time.deltaTime);
+
+			if(restartLevelTimer.IsDone())
+			{
+				RestartLevel();
+			}
+		}
 	}
 
 	
@@ -32,6 +50,18 @@ public class KillGameController : MonoBehaviour
 		if(wolvesLeft <= 0)
 		{
 			Debug.Log("Level completed!");
+
+		}
+	}
+
+	void OnPlayerDiedHandler(Mortal mortal)
+	{
+		if(!displayRestart)
+		{
+			displayRestart = true;
+			displayComplete = false; // just to be sure...
+
+			restartLevelTimer = new Timer(4.0f);
 		}
 	}
 
@@ -43,9 +73,9 @@ public class KillGameController : MonoBehaviour
 		}
 	}
 
-	IEnumerator RestartLevel()
+	/*IEnumerator*/ void RestartLevel()
 	{
-		yield return new WaitForSeconds(4.0f);
+		//yield return new WaitForSeconds(4.0f);
 		Application.LoadLevel(Application.loadedLevelName);
 	}
 

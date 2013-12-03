@@ -3,23 +3,15 @@ using System.Collections;
 
 public class InteractionRoadSign: MonoBehaviour {
 	
+	public enum Level { Wolf, Loonie, SheepKing };
+	public Level level;
+
 	private SphereCollider interactionCollider;
 	private bool isInteracting = false;
 	
 	void Awake ()
 	{
 		interactionCollider = GetComponent<SphereCollider>();
-	}
-	// Use this for initialization
-	void Start () 
-	{
-	
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		
 	}
 	
 	void OnTriggerEnter(Collider other)
@@ -35,7 +27,19 @@ public class InteractionRoadSign: MonoBehaviour {
 	{
 		if(other.gameObject.tag == Tags.player && Input.GetKeyDown(KeyCode.E))
 		{
-			Application.LoadLevel("three_options");
+			switch(level)
+			{
+				case Level.Wolf:
+					Application.LoadLevel("wolf_three_options");
+					break;
+				case Level.Loonie:
+					Application.LoadLevel("loonie_three_options");
+					break;
+				case Level.SheepKing:
+					Application.LoadLevel("sheepking_three_options");
+					break;
+			}
+			
 		}
 	}
 	
