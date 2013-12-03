@@ -12,17 +12,15 @@ public class PlayerLoggable : Loggable
 	{
 		base.SetupLogging();
 		staff = GameObject.FindWithTag(Tags.staff).GetComponent<Staff>();
-		staff.onHit += (collision, damage) => {
+		staff.onHit += (obj, args) => {
 			LogEntry entry = new LogEntry(this, "StaffHIt");
-			entry.AddInt("damage", damage);
-			entry.AddString("target_name", collision.gameObject.name);
-			entry.AddString("target_tag", collision.gameObject.tag);
+			entry.AddInt("damage", args.damage);
+			entry.AddString("target_name", args.collision.gameObject.name);
+			entry.AddString("target_tag", args.collision.gameObject.tag);
 			print("Enqueueing StaffHit event");
 			logger.Enqueue(entry);
 		};
 	}
-
-
 
 
 

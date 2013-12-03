@@ -1,13 +1,24 @@
 using UnityEngine;
+using System;
+
+public class StaffEventArgs : EventArgs
+{
+	public Collision collision;
+	public int damage;
+	public StaffEventArgs(Collision c, int d)
+	{
+		collision = c;
+		damage = d;
+	}
+}
+
 public class Staff : MonoBehaviour
 {
 
 	private GameObject player;
 	private PlayerController playerController;
 
-	public delegate void HitHandler(Collision collision, int damage);
-
-	public event HitHandler onHit;
+	public event EventHandler<StaffEventArgs> onHit;
 
 	void Awake()
 	{
@@ -28,12 +39,10 @@ public class Staff : MonoBehaviour
 		if(mortal == null)
 			return;
 
-		int dmg = 1;
-		mortal.Damage(dmg);
+		int dmg = mortal.Damage(1);
 		if(onHit != null)
 		{
-			print("onHit");
-			onHit(collision, dmg);
+			onHit(this, new StaffEventArgs(collision, dmg));
 		}
 
 	}
