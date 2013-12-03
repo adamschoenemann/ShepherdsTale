@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using System;
 
 public class LogAPI {
@@ -82,6 +83,9 @@ public class LogAPI {
 
 	public IEnumerator Flush()
 	{
+		AsyncFlush();
+		yield return false;
+		// Lets do this instead - better performance
 		Debug.Log("Flushing...");
 		WWWForm form = new WWWForm();
 		LogEntry[] entries = new LogEntry[entryQueue.Count];
@@ -96,7 +100,28 @@ public class LogAPI {
 		WWW www = LogEntries(form);
 		yield return www;
 		JSONObject json = HandleResponse(www);
-		Debug.Log("Entry post: " + json.ToString());
+		// Debug.Log("Entry post: " + json.ToString());
+	}
+
+	private void AsyncFlush()
+	{
+		Thread thread = new Thread(new ThreadStart(() => {
+			Debug.Log("Flushing...");
+			WWWForm form = new WWWForm();
+			LogEntry[] entries = new LogEntry[entryQueue.Count];
+			entryQueue.CopyTo(entries, 0);
+			entryQueue.Clear();
+			for(int i = 0; i < entries.Length; i++)
+			{
+				LogEntry e = entries[i];
+				e.ToForm(form, i);
+			}
+			
+			WWW www = LogEntries(form);
+			// while(www.isDone == false);
+			// HandleResponse(www.text);
+
+		}));
 	}
 
 	private WWW LogEntries(WWWForm form)
@@ -177,7 +202,7 @@ public class LogAPI {
 
 		JSONObject json = new JSONObject(www.text);
 		session_id = (int) json[0]["id"].n;
-		Debug.Log(json[0]["id"]);
+		// Debug.Log(json[0]["id"]);
 
 	}
 
@@ -212,7 +237,7 @@ public class LogAPI {
 			Debug.Log(www.error);
 			return false;
 		}
-		Debug.Log(www.text);
+		// Debug.Log(www.text);
 	}
 
 	public IEnumerator StopSession(){

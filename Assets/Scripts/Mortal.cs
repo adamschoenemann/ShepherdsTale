@@ -28,12 +28,12 @@ public class Mortal : MonoBehaviour
 		if(invincibleTimer != null && invincibleTimer.IsDone() == false)
 		{
 			print("hit, but invincible");
-			return health;
+			return 0;
 		}
 		if(onDamageHandler != null)
 		{
 			if(onDamageHandler(this, amount) == false)
-				return health;
+				return 0;
 		}
 		health -= amount;
 		invincibleTimer = new Timer(invincibleTime);
@@ -42,7 +42,7 @@ public class Mortal : MonoBehaviour
 		{
 			Die();
 		}
-		return health;
+		return amount;
 	}
 
 	void Update()

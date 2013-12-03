@@ -28,9 +28,8 @@ public class Staff : MonoBehaviour
 		if(mortal == null)
 			return;
 
-		int dmg = 1;
-		mortal.Damage(dmg);
-		if(onHit != null)
+		int dmg = mortal.Damage(1);
+		if(onHit != null && dmg > 0)
 		{
 			print("onHit");
 			onHit(collision, dmg);
