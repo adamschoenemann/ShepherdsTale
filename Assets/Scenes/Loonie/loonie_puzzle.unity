@@ -3681,6 +3681,10 @@ Prefab:
       propertyPath: totemHead
       value: 
       objectReference: {fileID: 1270795164}
+    - target: {fileID: 100000, guid: 4daad7b0da7589945b403bb0e0c67444, type: 2}
+      propertyPath: m_TagString
+      value: Box
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4daad7b0da7589945b403bb0e0c67444, type: 2}
   m_RootGameObject: {fileID: 1974923029}
@@ -4044,7 +4048,7 @@ GameObject:
   - 65: {fileID: 417104543}
   m_Layer: 0
   m_Name: ColliderBox
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9895,7 +9899,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fec607dd3ed4d24bb2841690a7dd8d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swingSpeed: 1
 --- !u!65 &835509939
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10367,7 +10370,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: b554579d2151247a99265e6e6b8c1074, type: 3}
   m_PrefabInternal: {fileID: 962482501}
   m_GameObject: {fileID: 880608084}
-  m_LocalRotation: {x: 0, y: -.389730006, z: 0, w: .920929134}
+  m_LocalRotation: {x: 0, y: -.389730036, z: 0, w: .920929193}
   m_LocalPosition: {x: 248.002975, y: -0, z: 421.080597}
   m_LocalScale: {x: 2.1580472, y: 2.1580472, z: 2.1580472}
   m_Children:
@@ -14791,6 +14794,10 @@ Prefab:
       propertyPath: totemHead
       value: 
       objectReference: {fileID: 791462675}
+    - target: {fileID: 100000, guid: 4daad7b0da7589945b403bb0e0c67444, type: 2}
+      propertyPath: m_TagString
+      value: Box
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4daad7b0da7589945b403bb0e0c67444, type: 2}
   m_RootGameObject: {fileID: 1007489035}
@@ -15593,6 +15600,10 @@ Prefab:
       propertyPath: totemHead
       value: 
       objectReference: {fileID: 578206242}
+    - target: {fileID: 100000, guid: 4daad7b0da7589945b403bb0e0c67444, type: 2}
+      propertyPath: m_TagString
+      value: Box
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4daad7b0da7589945b403bb0e0c67444, type: 2}
   m_RootGameObject: {fileID: 239158640}
@@ -18258,7 +18269,7 @@ GameObject:
   - 65: {fileID: 1548981390}
   m_Layer: 0
   m_Name: ColliderBox
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18307,7 +18318,7 @@ GameObject:
   - 65: {fileID: 1549125185}
   m_Layer: 0
   m_Name: ColliderBox
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20841,6 +20852,10 @@ Prefab:
       propertyPath: totemHead
       value: 
       objectReference: {fileID: 134319344}
+    - target: {fileID: 100000, guid: 4daad7b0da7589945b403bb0e0c67444, type: 2}
+      propertyPath: m_TagString
+      value: Box
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4daad7b0da7589945b403bb0e0c67444, type: 2}
   m_RootGameObject: {fileID: 785451447}
@@ -24454,7 +24469,7 @@ GameObject:
   - 65: {fileID: 2136730996}
   m_Layer: 0
   m_Name: ColliderBox
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -2,7 +2,7 @@
 using System.Collections;
 using Wolf;
 
-public class LoonieController : WolfController {
+public class LoonieController : LoonieBaseController {
 	
 	protected override void Awake()
 	{
@@ -12,22 +12,23 @@ public class LoonieController : WolfController {
 	
 	bool OnDamage(Mortal mortal, int damage)
 	{
+		return true;
 		Vector3 playerPos = player.transform.position;
 		Vector3 direction = playerPos - transform.position;
-		if(Vector3.Dot(playerPos.normalized, transform.forward) < 0.5f)
-		{
-			return false;
-		}
-		else
+		if(Vector3.Dot(direction.normalized, transform.forward) < 0.0f)
 		{
 			return true;
 		}
+		else
+		{
+			return false;
+		}
 	}
 	
-	/*
-	protected override float IsPlayerAudible()
+	
+	protected override bool IsPlayerAudible()
 	{
-		float result = base.IsPlayerAudible();
+		bool result = base.IsPlayerAudible();
 		if(result)
 		{
 			if(playerController.IsSneaking())
@@ -36,7 +37,7 @@ public class LoonieController : WolfController {
 			}
 		}
 		return result;
-	}*/
+	}
 	
 	void OnCollisionEnter(Collision other)
 	{

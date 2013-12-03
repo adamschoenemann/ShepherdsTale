@@ -15,7 +15,7 @@ public class ManagerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//print(boxesInPlace);
-		if(boxesInPlace == 4)
+		if(boxesInPlace == 8)
 		{
 			print ("Gratulations!");
 			Destroy(port);

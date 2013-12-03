@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Loonie/loonie_puzzle.unity
   - enabled: 1
-    path: Assets/Scenes/Loonie/loonie_alternative.unity
+    path: Assets/Scenes/Loonie/loonie_race.unity
   - enabled: 1
     path: Assets/Scenes/SheepKing/sheepking_main.unity
   - enabled: 1

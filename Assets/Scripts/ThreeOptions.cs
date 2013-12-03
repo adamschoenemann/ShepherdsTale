@@ -29,7 +29,7 @@ public class ThreeOptions : MonoBehaviour {
 	
 	private string[,] gameScene = new string[,]{
 		 {"wolf_kill", "wolf_trap", "wolf_sneak"},
-		 {"loonie_fight","loonie_puzzle","loonie_alternative"},
+		 {"loonie_fight","loonie_puzzle","loonie_race"},
 		 {"sheepking_fight","sheepking_shave","sheepking_puzzle"}};
 		 
 	void Start ()
@@ -49,7 +49,7 @@ public class ThreeOptions : MonoBehaviour {
 		 {		 
 			  option0Text = ("Sneak <color=#ffa500ff>(use 'Left Shift' to sneak)</color> up on the Loonie from behind and kill him with the staff <color=#ffa500ff>(left mouse button)</color>.");
 			  option1Text = ("Race the Loonie.");
-			  option2Text = ("Solve a puzzle given by the Loonie - push the pieces around by moving into them.");
+			  option2Text = ("Solve a puzzle given by the Loonie - push the pieces around by moving into them, but don't make mistakes!");
 
 			  option0Texture = loonie_fightImage;
 			  option1Texture = loonie_raceImage;

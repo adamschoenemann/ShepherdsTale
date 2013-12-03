@@ -17,6 +17,7 @@ public class Staff : MonoBehaviour
 
 	void OnCollisionEnter(Collision collision)
 	{
+		print("Staff collided with " + collision.gameObject);
 		if(playerController.IsAttacking() == false)
 			return;
 		

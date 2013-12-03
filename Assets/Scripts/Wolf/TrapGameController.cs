@@ -42,6 +42,7 @@ public class TrapGameController : MonoBehaviour
 		nWolvesLeft--;
 		if(nWolvesLeft <= 0)
 		{
+			Application.LoadLevel("wolf_finish");
 			Debug.Log("Level completed!");
 			displayComplete = true;
 		}

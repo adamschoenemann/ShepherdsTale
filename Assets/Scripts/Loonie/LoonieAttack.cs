@@ -2,12 +2,12 @@
 using System.Collections;
 
 public class LoonieAttack : MonoBehaviour {
-	
-	float rayLength = 1.8f;
-	LoonieAnimator loonieScript;
+
+	public float rayLength = 1.8f;
+	LoonieAnimator loonieAnimation;
 	GameObject player;
-	PlayerMovement playerScript;
-	PlayerAnimation playerAnimationScript;
+	PlayerMovement playerMovement;
+	PlayerAnimation playerAnimation;
 	bool startCounter;
 	
 	//LERP VARIABLES
@@ -21,9 +21,9 @@ public class LoonieAttack : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag("Player");
-		playerScript = player.gameObject.GetComponent<PlayerMovement>();
-		playerAnimationScript = player.gameObject.GetComponent<PlayerAnimation>();
-		loonieScript = gameObject.GetComponent<LoonieAnimator>();
+		playerMovement = player.gameObject.GetComponent<PlayerMovement>();
+		playerAnimation = player.gameObject.GetComponent<PlayerAnimation>();
+		loonieAnimation = gameObject.GetComponent<LoonieAnimator>();
 		
 		startTime = Time.time;
         journeyLength = Vector3.Distance(transform.position, player.transform.position);
@@ -48,10 +48,10 @@ public class LoonieAttack : MonoBehaviour {
 				collider.isTrigger = true;
 				rigidbody.isKinematic = true;
 				transform.position = Vector3.Lerp(transform.position, player.transform.position, fracJourney);
-				loonieScript.anim.SetBool("Jump", true);
-				//Debug.Log("YOU ARE CAUGHT!");
-				playerScript.runSpeed = 0.0f;
-				playerAnimationScript.anim.SetBool("LoonieStuck", true);
+				loonieAnimation.anim.SetBool("Jump", true);
+				Debug.Log("YOU ARE CAUGHT!");
+				playerMovement.runSpeed = 0.0f;
+				playerAnimation.anim.SetBool("LoonieStuck", true);
 				startCounter = true;
 			}
 		}
@@ -61,7 +61,7 @@ public class LoonieAttack : MonoBehaviour {
 			timer.TickSeconds (Time.deltaTime);
 			if(timer.IsDone ())
 			{
-				//print ("NU");
+				print ("NU");
 				transform.parent = player.transform;
 				//Time.timeScale = 0.0f;
 				if(Input.GetButtonDown("StartOver"))
