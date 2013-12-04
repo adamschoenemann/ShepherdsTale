@@ -28,6 +28,8 @@ Shader "Toon without outline" {
 			uniform float _DiffuseThreshold2;
 			uniform float4 _Shading1;
 			uniform float4 _Shading2;
+
+			uniform float4 _LightColor0; 
 			
 			struct vIn 
 			{
@@ -59,9 +61,7 @@ Shader "Toon without outline" {
 			float4 frag(v2f input) : COLOR
 			{
 				float normalDotLight = dot(input.normal.xyz, input.lightDirection.xyz);
-				float4 output = tex2D(_Texture, float2(input.tex.xy)) * _Colour;
-
-                                //return float4(normalDotLight, normalDotLight, normalDotLight, 1);
+				float4 output = tex2D(_Texture, float2(input.tex.xy)) * _Colour;// * _LightColor0; Adding lightcolour messes some scenes up visually
 
 				if(normalDotLight < _DiffuseThreshold2)
 				{

@@ -19,7 +19,7 @@ public class SimonActivator : MonoBehaviour {
 	public void Listen()
 	{
 		particleSystem.Play();
-		listenSound.Play();
+		//listenSound.Play();
 	}
 
 	public bool IsHit()

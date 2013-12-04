@@ -20,14 +20,14 @@ public class SimonManager : MonoBehaviour {
 	public AudioSource finishedLevelSound;
 	public float noteBaseDuration = 1.0f;
 	public float delayBeforeShow = 2.0f;
-	public int numberOfLevels = 10;
+	public int numberOfLevels = 6;
+	public int startLevel = 2;
 
 	private SimonSheep[] sheep;
 	public enum State { ShowToPlayer, ListenToPlayer, Finished, WaitToStart, WaitToShow };
 	public State state;
 	private byte[] notes = {3,0,1,2,0,2,0,3,2,3,0,1,2,0,1,0,3,1,2,3,0,1,2,3,0,3,0,1,2,1,2,1,0,2,3,2,0,1,0,3,1,3,2,1,0,2,1,0,1,2};
-	private static readonly int startLevel = 2;
-	private int level = startLevel;
+	private int level;
 	private int progress = 0;
 
 	private Timer noteDurationTimer;
@@ -37,6 +37,7 @@ public class SimonManager : MonoBehaviour {
 
 	// Initialization
 	void Start () {
+		level = startLevel;
 		sheep = new SimonSheep[sheepObjects.Length];
 
 		for(int i = 0; i < sheep.Length; i++)
@@ -65,6 +66,12 @@ public class SimonManager : MonoBehaviour {
 				break;
 			case State.WaitToStart:
 				WaitForPlayerToActivateShow();
+				break;
+			case State.Finished:
+				if(!winSound.isPlaying)
+				{
+					Application.LoadLevel("game_finish");
+				}
 				break;
 		}
 	}
@@ -137,7 +144,7 @@ public class SimonManager : MonoBehaviour {
 				//noteDurationTimer = new Timer(noteBaseDuration * (1.0f - 0.4f *((numberOfLevels - level) / (float)numberOfLevels)));
 				finishedLevelSound.Play();
 
-				if(level >= numberOfLevels)
+				if(level >= numberOfLevels + startLevel)
 				{
 					// win; finish game
 					GoToState(State.Finished);

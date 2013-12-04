@@ -30,7 +30,7 @@ public class ThreeOptions : MonoBehaviour {
 	private string[,] gameScene = new string[,]{
 		 {"wolf_kill", "wolf_trap", "wolf_sneak"},
 		 {"loonie_fight","loonie_puzzle","loonie_race"},
-		 {"sheepking_fight","sheepking_shave","sheepking_puzzle"}};
+		 {"sheepking_fight","sheepking_shave","sheepking_simon"}};
 		 
 	void Start ()
 	{ 
