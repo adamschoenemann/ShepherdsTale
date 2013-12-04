@@ -78,6 +78,5 @@ Shader "Toon without outline" {
 			ENDCG
 		}
 	} 
-	//FallBack "Diffuse" 
 	FallBack Off
 }

@@ -10,70 +10,60 @@ AnimatorController:
   m_AnimatorParameters:
   - m_Name: Speed
     m_Type: 1
-    m_DefaultVector: {x: 0, y: 0, z: 0}
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: Direction
     m_Type: 1
-    m_DefaultVector: {x: 0, y: 0, z: 0}
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: Jump
     m_Type: 4
-    m_DefaultVector: {x: 0, y: 0, z: 0}
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: JumpDown
     m_Type: 4
-    m_DefaultVector: {x: 0, y: 0, z: 0}
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: ColliderHeight
     m_Type: 1
-    m_DefaultVector: {x: 0, y: 0, z: 0}
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: ColliderY
     m_Type: 1
-    m_DefaultVector: {x: 0, y: 0, z: 0}
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: CustomAnim
     m_Type: 1
-    m_DefaultVector: {x: 0, y: 0, z: 0}
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: Attack
     m_Type: 4
-    m_DefaultVector: {x: 0, y: 0, z: 0}
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: Wave
     m_Type: 4
-    m_DefaultVector: {x: 0, y: 0, z: 0}
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: Sneak
     m_Type: 4
-    m_DefaultVector: {x: 0, y: 0, z: 0}
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -423,7 +413,7 @@ Transition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: Speed
-    m_EventTreshold: .100000001
+    m_EventTreshold: .00999999978
     m_ExitTime: .964285731
   - m_ConditionMode: 1
     m_ConditionEvent: Sneak
@@ -517,7 +507,7 @@ Transition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: Speed
-    m_EventTreshold: .100000001
+    m_EventTreshold: .00999999978
     m_ExitTime: .673913002
   - m_ConditionMode: 1
     m_ConditionEvent: Sneak
@@ -1069,6 +1059,45 @@ StateMachine:
       - {fileID: 110178399}
       - {fileID: 110133560}
     data:
+      first: {fileID: 110277520}
+      second:
+      - {fileID: 110147874}
+    data:
+      first: {fileID: 110209456}
+      second:
+      - {fileID: 110123670}
+      - {fileID: 110102527}
+      - {fileID: 110110416}
+      - {fileID: 110150102}
+    data:
+      first: {fileID: 110266734}
+      second:
+      - {fileID: 110122825}
+    data:
+      first: {fileID: 110248158}
+      second:
+      - {fileID: 110153439}
+    data:
+      first: {fileID: 110224339}
+      second:
+      - {fileID: 110143530}
+    data:
+      first: {fileID: 110223063}
+      second:
+      - {fileID: 110168009}
+    data:
+      first: {fileID: 110220212}
+      second:
+      - {fileID: 110150850}
+    data:
+      first: {fileID: 110289914}
+      second:
+      - {fileID: 110167249}
+    data:
+      first: {fileID: 110212665}
+      second:
+      - {fileID: 110171949}
+    data:
       first: {fileID: 110201885}
       second:
       - {fileID: 110193955}
@@ -1078,45 +1107,6 @@ StateMachine:
       second:
       - {fileID: 110145044}
       - {fileID: 110192101}
-    data:
-      first: {fileID: 110209456}
-      second:
-      - {fileID: 110123670}
-      - {fileID: 110102527}
-      - {fileID: 110110416}
-      - {fileID: 110150102}
-    data:
-      first: {fileID: 110212665}
-      second:
-      - {fileID: 110171949}
-    data:
-      first: {fileID: 110220212}
-      second:
-      - {fileID: 110150850}
-    data:
-      first: {fileID: 110223063}
-      second:
-      - {fileID: 110168009}
-    data:
-      first: {fileID: 110224339}
-      second:
-      - {fileID: 110143530}
-    data:
-      first: {fileID: 110248158}
-      second:
-      - {fileID: 110153439}
-    data:
-      first: {fileID: 110266734}
-      second:
-      - {fileID: 110122825}
-    data:
-      first: {fileID: 110277520}
-      second:
-      - {fileID: 110147874}
-    data:
-      first: {fileID: 110289914}
-      second:
-      - {fileID: 110167249}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 384, y: -72, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
@@ -1139,17 +1129,17 @@ StateMachine:
       first: {fileID: 0}
       second: []
     data:
-      first: {fileID: 110205448}
+      first: {fileID: 110247594}
       second:
-      - {fileID: 110175547}
+      - {fileID: 110145030}
     data:
       first: {fileID: 110233314}
       second:
       - {fileID: 110177077}
     data:
-      first: {fileID: 110247594}
+      first: {fileID: 110205448}
       second:
-      - {fileID: 110145030}
+      - {fileID: 110175547}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
