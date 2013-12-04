@@ -811,12 +811,12 @@ ModelImporter:
       transformModified: 1
     - name: Character1_LeftHandThumb1
       position: {x: -.0617419071, y: -.0113368183, z: .0608002841}
-      rotation: {x: -.0734036267, y: .256734073, z: -.0661525205, w: .961417437}
+      rotation: {x: -.0734038875, y: .256734043, z: -.0661526471, w: .961417377}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Character1_LeftHandThumb2
       position: {x: -.0356727466, y: -.00761132454, z: .0100441538}
-      rotation: {x: 1.13182296e-07, y: .107052952, z: .0811229721, w: .990938306}
+      rotation: {x: 4.47034871e-08, y: .10705395, z: .081126444, w: .990937948}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Character1_LeftHandThumb3
@@ -861,7 +861,7 @@ ModelImporter:
       transformModified: 1
     - name: Character1_RightHandIndex1
       position: {x: .125246584, y: .00283573917, z: .0493003726}
-      rotation: {x: .000131102686, y: -.0120977415, z: .00375708472, w: .999919772}
+      rotation: {x: .000131104738, y: -.01209787, z: .00375714502, w: .999919772}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Character1_RightHandIndex2
@@ -881,7 +881,7 @@ ModelImporter:
       transformModified: 1
     - name: Character1_RightHandMiddle1
       position: {x: .125077531, y: .00711147999, z: .0185343754}
-      rotation: {x: .000131104025, y: -.0120978765, z: .00375712733, w: .999919772}
+      rotation: {x: .000131104622, y: -.0120978681, z: .00375714502, w: .999919772}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Character1_RightHandMiddle2
@@ -901,7 +901,7 @@ ModelImporter:
       transformModified: 1
     - name: Character1_RightHandPinky1
       position: {x: .126110122, y: -.00444424339, z: -.035345979}
-      rotation: {x: .000130926419, y: -.0121006304, z: .00375938253, w: .999919713}
+      rotation: {x: .000130919972, y: -.0121007608, z: .00375950104, w: .999919713}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Character1_RightHandPinky2
@@ -921,7 +921,7 @@ ModelImporter:
       transformModified: 1
     - name: Character1_RightHandRing1
       position: {x: .126271069, y: .00539395632, z: -.0112498486}
-      rotation: {x: .000131104011, y: -.0120978756, z: .00375712733, w: .999919772}
+      rotation: {x: .000131104651, y: -.0120978681, z: .00375714502, w: .999919772}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Character1_RightHandRing2
@@ -941,12 +941,12 @@ ModelImporter:
       transformModified: 1
     - name: Character1_RightHandThumb1
       position: {x: .0617365725, y: -.0113367569, z: .0608056895}
-      rotation: {x: -.073409237, y: -.256733984, z: .0661455989, w: .961417496}
+      rotation: {x: -.0734118968, y: -.256733567, z: .0661476105, w: .961417258}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Character1_RightHandThumb2
       position: {x: .03567186, y: -.00761131756, z: .01004731}
-      rotation: {x: .00274775922, y: -.0908911005, z: -.0786089003, w: .992749751}
+      rotation: {x: .00274845003, y: -.0908908099, z: -.0786136091, w: .992749333}
       scale: {x: 1, y: 1, z: 1}
       transformModified: 1
     - name: Character1_RightHandThumb3
