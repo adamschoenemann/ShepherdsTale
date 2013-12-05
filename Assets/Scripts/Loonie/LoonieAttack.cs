@@ -49,7 +49,7 @@ public class LoonieAttack : MonoBehaviour {
 				rigidbody.isKinematic = true;
 				transform.position = Vector3.Lerp(transform.position, player.transform.position, fracJourney);
 				loonieAnimation.anim.SetBool("Jump", true);
-				Debug.Log("YOU ARE CAUGHT!");
+				//Debug.Log("YOU ARE CAUGHT!");
 				playerMovement.runSpeed = 0.0f;
 				playerAnimation.anim.SetBool("LoonieStuck", true);
 				startCounter = true;
@@ -61,7 +61,6 @@ public class LoonieAttack : MonoBehaviour {
 			timer.TickSeconds (Time.deltaTime);
 			if(timer.IsDone ())
 			{
-				print ("NU");
 				transform.parent = player.transform;
 				//Time.timeScale = 0.0f;
 				if(Input.GetButtonDown("StartOver"))

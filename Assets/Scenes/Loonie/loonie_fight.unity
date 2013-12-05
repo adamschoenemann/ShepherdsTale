@@ -9677,6 +9677,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
+      propertyPath: runSpeed
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400004, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
@@ -9999,7 +10003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69cde2a20f757a2489cea30f607fc454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 150
+  runSpeed: 200
   sneakSpeed: 100
 --- !u!82 &2055785878
 AudioSource:
