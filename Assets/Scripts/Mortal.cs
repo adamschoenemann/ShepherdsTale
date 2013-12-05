@@ -3,7 +3,7 @@ public class Mortal : MonoBehaviour
 {
 
 	public int startHealth = 5;
-	private int health;
+	public int health {private set; get;} 
 	public int invincibleTime = 500;
 
 	public delegate void OnDeathDelegate(Mortal instance, GameObject attacker);

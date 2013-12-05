@@ -964,6 +964,7 @@ GameObject:
   - 114: {fileID: 11400012}
   - 114: {fileID: 11400014}
   - 114: {fileID: 11400016}
+  - 114: {fileID: 11400022}
   m_Layer: 8
   m_Name: Shepherd_prefab
   m_TagString: Player
@@ -2280,7 +2281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  startHealth: 5
   invincibleTime: 500
 --- !u!114 &11400014
 MonoBehaviour:
@@ -2293,7 +2294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9dc7aa762f822a45ad8358364909e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
   name: Player
 --- !u!114 &11400016
 MonoBehaviour:
@@ -2309,7 +2310,7 @@ MonoBehaviour:
   lureKey: q
   trapKey: e
   sound: {fileID: 8200000}
-  trap: {fileID: 100006, guid: b2534b20e22dd6f46a73abbbf1fb6716, type: 2}
+  trap: {fileID: 0}
   trapIcon: {fileID: 2800000, guid: 1f7f155e93b466349a2db227366a9d6b, type: 3}
 --- !u!114 &11400018
 MonoBehaviour:
@@ -2323,8 +2324,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fogMode: 2
-  startDistance: 10
-  globalDensity: 4
+  startDistance: 15
+  globalDensity: 4.5
   heightScale: 100
   height: 0
   globalFogColor: {r: .215686277, g: .278431386, b: .41568628, a: 1}
@@ -2349,6 +2350,19 @@ MonoBehaviour:
   edgesOnly: 0
   edgesOnlyBgColor: {r: 1, g: 1, b: 1, a: 1}
   edgeDetectShader: {fileID: 4800000, guid: 0d1644bdf064147baa97f235fc5b4903, type: 3}
+--- !u!114 &11400022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98db864b25a5ac042b358cee94946105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

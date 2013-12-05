@@ -22,9 +22,9 @@ public class CherryLoggable : Loggable
 		};
 	}
 
-	protected void Start()
+	public override bool ShouldLogRoutinely()
 	{
-		// Dont start logging routine
+		return false;
 	}
 
 

@@ -36,14 +36,10 @@ public class TrapLoggable : Loggable
 		};
 	}
 
-	protected void Start()
+	public override bool ShouldLogRoutinely()
 	{
-		// Dont start logging routine
+		return false;
 	}
-
-
-
-
 
 	protected override void BeforeEnqueueEntry(LogEntry entry)
 	{

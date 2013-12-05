@@ -26,53 +26,28 @@ public class WolfLoggable : Loggable
 			Debug.Log("Attacker is null!!"); // something is wrong
 		}
 
-		attacker.onHit += (obj, args) => {
-			LogEntry entry = new LogEntry(this, "WolfHit")
-				.AddInt("damage", args.dmg)
-				.AddString("victim", args.victim.GetComponent<Loggable>().name)
-				.AddVector3("position", transform.position)
-				.AddQuaternion("rotation", transform.rotation);
-			logger.Enqueue(entry);
-		};
-
 		controller.onStateChangeEvent += (obj, args) => {
 			if(args.to == State.Suspicious)
 			{
 				LogEntry entry = new LogEntry(this, "WolfSuspicious")
-					.AddVector3("wolfPosition", transform.position)
-					.AddQuaternion("wolfRotation", transform.rotation)
-					.AddVector3("playerPosition", player.transform.position)
-					.AddQuaternion("playerRotation", player.transform.rotation);
+					.AddGameObject("player", player)
+					.AddGameObject("wolf", gameObject);
 			}
 			else if(args.to == State.Chasing)
 			{
 				LogEntry entry = new LogEntry(this, "PlayerSeen")
-					.AddVector3("wolfPosition", transform.position)
-					.AddQuaternion("wolfRotation", transform.rotation)
-					.AddVector3("playerPosition", player.transform.position)
-					.AddQuaternion("playerRotation", player.transform.rotation);
+					.AddGameObject("player", player)
+					.AddGameObject("wolf", gameObject);
 				logger.Enqueue(entry);
 			}
 		};
 
-		mortal.onDeathHandler += (m, killer) => {
-			LogEntry entry = new LogEntry(this, "WolfDeath")
-				.AddInt("starthealth", m.startHealth)
-				.AddVector3("position", transform.position)
-				.AddQuaternion("rotation", transform.rotation);
-			logger.Enqueue(entry);
-		};
-
 	}
 
-	protected void Start()
+	public override bool ShouldLogRoutinely()
 	{
-		// Dont start logging routine
+		return false;
 	}
-
-
-
-
 
 	protected override void BeforeEnqueueEntry(LogEntry entry)
 	{
