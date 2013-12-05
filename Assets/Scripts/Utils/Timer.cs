@@ -11,7 +11,7 @@ public class Timer
 	public delegate void OnDoneDelegate(Timer self);
 	public OnDoneDelegate onDone;
 
-	public Timer(long duration)
+	public Timer(long duration) // Milliseconds
 	{
 		this.duration = duration;
 		this.elapsed = 0L;

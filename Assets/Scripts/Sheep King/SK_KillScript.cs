@@ -35,7 +35,6 @@ public class SK_KillScript : MonoBehaviour
 	/*
 		TODO 
 		Make throw-player-away thingy nicer.
-		Make encounters with the player do damage to the player.
 	*/
 
 	void Awake()
@@ -56,6 +55,7 @@ public class SK_KillScript : MonoBehaviour
 
 			// Insert winning consequence here, e.g. go to scene or something like that.
 			print("You won against the sheep king! Now celebrate with a happy ending!");
+			//Application.LoadLevel("game_finish");
 		};
 
 		timer = new Timer(aimTime);

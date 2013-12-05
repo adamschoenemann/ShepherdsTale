@@ -7206,7 +7206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1012731975
 Light:
   m_ObjectHideFlags: 0
@@ -7217,7 +7217,7 @@ Light:
   serializedVersion: 3
   m_Type: 1
   m_Color: {r: .70588237, g: .70588237, b: .70588237, a: 1}
-  m_Intensity: .800000012
+  m_Intensity: .610000014
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -12462,9 +12462,9 @@ MonoBehaviour:
   winSound: {fileID: 1471396366}
   finishedLevelSound: {fileID: 1471396365}
   noteBaseDuration: 1
-  delayBeforeShow: 2
-  numberOfLevels: 4
-  startLevel: 0
+  delayBeforeShow: 2.50999999
+  numberOfLevels: 7
+  startLevel: 2
   state: 0
   playerMadeMistake: 0
 --- !u!82 &1471396365
@@ -12699,7 +12699,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1483685630
 Transform:
   m_ObjectHideFlags: 0
@@ -19322,6 +19322,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400016, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100134, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

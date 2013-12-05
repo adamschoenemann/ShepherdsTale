@@ -2084,7 +2084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  startHealth: 5
   invincibleTime: 200
 --- !u!82 &149513267
 AudioSource:
@@ -4438,7 +4438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  startHealth: 5
   invincibleTime: 200
 --- !u!82 &433211384
 AudioSource:
@@ -10967,7 +10967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  startHealth: 5
   invincibleTime: 200
 --- !u!82 &676557273
 AudioSource:
@@ -14874,7 +14874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  startHealth: 5
   invincibleTime: 200
 --- !u!82 &999705944
 AudioSource:
@@ -24160,7 +24160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  startHealth: 5
   invincibleTime: 200
 --- !u!82 &1723582849
 AudioSource:
@@ -25436,7 +25436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  startHealth: 5
   invincibleTime: 200
 --- !u!82 &1859422034
 AudioSource:
@@ -28268,7 +28268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  startHealth: 8
   invincibleTime: 500
 --- !u!136 &2055785875
 CapsuleCollider:
@@ -28863,7 +28863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  startHealth: 5
   invincibleTime: 200
 --- !u!82 &2073419295
 AudioSource:
@@ -29182,6 +29182,10 @@ Prefab:
     - target: {fileID: 11400018, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
       propertyPath: globalDensity
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400012, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
+      propertyPath: startHealth
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba295e70e033bc046a2adde726661ba6, type: 2}

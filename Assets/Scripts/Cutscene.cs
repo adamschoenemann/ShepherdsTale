@@ -6,6 +6,7 @@ public class Cutscene : MonoBehaviour {
 	public MovieTexture movie;
 	public AudioSource audio;
 	public string nextSceneName;
+	public bool debug = false;
 
 	private Timer goToNextLevel;
 
@@ -32,6 +33,17 @@ public class Cutscene : MonoBehaviour {
 		if(goToNextLevel.IsDone())
 		{
 			Application.LoadLevel(nextSceneName);
+		}
+	}
+
+	void OnGUI()
+	{
+		if(debug)
+		{
+			if(GUI.Button(new Rect(50, 50, 200, 50), "Skip"))
+			{
+				Application.LoadLevel(nextSceneName);
+			}
 		}
 	}
 }

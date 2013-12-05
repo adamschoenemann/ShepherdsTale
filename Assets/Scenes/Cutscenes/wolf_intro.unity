@@ -168,6 +168,7 @@ MonoBehaviour:
   movie: {fileID: 15200000, guid: 133de6e6d98324533b75ead8f84ffffc, type: 3}
   audio: {fileID: 1020637550}
   nextSceneName: wolf_main
+  debug: 1
 --- !u!4 &1020637549
 Transform:
   m_ObjectHideFlags: 0
@@ -284,6 +285,10 @@ Prefab:
     - target: {fileID: 11400000, guid: 6e98747e2424747239db7e79d595bbb2, type: 2}
       propertyPath: nextSceneName
       value: wolf_main
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6e98747e2424747239db7e79d595bbb2, type: 2}
+      propertyPath: debug
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e98747e2424747239db7e79d595bbb2, type: 2}

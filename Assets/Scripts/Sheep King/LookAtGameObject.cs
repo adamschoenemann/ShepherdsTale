@@ -8,7 +8,9 @@ public class LookAtGameObject : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(target != null)
+		{
 			LookAtLerp(target.transform.position);
+		}
 	}
 
 	protected virtual void RotateTowards(Quaternion rotation, float margin = 0.99f)
@@ -27,7 +29,7 @@ public class LookAtGameObject : MonoBehaviour {
 		}
 	}
 
-	protected void LookAtLerp(GameObject go)
+	private void LookAtLerp(GameObject go)
 	{
 		LookAtLerp(go.transform.position);
 	}
