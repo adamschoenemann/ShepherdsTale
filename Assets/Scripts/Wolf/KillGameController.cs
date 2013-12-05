@@ -32,7 +32,7 @@ public class KillGameController : GameController
 		playerMortal.onDeathHandler += OnPlayerDiedHandler;
 	}
 
-	void OnWolfDiedHandler(Mortal mortal)
+	void OnWolfDiedHandler(Mortal mortal, GameObject killer)
 	{
 		Debug.Log("Wolf died... :(");
 		wolvesLeft--;
@@ -42,7 +42,7 @@ public class KillGameController : GameController
 		}
 	}
 
-	void OnPlayerDiedHandler(Mortal mortal)
+	void OnPlayerDiedHandler(Mortal mortal, GameObject killer)
 	{
 		if(!displayRestart)
 		{

@@ -29,7 +29,7 @@ public class Staff : MonoBehaviour
 			return;
 
 		int dmg = 1;
-		mortal.Damage(dmg);
+		mortal.Damage(dmg, gameObject);
 		if(onHit != null)
 		{
 			print("onHit");

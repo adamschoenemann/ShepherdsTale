@@ -17,6 +17,8 @@ public class Logger : MonoBehaviour
 		if(controllerObj == null) Debug.Log("No GameController found!");
 		GameController gc = controllerObj.GetComponent<GameController>();
 
+		GameObject.DontDestroyOnLoad(gameObject);
+
 		gc.onLevelRestarting += (obj, args) => {
 			enabled = false;
 			StartCoroutine(LogAPI.instance.Flush());
@@ -54,6 +56,18 @@ public class Logger : MonoBehaviour
 		if(LogAPI.instance.Enqueue(entry))
 		{
 			StartCoroutine(LogAPI.instance.Flush());
+		}
+	}
+
+	void Update()
+	{
+		if(Input.GetKeyDown("f2"))
+		{
+			if(LogAPI.instance.flushing == false && LogAPI.instance.Enqueued() > 0)
+			{
+				StartCoroutine(LogAPI.instance.Flush());
+			}
+			
 		}
 	}
 

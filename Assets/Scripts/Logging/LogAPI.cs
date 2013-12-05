@@ -10,6 +10,7 @@ public class LogAPI {
 
 	public int session_id {get; private set;}
 	public float logRate = 0.5f;
+	public bool flushing {private set; get;}
 
 	private static LogAPI _instance;
 
@@ -42,6 +43,7 @@ public class LogAPI {
 	{
 		Debug.Log("New LogAPI created");
 		session_id = 0;
+		flushing = false;
 	}
 
 	public IEnumerator RegisterLoggable(Loggable l, Logger logger, Action<int> cb = null)
@@ -89,7 +91,11 @@ public class LogAPI {
 
 	public IEnumerator Flush()
 	{
+		if(Enqueued() <= 0 || flushing)
+			yield return false;
+		
 		Debug.Log("Flushing...");
+		flushing = true;
 		WWWForm form = new WWWForm();
 		LogEntry[] entries = new LogEntry[entryQueue.Count];
 		entryQueue.CopyTo(entries, 0);
@@ -104,6 +110,7 @@ public class LogAPI {
 		yield return www;
 		JSONObject json = HandleResponse(www);
 		Debug.Log("Entry post: " + json.ToString());
+		flushing = false;
 	}
 
 	
@@ -154,7 +161,7 @@ public class LogAPI {
 	}
 
 	// Still not working
-	public IEnumerator CloseScene(Logger logger)
+	public IEnumerator CloseScene(Logger logger, Action cb = null)
 	{
 		string url = host + "/close_scene/";
 		WWWForm form = new WWWForm();
@@ -162,6 +169,11 @@ public class LogAPI {
 		WWW www = new WWW(url, form);
 		yield return www;
 		HandleResponse(www);
+		if(cb != null)
+		{
+			while(flushing) yield return true;
+			cb();
+		}
 	}
 
 	/**

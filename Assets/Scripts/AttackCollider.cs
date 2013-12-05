@@ -31,7 +31,7 @@ public class AttackCollider : MonoBehaviour {
 				return;
 			}
 
-			int dmg = mortal.Damage(1);
+			int dmg = mortal.Damage(1, transform.parent.gameObject);
 			if(dmg > 0)
 			{
 				print("Doing damage");

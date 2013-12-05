@@ -24,7 +24,7 @@ public class TrapGameController : GameController
 			mortal.onDeathHandler += OnWolfDiedHandler; 
 		}
 		player = GameObject.FindWithTag(Tags.player);
-		player.GetComponent<Mortal>().onDeathHandler = mortal => {
+		player.GetComponent<Mortal>().onDeathHandler = (mortal, killer) => {
 			Debug.Log("You died...");
 			displayRestart = true;
 			StartCoroutine(RestartLevel());
@@ -33,7 +33,7 @@ public class TrapGameController : GameController
 	}
 
 	
-	void OnWolfDiedHandler(Mortal mortal)
+	void OnWolfDiedHandler(Mortal mortal, GameObject killer)
 	{
 		Debug.Log("Wolf died... :(");
 		nWolvesLeft--;
