@@ -2,11 +2,8 @@
 using System.Collections;
 using System;
 
-public class SneakGameController : MonoBehaviour 
+public class SneakGameController : GameController
 {
-
-	private bool displayRestart = false,
-							 displayComplete = false;
 
 	void Awake()
 	{
@@ -27,17 +24,10 @@ public class SneakGameController : MonoBehaviour
 
 	void OnLevelComplete(object obj, EventArgs args)
 	{
-		Application.LoadLevel("wolf_finish");
 		if(displayComplete == false)
 		{
 			displayComplete = true;
 		}
-	}
-
-	IEnumerator RestartLevel()
-	{
-		yield return new WaitForSeconds(4.0f);
-		Application.LoadLevel(Application.loadedLevelName);
 	}
 
 	void OnGUI()

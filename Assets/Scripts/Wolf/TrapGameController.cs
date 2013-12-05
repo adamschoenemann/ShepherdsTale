@@ -3,11 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public class TrapGameController : MonoBehaviour 
+public class TrapGameController : GameController
 {
-
-	private bool displayRestart = false,
-							 displayComplete = false;
 
 	private int nWolvesLeft;
 
@@ -42,7 +39,6 @@ public class TrapGameController : MonoBehaviour
 		nWolvesLeft--;
 		if(nWolvesLeft <= 0)
 		{
-			Application.LoadLevel("wolf_finish");
 			Debug.Log("Level completed!");
 			displayComplete = true;
 		}
@@ -54,12 +50,6 @@ public class TrapGameController : MonoBehaviour
 		{
 			displayComplete = true;
 		}
-	}
-
-	IEnumerator RestartLevel()
-	{
-		yield return new WaitForSeconds(4.0f);
-		Application.LoadLevel(Application.loadedLevelName);
 	}
 
 	void OnGUI()

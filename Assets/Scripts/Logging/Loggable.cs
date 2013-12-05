@@ -30,13 +30,17 @@ public abstract class Loggable : MonoBehaviour
 		}
 	}
 
+	public abstract bool ShouldLogRoutinely();
+
 	protected void Start()
 	{
-		StartLoggingRoutine();
+		if(ShouldLogRoutinely())
+			StartLoggingRoutine();
 	}
 
 	protected void StartLoggingRoutine()
 	{
+		// print("Log");
 		StartCoroutine(LoggingRoutine());	
 	}
 

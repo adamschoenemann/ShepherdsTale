@@ -24,7 +24,7 @@ public class Lurer : NoiseGenerator
 		{
 			if(atTrap)
 			{
-				PickupTrap(GameObject.FindWithTag(Tags.trap));
+				PickupTrap();
 			}
 			else
 			{
@@ -37,15 +37,15 @@ public class Lurer : NoiseGenerator
 	{
 		if(nTraps > 0)
 		{
-			GameObject.Instantiate(trap, transform.position, transform.rotation);
+			trap.GetComponent<Trap>().Place(transform.position, transform.rotation);
 			nTraps--;
 		}
 	}
 
-	void PickupTrap(GameObject trap)
+	void PickupTrap()
 	{
 		nTraps++;
-		Destroy(trap);
+		trap.GetComponent<Trap>().PickUp();
 		atTrap = false;
 	}
 

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 public class LoonieAttack : MonoBehaviour {
@@ -11,10 +12,12 @@ public class LoonieAttack : MonoBehaviour {
 	bool startCounter;
 	
 	//LERP VARIABLES
-    public float speed = 1.0F;
-    private float startTime;
-    private float journeyLength;
-    public float smooth = 5.0F;
+  public float speed = 1.0F;
+  private float startTime;
+  private float journeyLength;
+  public float smooth = 5.0F;
+
+  public event EventHandler onPlayerCaught;
 	
 	Timer timer;
 	
@@ -53,6 +56,7 @@ public class LoonieAttack : MonoBehaviour {
 				playerMovement.runSpeed = 0.0f;
 				playerAnimation.anim.SetBool("LoonieStuck", true);
 				startCounter = true;
+				onPlayerCaught(this, EventArgs.Empty);
 			}
 		}
 		

@@ -1,7 +1,8 @@
 using UnityEngine;
+using System;
+using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
-using System;
 
 public class LogAPI {
 
@@ -9,6 +10,7 @@ public class LogAPI {
 
 	public int session_id {get; private set;}
 	public float logRate = 0.5f;
+	public bool flushing {private set; get;}
 
 	private static LogAPI _instance;
 
@@ -32,7 +34,7 @@ public class LogAPI {
 		private set { _sessionClosed = value; }
 	}
 
-	private const int size = 40;
+	private const int size = 10;
 	private Queue<LogEntry> entryQueue = new Queue<LogEntry>(size);
 
 	// ----------------------------- Methods -------------------------
@@ -41,6 +43,7 @@ public class LogAPI {
 	{
 		Debug.Log("New LogAPI created");
 		session_id = 0;
+		flushing = false;
 	}
 
 	public IEnumerator RegisterLoggable(Loggable l, Logger logger, Action<int> cb = null)
@@ -73,16 +76,26 @@ public class LogAPI {
 	{
 		e.session_id = session_id;
 		entryQueue.Enqueue(e);
-		if(entryQueue.Count >= size - 1)
+		Debug.Log("Enqueue");
+		if(entryQueue.Count >= size)
 		{
 			return true;
 		}
 		return false;
 	}
 
+	public int Enqueued()
+	{
+		return entryQueue.Count;
+	}
+
 	public IEnumerator Flush()
 	{
+		if(Enqueued() <= 0 || flushing)
+			yield return false;
+		
 		Debug.Log("Flushing...");
+		flushing = true;
 		WWWForm form = new WWWForm();
 		LogEntry[] entries = new LogEntry[entryQueue.Count];
 		entryQueue.CopyTo(entries, 0);
@@ -97,8 +110,10 @@ public class LogAPI {
 		yield return www;
 		JSONObject json = HandleResponse(www);
 		Debug.Log("Entry post: " + json.ToString());
+		flushing = false;
 	}
 
+	
 	private WWW LogEntries(WWWForm form)
 	{
 		WWW www = new WWW(host + "/batch_entries", form);
@@ -122,6 +137,7 @@ public class LogAPI {
 		WWWForm form = new WWWForm();
 		form.AddField("session_id", session_id);
 		form.AddField("name", name);
+		form.AddField("time", logger.time.ToString());
 
 		WWW www = new WWW(host + "/register_scene", form);
 		yield return www;
@@ -145,7 +161,7 @@ public class LogAPI {
 	}
 
 	// Still not working
-	public IEnumerator CloseScene(Logger logger)
+	public IEnumerator CloseScene(Logger logger, Action cb = null)
 	{
 		string url = host + "/close_scene/";
 		WWWForm form = new WWWForm();
@@ -153,6 +169,11 @@ public class LogAPI {
 		WWW www = new WWW(url, form);
 		yield return www;
 		HandleResponse(www);
+		if(cb != null)
+		{
+			while(flushing) yield return true;
+			cb();
+		}
 	}
 
 	/**
@@ -162,7 +183,7 @@ public class LogAPI {
 	{
 		if(session_id != 0)
 		{
-			return false;
+			yield return false;
 		}
 
 		WWWForm form = new WWWForm();
@@ -186,35 +207,6 @@ public class LogAPI {
 		return (session_id == 0);
 	}
 
-	
-	private IEnumerator LogGameObject(GameObject obj, string eventName)
-	{
-		WWWForm form = new WWWForm();
-
-		form.AddField("session_id", session_id.ToString());
-		form.AddField("instance_id", obj.GetInstanceID().ToString());
-		form.AddField("event", eventName);
-
-		Vector3 p = obj.transform.position;
-		form.AddField("position[x]", p.x.ToString());
-		form.AddField("position[y]", p.y.ToString());
-		form.AddField("position[z]", p.z.ToString());
-
-		Quaternion q = obj.transform.rotation;
-		form.AddField("rotation[x]", q.x.ToString());
-		form.AddField("rotation[y]", q.y.ToString());
-		form.AddField("rotation[z]", q.z.ToString());
-		form.AddField("rotation[w]", q.w.ToString());
-
-		WWW www = new WWW(host + "/log_object", form);
-		yield return www;
-		if(!String.IsNullOrEmpty(www.error)){
-			Debug.Log(www.error);
-			return false;
-		}
-		Debug.Log(www.text);
-	}
-
 	public IEnumerator StopSession(){
 		WWWForm form = new WWWForm();
 		form.AddField("id", session_id);
@@ -224,5 +216,4 @@ public class LogAPI {
 
 		Debug.Log("session finished: " + www.text);
 	}
-
 }
