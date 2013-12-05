@@ -2362,7 +2362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enabled: 1
-  name: 
+  name: PlayerMortal
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

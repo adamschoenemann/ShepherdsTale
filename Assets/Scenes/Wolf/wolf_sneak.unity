@@ -128,27 +128,27 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1282331554}
-  - {fileID: 1140222006}
-  - {fileID: 480959475}
-  - {fileID: 2060280510}
-  - {fileID: 1733655806}
-  - {fileID: 885940009}
-  - {fileID: 273624547}
-  - {fileID: 776096772}
-  - {fileID: 1385787375}
-  - {fileID: 747333780}
-  - {fileID: 181852899}
-  - {fileID: 1518963350}
-  - {fileID: 192248477}
-  - {fileID: 962094794}
   - {fileID: 1422211630}
-  - {fileID: 1648129582}
-  - {fileID: 272021035}
-  - {fileID: 345800233}
+  - {fileID: 192248477}
+  - {fileID: 1518963350}
+  - {fileID: 181852899}
+  - {fileID: 1733655806}
+  - {fileID: 962094794}
   - {fileID: 283886293}
   - {fileID: 1981555233}
+  - {fileID: 345800233}
+  - {fileID: 1282331554}
+  - {fileID: 747333780}
+  - {fileID: 1648129582}
+  - {fileID: 480959475}
+  - {fileID: 272021035}
+  - {fileID: 1140222006}
+  - {fileID: 885940009}
+  - {fileID: 1385787375}
+  - {fileID: 2060280510}
   - {fileID: 1780652496}
+  - {fileID: 776096772}
+  - {fileID: 273624547}
   m_Father: {fileID: 0}
 --- !u!1 &36772058
 GameObject:
@@ -2312,6 +2312,7 @@ GameObject:
   - 114: {fileID: 415839576}
   - 114: {fileID: 415839575}
   - 114: {fileID: 415839570}
+  - 114: {fileID: 415839578}
   - 114: {fileID: 415839577}
   m_Layer: 0
   m_Name: Wolf3
@@ -2370,6 +2371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startHealth: 5
   health: 5
   invincibleTime: 200
 --- !u!114 &415839570
@@ -2533,10 +2535,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 415839566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8412e7a96f3a0a4d9e3b021696682d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 98db864b25a5ac042b358cee94946105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
+  name: WolfMortal
+--- !u!114 &415839578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400016, guid: def93b79c32709c4da501ac9d5f1ceda,
+    type: 2}
+  m_PrefabInternal: {fileID: 625844361}
+  m_GameObject: {fileID: 415839566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c02981ae96b894fbec85047318442c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
   name: Wolf1
 --- !u!1 &417058694
 GameObject:
@@ -3991,6 +4007,7 @@ GameObject:
   - 114: {fileID: 659179929}
   - 114: {fileID: 659179928}
   - 114: {fileID: 659179927}
+  - 114: {fileID: 659179937}
   - 114: {fileID: 659179936}
   m_Layer: 0
   m_Name: Wolf1
@@ -4097,6 +4114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startHealth: 5
   health: 5
   invincibleTime: 200
 --- !u!82 &659179932
@@ -4212,10 +4230,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 659179925}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8412e7a96f3a0a4d9e3b021696682d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 98db864b25a5ac042b358cee94946105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
+  name: WolfMortal
+--- !u!114 &659179937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400016, guid: def93b79c32709c4da501ac9d5f1ceda,
+    type: 2}
+  m_PrefabInternal: {fileID: 1920603005}
+  m_GameObject: {fileID: 659179925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c02981ae96b894fbec85047318442c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
   name: Wolf1
 --- !u!1 &660583645
 GameObject:
@@ -6261,6 +6293,7 @@ GameObject:
   - 114: {fileID: 810045045}
   - 114: {fileID: 810045044}
   - 114: {fileID: 810045043}
+  - 114: {fileID: 810045053}
   - 114: {fileID: 810045052}
   m_Layer: 0
   m_Name: Wolf2
@@ -6367,6 +6400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startHealth: 5
   health: 5
   invincibleTime: 200
 --- !u!82 &810045048
@@ -6482,10 +6516,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 810045041}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8412e7a96f3a0a4d9e3b021696682d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 98db864b25a5ac042b358cee94946105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
+  name: WolfMortal
+--- !u!114 &810045053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400016, guid: def93b79c32709c4da501ac9d5f1ceda,
+    type: 2}
+  m_PrefabInternal: {fileID: 1248652785}
+  m_GameObject: {fileID: 810045041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c02981ae96b894fbec85047318442c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
   name: Wolf1
 --- !u!1 &812366070
 GameObject:
@@ -8959,6 +9007,46 @@ Transform:
   m_Children:
   - {fileID: 305936798}
   m_Father: {fileID: 1227793075}
+--- !u!1001 &1051698096
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 32d379b9a27dba94d919152129f54137, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 32d379b9a27dba94d919152129f54137, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 32d379b9a27dba94d919152129f54137, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 32d379b9a27dba94d919152129f54137, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 32d379b9a27dba94d919152129f54137, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 32d379b9a27dba94d919152129f54137, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 32d379b9a27dba94d919152129f54137, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 32d379b9a27dba94d919152129f54137, type: 2}
+  m_RootGameObject: {fileID: 1230801837}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &1055966942
 GameObject:
   m_ObjectHideFlags: 0
@@ -9645,6 +9733,46 @@ Transform:
   m_Children:
   - {fileID: 1030105587}
   m_Father: {fileID: 1428235565}
+--- !u!1 &1230801837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: 32d379b9a27dba94d919152129f54137, type: 2}
+  m_PrefabInternal: {fileID: 1051698096}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1230801839}
+  - 114: {fileID: 1230801838}
+  m_Layer: 0
+  m_Name: Logger_prefab
+  m_TagString: Logger
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1230801838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: 32d379b9a27dba94d919152129f54137,
+    type: 2}
+  m_PrefabInternal: {fileID: 1051698096}
+  m_GameObject: {fileID: 1230801837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5cca492caae70b40ae8351860d54baa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+--- !u!4 &1230801839
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: 32d379b9a27dba94d919152129f54137, type: 2}
+  m_PrefabInternal: {fileID: 1051698096}
+  m_GameObject: {fileID: 1230801837}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &1237917051
 GameObject:
   m_ObjectHideFlags: 0
@@ -13779,45 +13907,6 @@ Prefab:
   m_RootGameObject: {fileID: 345800232}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1 &1663403075
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1663403077}
-  - 114: {fileID: 1663403076}
-  m_Layer: 0
-  m_Name: Logger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1663403076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1663403075}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5cca492caae70b40ae8351860d54baa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enabled: 1
---- !u!4 &1663403077
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1663403075}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
 --- !u!1 &1670540219
 GameObject:
   m_ObjectHideFlags: 0
@@ -16730,6 +16819,7 @@ GameObject:
   - 114: {fileID: 2055785874}
   - 114: {fileID: 2055785884}
   - 114: {fileID: 2055785883}
+  - 114: {fileID: 2055785885}
   m_Layer: 8
   m_Name: Shepherd_prefab
   m_TagString: Player
@@ -16780,7 +16870,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  startHealth: 5
+  health: 5
   invincibleTime: 500
 --- !u!136 &2055785875
 CapsuleCollider:
@@ -17045,7 +17136,7 @@ MonoBehaviour:
   lureKey: q
   trapKey: e
   sound: {fileID: 2055785878}
-  trap: {fileID: 100006, guid: b2534b20e22dd6f46a73abbbf1fb6716, type: 2}
+  trap: {fileID: 0}
   trapIcon: {fileID: 2800000, guid: 1f7f155e93b466349a2db227366a9d6b, type: 3}
 --- !u!114 &2055785884
 MonoBehaviour:
@@ -17059,8 +17150,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9dc7aa762f822a45ad8358364909e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
   name: Player
+--- !u!114 &2055785885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400022, guid: ba295e70e033bc046a2adde726661ba6,
+    type: 2}
+  m_PrefabInternal: {fileID: 80834604}
+  m_GameObject: {fileID: 2055785871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98db864b25a5ac042b358cee94946105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  name: PlayerMortal
 --- !u!1 &2060280509
 GameObject:
   m_ObjectHideFlags: 0

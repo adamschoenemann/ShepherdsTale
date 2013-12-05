@@ -2,8 +2,8 @@ using UnityEngine;
 public class Mortal : MonoBehaviour
 {
 
-	public int startHealth = 5;
-	public int health {private set; get;} 
+	public int startHealth;
+	public int health = 5;
 	public int invincibleTime = 500;
 
 	public delegate void OnDeathDelegate(Mortal instance, GameObject attacker);
@@ -16,7 +16,7 @@ public class Mortal : MonoBehaviour
 
 	void Start()
 	{
-		health = startHealth;
+		startHealth = health;
 	}
 
 	public int GetHealth()

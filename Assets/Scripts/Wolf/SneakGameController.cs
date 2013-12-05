@@ -5,9 +5,6 @@ using System;
 public class SneakGameController : GameController
 {
 
-	private bool displayRestart = false,
-							 displayComplete = false;
-
 	void Awake()
 	{
 	
