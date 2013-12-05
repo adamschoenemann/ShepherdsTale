@@ -12,7 +12,8 @@ public class Questionnaire : MonoBehaviour {
 
 	public PersonalityQuestions personalityQuestions;
 	public GUISkin skin;
-	public string nextSceneName;
+	public string sceneAfterResults;
+	public bool debug = false;
 
 	private ProgressBar progressBar;
 	private DemographicPage demoPage;
@@ -47,7 +48,7 @@ public class Questionnaire : MonoBehaviour {
 									defaultHeight)
 							); 
 
-		progressBar = new ProgressBar(layout.ElementRect(0, 7));
+		progressBar = new ProgressBar(layout.ElementRect(0, 8));
 		demoPage = new DemographicPage(layout);
 
 		// Initialize personalityQuestions
@@ -76,6 +77,17 @@ public class Questionnaire : MonoBehaviour {
 
 		GUI.skin = this.skin;
 
+		if(debug)
+		{
+			if(personalityPageIndex < personalityPages.Length)
+			{
+				if(GUI.Button(layout.ElementRect(1, 8.75f), "Results page"))
+				{
+					personalityPageIndex = personalityPages.Length;
+				}
+			}
+		}
+
 		if(personalityPageIndex == -2)
 		{
 			demoPage.Draw();
@@ -90,10 +102,11 @@ public class Questionnaire : MonoBehaviour {
 				personalityResultsPage = new PersonalityResultsPage(layout, GetPersonalityAnswers(), personalityQuestions.GetTypes(), personalityQuestions.GetFlipRatings());
 			}
 			personalityResultsPage.Draw();
-			/*GUI.Label(new Rect(layout.startX, layout.startY, layout.elementWidth * 3, layout.elementHeight * maxNoElementsY), 
-				"Thank you very much for your participation!",
-				"box");
-			*/return;
+			if(personalityResultsPage.IsUserReadyToStartGame())
+			{
+				GoToNextScene();
+			}
+			return;
 		}
 		else
 		{
@@ -105,7 +118,7 @@ public class Questionnaire : MonoBehaviour {
 		progressBar.Draw();
 
 		// Next page button
-		if(GUI.Button(layout.ElementRect(1, 6), "Next page"))
+		if(GUI.Button(layout.ElementRect(1, 7), "Next page"))
 		{
 			if((personalityPageIndex == -1) || (personalityPageIndex == -2 && demoPage.Answered)) // Still on demographics page, but it is answered
 			{
@@ -131,7 +144,7 @@ public class Questionnaire : MonoBehaviour {
 		if(fillOutAllAnswersLabelTimer > 0)
 		{
 			fillOutAllAnswersLabelTimer--;
-			GUI.Label(layout.ElementRect(1,5), "Please answer all the questions.", "box");
+			GUI.Label(layout.ElementRect(1,6), "Please answer all the questions.", "box");
 		}		
 	}
 
@@ -193,6 +206,7 @@ public class Questionnaire : MonoBehaviour {
 		}
 		
 		WriteLine(header);
+		//CSVWriter.WriteNewRow(Application.dataPath + @"/Output", "QuestionnaireResponses.csv", header, ",");
 	}
 
 	private void WriteAnswersToDisk()
@@ -204,6 +218,7 @@ public class Questionnaire : MonoBehaviour {
 		answers.CopyTo(output, 1);
 
 		WriteLine(output);
+		//CSVWriter.WriteNewRow(Application.dataPath + @"/Output", "QuestionnaireResponses.csv", output, ",");
 	}
 
 	private void WriteLine(string[] line)
@@ -213,7 +228,7 @@ public class Questionnaire : MonoBehaviour {
 
 	private void GoToNextScene()
 	{
-		Application.LoadLevel(nextSceneName);
+		Application.LoadLevel(sceneAfterResults);
 	}
 }
 

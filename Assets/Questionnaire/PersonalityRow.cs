@@ -24,6 +24,6 @@ public class PersonalityRow
 
 		// Draw slider and obtain its value
 		//Value = (int)GUI.HorizontalSlider(layout.ElementRect(1, 0), Value, 1, 5);
-		Value = GUI.Toolbar(layout.ElementRect(1, 0), Value, new string[]{ "", "", "", "", ""});
+		Value = GUI.Toolbar(layout.ElementRect(1, 0), Value, new string[]{ "", "", "", "", "",""});
 	}
 }

@@ -6,6 +6,7 @@ public class PersonalityResultsPage {
 
 	private Layout layout;
 	private ParameterLine[] lines;
+	private bool userReadyToStartGame = false;
 
 	private static readonly string loE = "Reserved and shy in company, " +
 										 "able to concentrate on long tasks, " +
@@ -93,6 +94,8 @@ public class PersonalityResultsPage {
 										 "unconventional and intellectual, " +
 										 "think on their feet, improvise.";*/
 
+	private static readonly string buttonToStartGameText = "Begin the game!";
+
 	private float o = 0, c = 0, e = 0, a = 0, n = 0;
 
 	public PersonalityResultsPage(Layout layout, string[] results, string[] types, string[] flipRating)
@@ -174,6 +177,12 @@ public class PersonalityResultsPage {
 		{
 			p.Draw();
 		}
+
+		// Button to next level
+		if(GUI.Button(layout.ElementRect(1.0f, 5.0f), buttonToStartGameText))
+		{
+			userReadyToStartGame = true;
+		}
 	}
 
 	private class ParameterLine
@@ -202,5 +211,8 @@ public class PersonalityResultsPage {
 		}
 	}
 
-
+	internal bool IsUserReadyToStartGame()
+	{
+		return userReadyToStartGame;
+	}
 }
