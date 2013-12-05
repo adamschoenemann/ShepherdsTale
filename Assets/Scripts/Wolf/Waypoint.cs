@@ -1,6 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * This Waypoint class is for patrolling AIs. This is NOT the WayPoint class
+ * for the Loonie Race. Yes, it is confusing.
+ * - Adam
+ * @type {[type]}
+ */
 public class Waypoint : MonoBehaviour 
 {
 	

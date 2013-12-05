@@ -1,5 +1,16 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
+
+public class BoxEventArgs : EventArgs
+{
+	public readonly GameObject box, button;
+	public BoxEventArgs(GameObject b, GameObject btn)
+	{
+		box = b;
+		button = btn;
+	}
+}
 
 public class BoxScript : MonoBehaviour {
 	
@@ -25,6 +36,7 @@ public class BoxScript : MonoBehaviour {
 	// what we hit in the scene
 	RaycastHit hit;
 	RaycastHit wallHit;
+	public event EventHandler<BoxEventArgs> onButtonEvent;
 	
 	// Use this for initialization
 	void Start () {
@@ -69,9 +81,11 @@ public class BoxScript : MonoBehaviour {
 	
 	void OnTriggerStay(Collider other)
 	{
-		if(other.gameObject.tag == "Button")
+		if(other.gameObject.tag == Tags.button)
 		{
 			renderer.material.color = Color.red;
+			if(onButtonEvent != null)
+				onButtonEvent(this, new BoxEventArgs(gameObject, other.gameObject));
 			if(totemHead != null)
 				Destroy(totemHead);
 		}
@@ -79,7 +93,7 @@ public class BoxScript : MonoBehaviour {
 	
 	void OnTriggerExit(Collider other)
 	{
-		if(other.gameObject.tag == "Button")
+		if(other.gameObject.tag == Tags.button)
 		{
 			renderer.material.color = Color.yellow;
 		}
@@ -96,7 +110,7 @@ public class BoxScript : MonoBehaviour {
 			RaycastHit wallHit;
 			if(Physics.Raycast(rayBackward, out wallHit, rayLength))
 			{
-				if(wallHit.collider.gameObject.tag == "Wall" || wallHit.collider.gameObject.tag == "Box")
+				if(wallHit.collider.gameObject.tag == Tags.wall || wallHit.collider.gameObject.tag == "Box")
 				{
 					return false;
 				}
@@ -105,7 +119,7 @@ public class BoxScript : MonoBehaviour {
 			RaycastHit hit;
 			if(Physics.Raycast(rayForward, out hit, rayLength))
 			{
-				if(hit.collider.gameObject.tag == "Player")
+				if(hit.collider.gameObject.tag == Tags.player)
 				{
 					return true;
 				}
@@ -126,7 +140,7 @@ public class BoxScript : MonoBehaviour {
 			RaycastHit wallHit;
 			if(Physics.Raycast(rayForward, out wallHit, rayLength))
 			{
-				if(wallHit.collider.gameObject.tag == "Wall" || wallHit.collider.gameObject.tag == "Box")
+				if(wallHit.collider.gameObject.tag == Tags.wall || wallHit.collider.gameObject.tag == "Box")
 				{
 					return false;
 				}
@@ -135,7 +149,7 @@ public class BoxScript : MonoBehaviour {
 			RaycastHit hit;
 			if(Physics.Raycast(rayBackward, out hit, rayLength))
 			{
-				if(hit.collider.gameObject.tag == "Player" && wallFront == false)
+				if(hit.collider.gameObject.tag == Tags.player && wallFront == false)
 				{
 					return true;
 				}
@@ -155,7 +169,7 @@ public class BoxScript : MonoBehaviour {
 			RaycastHit wallHit;
 			if(Physics.Raycast(rayLeft, out wallHit, rayLength))
 			{
-				if(wallHit.collider.gameObject.tag == "Wall" || wallHit.collider.gameObject.tag == "Box")
+				if(wallHit.collider.gameObject.tag == Tags.wall || wallHit.collider.gameObject.tag == "Box")
 				{
 					return false;
 				}
@@ -163,7 +177,7 @@ public class BoxScript : MonoBehaviour {
 			RaycastHit hit;
 			if(Physics.Raycast(rayRight, out hit, rayLength))
 			{
-				if(hit.collider.gameObject.tag == "Player" && wallLeft == false)
+				if(hit.collider.gameObject.tag == Tags.player && wallLeft == false)
 				{
 					return true;
 				}
@@ -183,7 +197,7 @@ public class BoxScript : MonoBehaviour {
 			RaycastHit wallHit;
 			if(Physics.Raycast(rayRight, out wallHit, rayLength))
 			{
-				if(wallHit.collider.gameObject.tag == "Wall" || wallHit.collider.gameObject.tag == "Box")
+				if(wallHit.collider.gameObject.tag == Tags.wall || wallHit.collider.gameObject.tag == "Box")
 				{
 					return false;
 				}
@@ -192,7 +206,7 @@ public class BoxScript : MonoBehaviour {
 			RaycastHit hit;
 			if(Physics.Raycast(rayLeft, out hit, rayLength))
 			{
-				if(hit.collider.gameObject.tag == "Player")
+				if(hit.collider.gameObject.tag == Tags.player)
 				{
 					return true;
 				}
