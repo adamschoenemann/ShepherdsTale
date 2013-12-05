@@ -17,7 +17,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: bfd675cc0db1d4656b75dc6d6ba91142, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -25,6 +25,13 @@ Material:
           name: _BumpMap
         second:
           m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Texture
+        second:
+          m_Texture: {fileID: 2800000, guid: 6b7e82b5a4fb722478a699439afb976e, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -37,13 +44,6 @@ Material:
       data:
         first:
           name: _TranslucencyMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _ParallaxMap
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -70,20 +70,16 @@ Material:
         second: .078125
       data:
         first:
-          name: _InvFade
+          name: _DiffuseThreshold1
+        second: .600000024
+      data:
+        first:
+          name: _DiffuseThreshold2
         second: 1
       data:
         first:
           name: _SquashAmount
         second: 1
-      data:
-        first:
-          name: _BaseLight
-        second: .349999994
-      data:
-        first:
-          name: _AO
-        second: 2.4000001
       data:
         first:
           name: _TranslucencyViewDependency
@@ -94,26 +90,50 @@ Material:
         second: 1
       data:
         first:
-          name: _Occlusion
-        second: 7.5
+          name: _InvFade
+        second: 1
       data:
         first:
-          name: _Parallax
-        second: .0199999996
+          name: _BaseLight
+        second: .285714269
+      data:
+        first:
+          name: _AO
+        second: 2.4000001
+      data:
+        first:
+          name: _Occlusion
+        second: 7.5
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: .948529422, g: .845980465, b: .662575722, a: 1}
+        second: {r: .75, g: .652028382, b: .441176474, a: 1}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: .5, g: .5, b: .5, a: 1}
       data:
         first:
           name: _Scale
         second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
-          name: _TranslucencyColor
-        second: {r: .730000019, g: .850000024, b: .409999996, a: 1}
-      data:
-        first:
           name: _TintColor
         second: {r: .5, g: .5, b: .5, a: .5}
+      data:
+        first:
+          name: _Colour
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _Shading1
+        second: {r: .5, g: .5, b: .5, a: 1}
+      data:
+        first:
+          name: _Shading2
+        second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _TranslucencyColor
+        second: {r: .730000019, g: .850000024, b: .409999996, a: 1}

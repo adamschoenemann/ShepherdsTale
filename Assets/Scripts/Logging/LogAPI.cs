@@ -162,7 +162,7 @@ public class LogAPI {
 	{
 		if(session_id != 0)
 		{
-			return false;
+			yield return false;
 		}
 
 		WWWForm form = new WWWForm();
@@ -184,35 +184,6 @@ public class LogAPI {
 	public bool IsDry()
 	{
 		return (session_id == 0);
-	}
-
-	
-	private IEnumerator LogGameObject(GameObject obj, string eventName)
-	{
-		WWWForm form = new WWWForm();
-
-		form.AddField("session_id", session_id.ToString());
-		form.AddField("instance_id", obj.GetInstanceID().ToString());
-		form.AddField("event", eventName);
-
-		Vector3 p = obj.transform.position;
-		form.AddField("position[x]", p.x.ToString());
-		form.AddField("position[y]", p.y.ToString());
-		form.AddField("position[z]", p.z.ToString());
-
-		Quaternion q = obj.transform.rotation;
-		form.AddField("rotation[x]", q.x.ToString());
-		form.AddField("rotation[y]", q.y.ToString());
-		form.AddField("rotation[z]", q.z.ToString());
-		form.AddField("rotation[w]", q.w.ToString());
-
-		WWW www = new WWW(host + "/log_object", form);
-		yield return www;
-		if(!String.IsNullOrEmpty(www.error)){
-			Debug.Log(www.error);
-			return false;
-		}
-		Debug.Log(www.text);
 	}
 
 	public IEnumerator StopSession(){
