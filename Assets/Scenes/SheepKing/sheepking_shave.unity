@@ -4259,6 +4259,10 @@ Prefab:
       propertyPath: audio
       value: 
       objectReference: {fileID: 1525676590}
+    - target: {fileID: 11400002, guid: 81429b71ee55f40429f2ff9845a0fd04, type: 2}
+      propertyPath: woolsToCutOff
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 81429b71ee55f40429f2ff9845a0fd04, type: 2}
   m_RootGameObject: {fileID: 1525676583}

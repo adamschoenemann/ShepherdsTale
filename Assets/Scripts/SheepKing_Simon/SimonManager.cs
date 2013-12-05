@@ -33,7 +33,7 @@ public class SimonManager : MonoBehaviour {
 	private Timer noteDurationTimer;
 	private Timer waitToShowTimer;
 
-	public bool mistakeBool;
+	public bool playerMadeMistake;
 
 	// Initialization
 	void Start () {
@@ -137,6 +137,8 @@ public class SimonManager : MonoBehaviour {
 			sheep[sheepHit].Activate();
 			progress++;
 
+			playerMadeMistake = false;
+			
 			if(progress > level)
 			{
 				level++;
@@ -162,7 +164,7 @@ public class SimonManager : MonoBehaviour {
 		else if(sheepHit > -1)
 		{
 			// FLAG
-			mistakeBool = true;
+			playerMadeMistake = true;
 
 			// Activate all sheep at once, and go back to first level
 			foreach(SimonSheep s in sheep)

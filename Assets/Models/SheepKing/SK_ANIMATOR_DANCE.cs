@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using System.Collections;
 
 public class SK_ANIMATOR_DANCE : MonoBehaviour {
@@ -46,3 +46,4 @@ public class SK_ANIMATOR_DANCE : MonoBehaviour {
 
 	}
 }
+*/

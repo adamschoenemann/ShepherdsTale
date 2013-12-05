@@ -57,7 +57,7 @@ public class ShaveManager : MonoBehaviour {
 		if(totalCuts >= woolsToCutOff)
 		{
 			// Win.
-			//Debug.Log("Game over D");
+			Application.LoadLevel("game_finish");
 		}
 	}
 

@@ -17,7 +17,6 @@ public class Staff : MonoBehaviour
 
 	void OnCollisionEnter(Collision collision)
 	{
-		print("Staff collided with " + collision.gameObject);
 		if(playerController.IsAttacking() == false)
 			return;
 		
@@ -33,7 +32,7 @@ public class Staff : MonoBehaviour
 		mortal.Damage(dmg);
 		if(onHit != null)
 		{
-			print("onHit");
+			//print("onHit");
 			onHit(collision, dmg);
 		}
 
