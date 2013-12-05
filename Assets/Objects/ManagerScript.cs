@@ -19,6 +19,7 @@ public class ManagerScript : MonoBehaviour {
 		{
 			print ("Gratulations!");
 			Destroy(port);
+			Application.LoadLevel("sheepking_intro");
 		}
 		
 		if(Input.GetButtonDown("Fire3"))

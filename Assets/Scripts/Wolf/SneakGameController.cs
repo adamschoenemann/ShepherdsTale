@@ -27,7 +27,7 @@ public class SneakGameController : MonoBehaviour
 
 	void OnLevelComplete(object obj, EventArgs args)
 	{
-		Application.LoadLevel("wolf_finish");
+		Application.LoadLevel("loonie_intro");
 		if(displayComplete == false)
 		{
 			displayComplete = true;

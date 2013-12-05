@@ -28,9 +28,15 @@ public class ThreeOptions : MonoBehaviour {
 	public Episode episode = Episode.Loonie;
 	
 	private string[,] gameScene = new string[,]{
-		 {"wolf_kill", "wolf_trap", "wolf_sneak"},
-		 {"loonie_fight","loonie_puzzle","loonie_race"},
-		 {"sheepking_fight","sheepking_shave","sheepking_simon"}};
+		 {"wolf_kill", 
+		  "wolf_trap", 
+		  "wolf_sneak"},
+		 {"loonie_fight",
+		  "loonie_race",
+		  "loonie_puzzle"},
+		 {"sheepking_fight",
+		  "sheepking_shave",
+		  "sheepking_simon"}};
 		 
 	void Start ()
 	{ 
@@ -42,8 +48,8 @@ public class ThreeOptions : MonoBehaviour {
 			  option2Text = ("Find a path through the wolf pack by sneaking <color=#ffa500ff>(use 'Left Shift' to sneak)</color>.");
 
 			  option0Texture = wolf_fightImage;
-			  option1Texture = wolf_sneakImage;
-			  option2Texture = wolf_lureImage;
+			  option1Texture = wolf_lureImage;
+			  option2Texture = wolf_sneakImage;
 		 } 
 		 else if(episode == Episode.Loonie)
 		 {		 

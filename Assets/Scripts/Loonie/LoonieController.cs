@@ -7,7 +7,8 @@ public class LoonieController : LoonieBaseController {
 	protected override void Awake()
 	{
 		base.Awake();
-		mortal.onDamageHandler = OnDamage;		
+		mortal.onDamageHandler = OnDamage;
+		mortal.onDeathHandler = OnLoonieDeath;		
 	}
 	
 	bool OnDamage(Mortal mortal, GameObject attacker, int damage)
@@ -23,6 +24,11 @@ public class LoonieController : LoonieBaseController {
 		{
 			return false;
 		}
+	}
+
+	void OnLoonieDeath(Mortal mortal, GameObject obj)
+	{
+		Application.LoadLevel("sheepking_intro");
 	}
 	
 	

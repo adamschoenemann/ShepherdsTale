@@ -110,11 +110,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 246134527}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2858da142089c460fb0341fe9e6eb38f, type: 3}
+  m_Script: {fileID: 11500000, guid: b238bb0c62a0fc7459fca62dae0020e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  personalityQuestions: {fileID: 246134530}
-  skin: {fileID: 11400000, guid: 964901d20a2344285822a6872a6fb0ae, type: 2}
+  csvFile: {fileID: 4900000, guid: e749fe6ef718b63418174273dce05bb7, type: 3}
 --- !u!114 &246134530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,10 +122,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 246134527}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1266ea1433a24483bbd00b3a2b785b8, type: 3}
+  m_Script: {fileID: 11500000, guid: 2464e952cfc002e4ba9ee27dcba914b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csvFile: {fileID: 4900000, guid: a77e7f7e8c09d4bd7b438745356ac9c5, type: 3}
+  personalityQuestions: {fileID: 246134529}
+  skin: {fileID: 11400000, guid: a8130704201d66c41a681829e2c83447, type: 2}
+  nextSceneName: 
 --- !u!1 &690231775
 GameObject:
   m_ObjectHideFlags: 0

@@ -5689,7 +5689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  startHealth: 5
   invincibleTime: 500
 --- !u!114 &1393358826
 MonoBehaviour:
@@ -7909,7 +7909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  startHealth: 5
   invincibleTime: 500
 --- !u!114 &1650948792
 MonoBehaviour:

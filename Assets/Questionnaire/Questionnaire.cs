@@ -12,6 +12,7 @@ public class Questionnaire : MonoBehaviour {
 
 	public PersonalityQuestions personalityQuestions;
 	public GUISkin skin;
+	public string nextSceneName;
 
 	private ProgressBar progressBar;
 	private DemographicPage demoPage;
@@ -192,7 +193,6 @@ public class Questionnaire : MonoBehaviour {
 		}
 		
 		WriteLine(header);
-		//CSVWriter.WriteNewRow(Application.dataPath + @"/Output", "QuestionnaireResponses.csv", header, ",");
 	}
 
 	private void WriteAnswersToDisk()
@@ -204,12 +204,16 @@ public class Questionnaire : MonoBehaviour {
 		answers.CopyTo(output, 1);
 
 		WriteLine(output);
-		//CSVWriter.WriteNewRow(Application.dataPath + @"/Output", "QuestionnaireResponses.csv", output, ",");
 	}
 
 	private void WriteLine(string[] line)
 	{
 		CSVWriter.WriteNewRow(Application.dataPath + @"/Output", "QuestionnaireResponses.csv", line, ",");
+	}
+
+	private void GoToNextScene()
+	{
+		Application.LoadLevel(nextSceneName);
 	}
 }
 
