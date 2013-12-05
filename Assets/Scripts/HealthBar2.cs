@@ -57,7 +57,7 @@ public class HealthBar2 : FaceCamera {
 			return;
 		}
 		Vector3 screenPos = cam.camera.WorldToScreenPoint(transform.position);
-		float percentage = mortal.GetHealth() / (float) maxHealth;
+		float percentage = mortal.GetHealth() / (float) mortal.startHealth;
 		float drawWidth = percentage * width;
 		//print("percentage: " + percentage);
 		GUI.DrawTexture(new Rect(screenPos.x - drawWidth/2, Screen.height - screenPos.y, width, 3), bgTexture);
