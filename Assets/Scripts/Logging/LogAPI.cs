@@ -188,6 +188,7 @@ public class LogAPI {
 
 		WWWForm form = new WWWForm();
 		form.AddField("app_version", "1");	
+		form.AddField("MAC", Utils.GetMacAddress());
 
 		WWW www = new WWW(host + "/start_session", form);
 		yield return www;

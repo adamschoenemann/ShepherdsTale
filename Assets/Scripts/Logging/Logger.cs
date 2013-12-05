@@ -14,10 +14,14 @@ public class Logger : MonoBehaviour
 	void Awake()
 	{
 		GameObject controllerObj = GameObject.FindWithTag(Tags.gameController);
-		if(controllerObj == null) Debug.Log("No GameController found!");
+		if(controllerObj == null)
+		{
+			Debug.Log("No GameController found!");
+			return;
+		}
 		GameController gc = controllerObj.GetComponent<GameController>();
 
-		GameObject.DontDestroyOnLoad(gameObject);
+		// GameObject.DontDestroyOnLoad(gameObject);
 
 		if(gc != null)
 		{
@@ -58,6 +62,7 @@ public class Logger : MonoBehaviour
 		if(enabled == false)
 			return;
 		entry.scene_id = scene_id;
+		entry.AddFloat("fps", 1.0f/Time.deltaTime);
 		if(LogAPI.instance.Enqueue(entry))
 		{
 			StartCoroutine(LogAPI.instance.Flush());

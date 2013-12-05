@@ -25,7 +25,7 @@ public class QTStream {
 	{
 		// Parse input
 		string text = input.text;
-		string[] lines = text.Split(new string[] { "\n" /*System.Environment.NewLine*/ }, System.StringSplitOptions.RemoveEmptyEntries);
+		string[] lines = text.Split(new string[] {System.Environment.NewLine}, System.StringSplitOptions.RemoveEmptyEntries);
 
 		nodes = new QTNode[lines.Length];
 		for(int i = 0; i < nodes.Length; i++)

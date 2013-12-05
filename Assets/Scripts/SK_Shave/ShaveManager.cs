@@ -1,7 +1,21 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
-public class ShaveManager : MonoBehaviour {
+
+public class ShaveManagerEventArgs : EventArgs
+{
+	public readonly int totalCuts, correctStreak, woolsToCutOff;
+	public ShaveManagerEventArgs(int t, int c, int w)
+	{
+		totalCuts = t;
+		correctStreak = c;
+		woolsToCutOff = w;
+	}
+}
+
+public class ShaveManager : MonoBehaviour
+{
 
 	public WoolSpawnerScript woolspawner;
 	public WoolProgressVisualizer progressVisualization;
@@ -17,13 +31,17 @@ public class ShaveManager : MonoBehaviour {
 	private int correctStreak = 0;
 	private int totalCuts = 0;
 
-	// Use this for initialization
+	// Events
+	public event EventHandler<ShaveManagerEventArgs> onUpdateTotalCuts;
+	public event EventHandler onLevelCompleted;
+
+
 	void Start () {
 		qtHandler = (QTHandler)quicktimeEvents.GetComponent("QTHandler");
 		playerAnim = (Animator)player.GetComponent("Animator");
 	}
 	
-	// Update is called once per frame
+	
 	void Update () {
 		if(qtHandler.HasMadeError())
 		{
@@ -53,10 +71,15 @@ public class ShaveManager : MonoBehaviour {
 	private void UpdateTotalCuts()
 	{
 		totalCuts += correctStreak;
+		if(onUpdateTotalCuts != null)
+			onUpdateTotalCuts(this,
+			 new ShaveManagerEventArgs(totalCuts, correctStreak, woolsToCutOff));
 		//Debug.Log("totalCuts: " + totalCuts);
 		if(totalCuts >= woolsToCutOff)
 		{
 			// Win.
+			if(onLevelCompleted != null)
+			onLevelCompleted(this, EventArgs.Empty);
 			Application.LoadLevel("game_finish");
 		}
 	}
