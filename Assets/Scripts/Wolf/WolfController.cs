@@ -505,12 +505,12 @@ public class WolfController : MonoBehaviour
 
 //============================== CALLBACKS ===================================//
 
-	protected virtual void OnDeath(Mortal mortal)
+	protected virtual void OnDeath(Mortal mortal, GameObject killer)
 	{
 		gameObject.SetActive(false);
 	}
 
-	protected virtual bool OnDamage(Mortal mortal, int damage)
+	protected virtual bool OnDamage(Mortal mortal, GameObject attacker, int damage)
 	{
 		particles.Play();
 		return true;

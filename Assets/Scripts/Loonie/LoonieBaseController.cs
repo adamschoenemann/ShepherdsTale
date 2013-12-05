@@ -299,7 +299,7 @@ public class LoonieBaseController : MonoBehaviour
 
 //============================== CALLBACKS ===================================//
 
-	protected virtual void OnDeath(Mortal mortal)
+	protected virtual void OnDeath(Mortal mortal, GameObject killer)
 	{
 		gameObject.SetActive(false);
 	}

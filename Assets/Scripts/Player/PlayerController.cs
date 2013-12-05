@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
 		mortal = GetComponent<Mortal>();
 		particles = transform.Find("Particles").GetComponent<ParticleSystem>();
 
-		mortal.onDamageHandler += (self, dmg) => {
+		mortal.onDamageHandler += (self, attacker, dmg) => {
 			particles.Play();
 			return true;
 		};

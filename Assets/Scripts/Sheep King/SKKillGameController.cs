@@ -8,7 +8,7 @@ public class SKKillGameController : MonoBehaviour {
 		GameObject player = GameObject.FindWithTag(Tags.player);
 		Mortal mortal = player.GetComponent<Mortal>();
 
-		mortal.onDeathHandler += (self) => {
+		mortal.onDeathHandler += (self, killer) => {
 			Application.LoadLevel("sheepking_fight");
 		};
 	}

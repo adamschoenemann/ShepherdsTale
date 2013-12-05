@@ -10,7 +10,7 @@ public class Trap : MonoBehaviour
 		{
 			animation.Play();
 			Mortal mortal = other.gameObject.GetComponent<Mortal>();
-			mortal.Die();
+			mortal.Die(gameObject);
 			audio.Play();
 			Destroy(other.gameObject);
 		}

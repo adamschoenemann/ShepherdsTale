@@ -43,7 +43,7 @@ public class KillGameController : MonoBehaviour
 	}
 
 	
-	void OnWolfDiedHandler(Mortal mortal)
+	void OnWolfDiedHandler(Mortal mortal, GameObject killer)
 	{
 		Debug.Log("Wolf died... :(");
 		wolvesLeft--;
@@ -54,7 +54,7 @@ public class KillGameController : MonoBehaviour
 		}
 	}
 
-	void OnPlayerDiedHandler(Mortal mortal)
+	void OnPlayerDiedHandler(Mortal mortal, GameObject killer)
 	{
 		if(!displayRestart)
 		{

@@ -45,13 +45,13 @@ public class SK_KillScript : MonoBehaviour
 		playerAnim = player.GetComponent<PlayerAnimation>();
 		anim = GetComponent<Animator>();
 		mortal = GetComponent<Mortal>();
-		mortal.onDamageHandler = (mortalInstance, health) => {
+		mortal.onDamageHandler = (mortalInstance, attacker, health) => {
 			if(state == States.stun)
 				return true;
 			else
 				return false;
 		};
-		mortal.onDeathHandler = (mortalInstance) => {
+		mortal.onDeathHandler = (mortalInstance, killer) => {
 			Destroy(this.gameObject);
 
 			// Insert winning consequence here, e.g. go to scene or something like that.
@@ -192,7 +192,7 @@ public class SK_KillScript : MonoBehaviour
 					// Violently throw the player out of the way,
 					// Damage player
 					Mortal playerLife = other.GetComponent<Mortal>();
-					playerLife.Damage(1);
+					playerLife.Damage(1, gameObject);
 					Vector3 flyDir = (other.transform.position - transform.position).normalized; // TODO make this MUCH nicer.
 					other.rigidbody.velocity = ((2*Vector3.up + flyDir).normalized * 100);//500*flyDir); 
 					break;

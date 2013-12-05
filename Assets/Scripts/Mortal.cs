@@ -2,16 +2,22 @@ using UnityEngine;
 public class Mortal : MonoBehaviour
 {
 
-	public int health = 5;
+	public int startHealth = 5;
+	private int health;
 	public int invincibleTime = 500;
 
-	public delegate void OnDeathDelegate(Mortal instance);
-	public delegate bool OnDamageDelegate(Mortal instance, int damage);
+	public delegate void OnDeathDelegate(Mortal instance, GameObject attacker);
+	public delegate bool OnDamageDelegate(Mortal instance, GameObject attacker, int damage);
 
 	public OnDeathDelegate onDeathHandler;
 	public OnDamageDelegate onDamageHandler;
 
 	private Timer invincibleTimer;
+
+	void Start()
+	{
+		health = startHealth;
+	}
 
 	public int GetHealth()
 	{
@@ -23,7 +29,7 @@ public class Mortal : MonoBehaviour
 		health += h;
 	}
 
-	public int Damage(int amount)
+	public int Damage(int amount, GameObject attacker)
 	{	
 		if(invincibleTimer != null && invincibleTimer.IsDone() == false)
 		{
@@ -32,7 +38,7 @@ public class Mortal : MonoBehaviour
 		}
 		if(onDamageHandler != null)
 		{
-			if(onDamageHandler(this, amount) == false)
+			if(onDamageHandler(this, attacker, amount) == false)
 				return health;
 		}
 		health -= amount;
@@ -40,7 +46,7 @@ public class Mortal : MonoBehaviour
 		print("Taking " + amount + " in damage");
 		if(IsAlive() == false)
 		{
-			Die();
+			Die(attacker);
 		}
 		return health;
 	}
@@ -53,11 +59,11 @@ public class Mortal : MonoBehaviour
 		}
 	}
 
-	public void Die()
+	public void Die(GameObject attacker)
 	{
 		if(onDeathHandler != null)
 		{
-			onDeathHandler(this);
+			onDeathHandler(this, attacker);
 		}
 		print("Died");
 	}

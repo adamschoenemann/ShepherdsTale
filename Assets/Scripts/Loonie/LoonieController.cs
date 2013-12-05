@@ -10,7 +10,7 @@ public class LoonieController : LoonieBaseController {
 		mortal.onDamageHandler = OnDamage;		
 	}
 	
-	bool OnDamage(Mortal mortal, int damage)
+	bool OnDamage(Mortal mortal, GameObject attacker, int damage)
 	{
 		return true;
 		Vector3 playerPos = player.transform.position;

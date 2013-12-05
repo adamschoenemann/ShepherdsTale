@@ -16,7 +16,7 @@ public class AttackCollider : MonoBehaviour {
 				return;
 			}
 
-			mortal.Damage(1);
+			mortal.Damage(1, transform.parent.gameObject);
 			print("Doing damage");
 
 		}
