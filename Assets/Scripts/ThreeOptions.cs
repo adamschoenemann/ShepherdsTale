@@ -4,8 +4,8 @@ using System.Collections;
 public class ThreeOptions : MonoBehaviour {
 
 	public Texture wolf_fightImage;
-	public Texture wolf_sneakImage;
 	public Texture wolf_lureImage;
+	public Texture wolf_sneakImage;
 
 	public Texture loonie_fightImage;
 	public Texture loonie_raceImage;
@@ -16,17 +16,20 @@ public class ThreeOptions : MonoBehaviour {
 	public Texture SK_simonImage;
 
 	public GUISkin skin;
-	
+/*	
 	private string option0Text; 
 	private string option1Text;
 	private string option2Text;
 	private Texture option0Texture;
 	private Texture option1Texture;
 	private Texture option2Texture;
+*/
+	private ChoicePoint choices;
 	
 	public enum Episode {Wolf = 0, Loonie = 1, SheepKing = 2};
 	public Episode episode = Episode.Loonie;
 	
+	/*
 	private string[,] gameScene = new string[,]{
 		 {"wolf_kill", 
 		  "wolf_trap", 
@@ -36,47 +39,101 @@ public class ThreeOptions : MonoBehaviour {
 		  "loonie_puzzle"},
 		 {"sheepking_fight",
 		  "sheepking_shave",
-		  "sheepking_simon"}};
+		  "sheepking_simon"}};*/
 		 
 	void Start ()
 	{ 
-		 // Set text and images
-		 if(episode == Episode.Wolf)
-		 {
-			  option0Text = ("Use the staff <color=#ffa500ff>(left mouse button)</color> to kill the wolves.");
-			  option1Text = ("Make sheep sounds <color=#ffa500ff>(use 'Q' to make the sounds)</color> to lure the wolves into the trap.");
-			  option2Text = ("Find a path through the wolf pack by sneaking <color=#ffa500ff>(use 'Left Shift' to sneak)</color>.");
+		choices = new ChoicePoint();
+		choices.options = new Option[3];
+		for(int i = 0; i < choices.options.Length; i++)
+		{
+			choices.options[i] = new Option();
+		}
 
-			  option0Texture = wolf_fightImage;
-			  option1Texture = wolf_lureImage;
-			  option2Texture = wolf_sneakImage;
-		 } 
-		 else if(episode == Episode.Loonie)
-		 {		 
-			  option0Text = ("Sneak <color=#ffa500ff>(use 'Left Shift' to sneak)</color> up on the Loonie from behind and kill him with the staff <color=#ffa500ff>(left mouse button)</color>.");
-			  option1Text = ("Race the Loonie.");
-			  option2Text = ("Solve a puzzle given by the Loonie - push the pieces around by moving into them, but don't make mistakes!");
+		// Set text and images
+		if(episode == Episode.Wolf)
+		{
+		 	choices.options[0].sceneName = "wolf_kill";
+		 	choices.options[0].description = "Use the staff <color=#ffa500ff>(left mouse button)</color> to kill the wolves.";
+		 	choices.options[0].image = wolf_fightImage;
 
-			  option0Texture = loonie_fightImage;
-			  option1Texture = loonie_raceImage;
-			  option2Texture = loonie_puzzleImage;
-		 }
-		 else if(episode == Episode.SheepKing)
-		 {
-			  option0Text = ("Use the staff <color=#ffa500ff>(left mouse button)</color> to kill the Sheep King - when he is stunned.");
-			  option1Text = ("Use <color=#ffa500ff>W, A, S and D</color> to shave the Sheep King while he is sleeping, thus stealing his power.");
-			  option2Text = ("Beat the Sheep King's challenge: Repeat the order of sheep baaahs by hitting them with your staff <color=#ffa500ff>(left mouse button)</color>.");
+		 	choices.options[1].sceneName = "wolf_trap";
+		 	choices.options[1].description = "Make sheep sounds <color=#ffa500ff>(use 'Q' to make the sounds)</color> to lure the wolves into the trap.";
+		 	choices.options[1].image = wolf_lureImage;
 
-			  option0Texture = SK_fightImage;
-			  option1Texture = SK_shaveImage;
-			  option2Texture = SK_simonImage;
-		 }
+		 	choices.options[2].sceneName = "wolf_sneak";
+		 	choices.options[2].description = "Find a path through the wolf pack by sneaking <color=#ffa500ff>(use 'Left Shift' to sneak)</color>.";
+		 	choices.options[2].image = wolf_sneakImage;
+
+/*
+			option0Text = ("Use the staff <color=#ffa500ff>(left mouse button)</color> to kill the wolves.");
+			option1Text = ("Make sheep sounds <color=#ffa500ff>(use 'Q' to make the sounds)</color> to lure the wolves into the trap.");
+			option2Text = ("Find a path through the wolf pack by sneaking <color=#ffa500ff>(use 'Left Shift' to sneak)</color>.");
+
+			option0Texture = wolf_fightImage;
+			option1Texture = wolf_lureImage;
+			option2Texture = wolf_sneakImage;*/
+		} 
+		else if(episode == Episode.Loonie)
+		{		 
+			choices.options[0].sceneName = "loonie_fight";
+		 	choices.options[0].description = "Sneak <color=#ffa500ff>(use 'Left Shift' to sneak)</color> up on the Loonie from behind and kill him with the staff <color=#ffa500ff>(left mouse button)</color>.";
+		 	choices.options[0].image = loonie_fightImage;
+
+		 	choices.options[1].sceneName = "loonie_race";
+		 	choices.options[1].description = "Race the Loonie.";
+		 	choices.options[1].image = loonie_raceImage;
+
+		 	choices.options[2].sceneName = "loonie_puzzle";
+		 	choices.options[2].description = "Solve a puzzle given by the Loonie - push the pieces around by moving into them, but don't make mistakes!";
+		 	choices.options[2].image = loonie_puzzleImage;
+/*
+			 option0Text = ("Sneak <color=#ffa500ff>(use 'Left Shift' to sneak)</color> up on the Loonie from behind and kill him with the staff <color=#ffa500ff>(left mouse button)</color>.");
+			 option1Text = ("Race the Loonie.");
+			 option2Text = ("Solve a puzzle given by the Loonie - push the pieces around by moving into them, but don't make mistakes!");
+
+			 option0Texture = loonie_fightImage;
+			 option1Texture = loonie_raceImage;
+			 option2Texture = loonie_puzzleImage;
+*/		}
+		else if(episode == Episode.SheepKing)
+		{
+			choices.options[0].sceneName = "sheepking_fight";
+		 	choices.options[0].description = "Use the staff <color=#ffa500ff>(left mouse button)</color> to kill the Sheep King - when he is stunned.";
+		 	choices.options[0].image = SK_fightImage;
+
+		 	choices.options[1].sceneName = "sheepking_shave";
+		 	choices.options[1].description = "Use <color=#ffa500ff>W, A, S and D</color> to shave the Sheep King while he is sleeping, thus stealing his power.";
+		 	choices.options[1].image = SK_shaveImage;
+
+		 	choices.options[2].sceneName = "sheepking_simon";
+		 	choices.options[2].description = "Beat the Sheep King's challenge: Repeat the order of sheep baaahs by hitting them with your staff <color=#ffa500ff>(left mouse button)</color>.";
+		 	choices.options[2].image = SK_simonImage;
+
+/*
+			option0Text = ("Use the staff <color=#ffa500ff>(left mouse button)</color> to kill the Sheep King - when he is stunned.");
+			option1Text = ("Use <color=#ffa500ff>W, A, S and D</color> to shave the Sheep King while he is sleeping, thus stealing his power.");
+			option2Text = ("Beat the Sheep King's challenge: Repeat the order of sheep baaahs by hitting them with your staff <color=#ffa500ff>(left mouse button)</color>.");
+
+			option0Texture = SK_fightImage;
+			option1Texture = SK_shaveImage;
+			option2Texture = SK_simonImage;*/
+		}
 	}
 	
 	void OnGUI()
 	{	
-		 GUI.skin = this.skin;
+		GUI.skin = this.skin;
 		 
+		for(int i = 0; i < choices.options.Length; i++)
+		{
+			GUI.Label(GetTextRect(i), choices.options[i].description, "box");
+			if(GUI.Button(GetTextureRect(i), choices.options[i].image))
+			{
+			  Application.LoadLevel(choices.options[i].sceneName);
+			}
+		}
+/*
 		 // Option 1 - fight, fight, fight
 		 GUI.Label(GetTextRect(0),option0Text,"box");
 		 if(GUI.Button(GetTextureRect(0), option0Texture))
@@ -97,6 +154,7 @@ public class ThreeOptions : MonoBehaviour {
 		 {
 			  Application.LoadLevel(gameScene[(int)episode,2]);
 		 }
+		 */
 	}
 
 	private Rect GetTextRect(int optionNumber)
@@ -119,6 +177,38 @@ public class ThreeOptions : MonoBehaviour {
 		 int x = (1 + optionNumber) * xGap + optionNumber * width;
 
 		 return new Rect(x, y, width, height);
+	}
+
+	private struct Option
+	{
+		public string sceneName;
+		public string description;
+		public Texture image;
+	}
+
+	private struct ChoicePoint
+	{
+		public Option[] options;
+
+/*
+		public void Shuffle()
+		{
+			Random rnd = new Random();
+			Option[] randomized = new Option[options.Length];
+
+
+
+			for(int n = 0, i = options.Length; i >= 0; i--, n++)
+			{
+				output[n] = 
+			}
+
+
+
+
+			Option[] temp = options.OrderBy(x => rnd.Next()).ToArray();
+			options = temp;
+		}*/
 	}
 }
 

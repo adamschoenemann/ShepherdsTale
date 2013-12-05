@@ -165,9 +165,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfafe67dca03749dd963f62e37d6808b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movie: {fileID: 15200000, guid: c6dae02418ddd41b8b222d6ef13eebec, type: 3}
+  movie: {fileID: 15200000, guid: c722083eff75b4353a5fd65033035f5c, type: 3}
   audio: {fileID: 1020637550}
-  nextSceneName: endgame
+  nextSceneName: sheepking_main
 --- !u!4 &1020637549
 Transform:
   m_ObjectHideFlags: 0
@@ -187,7 +187,7 @@ AudioSource:
   m_GameObject: {fileID: 1020637547}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: c6dae02418ddd41b8b222d6ef13eebec, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c722083eff75b4353a5fd65033035f5c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -275,7 +275,7 @@ Prefab:
     - target: {fileID: 11400000, guid: 6e98747e2424747239db7e79d595bbb2, type: 2}
       propertyPath: movie
       value: 
-      objectReference: {fileID: 15200000, guid: c6dae02418ddd41b8b222d6ef13eebec,
+      objectReference: {fileID: 15200000, guid: c722083eff75b4353a5fd65033035f5c,
         type: 3}
     - target: {fileID: 11400000, guid: 6e98747e2424747239db7e79d595bbb2, type: 2}
       propertyPath: audio
@@ -283,7 +283,7 @@ Prefab:
       objectReference: {fileID: 1020637550}
     - target: {fileID: 11400000, guid: 6e98747e2424747239db7e79d595bbb2, type: 2}
       propertyPath: nextSceneName
-      value: endgame
+      value: sheepking_main
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e98747e2424747239db7e79d595bbb2, type: 2}

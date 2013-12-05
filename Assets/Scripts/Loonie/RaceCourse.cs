@@ -16,6 +16,9 @@ public class RaceCourse : MonoBehaviour {
 		
 		//Add checkpoints to raceCourse
 		GameObject [] checkPoints = GameObject.FindGameObjectsWithTag(Tags.checkPoint);
+
+		Debug.Log("checkpoints length: " + checkPoints.Length);
+
 		raceCourse = new CheckPoint[checkPoints.Length];
 		
 		for(int i = 0; i < checkPoints.Length; i++)
