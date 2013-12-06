@@ -115,7 +115,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 04b1a7e95091e4bbab35fa6ca02503ba, type: 2}
       propertyPath: debug
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 04b1a7e95091e4bbab35fa6ca02503ba, type: 2}
@@ -234,7 +234,7 @@ MonoBehaviour:
   personalityQuestions: {fileID: 1918649170}
   skin: {fileID: 11400000, guid: a8130704201d66c41a681829e2c83447, type: 2}
   sceneAfterResults: game_intro
-  debug: 1
+  debug: 0
 --- !u!114 &1918649170
 MonoBehaviour:
   m_ObjectHideFlags: 0

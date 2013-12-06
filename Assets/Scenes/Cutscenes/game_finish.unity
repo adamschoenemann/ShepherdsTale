@@ -168,7 +168,7 @@ MonoBehaviour:
   movie: {fileID: 15200000, guid: c6dae02418ddd41b8b222d6ef13eebec, type: 3}
   audio: {fileID: 1020637550}
   nextSceneName: endgame
-  debug: 1
+  debug: 0
 --- !u!4 &1020637549
 Transform:
   m_ObjectHideFlags: 0
@@ -288,7 +288,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 6e98747e2424747239db7e79d595bbb2, type: 2}
       propertyPath: debug
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e98747e2424747239db7e79d595bbb2, type: 2}

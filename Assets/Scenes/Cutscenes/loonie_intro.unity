@@ -168,7 +168,7 @@ MonoBehaviour:
   movie: {fileID: 15200000, guid: c1844dfd860e647ae821fcf8151ba98d, type: 3}
   audio: {fileID: 1020637550}
   nextSceneName: loonie_main
-  debug: 1
+  debug: 0
 --- !u!4 &1020637549
 Transform:
   m_ObjectHideFlags: 0
@@ -288,7 +288,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 6e98747e2424747239db7e79d595bbb2, type: 2}
       propertyPath: debug
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e98747e2424747239db7e79d595bbb2, type: 2}
