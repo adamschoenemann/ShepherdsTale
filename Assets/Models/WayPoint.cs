@@ -1,10 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-/**
- * LoonieRace waypoint
- * @type {[type]}
- */
 public class WayPoint : MonoBehaviour {
 	public int index = 0;
 	public Vector3 wayPointPos;

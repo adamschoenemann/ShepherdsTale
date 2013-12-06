@@ -8,7 +8,7 @@ public class NavMeshPatroller : MonoBehaviour
 {
 	public Transform waypointContainer;
 	private int waypointIndex = 0;
-	private WolfWaypoint currentWaypoint;
+	private Waypoint currentWaypoint;
 	private List<GameObject> waypoints;
 	private NavMeshAgent agent;
 
@@ -36,20 +36,20 @@ public class NavMeshPatroller : MonoBehaviour
 			waypoints.Sort((a, b) => {
 			 return a.name.CompareTo(b.name);
 			});
-			// if(debug)
-			// {
-			// 	foreach(GameObject go in waypoints)
-			// 		print(go.name);
-			// }		
+			if(debug)
+			{
+				foreach(GameObject go in waypoints)
+					print(go.name);
+			}		
 		}
 		else
 		{
-			GameObject wp = WolfWaypoint.CreateWaypoint(transform.position);
-			wp.GetComponent<WolfWaypoint>().permanent = true;
+			GameObject wp = Waypoint.CreateWaypoint(transform.position);
+			wp.GetComponent<Waypoint>().permanent = true;
 			waypoints.Add(wp);
 		}
 		
-		currentWaypoint = waypoints[waypointIndex].GetComponent<WolfWaypoint>();
+		currentWaypoint = waypoints[waypointIndex].GetComponent<Waypoint>();
 		agent = GetComponent<NavMeshAgent>();
 		OnArriveAtWaypoint(currentWaypoint.gameObject);
 		// StartPatrolling();
@@ -68,7 +68,7 @@ public class NavMeshPatroller : MonoBehaviour
 		// return agent.remainingDistance < thresh;
 	}
 
-	public WolfWaypoint GetNextWaypoint()
+	public Waypoint GetNextWaypoint()
 	{
 		waypointIndex += direction;
 		if(waypointIndex >= waypoints.Count || waypointIndex < 0)
@@ -82,7 +82,7 @@ public class NavMeshPatroller : MonoBehaviour
 			}
 		}
 		if(debug) print("wayPointIndex: " + waypointIndex);
-		return waypoints[waypointIndex].GetComponent<WolfWaypoint>();
+		return waypoints[waypointIndex].GetComponent<Waypoint>();
 	}
 
 	public void StopPatrolling()
@@ -132,8 +132,7 @@ public class NavMeshPatroller : MonoBehaviour
 
 	public void OnArriveAtWaypoint(GameObject go)
 	{
-		if(debug) print("OnArriveAtWaypoint");
-		WolfWaypoint wp = go.GetComponent<WolfWaypoint>();
+		Waypoint wp = go.GetComponent<Waypoint>();
 		if(wp.waitTime > 0 || wp.permanent == true)
 		{
 			if(waitTimer != null && waitTimer.IsDone() == false)
@@ -159,12 +158,7 @@ public class NavMeshPatroller : MonoBehaviour
 	void OnTriggerEnter(Collider other)
 	{
 		GameObject go = other.gameObject;
-		if(debug)
-		{
-			print("Current wp: " + waypoints[waypointIndex].name);
-			print("trigger wp: " + go.name);
-		}
-		if(go.tag == Tags.wolfWaypoint && go == waypoints[waypointIndex])	
+		if(go.tag == Tags.waypoint && go == waypoints[waypointIndex])	
 		{
 			OnArriveAtWaypoint(go);
 		}
@@ -185,7 +179,7 @@ public class NavMeshPatroller : MonoBehaviour
 
 		// if(IsAtWaypoint(0.8f))
 		// {
-		// 	WolfWaypoint prevPoint = currentWaypoint;
+		// 	Waypoint prevPoint = currentWaypoint;
 		// 	currentWaypoint = GetNextWaypoint();
 		// 	if(prevPoint.waitTime > 0)
 		// 	{

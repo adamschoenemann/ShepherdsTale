@@ -11,15 +11,6 @@ using Wolf;
 namespace Wolf
 {
 	public enum State {Idle, Patrolling, Suspicious, Alerted, Chasing, Engaging, Attacking, Returning};
-	public class OnStateChangeEventArgs : EventArgs
-	{
-		public readonly State from, to;
-		public OnStateChangeEventArgs(State from, State to)
-		{
-			this.from = from;
-			this.to = to;
-		}
-	}
 }
 
 [RequireComponent(typeof(WolfAnimation))]
@@ -79,7 +70,6 @@ public class WolfController : MonoBehaviour
 	private NavMeshAgent agent;
 
 	public static event EventHandler onPlayerSeen;
-	public event EventHandler<OnStateChangeEventArgs> onStateChangeEvent;
 
 //============================================================================//
 //============================== METHODS =====================================//
@@ -274,10 +264,6 @@ public class WolfController : MonoBehaviour
 			patroller.StopPatrolling();
 		}
 
-		if(onStateChangeEvent != null)
-		{
-			onStateChangeEvent(this, new OnStateChangeEventArgs(oldState, newState));
-		}
 		animation.OnStateChange(oldState, newState);
 
 
@@ -600,9 +586,9 @@ public class WolfController : MonoBehaviour
 		return transform.Find("group1").gameObject;
 	}
 
-	public GameObject GetAttackCollider()
+	GameObject GetAttackCollider()
 	{
-		return transform.Find("Attacker_prefab").gameObject;
+		return transform.Find("attacker").gameObject;
 	}
 	
 

@@ -1,22 +1,7 @@
 ﻿using UnityEngine;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 
-/**
- * EventArgs for button press input
- * @type {[type]}
- */
-public class ButtonPressEventArgs : EventArgs
-{
-	public readonly KeyCode keyCode;
-	public readonly float progress;
-	public ButtonPressEventArgs(KeyCode kc, float p)
-	{
-		keyCode = kc;
-		progress = p;
-	}
-}
 
 /*
  *	This class controls all things related to the QT events: It ensures 
@@ -42,12 +27,6 @@ public class QTHandler : MonoBehaviour {
 	private float errorMarkerTimeElapsed = 0.0f;
 
 	private bool hasError = false, hasCorrect = false;
-
-	// Events (Adam)
-	public event EventHandler<ButtonPressEventArgs> onMissedButtonPress;
-	public event EventHandler<ButtonPressEventArgs> onPressedWrongButton;
-	public event EventHandler<ButtonPressEventArgs> onPressedWhenNoButtonNeeded;
-	public event EventHandler<ButtonPressEventArgs> onPressedCorrectly;
 
 	void Start ()
 	{
@@ -126,60 +105,20 @@ public class QTHandler : MonoBehaviour {
 	private void MissedButtonPress()
 	{
 		//MadeError();
-		if(onMissedButtonPress != null)
-		{
-			onMissedButtonPress(
-				this,
-				new ButtonPressEventArgs(
-					stream.GetKeyCode(currentIndex), 
-					stream.GetProgress()
-				)
-			);
-		}
 	}
 
 	private void PressedWrongButton()
 	{
-		if(onPressedWrongButton != null)
-		{
-			onPressedWrongButton(
-				this,
-				new ButtonPressEventArgs(
-					stream.GetKeyCode(currentIndex), 
-					stream.GetProgress()
-				)
-			);
-		}
 		MadeError();
 	}
 
 	private void PressedWhenNoButtonNeeded()
 	{
-		if(onPressedWhenNoButtonNeeded != null)
-		{
-			onPressedWhenNoButtonNeeded(
-				this,
-				new ButtonPressEventArgs(
-					stream.GetKeyCode(currentIndex), 
-					stream.GetProgress()
-				)
-			);
-		}
 		MadeError();
 	}
 
 	private void PressedCorrectly()
 	{	
-		if(onPressedCorrectly != null)
-		{
-			onPressedCorrectly(
-				this,
-				new ButtonPressEventArgs(
-					stream.GetKeyCode(currentIndex), 
-					stream.GetProgress()
-				)
-			);
-		}
 		MadeCorrect();	
 	}
 

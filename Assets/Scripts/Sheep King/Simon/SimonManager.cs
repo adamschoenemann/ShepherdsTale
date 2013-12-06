@@ -1,19 +1,6 @@
 ﻿using UnityEngine;
-using System;
 using System.Collections;
 
-
-public class HitSheepEventArgs : EventArgs
-{
-	public readonly int hit, progress, level, rightHit;
-	public HitSheepEventArgs(int h, int p, int l, int r)
-	{
-		hit = h;
-		progress = p;
-		level = l;
-		rightHit = r;
-	}
-}
 
 /*
 	TODO
@@ -39,7 +26,71 @@ public class SimonManager : MonoBehaviour {
 	private SimonSheep[] sheep;
 	public enum State { ShowToPlayer, ListenToPlayer, Finished, WaitToStart, WaitToShow };
 	public State state;
-	private byte[] notes = {3,0,1,2,0,2,0,3,2,3,0,1,2,0,1,0,3,1,2,3,0,1,2,3,0,3,0,1,2,1,2,1,0,2,3,2,0,1,0,3,1,3,2,1,0,2,1,0,1,2};
+	private byte[] notes = {3, 0, 1, 3, 1, 3, 2, 1, 3, 1, 2, 1, 0, 1, 3, 1, 3, 1, 3, 2, 3,
+							0, 1, 3, 1, 2, 0, 3, 2, 3, 2, 1, 3, 0, 2, 0, 1, 0, 2, 0, 1, 0,
+							1, 2, 3, 0, 1, 3, 0, 1, 3, 0, 2, 1, 2, 1, 2, 1, 0, 3, 2, 0, 3,
+							1, 0, 1, 2, 1, 0, 1, 3, 0, 1, 0, 3, 1, 0, 1, 2, 3, 0, 1, 3, 0,
+							2, 1, 2, 1, 0, 2, 0, 1, 0, 3, 0, 3, 2, 0, 1, 3, 2, 0, 2, 1, 3,
+							1, 2, 3, 1, 0, 3, 2, 3, 2, 3, 1, 3, 2, 0, 1, 2, 0, 3, 2, 1, 0,
+							2, 3, 1, 3, 2, 3, 0, 3, 2, 1, 3, 0, 1, 3, 0, 2, 1, 2, 0, 1, 0,
+							2, 1, 0, 3, 1, 3, 2, 3, 0, 1, 3, 0, 1, 3, 0, 2, 1, 3, 0, 3, 1,
+							0, 1, 0, 1, 2, 0, 1, 3, 2, 1, 2, 3, 1, 2, 0, 3, 1, 2, 1, 3, 0,
+							1, 2, 1, 0, 2, 0, 3, 0, 3, 2, 1, 3, 1, 0, 1, 3, 1, 2, 1, 2, 1,
+							3, 0, 3, 2, 1, 0, 1, 3, 2, 3, 0, 2, 3, 2, 0, 2, 0, 2, 3, 0, 3,
+							1, 0, 3, 0, 3, 2, 1, 0, 1, 0, 2, 1, 0, 3, 1, 3, 1, 2, 1, 0, 3,
+							1, 0, 2, 0, 2, 0, 1, 2, 3, 1, 2, 0, 1, 0, 3, 1, 2, 1, 2, 1, 0,
+							2, 3, 1, 3, 0, 1, 2, 1, 2, 3, 2, 3, 2, 3, 2, 1, 0, 3, 1, 2, 0,
+							2, 3, 1, 0, 2, 3, 0, 3, 2, 0, 1, 3, 2, 0, 3, 0, 3, 0, 3, 2, 1,
+							3, 1, 3, 0, 3, 1, 3, 1, 2, 0, 3, 0, 3, 1, 0, 3, 2, 3, 1, 2, 0,
+							2, 0, 2, 0, 1, 3, 0, 3, 0, 2, 0, 2, 0, 1, 3, 1, 3, 1, 2, 1, 3,
+							1, 2, 3, 1, 0, 2, 3, 0, 3, 0, 2, 0, 3, 0, 1, 3, 0, 2, 0, 3, 2,
+							1, 0, 3, 0, 2, 3, 2, 0, 3, 2, 0, 3, 0, 2, 0, 1, 2, 0, 2, 1, 3,
+							2, 1, 2, 1, 2, 0, 2, 0, 2, 1, 3, 2, 1, 3, 1, 0, 3, 1, 0, 3, 0,
+							3, 2, 0, 1, 3, 0, 2, 1, 0, 2, 3, 0, 1, 2, 0, 1, 3, 0, 2, 0, 2,
+							0, 2, 1, 3, 1, 2, 1, 0, 1, 2, 1, 3, 2, 1, 3, 0, 1, 2, 1, 2, 0,
+							1, 0, 3, 2, 3, 2, 1, 2, 3, 2, 1, 2, 3, 0, 2, 3, 0, 2, 1, 0, 3,
+							1, 2, 0, 2, 1, 2, 1, 2, 0, 2, 1, 3, 2, 3, 2, 1, 3, 1, 2, 3, 1,
+							3, 1, 0, 2, 1, 2, 3, 2, 3, 0, 3, 2, 0, 3, 1, 2, 3, 0, 1, 3, 1,
+							2, 1, 0, 2, 3, 1, 2, 3, 0, 1, 0, 1, 3, 0, 3, 2, 3, 2, 1, 3, 2,
+							3, 2, 0, 2, 1, 3, 2, 3, 2, 1, 0, 3, 2, 0, 3, 2, 1, 2, 0, 1, 2,
+							1, 2, 3, 0, 1, 2, 3, 2, 1, 0, 1, 3, 1, 3, 2, 0, 2, 3, 0, 3, 2,
+							3, 2, 3, 1, 2, 1, 0, 3, 0, 3, 2, 0, 2, 3, 1, 3, 1, 0, 2, 1, 3,
+							0, 3, 0, 3, 1, 0, 2, 0, 1, 0, 2, 3, 1, 3, 1, 2, 0, 1, 0, 1, 3,
+							0, 1, 2, 1, 2, 3, 0, 2, 1, 2, 3, 2, 3, 0, 1, 3, 1, 3, 0, 1, 0,
+							2, 1, 0, 2, 3, 1, 3, 2, 1, 0, 1, 3, 0, 3, 0, 2, 0, 2, 1, 2, 1,
+							2, 1, 3, 2, 3, 2, 0, 2, 1, 0, 1, 0, 3, 2, 3, 1, 0, 3, 1, 2, 1,
+							2, 1, 2, 0, 1, 0, 1, 3, 1, 0, 3, 0, 3, 0, 2, 1, 2, 0, 2, 3, 2,
+							0, 3, 0, 2, 1, 0, 3, 0, 1, 0, 2, 3, 1, 2, 1, 0, 1, 2, 3, 2, 0,
+							1, 0, 3, 2, 0, 1, 2, 3, 2, 0, 3, 0, 2, 1, 3, 0, 1, 0, 3, 2, 0,
+							2, 3, 0, 3, 0, 2, 0, 3, 2, 1, 0, 2, 3, 1, 3, 2, 3, 0, 1, 2, 3,
+							2, 1, 3, 0, 1, 3, 0, 2, 3, 1, 0, 2, 1, 3, 0, 3, 0, 2, 0, 3, 0,
+							3, 0, 2, 0, 3, 1, 3, 2, 0, 1, 3, 1, 0, 3, 0, 2, 1, 3, 2, 3, 2,
+							3, 2, 1, 2, 0, 3, 0, 2, 3, 2, 0, 2, 0, 1, 2, 3, 0, 3, 1, 2, 3,
+							2, 0, 2, 1, 3, 0, 2, 0, 3, 1, 3, 1, 2, 3, 1, 2, 1, 2, 3, 1, 2,
+							1, 0, 1, 2, 1, 2, 0, 2, 0, 2, 1, 3, 0, 1, 3, 2, 3, 2, 1, 2, 0,
+							2, 1, 3, 2, 3, 1, 2, 0, 2, 1, 2, 0, 1, 0, 1, 2, 0, 2, 1, 3, 0,
+							2, 1, 0, 2, 0, 3, 2, 0, 3, 2, 1, 2, 1, 3, 1, 3, 1, 0, 2, 3, 2,
+							1, 3, 2, 1, 0, 1, 2, 0, 3, 1, 3, 1, 0, 2, 1, 3, 0, 1, 0, 1, 0,
+							1, 3, 2, 0, 2, 1, 0, 1, 2, 0, 1, 3, 2, 3, 2, 3, 0, 1, 2, 0, 2,
+							0, 1, 3, 1, 0, 3, 2, 1, 2, 0, 2, 0, 2, 0, 3, 2, 3, 1, 2, 1, 3,
+							2, 0, 3, 0, 3, 0, 1, 0, 1, 3, 1, 2, 3, 1, 0, 3, 1, 0, 2, 3, 1,
+							0, 1, 3, 0, 1, 3, 0, 2, 0, 2, 0, 3, 2, 0, 1, 0, 3, 2, 1, 0, 3,
+							1, 2, 1, 2, 3, 0, 1, 2, 1, 3, 0, 1, 0, 1, 3, 0, 2, 1, 2, 0, 1,
+							0, 3, 0, 1, 0, 3, 0, 1, 3, 2, 0, 2, 3, 2, 3, 2, 0, 2, 3, 0, 1,
+							2, 1, 0, 2, 1, 2, 3, 0, 3, 1, 2, 0, 1, 2, 1, 0, 1, 0, 3, 2, 3,
+							2, 1, 3, 0, 3, 1, 0, 3, 2, 3, 0, 3, 0, 3, 0, 1, 0, 2, 3, 2, 1,
+							0, 3, 2, 1, 2, 3, 1, 2, 0, 1, 0, 3, 1, 3, 2, 3, 0, 3, 0, 3, 0,
+							3, 2, 3, 2, 3, 0, 1, 2, 0, 2, 1, 0, 3, 0, 1, 0, 1, 2, 3, 1, 3,
+							1, 2, 3, 0, 2, 0, 1, 2, 0, 2, 3, 2, 3, 0, 2, 3, 2, 1, 2, 3, 2,
+							0, 1, 2, 1, 0, 3, 0, 3, 1, 0, 2, 1, 2, 3, 2, 1, 3, 2, 1, 3, 2,
+							1, 2, 1, 3, 2, 3, 0, 1, 3, 1, 0, 2, 0, 1, 2, 3, 1, 2, 3, 1, 3,
+							2, 3, 2, 0, 3, 0, 1, 3, 0, 1, 2, 1, 2, 3, 1, 0, 2, 3, 0, 2, 1,
+							3, 1, 0, 1, 3, 0, 3, 2, 0, 2, 0, 3, 1, 0, 3, 1, 3, 2, 3, 2, 3,
+							2, 3, 0, 1, 3, 1, 3, 1, 2, 0, 2, 3, 2, 0, 3, 2, 1, 2, 3, 1, 2,
+							3, 2, 0, 2, 1, 3, 2, 0, 2, 0, 3, 2, 3, 0, 1, 0, 1, 3, 1, 3, 1,
+							2, 0, 3, 2, 0, 3, 1, 2, 3, 1, 0, 1, 3, 0, 1, 2, 3, 1, 3, 2, 1,
+							0, 3, 1, 2, 1, 0, 3, 0, 3, 2, 1, 0, 1, 3, 0, 1, 0, 2, 0, 3, 2,
+							1, 2, 1, 3, 1, 3, 0, 1, 2, 1, 2, 0, 1, 0, 3, 2, }; // Sorry about the length, but I hate when SK gets stuck by not knowing enough notes. -TW
 	private int level;
 	private int progress = 0;
 
@@ -47,11 +98,6 @@ public class SimonManager : MonoBehaviour {
 	private Timer waitToShowTimer;
 
 	public bool playerMadeMistake;
-
-	// Events
-	public event EventHandler<HitSheepEventArgs> onPlayerHitRightSheep;
-	public event EventHandler<HitSheepEventArgs> onPlayerHitWrongSheep;
-	public event EventHandler onLevelCompleted;
 
 	// Initialization
 	void Start () {
@@ -156,12 +202,6 @@ public class SimonManager : MonoBehaviour {
 			progress++;
 
 			playerMadeMistake = false;
-			if(onPlayerHitRightSheep != null)
-			{
-				onPlayerHitRightSheep(this,
-					new HitSheepEventArgs(sheepHit, level, progress, sheepHit)
-				);
-			}
 			
 			if(progress > level)
 			{
@@ -173,9 +213,6 @@ public class SimonManager : MonoBehaviour {
 				if(level >= numberOfLevels + startLevel)
 				{
 					// win; finish game
-					if(onLevelCompleted != null)
-						onLevelCompleted(this, EventArgs.Empty);
-						
 					GoToState(State.Finished);
 					Debug.Log("You won the game!");
 					winSound.Play();
@@ -192,12 +229,6 @@ public class SimonManager : MonoBehaviour {
 		{
 			// FLAG
 			playerMadeMistake = true;
-			if(onPlayerHitWrongSheep != null)
-			{
-				onPlayerHitWrongSheep(this, 
-					new HitSheepEventArgs(sheepHit, level, progress, GetNoteAt(level, progress))
-				);
-			}
 
 			// Activate all sheep at once, and go back to first level
 			foreach(SimonSheep s in sheep)

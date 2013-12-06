@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System;
 using System.Collections;
 
 public class LoonieAttack : MonoBehaviour {
@@ -12,12 +11,10 @@ public class LoonieAttack : MonoBehaviour {
 	bool startCounter;
 	
 	//LERP VARIABLES
-  public float speed = 1.0F;
-  private float startTime;
-  private float journeyLength;
-  public float smooth = 5.0F;
-
-  public event EventHandler onPlayerCaught;
+    public float speed = 1.0F;
+    private float startTime;
+    private float journeyLength;
+    public float smooth = 5.0F;
 	
 	Timer timer;
 	
@@ -52,11 +49,10 @@ public class LoonieAttack : MonoBehaviour {
 				rigidbody.isKinematic = true;
 				transform.position = Vector3.Lerp(transform.position, player.transform.position, fracJourney);
 				loonieAnimation.anim.SetBool("Jump", true);
-				Debug.Log("YOU ARE CAUGHT!");
+				//Debug.Log("YOU ARE CAUGHT!");
 				playerMovement.runSpeed = 0.0f;
 				playerAnimation.anim.SetBool("LoonieStuck", true);
 				startCounter = true;
-				onPlayerCaught(this, EventArgs.Empty);
 			}
 		}
 		
@@ -65,7 +61,6 @@ public class LoonieAttack : MonoBehaviour {
 			timer.TickSeconds (Time.deltaTime);
 			if(timer.IsDone ())
 			{
-				print ("NU");
 				transform.parent = player.transform;
 				//Time.timeScale = 0.0f;
 				if(Input.GetButtonDown("StartOver"))

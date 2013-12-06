@@ -28,14 +28,14 @@ public class LoonieRace : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		moveSpeed   = defaultSpeed;
+		moveSpeed = defaultSpeed;
 		
-		anim 		    = GetComponent<Animator>();
+		anim 		= GetComponent<Animator>();
 		
 		raceCourse 	= GameObject.FindGameObjectWithTag(Tags.raceCourse);
-		player 		  = GameObject.FindGameObjectWithTag(Tags.player);
+		player 		= GameObject.FindGameObjectWithTag(Tags.player);
 		wayPoints 	= GameObject.FindGameObjectsWithTag(Tags.wayPoint);
-		print("wayPoints.Length: " + wayPoints.Length);
+		
 		SortWayPoints();
 	}
 	
@@ -130,13 +130,11 @@ public class LoonieRace : MonoBehaviour {
 	
 	int GetWayPointIndex ()
 	{
-		for(int i = 0; i < wayPoints.Length; i++)
+		for(int i = 0; i < wayPoints.Length; i ++)
 		{
 			if(wayPoints[i].GetComponent<WayPoint>().wayPointChecked == false)
 			{
-				int index = wayPoints[i].GetComponent<WayPoint>().index;
-				print("index: " + index);
-				return index;
+				return wayPoints[i].GetComponent<WayPoint>().index;
 			}
 		}
 

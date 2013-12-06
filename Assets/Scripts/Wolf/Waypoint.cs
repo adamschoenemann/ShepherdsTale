@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WolfWaypoint : MonoBehaviour 
+public class Waypoint : MonoBehaviour 
 {
 	
 	public int waitTime = 0;
@@ -10,10 +10,9 @@ public class WolfWaypoint : MonoBehaviour
 	public static GameObject CreateWaypoint(Vector3 pos)
 	{
 		GameObject wp = GameObject.CreatePrimitive(PrimitiveType.Cube);
-		wp.name = "Generated Waypoint";
+		wp.name = "Genereated Waypoint";
 		wp.transform.position = pos;
-		wp.tag = Tags.wolfWaypoint;
-		wp.AddComponent<WolfWaypoint>();
+		wp.AddComponent<Waypoint>();
 		wp.renderer.enabled = false;
 		return wp;
 	}
