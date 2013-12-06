@@ -65,12 +65,12 @@ public class PlayerAnimation : MonoBehaviour
 	{
 		// Minimize aggro range if we hold down SHIFT (same as sneaky key) Still need some tweaking, 
 		//you can "escape" the wolf from a closer distance by hitting the shift key!
-		if(Input.GetButtonDown("Sneak"))
+		if(Input.GetButton("Sneak"))
 		{
 			anim.SetBool("Sneak", true);
 			// SetSneaking(true);
 		}
-		if(Input.GetButtonUp("Sneak"))
+		else
 		{
 			anim.SetBool("Sneak", false);
 			// SetSneaking(false);

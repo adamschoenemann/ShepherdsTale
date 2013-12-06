@@ -875,8 +875,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100044}
-  m_LocalRotation: {x: 0, y: -.930130601, z: 0, w: -.367229074}
-  m_LocalPosition: {x: 2.44066381, y: -.26472193, z: 33.9705925}
+  m_LocalRotation: {x: 0, y: -.400152624, z: 0, w: .916448534}
+  m_LocalPosition: {x: 4.0362215, y: .10681802, z: -19.218771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400074}
@@ -1293,6 +1293,7 @@ MonoBehaviour:
   moveSpeed: 1
   nearThresh: 1.70000005
   distanceFromHomeThresh: 15
+  debug: 0
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1338,11 +1339,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 100044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8412e7a96f3a0a4d9e3b021696682d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 38c02981ae96b894fbec85047318442c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
-  name: Wolf1
+  enabled: 1
+  name: WolgLoggable1
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1
