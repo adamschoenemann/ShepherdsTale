@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public class LogAPI {
 
-	const string host = "http://localhost/shepherd_log/api/log";
+	const string host = "http://www.adamschoenemann.dk/api/log";
 
 	public int session_id {get; private set;}
 	public float logRate = 0.5f;
@@ -153,7 +153,7 @@ public class LogAPI {
 	private JSONObject HandleResponse(WWW www)
 	{
 		if(String.IsNullOrEmpty(www.error) == false){
-			Debug.Log("error: " + www.error);
+			Debug.Log("url: "+ www.url + "\nerror: " + www.error);
 		}
 
 		JSONObject json = new JSONObject(www.text);
@@ -193,11 +193,7 @@ public class LogAPI {
 		WWW www = new WWW(host + "/start_session", form);
 		yield return www;
 
-		if(String.IsNullOrEmpty(www.error) == false){
-			Debug.Log("error: " + www.error);
-		}
-
-		JSONObject json = new JSONObject(www.text);
+		JSONObject json = HandleResponse(www);
 		session_id = (int) json[0]["id"].n;
 		Debug.Log(json[0]["id"]);
 
