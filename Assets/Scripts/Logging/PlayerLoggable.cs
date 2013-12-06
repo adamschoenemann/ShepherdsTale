@@ -6,24 +6,18 @@ using System.Collections.Generic;
 public class PlayerLoggable : Loggable
 {
 
-	private Staff staff;
 
 	protected override void SetupLogging()
 	{
 		base.SetupLogging();
-		staff = GameObject.FindWithTag(Tags.staff).GetComponent<Staff>();
-		staff.onHit += (collision, damage) => {
-			LogEntry entry = new LogEntry(this, "StaffHIt");
-			entry.AddInt("damage", damage);
-			entry.AddString("target_name", collision.gameObject.name);
-			entry.AddString("target_tag", collision.gameObject.tag);
-			print("Enqueueing StaffHit event");
-			logger.Enqueue(entry);
-		};
+		
 	}
 
 
-
+	public override bool ShouldLogRoutinely()
+	{
+		return true;
+	}
 
 
 	protected override void BeforeEnqueueEntry(LogEntry entry)
