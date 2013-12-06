@@ -10,6 +10,6 @@ public class Tags
 	public const string logger = "Logger";
 	public const string loonie = "Loonie";
 	public const string raceCourse = "RaceCourse";
-	public const string wayPoint = "Waypoint";
-	public const string checkPoint = "Checkpoint";
+	public const string wayPoint = "WayPoint";
+	public const string checkPoint = "CheckPoint";
 }

@@ -26,11 +26,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SheepKing/sheepking_shave.unity
   - enabled: 1
-    path: Assets/Scenes/Wolf/wolf_main_scene.unity
+    path: Assets/Scenes/Wolf/wolf_main_scene_obsolete.unity
   - enabled: 0
     path: Assets/Scenes/Obsolete/OLDwolf_fight.unity
   - enabled: 0
-    path: Assets/Scenes/Wolf/wolf_main_scene.unity
+    path: Assets/Scenes/Wolf/wolf_main_scene_obsolete.unity
   - enabled: 1
     path: Assets/Scenes/game_finish.unity
   - enabled: 0
