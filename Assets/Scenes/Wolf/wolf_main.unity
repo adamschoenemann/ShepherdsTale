@@ -276,6 +276,7 @@ GameObject:
   - 114: {fileID: 110185817}
   - 95: {fileID: 110185816}
   - 65: {fileID: 110185815}
+  - 114: {fileID: 110185818}
   m_Layer: 0
   m_Name: SacredRelic
   m_TagString: Untagged
@@ -344,6 +345,20 @@ MonoBehaviour:
   Papyrus: {fileID: 2800000, guid: 6b7e82b5a4fb722478a699439afb976e, type: 3}
   skin: {fileID: 11400000, guid: 71796c5e20f36044384f75f7ec0ec54c, type: 2}
   lightSources: []
+--- !u!114 &110185818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: 91370a89fe8815b4dac55a725f68d8d5,
+    type: 2}
+  m_PrefabInternal: {fileID: 951557004}
+  m_GameObject: {fileID: 110185813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6557fbfa6379c04498347a49001a7367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
 --- !u!1 &144919152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,6 +1194,7 @@ GameObject:
   - 114: {fileID: 415745229}
   - 95: {fileID: 415745228}
   - 65: {fileID: 415745227}
+  - 114: {fileID: 415745230}
   m_Layer: 0
   m_Name: SacredRelic
   m_TagString: Untagged
@@ -1247,6 +1263,20 @@ MonoBehaviour:
   Papyrus: {fileID: 2800000, guid: 6b7e82b5a4fb722478a699439afb976e, type: 3}
   skin: {fileID: 11400000, guid: 71796c5e20f36044384f75f7ec0ec54c, type: 2}
   lightSources: []
+--- !u!114 &415745230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: 91370a89fe8815b4dac55a725f68d8d5,
+    type: 2}
+  m_PrefabInternal: {fileID: 612313108}
+  m_GameObject: {fileID: 415745225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6557fbfa6379c04498347a49001a7367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
 --- !u!1 &417058694
 GameObject:
   m_ObjectHideFlags: 0
@@ -6676,7 +6706,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1917813406}
   - 114: {fileID: 1917813407}
-  - 114: {fileID: 1917813408}
   m_Layer: 0
   m_Name: GameController_prefab
   m_TagString: GameController
@@ -6705,17 +6734,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a59690e0b160b634e9bff12f7e483d31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1917813408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1917813405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c41b16f787a5924eb0b1907b2a513ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1927108187
