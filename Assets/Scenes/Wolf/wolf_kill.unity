@@ -76,7 +76,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
-  m_NavMesh: {fileID: 19400000, guid: f31b8ca259e621040b2794b927e70e58, type: 2}
+  m_NavMesh: {fileID: 19400000, guid: a48b832c0790940beaafa86fea8b7e2b, type: 2}
 --- !u!1 &8371161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1964,6 +1964,7 @@ GameObject:
   - 114: {fileID: 149513264}
   - 114: {fileID: 149513263}
   - 114: {fileID: 149513262}
+  - 114: {fileID: 149513271}
   - 114: {fileID: 149513261}
   m_Layer: 0
   m_Name: Wolf
@@ -1998,11 +1999,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 149513259}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8412e7a96f3a0a4d9e3b021696682d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 98db864b25a5ac042b358cee94946105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
-  name: Wolf1
+  enabled: 1
+  name: WolfMortal
 --- !u!114 &149513262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2084,7 +2085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 5
+  health: 5
   invincibleTime: 200
 --- !u!82 &149513267
 AudioSource:
@@ -2190,6 +2191,20 @@ Animator:
   m_ApplyRootMotion: 0
   m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
+--- !u!114 &149513271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400016, guid: def93b79c32709c4da501ac9d5f1ceda,
+    type: 2}
+  m_PrefabInternal: {fileID: 600650288}
+  m_GameObject: {fileID: 149513259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c02981ae96b894fbec85047318442c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  name: Wolf1
 --- !u!1 &151454065
 GameObject:
   m_ObjectHideFlags: 0
@@ -4318,6 +4333,7 @@ GameObject:
   - 114: {fileID: 433211381}
   - 114: {fileID: 433211380}
   - 114: {fileID: 433211379}
+  - 114: {fileID: 433211388}
   - 114: {fileID: 433211378}
   m_Layer: 0
   m_Name: Wolf
@@ -4352,11 +4368,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 433211376}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8412e7a96f3a0a4d9e3b021696682d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 98db864b25a5ac042b358cee94946105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
-  name: Wolf1
+  enabled: 1
+  name: WolfMortal
 --- !u!114 &433211379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4438,7 +4454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 5
+  health: 5
   invincibleTime: 200
 --- !u!82 &433211384
 AudioSource:
@@ -4544,6 +4560,20 @@ Animator:
   m_ApplyRootMotion: 0
   m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
+--- !u!114 &433211388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400016, guid: def93b79c32709c4da501ac9d5f1ceda,
+    type: 2}
+  m_PrefabInternal: {fileID: 99630431}
+  m_GameObject: {fileID: 433211376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c02981ae96b894fbec85047318442c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  name: Wolf1
 --- !u!1 &437367666
 GameObject:
   m_ObjectHideFlags: 0
@@ -10847,6 +10877,7 @@ GameObject:
   - 114: {fileID: 676557270}
   - 114: {fileID: 676557269}
   - 114: {fileID: 676557268}
+  - 114: {fileID: 676557277}
   - 114: {fileID: 676557267}
   m_Layer: 0
   m_Name: Wolf
@@ -10881,11 +10912,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 676557265}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8412e7a96f3a0a4d9e3b021696682d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 98db864b25a5ac042b358cee94946105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
-  name: Wolf1
+  enabled: 1
+  name: WolfMortal
 --- !u!114 &676557268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10967,7 +10998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 5
+  health: 5
   invincibleTime: 200
 --- !u!82 &676557273
 AudioSource:
@@ -11073,6 +11104,20 @@ Animator:
   m_ApplyRootMotion: 0
   m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
+--- !u!114 &676557277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400016, guid: def93b79c32709c4da501ac9d5f1ceda,
+    type: 2}
+  m_PrefabInternal: {fileID: 650428311}
+  m_GameObject: {fileID: 676557265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c02981ae96b894fbec85047318442c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  name: Wolf1
 --- !u!1 &676710412
 GameObject:
   m_ObjectHideFlags: 0
@@ -14754,6 +14799,7 @@ GameObject:
   - 114: {fileID: 999705941}
   - 114: {fileID: 999705940}
   - 114: {fileID: 999705939}
+  - 114: {fileID: 999705948}
   - 114: {fileID: 999705938}
   m_Layer: 0
   m_Name: Wolf
@@ -14788,11 +14834,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 999705936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8412e7a96f3a0a4d9e3b021696682d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 98db864b25a5ac042b358cee94946105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
-  name: Wolf1
+  enabled: 1
+  name: WolfMortal
 --- !u!114 &999705939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14874,7 +14920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 5
+  health: 5
   invincibleTime: 200
 --- !u!82 &999705944
 AudioSource:
@@ -14980,6 +15026,20 @@ Animator:
   m_ApplyRootMotion: 0
   m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
+--- !u!114 &999705948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400016, guid: def93b79c32709c4da501ac9d5f1ceda,
+    type: 2}
+  m_PrefabInternal: {fileID: 1854847350}
+  m_GameObject: {fileID: 999705936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c02981ae96b894fbec85047318442c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  name: Wolf1
 --- !u!1 &1007466602
 GameObject:
   m_ObjectHideFlags: 0
@@ -24040,6 +24100,7 @@ GameObject:
   - 114: {fileID: 1723582846}
   - 114: {fileID: 1723582845}
   - 114: {fileID: 1723582844}
+  - 114: {fileID: 1723582853}
   - 114: {fileID: 1723582843}
   m_Layer: 0
   m_Name: Wolf
@@ -24074,11 +24135,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1723582841}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8412e7a96f3a0a4d9e3b021696682d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 98db864b25a5ac042b358cee94946105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
-  name: Wolf1
+  enabled: 1
+  name: WolfMortal
 --- !u!114 &1723582844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24160,7 +24221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 5
+  health: 5
   invincibleTime: 200
 --- !u!82 &1723582849
 AudioSource:
@@ -24266,6 +24327,20 @@ Animator:
   m_ApplyRootMotion: 0
   m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
+--- !u!114 &1723582853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400016, guid: def93b79c32709c4da501ac9d5f1ceda,
+    type: 2}
+  m_PrefabInternal: {fileID: 1865964569}
+  m_GameObject: {fileID: 1723582841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c02981ae96b894fbec85047318442c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  name: Wolf1
 --- !u!1 &1725501047
 GameObject:
   m_ObjectHideFlags: 0
@@ -25316,6 +25391,7 @@ GameObject:
   - 114: {fileID: 1859422031}
   - 114: {fileID: 1859422030}
   - 114: {fileID: 1859422029}
+  - 114: {fileID: 1859422038}
   - 114: {fileID: 1859422028}
   m_Layer: 0
   m_Name: Wolf
@@ -25350,11 +25426,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1859422026}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8412e7a96f3a0a4d9e3b021696682d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 98db864b25a5ac042b358cee94946105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
-  name: Wolf1
+  enabled: 1
+  name: WolfMortal
 --- !u!114 &1859422029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25436,7 +25512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 5
+  health: 5
   invincibleTime: 200
 --- !u!82 &1859422034
 AudioSource:
@@ -25542,6 +25618,20 @@ Animator:
   m_ApplyRootMotion: 0
   m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
+--- !u!114 &1859422038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400016, guid: def93b79c32709c4da501ac9d5f1ceda,
+    type: 2}
+  m_PrefabInternal: {fileID: 671445356}
+  m_GameObject: {fileID: 1859422026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c02981ae96b894fbec85047318442c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  name: Wolf1
 --- !u!1 &1860954142
 GameObject:
   m_ObjectHideFlags: 0
@@ -28268,7 +28358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 8
+  health: 5
   invincibleTime: 500
 --- !u!136 &2055785875
 CapsuleCollider:
@@ -28743,6 +28833,7 @@ GameObject:
   - 114: {fileID: 2073419292}
   - 114: {fileID: 2073419291}
   - 114: {fileID: 2073419290}
+  - 114: {fileID: 2073419299}
   - 114: {fileID: 2073419289}
   m_Layer: 0
   m_Name: Wolf
@@ -28777,11 +28868,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2073419287}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8412e7a96f3a0a4d9e3b021696682d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 98db864b25a5ac042b358cee94946105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
-  name: Wolf1
+  enabled: 1
+  name: WolfMortal
 --- !u!114 &2073419290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28863,7 +28954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 5
+  health: 5
   invincibleTime: 200
 --- !u!82 &2073419295
 AudioSource:
@@ -28969,6 +29060,20 @@ Animator:
   m_ApplyRootMotion: 0
   m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
+--- !u!114 &2073419299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400016, guid: def93b79c32709c4da501ac9d5f1ceda,
+    type: 2}
+  m_PrefabInternal: {fileID: 2121764946}
+  m_GameObject: {fileID: 2073419287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c02981ae96b894fbec85047318442c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  name: Wolf1
 --- !u!1 &2074509027
 GameObject:
   m_ObjectHideFlags: 0
