@@ -4013,6 +4013,46 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!1001 &988057768
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 53b9d010fe5284281aadf7a639960d2f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 53b9d010fe5284281aadf7a639960d2f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 53b9d010fe5284281aadf7a639960d2f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 53b9d010fe5284281aadf7a639960d2f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 53b9d010fe5284281aadf7a639960d2f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 53b9d010fe5284281aadf7a639960d2f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 53b9d010fe5284281aadf7a639960d2f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 53b9d010fe5284281aadf7a639960d2f, type: 2}
+  m_RootGameObject: {fileID: 1319794344}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &989229322
 GameObject:
   m_ObjectHideFlags: 0
@@ -5240,6 +5280,46 @@ Transform:
   - {fileID: 285990188}
   - {fileID: 144919153}
   m_Father: {fileID: 1604525055}
+--- !u!1 &1319794344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: 53b9d010fe5284281aadf7a639960d2f, type: 2}
+  m_PrefabInternal: {fileID: 988057768}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1319794346}
+  - 114: {fileID: 1319794345}
+  m_Layer: 0
+  m_Name: Logger_prefab
+  m_TagString: Logger
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1319794345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: 53b9d010fe5284281aadf7a639960d2f,
+    type: 2}
+  m_PrefabInternal: {fileID: 988057768}
+  m_GameObject: {fileID: 1319794344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5cca492caae70b40ae8351860d54baa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+--- !u!4 &1319794346
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: 53b9d010fe5284281aadf7a639960d2f, type: 2}
+  m_PrefabInternal: {fileID: 988057768}
+  m_GameObject: {fileID: 1319794344}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &1331253416
 GameObject:
   m_ObjectHideFlags: 0
@@ -7826,6 +7906,7 @@ GameObject:
   - 114: {fileID: 1650948788}
   - 114: {fileID: 1650948794}
   - 82: {fileID: 1650948795}
+  - 114: {fileID: 1650948796}
   m_Layer: 0
   m_Name: Loonie_prefab
   m_TagString: Enemy
@@ -8019,6 +8100,19 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &1650948796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1650948786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d8e06d593c7a348a76b701e1918253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  name: Loonie
 --- !u!1 &1652240208
 GameObject:
   m_ObjectHideFlags: 0
@@ -9681,6 +9775,10 @@ Prefab:
       propertyPath: runSpeed
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 11400014, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
+      propertyPath: enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400004, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
@@ -10221,7 +10319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9dc7aa762f822a45ad8358364909e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
   name: Player
 --- !u!1 &2080560488
 GameObject:

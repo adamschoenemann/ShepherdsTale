@@ -87,6 +87,10 @@ public class ThreeOptions : MonoBehaviour {
 			if(GUI.Button(GetTextureRect(i), choices.options[i].image))
 			{
 				Screen.showCursor = false;
+
+				// Log choice
+				
+
 				Application.LoadLevel(choices.options[i].sceneName);
 			}
 		}
