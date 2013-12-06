@@ -1,0 +1,10 @@
+comment on :
+
+1. How much time do you think the game took you to play?
+2. What do you think about the general visual appearance of the game?
+3. Did the options you picked coincide with their descriptions? Were they satisfactory? Please elaborate for each of the choices. 
+ / provide description for all nine options
+ wolf scene : kill, sneak, lure
+ loonie scene: kill, race, block puzzle
+ sheep king: kill, shave, puzzle
+4. Other comments:

@@ -4,6 +4,7 @@ using System.Collections;
 public class EndGame : MonoBehaviour {
 
 	public float marginAmount = 0.2f;
+	public bool pilotTesting = false;
 
 	// Use this for initialization
 	void Start () {
@@ -17,13 +18,24 @@ public class EndGame : MonoBehaviour {
 
 	void OnGUI()
 	{
-		if(GUI.Button(new Rect((int)(Screen.width * marginAmount),
-							   (int)(Screen.height * marginAmount),
-							   (int)(Screen.width - 2 * (Screen.width * marginAmount)),
-							   (int)(Screen.height - 2 * (Screen.height * marginAmount))),
-								"Congratulations! You beat the game. Click to exit!"))
+		Rect rect = new Rect((int)(Screen.width * marginAmount),
+							 (int)(Screen.height * marginAmount),
+							 (int)(Screen.width - 2 * (Screen.width * marginAmount)),
+							 (int)(Screen.height - 2 * (Screen.height * marginAmount)));
+
+		if(pilotTesting)
 		{
-			Application.Quit(); // Won't work for webapp.
+			if(GUI.Button(rect, "Congratulations! You beat the game. Since you're pilot testing, please fill out the final questionnaire. Click to proceed!"))
+			{
+				Application.LoadLevel("pilot_test_questionnaire");
+			}
+		}
+		else 
+		{
+			if(GUI.Button(rect, "Congratulations! You beat the game. Click to exit!"))
+			{
+				Application.Quit(); // Won't work for webapp.
+			}
 		}
 	}
 }

@@ -43,6 +43,7 @@ public class ThreeOptions : MonoBehaviour {
 		 
 	void Start ()
 	{ 
+		Screen.showCursor = true;
 		choices = new ChoicePoint();
 		choices.options = new Option[3];
 		for(int i = 0; i < choices.options.Length; i++)
@@ -58,7 +59,7 @@ public class ThreeOptions : MonoBehaviour {
 		 	choices.options[0].image = wolf_fightImage;
 
 		 	choices.options[1].sceneName = "wolf_trap";
-		 	choices.options[1].description = "Make sheep sounds <color=#ffa500ff>(use 'Q' to make the sounds)</color> to lure the wolves into the trap.";
+		 	choices.options[1].description = "Make sheep sounds <color=#ffa500ff>(by pressing 'Q')</color> to lure the wolves into the trap. Set (and pick up) the trap with <color=#ffa500ff>E</color>.";
 		 	choices.options[1].image = wolf_lureImage;
 
 		 	choices.options[2].sceneName = "wolf_sneak";
@@ -130,31 +131,10 @@ public class ThreeOptions : MonoBehaviour {
 			GUI.Label(GetTextRect(i), choices.options[i].description, "box");
 			if(GUI.Button(GetTextureRect(i), choices.options[i].image))
 			{
-			  Application.LoadLevel(choices.options[i].sceneName);
+				Screen.showCursor = false;
+				Application.LoadLevel(choices.options[i].sceneName);
 			}
 		}
-/*
-		 // Option 1 - fight, fight, fight
-		 GUI.Label(GetTextRect(0),option0Text,"box");
-		 if(GUI.Button(GetTextureRect(0), option0Texture))
-		 {
-			  Application.LoadLevel(gameScene[(int)episode,0]);
-		 }
-
-		 // Option 2 - sneak, race, shave
-		 GUI.Label(GetTextRect(1),option1Text,"box");
-		 if(GUI.Button(GetTextureRect(1), option1Texture))
-		 {
-			  Application.LoadLevel(gameScene[(int)episode,1]);
-		 }
-		 
-		 // Option 3 - lure, puzzle, simon
-		 GUI.Label(GetTextRect(2),option2Text,"box");
-		 if(GUI.Button(GetTextureRect(2), option2Texture))
-		 {
-			  Application.LoadLevel(gameScene[(int)episode,2]);
-		 }
-		 */
 	}
 
 	private Rect GetTextRect(int optionNumber)

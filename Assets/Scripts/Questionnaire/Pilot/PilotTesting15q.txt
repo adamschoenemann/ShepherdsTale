@@ -1,0 +1,15 @@
+rate 1-5
+1. Everything in the game is consistent in regards to audio elements.
+2. Everything in the game is consistent in regards to visual elements.
+3. Everything is consistent in terms of story.
+4. All the events have some importance for progress in the game.
+5. The game provides enough time and challenge to keep your attention.
+6. There was nothing distracting in the game.
+7. The challenges were progressing in difficulty at the same pace as the story progression.
+8. The start of the game did not imply any confusion and difficulty in regards to controls and play.
+9. The control of the main character is satisfactory.
+10. The game provides sufficient freedom for the event completion.
+11. The goal of the events is clear.
+12. The story of the game is entertaining.
+13. Interacting with the environments was as expected.
+14. The perspective and elements shown on the screen are sufficient for the gameplay to be smooth.
