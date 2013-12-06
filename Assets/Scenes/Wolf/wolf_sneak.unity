@@ -327,7 +327,7 @@ GameObject:
   - 65: {fileID: 66961680}
   m_Layer: 0
   m_Name: 03_Waypoint_prefab
-  m_TagString: Waypoint
+  m_TagString: WolfWaypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -633,6 +633,10 @@ Prefab:
     - target: {fileID: 11400018, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
       propertyPath: globalDensity
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400018, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
@@ -1250,7 +1254,7 @@ GameObject:
   - 65: {fileID: 259624925}
   m_Layer: 0
   m_Name: 04_Waypoint_prefab
-  m_TagString: Waypoint
+  m_TagString: WolfWaypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2603,7 +2607,7 @@ GameObject:
   - 65: {fileID: 461155779}
   m_Layer: 0
   m_Name: 01_Waypoint_prefab
-  m_TagString: Waypoint
+  m_TagString: WolfWaypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2690,7 +2694,7 @@ GameObject:
   - 65: {fileID: 464625275}
   m_Layer: 0
   m_Name: 01_Waypoint_prefab
-  m_TagString: Waypoint
+  m_TagString: WolfWaypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3068,7 +3072,7 @@ GameObject:
   - 65: {fileID: 543024883}
   m_Layer: 0
   m_Name: 01_Waypoint_prefab
-  m_TagString: Waypoint
+  m_TagString: WolfWaypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3983,7 +3987,7 @@ GameObject:
   - 65: {fileID: 660583651}
   m_Layer: 0
   m_Name: 03_Waypoint_prefab
-  m_TagString: Waypoint
+  m_TagString: WolfWaypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -9177,7 +9181,7 @@ GameObject:
   - 65: {fileID: 1185902777}
   m_Layer: 0
   m_Name: 00_Waypoint_prefab
-  m_TagString: Waypoint
+  m_TagString: WolfWaypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -9666,7 +9670,7 @@ GameObject:
   - 65: {fileID: 1291786397}
   m_Layer: 0
   m_Name: 00_Waypoint_prefab
-  m_TagString: Waypoint
+  m_TagString: WolfWaypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -11587,7 +11591,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 80834604}
   m_GameObject: {fileID: 1393358818}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34c3946ab5378473cb34bedd1c8194ba, type: 3}
   m_Name: 
@@ -12844,7 +12848,7 @@ GameObject:
   - 65: {fileID: 1586979251}
   m_Layer: 0
   m_Name: 02_Waypoint_prefab
-  m_TagString: Waypoint
+  m_TagString: WolfWaypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -13028,7 +13032,7 @@ GameObject:
   - 65: {fileID: 1602449405}
   m_Layer: 0
   m_Name: 02_Waypoint_prefab
-  m_TagString: Waypoint
+  m_TagString: WolfWaypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -16594,7 +16598,7 @@ GameObject:
   - 65: {fileID: 2060303283}
   m_Layer: 0
   m_Name: 00_Waypoint_prefab
-  m_TagString: Waypoint
+  m_TagString: WolfWaypoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
