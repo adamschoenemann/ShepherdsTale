@@ -1240,6 +1240,46 @@ Light:
   m_ShadowAngle: 0
   m_IndirectIntensity: 1
   m_AreaSize: {x: 1, y: 1}
+--- !u!1001 &671445930
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 53b9d010fe5284281aadf7a639960d2f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 5.09703445
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 53b9d010fe5284281aadf7a639960d2f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 53.730072
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 53b9d010fe5284281aadf7a639960d2f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -37.9122849
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 53b9d010fe5284281aadf7a639960d2f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 53b9d010fe5284281aadf7a639960d2f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 53b9d010fe5284281aadf7a639960d2f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 53b9d010fe5284281aadf7a639960d2f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 53b9d010fe5284281aadf7a639960d2f, type: 2}
+  m_RootGameObject: {fileID: 1716938419}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &682481172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1591,7 +1631,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: b554579d2151247a99265e6e6b8c1074, type: 3}
   m_PrefabInternal: {fileID: 962482501}
   m_GameObject: {fileID: 880608084}
-  m_LocalRotation: {x: 0, y: -.389730006, z: 0, w: .920929134}
+  m_LocalRotation: {x: 0, y: -.389730036, z: 0, w: .920929193}
   m_LocalPosition: {x: 248.002975, y: -0, z: 421.080597}
   m_LocalScale: {x: 2.1580472, y: 2.1580472, z: 2.1580472}
   m_Children:
@@ -2486,6 +2526,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c94490edf8dc4b8a9e34f894118a92e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
   wolf_fightImage: {fileID: 2800000, guid: 54f183bce6a11402bbe466020cb2e89f, type: 3}
   wolf_lureImage: {fileID: 2800000, guid: 5e9c9947742224b3483a7ef1047c2603, type: 3}
   wolf_sneakImage: {fileID: 2800000, guid: bb09ecd58c33f40ce8ffb3d89d6b9825, type: 3}
@@ -3065,6 +3107,46 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1617240038}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1716938419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: 53b9d010fe5284281aadf7a639960d2f, type: 2}
+  m_PrefabInternal: {fileID: 671445930}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1716938421}
+  - 114: {fileID: 1716938420}
+  m_Layer: 0
+  m_Name: Logger_prefab
+  m_TagString: Logger
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1716938420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: 53b9d010fe5284281aadf7a639960d2f,
+    type: 2}
+  m_PrefabInternal: {fileID: 671445930}
+  m_GameObject: {fileID: 1716938419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5cca492caae70b40ae8351860d54baa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+--- !u!4 &1716938421
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: 53b9d010fe5284281aadf7a639960d2f, type: 2}
+  m_PrefabInternal: {fileID: 671445930}
+  m_GameObject: {fileID: 1716938419}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.09703445, y: 53.730072, z: -37.9122849}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &1726729505
 GameObject:
   m_ObjectHideFlags: 0

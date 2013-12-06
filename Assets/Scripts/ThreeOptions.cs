@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ThreeOptions : MonoBehaviour {
+public class ThreeOptions : Loggable
+{
 
 	public Texture wolf_fightImage;
 	public Texture wolf_lureImage;
@@ -21,7 +22,13 @@ public class ThreeOptions : MonoBehaviour {
 	
 	public enum Episode {Wolf = 0, Loonie = 1, SheepKing = 2};
 	public Episode episode = Episode.Loonie;
-		 
+	
+	protected override void SetupLogging()
+	{
+		base.SetupLogging();
+		name = Application.loadedLevelName + "_loggable";
+	}
+
 	void Start ()
 	{ 
 		Screen.showCursor = true;
@@ -89,7 +96,10 @@ public class ThreeOptions : MonoBehaviour {
 				Screen.showCursor = false;
 
 				// Log choice
-				
+				LogEntry entry = new LogEntry(this, "Choice")
+					.AddString("choiceName", Application.loadedLevelName)
+					.AddString("sceneName", choices.options[i].sceneName);
+				logger.Enqueue(entry);
 
 				Application.LoadLevel(choices.options[i].sceneName);
 			}
@@ -131,4 +141,15 @@ public class ThreeOptions : MonoBehaviour {
 
 		// TODO Shuffle method here
 	}
+
+	public override bool ShouldLogRoutinely()
+	{
+		return false;
+	}
+
+	protected override void BeforeEnqueueEntry(LogEntry entry)
+	{
+
+	}
+
 }

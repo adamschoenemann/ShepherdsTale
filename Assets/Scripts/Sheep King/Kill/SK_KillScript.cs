@@ -1,4 +1,15 @@
 using UnityEngine;
+using System;
+
+public class SKKillEventArgs : EventArgs
+{
+	public readonly SK_KillScript.States oldState, newState;
+	public SKKillEventArgs(SK_KillScript.States o, SK_KillScript.States n)
+	{
+		oldState = o;
+		newState = n;
+	}
+}
 
 public class SK_KillScript : MonoBehaviour
 {
@@ -21,7 +32,22 @@ public class SK_KillScript : MonoBehaviour
 	private Animator anim;
 	
 	public enum States{aim, run, stun}; 
-	public States state;
+	private States _state;
+	public States state
+	{
+		get
+		{
+			return _state;
+		}
+		set
+		{
+			if(value != _state)
+			{
+				OnStateChange(_state, value);
+			}
+			_state = value;
+		}
+	}
 				
 	private Vector3 startRunPos;
 	private float runDistanceTargetSquared;
@@ -31,6 +57,16 @@ public class SK_KillScript : MonoBehaviour
 	private bool hitSoftObstacle = false;
 
 	private Timer timer;
+
+	public event EventHandler<SKKillEventArgs> onStateChangeEvent;
+
+	void OnStateChange(States oldState, States newState)
+	{
+		if(onStateChangeEvent != null)
+		{
+			onStateChangeEvent(this, new SKKillEventArgs(oldState, newState));
+		}
+	}
 
 	/*
 		TODO 

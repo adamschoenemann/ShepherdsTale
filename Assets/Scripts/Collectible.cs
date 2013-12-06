@@ -1,7 +1,20 @@
-﻿	using UnityEngine;
+﻿using UnityEngine;
+using System;
 using System.Collections;
 
-public class Collectible : MonoBehaviour {
+public class CollectibleEventArgs : EventArgs
+{
+	public readonly int collectiblesPickedUp;
+	public readonly Vector3 position;
+	public CollectibleEventArgs(int c, Vector3 p)
+	{
+		collectiblesPickedUp = c;
+		position = p;
+	}
+}
+
+public class Collectible : MonoBehaviour
+{
 
 	public Texture Image1;
 	public Texture Black;
@@ -14,7 +27,7 @@ public class Collectible : MonoBehaviour {
 	private float sizeY	= Screen.height*0.8f;
 
 	private static short facts = 6;
-	private static short collectiblesPickedUp = 0;
+	private static int collectiblesPickedUp = 0;
 	
 	static string[] story = {		
 		"FACT I " 	+ 1 + "/" + facts + " \n Egyptians believed that sheep were sacred. They even had them mummified when they died, just like humans.", 
@@ -32,21 +45,21 @@ public class Collectible : MonoBehaviour {
 
 	public Component[] lightSources;
 	
-	// Use this for initialization
-	void Start () {
-
-	}
-
-	// Update is called once per frame
-	void Update () {
-
-	}
+	public event EventHandler<CollectibleEventArgs> onPickUp;
 
 	void OnTriggerEnter (Collider other)
 	{
 		if(other.gameObject.tag == Tags.player)
 		{
 			print ("You found a collectible!" + collectiblesPickedUp);
+			if(onPickUp != null)
+			{
+				onPickUp(this,
+					new CollectibleEventArgs(
+						collectiblesPickedUp,
+						transform.position
+					));
+			}
 			showGUI = true;
 
 			Renderer[] arrend = GetComponentsInChildren<Renderer>();
