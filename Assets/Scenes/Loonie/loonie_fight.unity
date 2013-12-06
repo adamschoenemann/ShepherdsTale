@@ -5689,7 +5689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 5
+  health: 2
   invincibleTime: 500
 --- !u!114 &1393358826
 MonoBehaviour:
@@ -7909,7 +7909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 5
+  health: 5
   invincibleTime: 500
 --- !u!114 &1650948792
 MonoBehaviour:
@@ -9579,7 +9579,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400124, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -.158642054
+      value: .12354213
       objectReference: {fileID: 0}
     - target: {fileID: 400124, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
       propertyPath: m_LocalPosition.y
@@ -9587,7 +9587,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400124, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -2.55211043
+      value: 1.98745096
       objectReference: {fileID: 0}
     - target: {fileID: 400124, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
       propertyPath: m_LocalRotation.x
@@ -9920,7 +9920,7 @@ Transform:
   m_PrefabInternal: {fileID: 2025588932}
   m_GameObject: {fileID: 2055785871}
   m_LocalRotation: {x: 0, y: -.999518335, z: 0, w: .0310356393}
-  m_LocalPosition: {x: -.158642054, y: 0, z: -2.55211043}
+  m_LocalPosition: {x: .12354213, y: 0, z: 1.98745096}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1583723435}

@@ -28,7 +28,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Wolf/wolf_kill.unity
   - enabled: 1
-    path: Assets/Scenes/Wolf/wolf_main.unity
+    path: Assets/Scenes/Wolf/OLDwolf_main.unity
   - enabled: 1
     path: Assets/Scenes/Wolf/wolf_sneak.unity
   - enabled: 1
