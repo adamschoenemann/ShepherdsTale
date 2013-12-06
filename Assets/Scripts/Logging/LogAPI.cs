@@ -62,8 +62,16 @@ public class LogAPI {
 		form.AddField("name", l.name);
 		form.AddField("scene_id", logger.scene_id);
 
+		int retries = 5;
 		WWW www = new WWW(host + "/register_loggable", form);
 		yield return www;
+		while(String.IsNullOrEmpty(www.error) == false && retries-- > 0)
+		{
+			Debug.Log("Retrying...");
+			www = new WWW(host + "/register_loggable", form);
+			yield return www;
+		}
+
 		JSONObject json = HandleResponse(www);
 		Debug.Log("Registered: " + json.ToString());
 		if(cb != null)
@@ -213,4 +221,6 @@ public class LogAPI {
 
 		Debug.Log("session finished: " + www.text);
 	}
+
+
 }
