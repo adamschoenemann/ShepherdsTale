@@ -167,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movie: {fileID: 15200000, guid: 133de6e6d98324533b75ead8f84ffffc, type: 3}
   audio: {fileID: 1020637550}
-  nextSceneName: wolf_main
+  nextSceneName: wolf_three_options
   debug: 1
 --- !u!4 &1020637549
 Transform:
@@ -284,7 +284,7 @@ Prefab:
       objectReference: {fileID: 1020637550}
     - target: {fileID: 11400000, guid: 6e98747e2424747239db7e79d595bbb2, type: 2}
       propertyPath: nextSceneName
-      value: wolf_main
+      value: wolf_three_options
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 6e98747e2424747239db7e79d595bbb2, type: 2}
       propertyPath: debug

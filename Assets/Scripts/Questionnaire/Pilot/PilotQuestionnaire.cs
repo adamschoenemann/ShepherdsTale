@@ -31,6 +31,7 @@ public class PilotQuestionnaire : MonoBehaviour {
 	private int fillOutAllAnswersLabelTimer = 0;
 
 	void Start () {
+		Screen.showCursor = true;
 
 		// Layout
 		float offsetXFactor = 1.0f/6.0f; // The amount of empty screen space in each vertical margin
@@ -85,10 +86,14 @@ public class PilotQuestionnaire : MonoBehaviour {
 			instructionsPage.Draw();
 		}
 		else if (personalityPageIndex ==-1) 
-		{ comPage.Draw ();
+		{ 
+			comPage.Draw ();
 		}
 		else if(personalityPageIndex >= personalityPages.Length)
 		{
+			// End of questionnaire
+			GUI.Label(layout.ElementRect(1,2), "Thanks for your participation in the pilot test!", "box");
+			Screen.showCursor = false;
 			return;
 		}
 		else

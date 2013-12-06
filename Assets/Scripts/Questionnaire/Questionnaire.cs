@@ -32,6 +32,7 @@ public class Questionnaire : MonoBehaviour {
 	private int fillOutAllAnswersLabelTimer = 0;
 
 	void Start () {
+		Screen.showCursor = true;
 
 		// Layout
 		float offsetXFactor = 1.0f/6.0f; // The amount of empty screen space in each vertical margin
@@ -104,6 +105,7 @@ public class Questionnaire : MonoBehaviour {
 			personalityResultsPage.Draw();
 			if(personalityResultsPage.IsUserReadyToStartGame())
 			{
+				Screen.showCursor = false;
 				GoToNextScene();
 			}
 			return;

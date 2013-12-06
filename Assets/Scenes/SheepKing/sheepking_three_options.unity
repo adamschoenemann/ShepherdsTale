@@ -4757,7 +4757,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8631d5df00aa3b4aa21902ba8a7aba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   width: 30
+  distanceThresh: 10
 --- !u!1 &1159154188
 GameObject:
   m_ObjectHideFlags: 0
@@ -5167,11 +5169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04453b7853427ae49819644a29f09a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 200
-  fieldOfView: 110
-  col: {fileID: 0}
-  startHealth: 5
-  listeningRadius: 2
 --- !u!54 &1254645241
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5791,14 +5788,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wolf_fightImage: {fileID: 2800000, guid: 5c6da7ebe15624756ad1845e38ee2360, type: 3}
-  wolf_sneakImage: {fileID: 2800000, guid: 5c6da7ebe15624756ad1845e38ee2360, type: 3}
   wolf_lureImage: {fileID: 2800000, guid: 5c6da7ebe15624756ad1845e38ee2360, type: 3}
+  wolf_sneakImage: {fileID: 2800000, guid: 5c6da7ebe15624756ad1845e38ee2360, type: 3}
   loonie_fightImage: {fileID: 2800000, guid: 5c6da7ebe15624756ad1845e38ee2360, type: 3}
   loonie_raceImage: {fileID: 2800000, guid: 5c6da7ebe15624756ad1845e38ee2360, type: 3}
   loonie_puzzleImage: {fileID: 2800000, guid: 5c6da7ebe15624756ad1845e38ee2360, type: 3}
-  SK_fightImage: {fileID: 2800000, guid: 73920355fed882144a86329f74b10c11, type: 3}
-  SK_shaveImage: {fileID: 2800000, guid: 4e5298656be879746bb47c7dbcd2c417, type: 3}
-  SK_simonImage: {fileID: 2800000, guid: 8679f7959d6f0134ca34134867645800, type: 3}
+  SK_fightImage: {fileID: 2800000, guid: 0ad4ca546314b42b38b2338416800c4d, type: 3}
+  SK_shaveImage: {fileID: 2800000, guid: 26db0a2a0b9bb4692a36a105a40d8338, type: 3}
+  SK_simonImage: {fileID: 2800000, guid: 43821ffc3fcd14c17b79888ea14d6b25, type: 3}
   skin: {fileID: 11400000, guid: e8920fe49b85d074a838f5bc56b47ecf, type: 2}
   episode: 2
 --- !u!136 &1393358826
@@ -9282,16 +9279,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6331ab6fdeaa49ebb0a2efa9e635a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSmoothing: 3
-  normalSpeed: 400
-  sneakSpeed: 150
-  animSpeed: 2
-  lookSmoother: 3
-  useCurves: 0
-  preAttackState: 1948371315
-  attackState: 1130333774
-  preAttackRunState: -1206510790
-  attackRunState: 1585748427
 --- !u!136 &2055785875
 CapsuleCollider:
   m_ObjectHideFlags: 0

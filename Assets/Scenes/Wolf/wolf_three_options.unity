@@ -2486,9 +2486,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c94490edf8dc4b8a9e34f894118a92e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wolf_fightImage: {fileID: 2800000, guid: 46b8801ad8573764189986717dd5a9da, type: 3}
-  wolf_lureImage: {fileID: 2800000, guid: 5adf0265904ea84499e5d01fc9b771f1, type: 3}
-  wolf_sneakImage: {fileID: 2800000, guid: 9edea7a488f12724fb4cf4d9e2c349b2, type: 3}
+  wolf_fightImage: {fileID: 2800000, guid: 54f183bce6a11402bbe466020cb2e89f, type: 3}
+  wolf_lureImage: {fileID: 2800000, guid: 5e9c9947742224b3483a7ef1047c2603, type: 3}
+  wolf_sneakImage: {fileID: 2800000, guid: bb09ecd58c33f40ce8ffb3d89d6b9825, type: 3}
   loonie_fightImage: {fileID: 0}
   loonie_raceImage: {fileID: 0}
   loonie_puzzleImage: {fileID: 0}

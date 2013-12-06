@@ -2512,11 +2512,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wolf_fightImage: {fileID: 2800000, guid: 46b8801ad8573764189986717dd5a9da, type: 3}
-  wolf_sneakImage: {fileID: 2800000, guid: 9edea7a488f12724fb4cf4d9e2c349b2, type: 3}
   wolf_lureImage: {fileID: 2800000, guid: 5adf0265904ea84499e5d01fc9b771f1, type: 3}
-  loonie_fightImage: {fileID: 2800000, guid: 011ed162d404bbb409346af62ea1ee2e, type: 3}
-  loonie_raceImage: {fileID: 2800000, guid: 20e877ce04b2e4a4aaea854aa0bbecc8, type: 3}
-  loonie_puzzleImage: {fileID: 2800000, guid: bdbc2002e244fe24eb6abd561d4370be, type: 3}
+  wolf_sneakImage: {fileID: 2800000, guid: 9edea7a488f12724fb4cf4d9e2c349b2, type: 3}
+  loonie_fightImage: {fileID: 2800000, guid: d93c339dd69ab4749bef28a3bb32ddd6, type: 3}
+  loonie_raceImage: {fileID: 2800000, guid: e7e7acbf4247243ddad05c312f51b7f1, type: 3}
+  loonie_puzzleImage: {fileID: 2800000, guid: 4c5c696d957664e07be7cefb719094d6, type: 3}
   SK_fightImage: {fileID: 2800000, guid: 73920355fed882144a86329f74b10c11, type: 3}
   SK_shaveImage: {fileID: 2800000, guid: 4e5298656be879746bb47c7dbcd2c417, type: 3}
   SK_simonImage: {fileID: 2800000, guid: 4e5298656be879746bb47c7dbcd2c417, type: 3}
@@ -3370,16 +3370,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6331ab6fdeaa49ebb0a2efa9e635a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSmoothing: 3
-  normalSpeed: 400
-  sneakSpeed: 150
-  animSpeed: 2
-  lookSmoother: 3
-  useCurves: 0
-  preAttackState: 1948371315
-  attackState: 1130333774
-  preAttackRunState: -1206510790
-  attackRunState: 1585748427
 --- !u!136 &2055785875
 CapsuleCollider:
   m_ObjectHideFlags: 0

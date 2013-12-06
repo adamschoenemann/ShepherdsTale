@@ -18,7 +18,6 @@ public class InteractionRoadSign: MonoBehaviour {
 	{
 		if(other.gameObject.tag == Tags.player)
 		{
-			print("hello Road");
 			isInteracting = true;
 		}
 	}
@@ -30,7 +29,7 @@ public class InteractionRoadSign: MonoBehaviour {
 			switch(level)
 			{
 				case Level.Wolf:
-					Application.LoadLevel("wolf_three_options");
+					Application.LoadLevel("wolf_intro");
 					break;
 				case Level.Loonie:
 					Application.LoadLevel("loonie_three_options");
@@ -47,7 +46,6 @@ public class InteractionRoadSign: MonoBehaviour {
 	{
 		if(other.gameObject.tag == Tags.player)
 		{
-			print ("bye bye Road");
 			isInteracting = false;
 		}
 		
