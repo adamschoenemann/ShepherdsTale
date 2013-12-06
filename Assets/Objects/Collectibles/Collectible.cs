@@ -19,13 +19,13 @@ public class Collectible : MonoBehaviour {
 	static string[] story = {		
 		"FACT I " 	+ 1 + "/" + facts + " \n Egyptians believed that sheep were sacred. They even had them mummified when they died, just like humans.", 
 		"FACT II " 	+ 2 + "/" + facts + " \n Sheep are known to self-medicate when they have some illnesses. They will eat specific plants when ill that can cure them.", 
-		"FACT III " + 3 + "/" + facts + " \n fact3", 
-		"FACT IV " 	+ 4 + "/" + facts + " \n fact4", 
-		"FACT V " 	+ 5 + "/" + facts + " \n fact5", 
-		"FACT VI " 	+ 6 + "/" + facts + " \n fact6", 
-		"FACT VII " + 7 + "/" + facts + " \n fact7", 
-		"FACT IIX " + 8 + "/" + facts + " \n fact8", 
-		"FACT IX " 	+ 9 + "/" + facts + " \n fact9"
+		"FACT III " + 3 + "/" + facts + " \n Sheep are one of the 12 animals in the Chinese zodiac. Sheep are seen to represent righteousness, sincerity, gentleness, and compassion.", 
+		"FACT IV " 	+ 4 + "/" + facts + " \n Sheep have ben shown to display emotions, some of which can be studied by observing the position of their ears.", 
+		"FACT V " 	+ 5 + "/" + facts + " \n Contrary to popular misconception, sheep are extremely intelligent animals capable of problem solving.", 
+		"FACT VI " 	+ 6 + "/" + facts + " \n Sheep make different vocalisations to communicate different emotions. They also display and recognise emotion by facial expressions.", 
+		"FACT VII " + 7 + "/" + facts + " \n One pound of wool can make ten miles of spun yarn.", 
+		"FACT IIX " + 8 + "/" + facts + " \n There were at least 2386 different species of sheep in Wales before it was inhabited", 
+		"FACT IX " 	+ 9 + "/" + facts + " \n The average pulse rate for sheep is 75 heart beats per minute."
 	};
 	
 	private bool showGUI = false;
