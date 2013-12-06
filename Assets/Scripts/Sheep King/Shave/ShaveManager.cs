@@ -1,5 +1,17 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
+
+public class ShaveManagerEventArgs : EventArgs
+{
+  public readonly int totalCuts, correctStreak, woolsToCutOff;
+  public ShaveManagerEventArgs(int t, int c, int w)
+  {
+    totalCuts = t;
+    correctStreak = c;
+    woolsToCutOff = w;
+  }
+}
 
 public class ShaveManager : MonoBehaviour {
 
@@ -16,6 +28,10 @@ public class ShaveManager : MonoBehaviour {
 
 	private int correctStreak = 0;
 	private int totalCuts = 0;
+
+	// Events
+  public event EventHandler<ShaveManagerEventArgs> onUpdateTotalCuts;
+  public event EventHandler onLevelCompleted;
 
 	// Use this for initialization
 	void Start () {
@@ -53,10 +69,15 @@ public class ShaveManager : MonoBehaviour {
 	private void UpdateTotalCuts()
 	{
 		totalCuts += correctStreak;
+		if(onUpdateTotalCuts != null)
+      onUpdateTotalCuts(this,
+       new ShaveManagerEventArgs(totalCuts, correctStreak, woolsToCutOff));
 		//Debug.Log("totalCuts: " + totalCuts);
 		if(totalCuts >= woolsToCutOff)
 		{
 			// Win.
+			if(onLevelCompleted != null)
+        onLevelCompleted(this, EventArgs.Empty);
 			Application.LoadLevel("game_finish");
 		}
 	}

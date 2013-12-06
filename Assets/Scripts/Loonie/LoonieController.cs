@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using Wolf;
 
 public class LoonieController : LoonieBaseController {
+
+	public event EventHandler onPlayerAudible;
+  public event EventHandler onPlayerVisible;
 	
 	protected override void Awake()
 	{
@@ -42,6 +46,16 @@ public class LoonieController : LoonieBaseController {
 				return false;
 			}
 		}
+		if(onPlayerAudible != null)
+			onPlayerAudible(this, EventArgs.Empty);
+		return result;
+	}
+
+	protected override bool IsPlayerVisible()
+	{
+		bool result = base.IsPlayerVisible();
+		if(result && onPlayerVisible != null)
+			onPlayerVisible(this, EventArgs.Empty);
 		return result;
 	}
 	

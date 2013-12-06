@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 public class LoonieAttack : MonoBehaviour {
@@ -17,6 +18,8 @@ public class LoonieAttack : MonoBehaviour {
     public float smooth = 5.0F;
 	
 	Timer timer;
+
+	public event EventHandler onPlayerCaught;
 	
 	// Use this for initialization
 	void Start () {
@@ -53,6 +56,8 @@ public class LoonieAttack : MonoBehaviour {
 				playerMovement.runSpeed = 0.0f;
 				playerAnimation.anim.SetBool("LoonieStuck", true);
 				startCounter = true;
+				if(onPlayerCaught != null)
+					onPlayerCaught(this, EventArgs.Empty);
 			}
 		}
 		

@@ -1,9 +1,25 @@
 using UnityEngine;
+using System;
+
+public class DamageEventArgs : EventArgs
+{
+	public readonly GameObject attacker, victim;
+	public readonly int damage;
+	public readonly Mortal mortal;
+	public DamageEventArgs(Mortal m, GameObject v, GameObject a, int d)
+	{
+		mortal = m;
+		victim = v;
+		attacker = a;
+		damage = d;
+	}
+}
+
 public class Mortal : MonoBehaviour
 {
 
-	public int startHealth = 5;
-	private int health;
+	public int startHealth {private set; get;}
+	public int health = 5;
 	public int invincibleTime = 500;
 
 	public delegate void OnDeathDelegate(Mortal instance, GameObject attacker);
@@ -12,11 +28,13 @@ public class Mortal : MonoBehaviour
 	public OnDeathDelegate onDeathHandler;
 	public OnDamageDelegate onDamageHandler;
 
+	public event EventHandler<DamageEventArgs> onDamageEvent;
+
 	private Timer invincibleTimer;
 
 	void Start()
 	{
-		health = startHealth;
+		startHealth = health;
 	}
 
 	public int GetHealth()
@@ -42,6 +60,8 @@ public class Mortal : MonoBehaviour
 				return health;
 		}
 		health -= amount;
+		if(onDamageEvent != null)
+			onDamageEvent(this, new DamageEventArgs(this, gameObject, attacker, amount));
 		invincibleTimer = new Timer(invincibleTime);
 		print("Taking " + amount + " in damage");
 		if(IsAlive() == false)

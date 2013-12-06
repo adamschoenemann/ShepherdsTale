@@ -1,6 +1,19 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
+
+public class HitSheepEventArgs : EventArgs
+{
+  public readonly int hit, progress, level, rightHit;
+  public HitSheepEventArgs(int h, int p, int l, int r)
+  {
+    hit = h;
+    progress = p;
+    level = l;
+    rightHit = r;
+  }
+}
 
 /*
 	TODO
@@ -98,6 +111,11 @@ public class SimonManager : MonoBehaviour {
 	private Timer waitToShowTimer;
 
 	public bool playerMadeMistake;
+
+	// Events
+  public event EventHandler<HitSheepEventArgs> onPlayerHitRightSheep;
+  public event EventHandler<HitSheepEventArgs> onPlayerHitWrongSheep;
+  public event EventHandler onLevelCompleted;
 
 	// Initialization
 	void Start () {
@@ -202,6 +220,12 @@ public class SimonManager : MonoBehaviour {
 			progress++;
 
 			playerMadeMistake = false;
+			if(onPlayerHitRightSheep != null)
+      {
+        onPlayerHitRightSheep(this,
+          new HitSheepEventArgs(sheepHit, level, progress, sheepHit)
+        );
+      }
 			
 			if(progress > level)
 			{
@@ -213,6 +237,8 @@ public class SimonManager : MonoBehaviour {
 				if(level >= numberOfLevels + startLevel)
 				{
 					// win; finish game
+					if(onLevelCompleted != null)
+            onLevelCompleted(this, EventArgs.Empty);
 					GoToState(State.Finished);
 					Debug.Log("You won the game!");
 					winSound.Play();
@@ -229,6 +255,12 @@ public class SimonManager : MonoBehaviour {
 		{
 			// FLAG
 			playerMadeMistake = true;
+			if(onPlayerHitWrongSheep != null)
+      {
+        onPlayerHitWrongSheep(this, 
+                new HitSheepEventArgs(sheepHit, level, progress, GetNoteAt(level, progress))
+        );
+      }
 
 			// Activate all sheep at once, and go back to first level
 			foreach(SimonSheep s in sheep)
