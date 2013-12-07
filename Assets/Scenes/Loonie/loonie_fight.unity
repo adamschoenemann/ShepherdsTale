@@ -7990,7 +7990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 1
   invincibleTime: 500
 --- !u!114 &1650948792
 MonoBehaviour:
@@ -10058,6 +10058,7 @@ MonoBehaviour:
   trapKey: e
   sound: {fileID: 2055785878}
   trap: {fileID: 100006, guid: b2534b20e22dd6f46a73abbbf1fb6716, type: 2}
+  timeToSetTrap: 1
   trapIcon: {fileID: 2800000, guid: 1f7f155e93b466349a2db227366a9d6b, type: 3}
 --- !u!136 &2055785875
 CapsuleCollider:

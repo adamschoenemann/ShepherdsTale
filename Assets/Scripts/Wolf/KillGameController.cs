@@ -11,6 +11,7 @@ public class KillGameController : MonoBehaviour
 	private int wolvesLeft;
 
 	private Timer restartLevelTimer = null;
+	private Timer nextLevelTimer = null;
 
 	void Start()
 	{
@@ -39,6 +40,14 @@ public class KillGameController : MonoBehaviour
 			{
 				RestartLevel();
 			}
+		} 
+		else if(nextLevelTimer != null)
+		{
+			nextLevelTimer.TickSeconds(Time.deltaTime);
+			if(nextLevelTimer.IsDone())
+			{
+				Application.LoadLevel("wolf_finish");
+			}
 		}
 	}
 
@@ -49,8 +58,10 @@ public class KillGameController : MonoBehaviour
 		wolvesLeft--;
 		if(wolvesLeft <= 0)
 		{
+			StartNextLevelTimer();
+			displayComplete = true;
 			Debug.Log("Level completed!");
-			Application.LoadLevel("wolf_finish");
+			//Application.LoadLevel("wolf_finish");
 		}
 	}
 
@@ -69,8 +80,14 @@ public class KillGameController : MonoBehaviour
 	{
 		if(displayComplete == false)
 		{
+			StartNextLevelTimer();
 			displayComplete = true;
 		}
+	}
+
+	private void StartNextLevelTimer()
+	{
+		nextLevelTimer = new Timer(4.0f);
 	}
 
 	/*IEnumerator*/ void RestartLevel()

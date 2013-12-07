@@ -8,11 +8,25 @@ public class SneakGameController : MonoBehaviour
 	private bool displayRestart = false,
 							 displayComplete = false;
 
+	private Timer nextLevelTimer = null;
+
 	void Awake()
 	{
 	
 		WolfController.onPlayerSeen += OnPlayerSeenHandler;
 		LevelComplete.onPlayerEntered += OnLevelComplete;
+	}
+
+	void Update()
+	{
+		if(nextLevelTimer != null)
+		{
+			nextLevelTimer.TickSeconds(Time.deltaTime);
+			if(nextLevelTimer.IsDone())
+			{
+				Application.LoadLevel("wolf_finish");
+			}
+		}
 	}
 
 	void OnPlayerSeenHandler(object wolf, EventArgs args)
@@ -27,11 +41,17 @@ public class SneakGameController : MonoBehaviour
 
 	void OnLevelComplete(object obj, EventArgs args)
 	{
-		Application.LoadLevel("wolf_finish");
+		//Application.LoadLevel("wolf_finish");
 		if(displayComplete == false)
 		{
 			displayComplete = true;
+			StartNextLevelTimer();
 		}
+	}
+
+	private void StartNextLevelTimer()
+	{
+		nextLevelTimer = new Timer(3.0f);
 	}
 
 	IEnumerator RestartLevel()
@@ -61,7 +81,7 @@ public class SneakGameController : MonoBehaviour
 								 Screen.height * 0.5f - height/2,
 								 200f,
 								 20f)
-				, "You completed the level!");
+				, "You got through!");
 		}
 	}
 

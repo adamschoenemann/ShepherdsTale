@@ -6,7 +6,7 @@ using Wolf;
 public class LoonieController : LoonieBaseController {
 
 	public event EventHandler onPlayerAudible;
-  public event EventHandler onPlayerVisible;
+  	public event EventHandler onPlayerVisible;
 	
 	protected override void Awake()
 	{

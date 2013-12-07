@@ -12,6 +12,7 @@ public class TrapGameController : MonoBehaviour
 	private int nWolvesLeft;
 
 	private GameObject player;
+	private Timer nextLevelTimer = null;
 
 	void Start()
 	{
@@ -32,9 +33,19 @@ public class TrapGameController : MonoBehaviour
 			displayRestart = true;
 			StartCoroutine(RestartLevel());
 		};
-
 	}
 
+	void Update()
+	{
+		if(nextLevelTimer != null)
+		{
+			nextLevelTimer.TickSeconds(Time.deltaTime);
+			if(nextLevelTimer.IsDone())
+			{
+				Application.LoadLevel("wolf_finish");
+			}
+		}
+	}
 	
 	void OnWolfDiedHandler(Mortal mortal, GameObject killer)
 	{
@@ -42,7 +53,7 @@ public class TrapGameController : MonoBehaviour
 		nWolvesLeft--;
 		if(nWolvesLeft <= 0)
 		{
-			Application.LoadLevel("wolf_finish");
+			StartNextLevelTimer();
 			Debug.Log("Level completed!");
 			displayComplete = true;
 		}
@@ -52,8 +63,14 @@ public class TrapGameController : MonoBehaviour
 	{
 		if(displayComplete == false)
 		{
+			StartNextLevelTimer();
 			displayComplete = true;
 		}
+	}
+
+	private void StartNextLevelTimer()
+	{
+		nextLevelTimer = new Timer(4.0f);
 	}
 
 	IEnumerator RestartLevel()

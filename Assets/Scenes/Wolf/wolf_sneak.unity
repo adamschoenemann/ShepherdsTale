@@ -18609,6 +18609,7 @@ MonoBehaviour:
   trapKey: e
   sound: {fileID: 2055785878}
   trap: {fileID: 100006, guid: b2534b20e22dd6f46a73abbbf1fb6716, type: 2}
+  timeToSetTrap: 1
   trapIcon: {fileID: 2800000, guid: 1f7f155e93b466349a2db227366a9d6b, type: 3}
 --- !u!114 &2055785884
 MonoBehaviour:
