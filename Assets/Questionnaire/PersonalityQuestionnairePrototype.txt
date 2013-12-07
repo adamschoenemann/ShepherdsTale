@@ -2,7 +2,7 @@ Statement,Counterstatement,Inverse grading,Type
 I love to read challenging material., I avoid difficult reading material.,n,O
 I leave a mess in my room., I love to tidy up.,y,C
 I often feel uncomfortable about others., I feel comfortable around people.,y,E
-I am interested in others., I am not interested in other people's problems.,n,A
+I am interested in others' problems., I am not interested in other people's problems.,n,A
 I am relaxed all the time., I get stressed out easily.,n,N
 I have a vivid imagination., I do not have a good imagination.,n,O
 I follow a schedule., I waste my time.,n,C
@@ -27,5 +27,5 @@ I get angry easily., I seldom get mad.,y,N
 I have a rich vocabulary., I do not use any difficult words.,n,O
 I am always prepared., I make a mess of things.,n,C
 I talk to a lot of people at parties., I find it difficult to approach others.,n,E
-I can't stand conversations., I love a good fight.,n,A
+I can't stand confrontations., I love a good fight.,n,A
 I get overwhelmed by emotion., I seldom get emotional.,y,N
