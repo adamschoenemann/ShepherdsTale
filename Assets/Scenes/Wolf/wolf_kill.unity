@@ -13063,9 +13063,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: .0460325293
-  m_Height: .75
+  m_Height: .569999993
   m_Direction: 1
-  m_Center: {x: 1.5260186e-05, y: .0900000036, z: 1.15483999e-07}
+  m_Center: {x: 1.5260186e-05, y: 0, z: 1.15483999e-07}
 --- !u!54 &825052882
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21140,7 +21140,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .215686277, g: .278431386, b: .403921574, a: .0196078438}
+  m_BackGroundColor: {r: .917647064, g: .784313738, b: .784313738, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -21201,7 +21201,7 @@ MonoBehaviour:
   globalDensity: 4.5
   heightScale: 100
   height: 0
-  globalFogColor: {r: .215686277, g: .278431386, b: .41568628, a: 1}
+  globalFogColor: {r: .764705896, g: .764705896, b: .764705896, a: 1}
   fogShader: {fileID: 4800000, guid: 70d8568987ac0499f952b54c7c13e265, type: 3}
 --- !u!114 &1393358826
 MonoBehaviour:
@@ -29509,7 +29509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69cde2a20f757a2489cea30f607fc454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 150
+  runSpeed: 200
   sneakSpeed: 125
 --- !u!82 &2055785878
 AudioSource:

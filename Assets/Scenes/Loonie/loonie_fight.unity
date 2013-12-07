@@ -3303,9 +3303,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: .0460325293
-  m_Height: .75
+  m_Height: .569999993
   m_Direction: 1
-  m_Center: {x: 1.5260186e-05, y: .0900000036, z: 1.15483999e-07}
+  m_Center: {x: 1.5260186e-05, y: 0, z: 1.15483999e-07}
 --- !u!54 &835509936
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5784,11 +5784,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fogMode: 2
-  startDistance: 10
-  globalDensity: 4
+  startDistance: 6
+  globalDensity: 3
   heightScale: 100
   height: 0
-  globalFogColor: {r: .215686277, g: .278431386, b: .41568628, a: 1}
+  globalFogColor: {r: .764705896, g: .764705896, b: .764705896, a: 1}
   fogShader: {fileID: 4800000, guid: 70d8568987ac0499f952b54c7c13e265, type: 3}
 --- !u!114 &1393358827
 MonoBehaviour:

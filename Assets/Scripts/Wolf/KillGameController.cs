@@ -102,6 +102,12 @@ public class KillGameController : MonoBehaviour
 								 20f)
 				, "You completed the level!");
 		}
+
+		// Display number of wolves left:
+		int x = Screen.width - 100;
+		int y = Screen.height - 50;
+
+		GUI.Label(new Rect(x, y, 100, 50), (wolvesLeft + " wolves left."));
 	}
 
 }
