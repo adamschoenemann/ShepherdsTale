@@ -220,7 +220,7 @@ public class PilotQuestionnaire : MonoBehaviour {
 
 	private void WriteLine(string[] line)
 	{
-		CSVWriter.WriteNewRow(Application.dataPath + @"/Output", "PilotQuestionnaireResponses.csv", line, ",");
+		CSVWriter.WriteNewRow(Application.dataPath + @"/Output", "PilotQuestionnaireResponses.csv", line, "|");
 	}
 }
 

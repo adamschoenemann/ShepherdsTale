@@ -225,7 +225,7 @@ public class Questionnaire : MonoBehaviour {
 
 	private void WriteLine(string[] line)
 	{
-		CSVWriter.WriteNewRow(Application.dataPath + @"/Output", "QuestionnaireResponses.csv", line, ",");
+		CSVWriter.WriteNewRow(Application.dataPath + @"/Output", "QuestionnaireResponses.csv", line, "|"); // Separate by pipe
 	}
 
 	private void GoToNextScene()
