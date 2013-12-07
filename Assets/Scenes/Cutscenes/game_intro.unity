@@ -165,9 +165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfafe67dca03749dd963f62e37d6808b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movie: {fileID: 15200000, guid: bdfb7a6e4e51140d0846e3c715f9f28e, type: 3}
+  movie: {fileID: 15200000, guid: c0bcd3b97d1d24285832ac78dc5ed0c2, type: 3}
   audio: {fileID: 1020637550}
   nextSceneName: wolf_main
+  delayStartInSeconds: .200000003
   debug: 0
 --- !u!4 &1020637549
 Transform:
@@ -188,7 +189,7 @@ AudioSource:
   m_GameObject: {fileID: 1020637547}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: bdfb7a6e4e51140d0846e3c715f9f28e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5283425c4b70fad49a073415133ca82c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -276,7 +277,7 @@ Prefab:
     - target: {fileID: 11400000, guid: 6e98747e2424747239db7e79d595bbb2, type: 2}
       propertyPath: movie
       value: 
-      objectReference: {fileID: 15200000, guid: bdfb7a6e4e51140d0846e3c715f9f28e,
+      objectReference: {fileID: 15200000, guid: c0bcd3b97d1d24285832ac78dc5ed0c2,
         type: 3}
     - target: {fileID: 11400000, guid: 6e98747e2424747239db7e79d595bbb2, type: 2}
       propertyPath: audio
@@ -289,6 +290,10 @@ Prefab:
     - target: {fileID: 11400000, guid: 6e98747e2424747239db7e79d595bbb2, type: 2}
       propertyPath: debug
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6e98747e2424747239db7e79d595bbb2, type: 2}
+      propertyPath: delayStartInSeconds
+      value: .200000003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e98747e2424747239db7e79d595bbb2, type: 2}
@@ -325,7 +330,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: dd6fbd4e7448548ac8816d4b80747010, type: 2}
+  - {fileID: 2100000, guid: c0afe385b7db84904ac9d89781597a46, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0

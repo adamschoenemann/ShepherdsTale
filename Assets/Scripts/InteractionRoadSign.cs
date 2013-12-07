@@ -37,8 +37,7 @@ public class InteractionRoadSign: MonoBehaviour {
 				case Level.SheepKing:
 					Application.LoadLevel("sheepking_three_options");
 					break;
-			}
-			
+			}	
 		}
 	}
 	

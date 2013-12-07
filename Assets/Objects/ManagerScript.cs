@@ -20,7 +20,7 @@ public class ManagerScript : MonoBehaviour {
 			// LOG HERE
 			print ("Gratulations!");
 			Destroy(port);
-			Application.LoadLevel("sheepking_intro");
+			Application.LoadLevel("loonie_finish");
 		}
 		
 		if(Input.GetKeyDown("q"))

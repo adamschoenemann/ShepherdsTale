@@ -6,12 +6,19 @@ public class Cutscene : MonoBehaviour {
 	public MovieTexture movie;
 	public AudioSource audio;
 	public string nextSceneName;
+	public float delayStartInSeconds = 0.0f;
 	public bool debug = false;
 
 	private Timer goToNextLevel;
+	private Timer startMovie;
 
 	// Use this for initialization
 	void Start () 
+	{
+		startMovie = new Timer(delayStartInSeconds);
+	}
+
+	private void StartMovie()
 	{
 		if(movie != null)
 		{
@@ -28,12 +35,25 @@ public class Cutscene : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		goToNextLevel.TickSeconds(Time.deltaTime);
-
-		if(goToNextLevel.IsDone())
+		if(startMovie != null)
 		{
-			Application.LoadLevel(nextSceneName);
+			startMovie.TickSeconds(Time.deltaTime);
+			if(startMovie.IsDone())
+			{
+				startMovie = null;
+				StartMovie();
+			}
 		}
+		else
+		{
+			goToNextLevel.TickSeconds(Time.deltaTime);
+			if(goToNextLevel.IsDone())
+			{
+				Application.LoadLevel(nextSceneName);
+			}
+		}
+
+		
 	}
 
 	void OnGUI()

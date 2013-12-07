@@ -32,7 +32,7 @@ public class LoonieController : LoonieBaseController {
 
 	void OnLoonieDeath(Mortal mortal, GameObject obj)
 	{
-		Application.LoadLevel("sheepking_intro");
+		Application.LoadLevel("loonie_finish");
 	}
 	
 	

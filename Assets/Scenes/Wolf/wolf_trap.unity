@@ -7843,6 +7843,7 @@ GameObject:
   - 114: {fileID: 555628244}
   - 95: {fileID: 555628243}
   - 65: {fileID: 555628242}
+  - 114: {fileID: 555628245}
   m_Layer: 0
   m_Name: SacredRelic
   m_TagString: Untagged
@@ -7906,11 +7907,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 509ec87603684e3479dda9d4dd2d59c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Image1: {fileID: 2800000, guid: f3b0ce42d2cd4d44e9c75213137d7f48, type: 3}
+  Image1: {fileID: 2800000, guid: e09438d736fb345f4b625e0af4204bfd, type: 3}
   Black: {fileID: 2800000, guid: b49c52cf7cc0ee246a640a2974db2e41, type: 3}
   Papyrus: {fileID: 2800000, guid: 6b7e82b5a4fb722478a699439afb976e, type: 3}
   skin: {fileID: 11400000, guid: 71796c5e20f36044384f75f7ec0ec54c, type: 2}
   lightSources: []
+--- !u!114 &555628245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: 91370a89fe8815b4dac55a725f68d8d5,
+    type: 2}
+  m_PrefabInternal: {fileID: 462259545}
+  m_GameObject: {fileID: 555628240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6557fbfa6379c04498347a49001a7367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
 --- !u!1 &561108887
 GameObject:
   m_ObjectHideFlags: 0
@@ -21905,6 +21920,7 @@ GameObject:
   - 114: {fileID: 1486685820}
   - 95: {fileID: 1486685819}
   - 65: {fileID: 1486685818}
+  - 114: {fileID: 1486685821}
   m_Layer: 0
   m_Name: SacredRelic
   m_TagString: Untagged
@@ -21968,11 +21984,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 509ec87603684e3479dda9d4dd2d59c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Image1: {fileID: 2800000, guid: f3b0ce42d2cd4d44e9c75213137d7f48, type: 3}
+  Image1: {fileID: 2800000, guid: e09438d736fb345f4b625e0af4204bfd, type: 3}
   Black: {fileID: 2800000, guid: b49c52cf7cc0ee246a640a2974db2e41, type: 3}
   Papyrus: {fileID: 2800000, guid: 6b7e82b5a4fb722478a699439afb976e, type: 3}
   skin: {fileID: 11400000, guid: 71796c5e20f36044384f75f7ec0ec54c, type: 2}
   lightSources: []
+--- !u!114 &1486685821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: 91370a89fe8815b4dac55a725f68d8d5,
+    type: 2}
+  m_PrefabInternal: {fileID: 147399}
+  m_GameObject: {fileID: 1486685816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6557fbfa6379c04498347a49001a7367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
 --- !u!1 &1487863785
 GameObject:
   m_ObjectHideFlags: 0
@@ -30496,6 +30526,7 @@ GameObject:
   - 114: {fileID: 2029727940}
   - 95: {fileID: 2029727939}
   - 65: {fileID: 2029727938}
+  - 114: {fileID: 2029727941}
   m_Layer: 0
   m_Name: SacredRelic
   m_TagString: Untagged
@@ -30559,11 +30590,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 509ec87603684e3479dda9d4dd2d59c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Image1: {fileID: 2800000, guid: f3b0ce42d2cd4d44e9c75213137d7f48, type: 3}
+  Image1: {fileID: 2800000, guid: e09438d736fb345f4b625e0af4204bfd, type: 3}
   Black: {fileID: 2800000, guid: b49c52cf7cc0ee246a640a2974db2e41, type: 3}
   Papyrus: {fileID: 2800000, guid: 6b7e82b5a4fb722478a699439afb976e, type: 3}
   skin: {fileID: 11400000, guid: 71796c5e20f36044384f75f7ec0ec54c, type: 2}
   lightSources: []
+--- !u!114 &2029727941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: 91370a89fe8815b4dac55a725f68d8d5,
+    type: 2}
+  m_PrefabInternal: {fileID: 2114067528}
+  m_GameObject: {fileID: 2029727936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6557fbfa6379c04498347a49001a7367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
 --- !u!1 &2036862741
 GameObject:
   m_ObjectHideFlags: 0

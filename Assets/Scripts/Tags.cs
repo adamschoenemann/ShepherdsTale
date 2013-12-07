@@ -12,4 +12,5 @@ public class Tags
 	public const string wayPoint = "WayPoint";
 	public const string checkPoint = "CheckPoint";
 	public const string wolfWaypoint = "WolfWaypoint";
+	public const string endLevelHandler = "EndLevelHandler";
 }

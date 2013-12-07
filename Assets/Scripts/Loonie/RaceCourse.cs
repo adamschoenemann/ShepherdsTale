@@ -94,7 +94,7 @@ public class RaceCourse : MonoBehaviour {
 		{
 			// Win
 			//print ("goal reached player");
-			Application.LoadLevel("sheepking_intro");
+			Application.LoadLevel("loonie_finish");
 			return true;
 		}
 		

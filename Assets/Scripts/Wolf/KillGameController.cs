@@ -50,7 +50,7 @@ public class KillGameController : MonoBehaviour
 		if(wolvesLeft <= 0)
 		{
 			Debug.Log("Level completed!");
-			Application.LoadLevel("loonie_intro");
+			Application.LoadLevel("wolf_finish");
 		}
 	}
 

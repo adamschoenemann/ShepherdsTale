@@ -140,7 +140,8 @@ public class PilotQuestionnaire : MonoBehaviour {
 
 	public float GetProgress()
 	{
-		return Math.Min(1.0f, Math.Max(0.0f, (float)(personalityPageIndex+1)/personalityPages.Length)); // Ya, clamp to range [0;1]
+		// Wohoo! Magic numbers! +3 because there are 3 pages more than personalityPages know of.
+		return Math.Min(1.0f, Math.Max(0.0f, (float)(personalityPageIndex + 3)/(personalityPages.Length + 3))); // Ya, clamp to range [0;1]
 	}
 
 	private string[] GetAnswers()
