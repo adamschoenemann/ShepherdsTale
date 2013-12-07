@@ -14,6 +14,8 @@ public class PlayerMovement : NoiseGenerator
 	public float sneakSpeed = 5.0f;
 	private float rotX = 0.0f, rotY = 0.0f;
 
+	public bool Immovable {get; set;}
+
 	void Awake()
 	{
 
@@ -21,6 +23,8 @@ public class PlayerMovement : NoiseGenerator
 
 	public void Run(float ver, float hor)
 	{
+		if(Immovable) return;
+
 		Vector3 move = ver * transform.forward + hor * transform.right;
 		Vector3 moveNormalized = move.normalized;
 		Vector3 force = moveNormalized * runSpeed * 2.5f;
@@ -33,6 +37,8 @@ public class PlayerMovement : NoiseGenerator
 
 	public void Sneak(float ver, float hor)
 	{
+		if(Immovable) return;
+
 		Vector3 move = ver * transform.forward + hor * transform.right;
 		Vector3 force = move.normalized * sneakSpeed * 2.5f;
 		rigidbody.AddForce(force);
@@ -44,6 +50,8 @@ public class PlayerMovement : NoiseGenerator
 
 	public void Rotate(float x, float y)
 	{
+		if(Immovable) return;
+		
 		x *= 0.02f * 250;
 		y *= 0.02f * 120;
 		rotX += x;
