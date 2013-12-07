@@ -70,7 +70,7 @@ public class ThreeOptions : Loggable
 		else if(episode == Episode.SheepKing)
 		{
 			options[0].sceneName = "sheepking_fight";
-		 	options[0].description = "Use the staff <color=#ffa500ff>(left mouse button)</color> to kill the Sheep King - when he is stunned.";
+		 	options[0].description = "Use the staff <color=#ffa500ff>(left mouse button)</color> to kill the Sheep King - when he is stunned after running into a pillar.";
 		 	options[0].image = SK_fightImage;
 
 		 	options[1].sceneName = "sheepking_shave";
@@ -89,7 +89,7 @@ public class ThreeOptions : Loggable
 	{	
 		GUI.skin = this.skin;
 
-		GUI.Label(new Rect(Screen.width/3, 10, Screen.width/3, Screen.height/8 - 10), "Select an option with the mouse!");
+		GUI.Label(new Rect(Screen.width/3, 10, Screen.width/3, Screen.height/8 - 10), "Select an option with the mouse.");
 		 
 		for(int i = 0; i < options.Length; i++)
 		{
