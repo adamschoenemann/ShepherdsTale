@@ -13,3 +13,4 @@ rate 1-5
 12. The story of the game is entertaining.
 13. Interacting with the environments was as expected.
 14. The perspective and elements shown on the screen are sufficient for the gameplay to be smooth.
+15. I wanted to/did find all the collectibles for the facts. 
