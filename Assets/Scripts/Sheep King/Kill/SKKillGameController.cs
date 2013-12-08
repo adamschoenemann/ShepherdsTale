@@ -4,6 +4,7 @@ using System.Collections;
 public class SKKillGameController : MonoBehaviour {
 
 	private Timer endTimer;
+	private Timer restartTimer;
 
 	// Use this for initialization
 	void Start () {
@@ -11,7 +12,12 @@ public class SKKillGameController : MonoBehaviour {
 		Mortal playerMortal = player.GetComponent<Mortal>();
 
 		playerMortal.onDeathHandler += (self, killer) => {
-			Application.LoadLevel("sheepking_fight");
+			if(restartTimer == null)
+			{
+				restartTimer = new Timer(2.0f);
+					player.GetComponent<PlayerMovement>().Immovable = true;
+			}
+			//Application.LoadLevel("sheepking_fight");
 		};
 
 		GameObject sheepking = GameObject.FindWithTag(Tags.enemy);
@@ -35,6 +41,15 @@ public class SKKillGameController : MonoBehaviour {
 				Application.LoadLevel("game_finish");	
 			}
 		}
+		else if(restartTimer != null)
+		{
+			restartTimer.TickSeconds(Time.deltaTime);
+
+			if(restartTimer.IsDone())
+			{
+				Application.LoadLevel("sheepking_fight");	
+			}
+		}
 	}
 
 	void OnGUI()
@@ -47,6 +62,16 @@ public class SKKillGameController : MonoBehaviour {
 							Screen.width / 3,
 							Screen.height / 3)
 				, "You beat the Sheep King!", "box");
+		}
+
+		if(restartTimer != null)
+		{
+			GUI.Label(
+				new Rect(	Screen.width / 3,
+							Screen.height / 3,
+							Screen.width / 3,
+							Screen.height / 3)
+				, "You died! Restarting...", "box");
 		}
 	}
 
