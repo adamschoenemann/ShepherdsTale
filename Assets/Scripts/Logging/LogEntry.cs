@@ -70,12 +70,16 @@ public class LogEntry
 		return this;
 	}
 
-	// TODO: Maybe ref form?
 	public void ToForm(WWWForm form, int i)
 	{
 		if(session_id == 0 || scene_id == 0)
 		{
-			Debug.Log("Logging invalid Entry!!!!!");
+			Debug.Log("Logging invalid Entry!!!!!\n" +
+							  "name: " + origin.name +  "\n" +
+							  "loggable_id: " + origin.id +  "\n" +
+							  "event: " + event_name + "\n" +
+							  "scene_id: " + scene_id + "\n" +
+							  "session_id: " + session_id);
 			return;
 		}
 		string entryKey = "entries[" + i + "]";

@@ -1535,6 +1535,44 @@ Transform:
   m_Children:
   - {fileID: 445053496}
   m_Father: {fileID: 1416265465}
+--- !u!1 &539495426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 539495428}
+  - 114: {fileID: 539495427}
+  m_Layer: 0
+  m_Name: LogTester
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &539495427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 539495426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d42badc6f70c4b40a0b217ca2b8fad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &539495428
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 539495426}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.97436428, y: -.396034241, z: 5.36528111}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &542519490
 GameObject:
   m_ObjectHideFlags: 0
@@ -2382,9 +2420,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: .0460325293
-  m_Height: .75
+  m_Height: .569999993
   m_Direction: 1
-  m_Center: {x: 1.5260186e-05, y: .0900000036, z: 1.15483999e-07}
+  m_Center: {x: 1.5260186e-05, y: 0, z: 1.15483999e-07}
 --- !u!54 &825052882
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4091,7 +4129,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .215686277, g: .278431386, b: .403921574, a: .0196078438}
+  m_BackGroundColor: {r: .917647064, g: .784313738, b: .784313738, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -4152,7 +4190,7 @@ MonoBehaviour:
   globalDensity: 4.5
   heightScale: 100
   height: 0
-  globalFogColor: {r: .215686277, g: .278431386, b: .41568628, a: 1}
+  globalFogColor: {r: .764705896, g: .764705896, b: .764705896, a: 1}
   fogShader: {fileID: 4800000, guid: 70d8568987ac0499f952b54c7c13e265, type: 3}
 --- !u!114 &1393358828
 MonoBehaviour:
@@ -7242,6 +7280,7 @@ MonoBehaviour:
   trapKey: e
   sound: {fileID: 2055785878}
   trap: {fileID: 100006, guid: b2534b20e22dd6f46a73abbbf1fb6716, type: 2}
+  timeToSetTrap: 1
   trapIcon: {fileID: 2800000, guid: 1f7f155e93b466349a2db227366a9d6b, type: 3}
 --- !u!114 &2055785884
 MonoBehaviour:

@@ -83,6 +83,15 @@ public class ThreeOptions : Loggable
 		}
 
 		Shuffle(options);
+
+		// Log it!
+		LogEntry entry = new LogEntry(this, "ThreeOptionsOrder")
+			.AddString("option_00", options[0].sceneName)
+			.AddString("option_01", options[1].sceneName)
+			.AddString("option_02", options[2].sceneName)
+			.AddString("choiceName", Application.loadedLevelName)
+			.AddInt("episode", (int) episode);
+		EnqueueEntry(entry);
 	}
 	
 	void OnGUI()

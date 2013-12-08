@@ -11,11 +11,16 @@ public class GameController : MonoBehaviour
 
 	public IEnumerator RestartLevel()
 	{
+		OnLevelRestarting();
+		yield return new WaitForSeconds(4.0f);
+		Application.LoadLevel(Application.loadedLevelName);
+	}
+
+	public void OnLevelRestarting()
+	{
 		if(onLevelRestarting != null)
 		{
 			onLevelRestarting(this, EventArgs.Empty);
 		}
-		yield return new WaitForSeconds(4.0f);
-		Application.LoadLevel(Application.loadedLevelName);
 	}
 }

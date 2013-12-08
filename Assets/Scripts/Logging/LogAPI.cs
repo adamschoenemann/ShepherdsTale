@@ -128,27 +128,32 @@ public class LogAPI {
 		return www;
 	}
 
-	public IEnumerator RegisterScene(String name, Logger logger, Action<int> cb = null)
+	public IEnumerator RegisterScene(String name, float time, Action<int> cb = null)
 	{
 		while(session_id == 0)
 		{
 			yield return true;
 		}
 
-		if(logger.scene_id != 0)
-		{
-			Debug.Log("I want to close the current scene");
-			yield return logger.StartCoroutine(CloseScene(logger));
-		}
+		// if(logger.scene_id != 0)
+		// {
+		// 	Debug.Log("I want to close the current scene");
+		// 	yield return logger.StartCoroutine(CloseScene(logger));
+		// }
 
 		Debug.Log("Registering scene");
 		WWWForm form = new WWWForm();
 		form.AddField("session_id", session_id);
 		form.AddField("name", name);
-		form.AddField("time", logger.time.ToString());
+		form.AddField("time", time.ToString());
 
 		WWW www = new WWW(host + "/register_scene", form);
 		yield return www;
+		// while(String.IsNullOrEmpty(www.error) == false)
+		// {
+		// 	www = new WWW(host + "/register_scene" form);
+		// 	yield return www;
+		// }
 		
 		JSONObject json = HandleResponse(www);
 		if(cb != null)
@@ -169,11 +174,11 @@ public class LogAPI {
 	}
 
 	// Still not working
-	public IEnumerator CloseScene(Logger logger, Action cb = null)
+	public IEnumerator CloseScene(int scene_id, Action cb = null)
 	{
 		string url = host + "/close_scene/";
 		WWWForm form = new WWWForm();
-		form.AddField("id", logger.scene_id);
+		form.AddField("id", scene_id);
 		WWW www = new WWW(url, form);
 		yield return www;
 		HandleResponse(www);
@@ -193,7 +198,7 @@ public class LogAPI {
 		{
 			yield return false;
 		}
-
+		Debug.Log("Registering new session...");
 		WWWForm form = new WWWForm();
 		form.AddField("app_version", "1");	
 		form.AddField("MAC", Utils.GetMacAddress());

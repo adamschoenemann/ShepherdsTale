@@ -1712,7 +1712,6 @@ GameObject:
   - 4: {fileID: 562256928}
   - 114: {fileID: 562256927}
   - 154: {fileID: 562256926}
-  - 114: {fileID: 562256929}
   - 82: {fileID: 562256930}
   m_Layer: 0
   m_Name: Terrain
@@ -1768,17 +1767,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!114 &562256929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 562256925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1980c38c7b012524aa1b72fdcee5c067, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &562256930
 AudioSource:
   m_ObjectHideFlags: 0

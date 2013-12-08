@@ -2,31 +2,14 @@
 using System.Collections;
 using System;
 
-public class SneakGameController : MonoBehaviour 
+public class SneakGameController : GameController 
 {
-
-	private bool displayRestart = false,
-							 displayComplete = false;
-
-	private Timer nextLevelTimer = null;
 
 	void Awake()
 	{
 	
 		WolfController.onPlayerSeen += OnPlayerSeenHandler;
 		LevelComplete.onPlayerEntered += OnLevelComplete;
-	}
-
-	void Update()
-	{
-		if(nextLevelTimer != null)
-		{
-			nextLevelTimer.TickSeconds(Time.deltaTime);
-			if(nextLevelTimer.IsDone())
-			{
-				Application.LoadLevel("wolf_finish");
-			}
-		}
 	}
 
 	void OnPlayerSeenHandler(object wolf, EventArgs args)
@@ -45,20 +28,17 @@ public class SneakGameController : MonoBehaviour
 		if(displayComplete == false)
 		{
 			displayComplete = true;
-			StartNextLevelTimer();
+			StartCoroutine(StartNextLevel());
 		}
 	}
 
-	private void StartNextLevelTimer()
+	public IEnumerator StartNextLevel()
 	{
-		nextLevelTimer = new Timer(3.0f);
+		OnLevelRestarting();
+		yield return new WaitForSeconds(4.0f);
+		Application.LoadLevel("wolf_finish");
 	}
 
-	IEnumerator RestartLevel()
-	{
-		yield return new WaitForSeconds(4.0f);
-		Application.LoadLevel(Application.loadedLevelName);
-	}
 
 	void OnGUI()
 	{
