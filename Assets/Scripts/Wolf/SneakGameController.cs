@@ -14,7 +14,7 @@ public class SneakGameController : GameController
 
 	void OnPlayerSeenHandler(object wolf, EventArgs args)
 	{
-		if(displayRestart == false)
+		if(displayRestart == false && displayComplete == false) // Only do something if player hasn't finished level
 		{
 			displayRestart = true;
 			StartCoroutine(RestartLevel());

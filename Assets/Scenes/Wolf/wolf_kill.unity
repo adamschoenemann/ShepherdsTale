@@ -1755,7 +1755,7 @@ Prefab:
       objectReference: {fileID: 2055785871}
     - target: {fileID: 100044, guid: def93b79c32709c4da501ac9d5f1ceda, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400014, guid: def93b79c32709c4da501ac9d5f1ceda, type: 2}
@@ -2095,7 +2095,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &149513260
 Transform:
   m_ObjectHideFlags: 0
@@ -4730,7 +4730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &433211377
 Transform:
   m_ObjectHideFlags: 0
@@ -8439,7 +8439,7 @@ Prefab:
       objectReference: {fileID: 2055785871}
     - target: {fileID: 100044, guid: def93b79c32709c4da501ac9d5f1ceda, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400014, guid: def93b79c32709c4da501ac9d5f1ceda, type: 2}
@@ -9887,7 +9887,7 @@ Prefab:
       objectReference: {fileID: 2055785871}
     - target: {fileID: 100044, guid: def93b79c32709c4da501ac9d5f1ceda, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400014, guid: def93b79c32709c4da501ac9d5f1ceda, type: 2}
@@ -11336,7 +11336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &676557266
 Transform:
   m_ObjectHideFlags: 0
@@ -17260,6 +17260,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c651723d1b06d59469e9c3c8f6e84e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
 --- !u!33 &1025662040
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -25231,7 +25233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1723582842
 Transform:
   m_ObjectHideFlags: 0
@@ -26485,7 +26487,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1859422027
 Transform:
   m_ObjectHideFlags: 0
@@ -29756,7 +29758,6 @@ MonoBehaviour:
   lureKey: q
   trapKey: e
   sound: {fileID: 2055785878}
-  trap: {fileID: 100006, guid: b2534b20e22dd6f46a73abbbf1fb6716, type: 2}
   timeToSetTrap: 1
   trapIcon: {fileID: 2800000, guid: 1f7f155e93b466349a2db227366a9d6b, type: 3}
 --- !u!1 &2060280509
@@ -29986,7 +29987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2073419288
 Transform:
   m_ObjectHideFlags: 0
