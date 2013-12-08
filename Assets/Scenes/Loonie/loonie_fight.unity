@@ -4050,7 +4050,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 53b9d010fe5284281aadf7a639960d2f, type: 2}
       propertyPath: enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53b9d010fe5284281aadf7a639960d2f, type: 2}
@@ -5312,7 +5312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5cca492caae70b40ae8351860d54baa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
 --- !u!4 &1319794346
 Transform:
   m_ObjectHideFlags: 0
@@ -7962,10 +7962,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1
+  m_Radius: .430000007
   m_Height: 2.5
   m_Direction: 1
-  m_Center: {x: 0, y: .980000019, z: 0}
+  m_Center: {x: 0, y: .980000019, z: .239999995}
 --- !u!54 &1650948790
 Rigidbody:
   m_ObjectHideFlags: 0

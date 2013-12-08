@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 public class CollectibleEventArgs : EventArgs
 {
@@ -16,6 +17,17 @@ public class CollectibleEventArgs : EventArgs
 public class Collectible : MonoBehaviour
 {
 
+	private struct CollectibleRecord
+	{
+		Vector3 position;
+		string levelName;
+		public CollectibleRecord(string lvl, Vector3 p)
+		{
+			position = p;
+			levelName = lvl;
+		}
+	}
+
 	public Texture Image1;
 	public Texture Black;
 	public Texture Papyrus;
@@ -26,19 +38,20 @@ public class Collectible : MonoBehaviour
 	private float sizeX	= Screen.width*0.8f;
 	private float sizeY	= Screen.height*0.8f;
 
-	private static short facts = 6;
+	private static string nFacts = "IX";
 	private static int collectiblesPickedUp = 0;
+	private static List<CollectibleRecord> alreadyCollected = new List<CollectibleRecord>();
 	
 	static string[] story = {		
-		"FACT I " 	+ 1 + "/" + facts + " \n Egyptians believed that sheep were sacred. They even had them mummified when they died, just like humans.", 
-		"FACT II " 	+ 2 + "/" + facts + " \n Sheep are known to self-medicate when they have some illnesses. They will eat specific plants when ill that can cure them.", 
-		"FACT III " + 3 + "/" + facts + " \n Sheep are one of the 12 animals in the Chinese zodiac. Sheep are seen to represent righteousness, sincerity, gentleness, and compassion.", 
-		"FACT IV " 	+ 4 + "/" + facts + " \n Sheep have ben shown to display emotions, some of which can be studied by observing the position of their ears.", 
-		"FACT V " 	+ 5 + "/" + facts + " \n Contrary to popular misconception, sheep are extremely intelligent animals capable of problem solving.", 
-		"FACT VI " 	+ 6 + "/" + facts + " \n Sheep make different vocalisations to communicate different emotions. They also display and recognise emotion by facial expressions.", 
-		"FACT VII " + 7 + "/" + facts + " \n One pound of wool can make ten miles of spun yarn.", 
-		"FACT IIX " + 8 + "/" + facts + " \n There were at least 2386 different species of sheep in Wales before it was inhabited", 
-		"FACT IX " 	+ 9 + "/" + facts + " \n The average pulse rate for sheep is 75 heart beats per minute."
+		"FACT I/"   + nFacts + " \n Egyptians believed that sheep were sacred. They even had them mummified when they died, just like humans.", 
+		"FACT II/"  + nFacts + " \n Sheep are known to self-medicate when they have some illnesses. They will eat specific plants when ill that can cure them.", 
+		"FACT III/" + nFacts + " \n Sheep are one of the 12 animals in the Chinese zodiac. Sheep are seen to represent righteousness, sincerity, gentleness, and compassion.", 
+		"FACT IV/"  + nFacts + " \n Sheep have ben shown to display emotions, some of which can be studied by observing the position of their ears.", 
+		"FACT V/"   + nFacts + " \n Contrary to popular misconception, sheep are extremely intelligent animals capable of problem solving.", 
+		"FACT VI/"  + nFacts + " \n Sheep make different vocalisations to communicate different emotions. They also display and recognise emotion by facial expressions.", 
+		"FACT VII/" + nFacts + " \n One pound of wool can make ten miles of spun yarn.", 
+		"FACT IIX/" + nFacts + " \n There were at least 2386 different species of sheep in Wales before it was inhabited", 
+		"FACT IX/"  + nFacts + " \n The average pulse rate for sheep is 75 heart beats per minute."
 	};
 	
 	private bool showGUI = false;
@@ -46,6 +59,21 @@ public class Collectible : MonoBehaviour
 	public Component[] lightSources;
 	
 	public event EventHandler<CollectibleEventArgs> onPickUp;
+
+	void Awake()
+	{
+		if(alreadyCollected.Contains(ToRecord()))
+		{
+			GameObject.Destroy(gameObject);
+		}
+
+	}
+
+
+	private CollectibleRecord ToRecord()
+	{
+		return new CollectibleRecord(Application.loadedLevelName, transform.position);
+	}
 
 	void OnTriggerEnter (Collider other)
 	{
@@ -60,6 +88,7 @@ public class Collectible : MonoBehaviour
 						transform.position
 					));
 			}
+			alreadyCollected.Add(ToRecord());
 			showGUI = true;
 
 			Renderer[] arrend = GetComponentsInChildren<Renderer>();

@@ -527,6 +527,7 @@ public class WolfController : MonoBehaviour
 	protected virtual bool OnDamage(Mortal mortal, GameObject attacker, int damage)
 	{
 		particles.Play();
+		print("Wolf was hit");
 		return true;
 	}
 

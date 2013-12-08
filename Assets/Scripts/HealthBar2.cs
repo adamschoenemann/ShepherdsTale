@@ -6,7 +6,7 @@ public class HealthBar2 : FaceCamera {
 
 	public GameObject subject;
 	public float width = 30;
-	public float distanceThresh = 10.0f;
+	public float distanceThresh = 7.0f;
 
 	private Texture2D texture;
 	private Texture2D bgTexture;
@@ -52,15 +52,21 @@ public class HealthBar2 : FaceCamera {
 			return;
 		}
 		GameObject player = GameObject.FindWithTag(Tags.player);
-		if((transform.position - player.transform.position).magnitude > distanceThresh)
+		Vector3 fromHereToCame = transform.position - cam.transform.position;
+		if(fromHereToCame.magnitude > distanceThresh)
 		{
 			return;
 		}
+		if(Vector3.Dot(fromHereToCame, cam.transform.forward) < 0.0f)
+		{
+			return;
+		}
+
 		Vector3 screenPos = cam.camera.WorldToScreenPoint(transform.position);
 		float percentage = mortal.GetHealth() / (float) mortal.startHealth;
 		float drawWidth = percentage * width;
 		//print("percentage: " + percentage);
-		GUI.DrawTexture(new Rect(screenPos.x - drawWidth/2, Screen.height - screenPos.y, width, 3), bgTexture);
-		GUI.DrawTexture(new Rect(screenPos.x - drawWidth/2, Screen.height - screenPos.y, drawWidth, 3), texture);
+		GUI.DrawTexture(new Rect(screenPos.x - width/2, Screen.height - screenPos.y, width, 3), bgTexture);
+		GUI.DrawTexture(new Rect(screenPos.x - width/2, Screen.height - screenPos.y, drawWidth, 3), texture);
 	}
 }

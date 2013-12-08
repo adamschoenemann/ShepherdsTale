@@ -67,8 +67,8 @@ public class LoonieController : LoonieBaseController {
 	
 	void OnCollisionEnter(Collision other)
 	{
-		GameObject player 	= GameObject.FindGameObjectWithTag("Player");
-		GameObject staff	= GameObject.FindGameObjectWithTag("Staff");
+		GameObject player 	= GameObject.FindGameObjectWithTag(Tags.player);
+		GameObject staff	= GameObject.FindGameObjectWithTag(Tags.staff);
 		if(other.gameObject == player || other.gameObject == staff)
 		{
 			state = State.Alerted;

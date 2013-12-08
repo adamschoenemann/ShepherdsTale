@@ -45,6 +45,10 @@ public class Mortal : MonoBehaviour
 	public void AddHealth(int h)
 	{
 		health += h;
+		if(health > startHealth)
+		{
+			health = startHealth;
+		}
 	}
 
 	public int Damage(int amount, GameObject attacker)
