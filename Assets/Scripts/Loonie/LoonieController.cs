@@ -3,10 +3,19 @@ using System;
 using System.Collections;
 using Wolf;
 
+public class LoonieStateEventArgs : EventArgs
+{
+	public readonly State oldState, newState;
+	public LoonieStateEventArgs(State o, State n)
+	{
+		oldState = o;
+		newState = n;
+	}
+}
+
 public class LoonieController : LoonieBaseController {
 
-	public event EventHandler onPlayerAudible;
-  	public event EventHandler onPlayerVisible;
+	public event EventHandler<LoonieStateEventArgs> onStateChangeEvent;
 	
 	protected override void Awake()
 	{
@@ -39,23 +48,20 @@ public class LoonieController : LoonieBaseController {
 	protected override bool IsPlayerAudible()
 	{
 		bool result = base.IsPlayerAudible();
-		if(result)
+		if(result == true && playerController.IsSneaking() == false)
 		{
-			if(playerController.IsSneaking())
-			{
-				return false;
-			}
+			// if(onPlayerAudible != null)
+			// 	onPlayerAudible(this, EventArgs.Empty);
+			return true;
 		}
-		if(onPlayerAudible != null)
-			onPlayerAudible(this, EventArgs.Empty);
-		return result;
+		return false;
 	}
 
 	protected override bool IsPlayerVisible()
 	{
 		bool result = base.IsPlayerVisible();
-		if(result && onPlayerVisible != null)
-			onPlayerVisible(this, EventArgs.Empty);
+		// if(result && onPlayerVisible != null)
+		// 	onPlayerVisible(this, EventArgs.Empty);
 		return result;
 	}
 	
@@ -67,6 +73,17 @@ public class LoonieController : LoonieBaseController {
 		{
 			state = State.Alerted;
 		}
+	}
+
+	protected override void OnStateChange(State oldState, State newState)
+	{
+		if(onStateChangeEvent != null)
+		{
+			onStateChangeEvent(this,
+				new LoonieStateEventArgs(oldState, newState));
+		}
+
+		base.OnStateChange(oldState, newState);
 	}
 	
 	

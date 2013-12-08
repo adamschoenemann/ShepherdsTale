@@ -90,6 +90,7 @@ public class Logger : MonoBehaviour
 
 	public void RegisterLoggable(Loggable l, Action<int> cb = null)
 	{
+		if(IsActive() == false) return;
 		StartCoroutine(LogAPI.instance.RegisterLoggable(l, this, cb));
 	}
 

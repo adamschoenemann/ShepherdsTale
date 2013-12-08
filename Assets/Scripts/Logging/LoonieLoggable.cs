@@ -15,17 +15,11 @@ public class LoonieLoggable : Loggable
 		loonieAttack = GetComponent<LoonieAttack>();
 		player = GameObject.FindWithTag(Tags.player);
 
-		controller.onPlayerAudible += (obj, args) => {
-			LogEntry entry = new LogEntry(this, "LoonieHeardPlayer")
+		controller.onStateChangeEvent += (obj, args) => {
+			LogEntry entry = new LogEntry(this, "LoonieStateChange")
 				.AddGameObject("loonie", gameObject)
-				.AddGameObject("player", player);
-			EnqueueEntry(entry);
-		};
-
-		controller.onPlayerVisible += (obj, args) => {
-			LogEntry entry = new LogEntry(this, "LoonieSawPlayer")
-				.AddGameObject("loonie", gameObject)
-				.AddGameObject("player", player);
+				.AddString("oldState", args.oldState.ToString())
+				.AddString("newState", args.newState.ToString());
 			EnqueueEntry(entry);
 		};
 
