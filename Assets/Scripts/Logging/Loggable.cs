@@ -24,11 +24,22 @@ public abstract class Loggable : MonoBehaviour
 		this.id = 0;
 		// logger = GameObject.FindWithTag(Tags.logger).GetComponent<Logger>();
 		logger = Logger.instance;
-		logger.RegisterLoggable(this, id => this.id = id);
+		StartCoroutine(Register());
 		if(String.IsNullOrEmpty(name))
 		{
 			name = gameObject.name;
 		}
+	}
+
+	private IEnumerator Register()
+	{
+		while(logger == null || logger.scene_id == 0)
+		{
+			logger = Logger.instance;
+			yield return new WaitForSeconds(0.5f);
+		}
+
+		logger.RegisterLoggable(this, id => this.id = id);
 	}
 
 	public abstract bool ShouldLogRoutinely();
@@ -38,12 +49,15 @@ public abstract class Loggable : MonoBehaviour
 		if(enabled == false) return;
 		if(id <= 0)
 		{
-			StartCoroutine(WaitForId());
+			StartCoroutine(WaitForId(entry));
 		}
-		logger.Enqueue(entry);
+		else
+		{
+			logger.Enqueue(entry);
+		}
 	}
 
-	private IEnumerator WaitForId()
+	private IEnumerator WaitForId(LogEntry entry)
 	{
 		while(id <= 0)
 		{
@@ -51,6 +65,7 @@ public abstract class Loggable : MonoBehaviour
 			yield return new WaitForSeconds(1.0f);
 			Debug.Log("Id found");
 		}
+		EnqueueEntry(entry);
 	}
 
 	protected void Start()
@@ -72,7 +87,7 @@ public abstract class Loggable : MonoBehaviour
 		
 		BeforeEnqueueEntry(entry);
 
-		logger.Enqueue(entry);
+		EnqueueEntry(entry);
 	}
 
 	protected abstract void BeforeEnqueueEntry(LogEntry entry);

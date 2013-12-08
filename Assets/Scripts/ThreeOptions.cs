@@ -89,7 +89,7 @@ public class ThreeOptions : Loggable
 			.AddString("option_00", options[0].sceneName)
 			.AddString("option_01", options[1].sceneName)
 			.AddString("option_02", options[2].sceneName)
-			.AddString("choiceName", Application.loadedLevelName)
+			.AddString("sceneName", Application.loadedLevelName)
 			.AddInt("episode", (int) episode);
 		EnqueueEntry(entry);
 	}
@@ -110,7 +110,7 @@ public class ThreeOptions : Loggable
 				LogEntry entry = new LogEntry(this, "Choice")
 					.AddString("choiceName", Application.loadedLevelName)
 					.AddString("sceneName", options[i].sceneName);
-				logger.Enqueue(entry);
+				EnqueueEntry(entry);
 
 				Application.LoadLevel(options[i].sceneName);
 			}

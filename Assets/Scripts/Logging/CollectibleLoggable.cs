@@ -13,7 +13,7 @@ public class CollectibleLoggable : Loggable
 
 		collectible = GetComponent<Collectible>();
 		collectible.onPickUp += (obj, args) => {
-			logger.Enqueue(
+			EnqueueEntry(
 				new LogEntry(this, "CollectiblePickUp")
 					.AddInt("collectiblesPickedUp", args.collectiblesPickedUp)
 					.AddVector3("position", args.position)

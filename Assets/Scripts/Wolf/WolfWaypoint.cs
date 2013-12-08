@@ -10,7 +10,8 @@ public class WolfWaypoint : MonoBehaviour
 	public static GameObject CreateWaypoint(Vector3 pos)
 	{
 		GameObject wp = GameObject.CreatePrimitive(PrimitiveType.Cube);
-		wp.name = "Genereated Waypoint";
+		wp.collider.isTrigger = true;
+		wp.name = "Generated Waypoint";
 		wp.tag = Tags.wolfWaypoint;
 		wp.transform.position = pos;
 		wp.AddComponent<WolfWaypoint>();

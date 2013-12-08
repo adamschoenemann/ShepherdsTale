@@ -19,21 +19,21 @@ public class LoonieLoggable : Loggable
 			LogEntry entry = new LogEntry(this, "LoonieHeardPlayer")
 				.AddGameObject("loonie", gameObject)
 				.AddGameObject("player", player);
-			logger.Enqueue(entry);
+			EnqueueEntry(entry);
 		};
 
 		controller.onPlayerVisible += (obj, args) => {
 			LogEntry entry = new LogEntry(this, "LoonieSawPlayer")
 				.AddGameObject("loonie", gameObject)
 				.AddGameObject("player", player);
-			logger.Enqueue(entry);
+			EnqueueEntry(entry);
 		};
 
 		loonieAttack.onPlayerCaught += (obj, args) => {
 			LogEntry entry = new LogEntry(this, "LoonieCaughtPlayer")
 				.AddGameObject("loonie", gameObject)
 				.AddGameObject("player", player);
-			logger.Enqueue(entry);
+			EnqueueEntry(entry);
 		};
 
 	}

@@ -32,13 +32,14 @@ public class WolfLoggable : Loggable
 				LogEntry entry = new LogEntry(this, "WolfSuspicious")
 					.AddGameObject("player", player)
 					.AddGameObject("wolf", gameObject);
+					EnqueueEntry(entry);
 			}
 			else if(args.to == State.Chasing)
 			{
 				LogEntry entry = new LogEntry(this, "PlayerSeen")
 					.AddGameObject("player", player)
 					.AddGameObject("wolf", gameObject);
-				logger.Enqueue(entry);
+				EnqueueEntry(entry);
 			}
 		};
 

@@ -16,7 +16,7 @@ public class SimonLoggable : Loggable
 
 		sm.onLevelCompleted += (obj, args) => {
 			LogEntry entry = new LogEntry(this, "SimonLevelComplete");
-			logger.Enqueue(entry);
+			EnqueueEntry(entry);
 		};
 
 		sm.onPlayerHitRightSheep += (obj, args) => {
@@ -37,7 +37,7 @@ public class SimonLoggable : Loggable
 			.AddInt("progress", args.progress)
 			.AddInt("level", args.level)
 			.AddInt("rightHit", args.rightHit);
-		logger.Enqueue(entry);
+		EnqueueEntry(entry);
 	}
 
 	private void LogButtonPressEvent(ButtonPressEventArgs args, string evtName)
@@ -46,7 +46,7 @@ public class SimonLoggable : Loggable
 		LogEntry entry = new LogEntry(this, evtName)
 			.AddString("keyCode", args.keyCode.ToString())
 			.AddFloat("progress", args.progress);
-		logger.Enqueue(entry);
+		EnqueueEntry(entry);
 	}
 
 	public override bool ShouldLogRoutinely()

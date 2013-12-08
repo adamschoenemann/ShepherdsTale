@@ -16,7 +16,7 @@ public class SKKillLoggable : Loggable
 			LogEntry entry = new LogEntry(this, "SKStateChange")
 				.AddString("oldState", args.oldState.ToString())
 				.AddString("newState", args.newState.ToString());
-			logger.Enqueue(entry);
+			EnqueueEntry(entry);
 		};
 
 	}

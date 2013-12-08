@@ -20,12 +20,12 @@ public class ShaveLoggable : Loggable
 				.AddInt("totalCuts", args.totalCuts)
 				.AddInt("correctStreak", args.correctStreak)
 				.AddInt("woolsToCutOff", args.woolsToCutOff);
-			logger.Enqueue(entry);
+			EnqueueEntry(entry);
 		};
 
 		sm.onLevelCompleted += (obj, args) => {
 			LogEntry entry = new LogEntry(this, "ShaveLevelComplete");
-			logger.Enqueue(entry);
+			EnqueueEntry(entry);
 		};
 
 		qtHandler.onMissedButtonPress += (obj, args) => {
@@ -52,7 +52,7 @@ public class ShaveLoggable : Loggable
 		LogEntry entry = new LogEntry(this, evtName)
 			.AddString("keyCode", args.keyCode.ToString())
 			.AddFloat("progress", args.progress);
-		logger.Enqueue(entry);
+		EnqueueEntry(entry);
 	}
 
 	public override bool ShouldLogRoutinely()

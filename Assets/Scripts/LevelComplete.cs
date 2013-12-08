@@ -13,7 +13,7 @@ public class LevelComplete : Loggable
 		{
 			LogEntry entry = new LogEntry(this, "SneakLevelComplete")
 				.AddVector3("position", transform.position);
-			logger.Enqueue(entry);
+			EnqueueEntry(entry);
 
 			if(onPlayerEntered != null)
 				onPlayerEntered(this, EventArgs.Empty);

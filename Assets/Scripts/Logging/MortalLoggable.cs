@@ -21,7 +21,7 @@ public class MortalLoggable : Loggable
 				.AddInt("health", args.mortal.health)
 				.AddGameObject("victim", args.victim)
 				.AddGameObject("attacker", args.attacker);
-			logger.Enqueue(entry);
+			EnqueueEntry(entry);
 		};
 
 		mortal.onDeathHandler += (m, killer) => {
@@ -29,7 +29,7 @@ public class MortalLoggable : Loggable
 				.AddInt("startHealth", m.startHealth)
 				.AddGameObject("victim", gameObject)
 				.AddGameObject("killer", killer);
-			logger.Enqueue(entry);
+			EnqueueEntry(entry);
 		};
 	}
 

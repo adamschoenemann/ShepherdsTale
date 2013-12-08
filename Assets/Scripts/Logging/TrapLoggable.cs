@@ -17,19 +17,19 @@ public class TrapLoggable : Loggable
 			LogEntry entry = new LogEntry(this, "TrapKill")
 				.AddVector3("position", args.position)
 				.AddString("victim", args.victim.GetComponent<Loggable>().name);
-			logger.Enqueue(entry);
-			print("TrapKill!");
+			EnqueueEntry(entry);
+			// print("TrapKill!");
 		};
 
 		trap.onPlaced += (obj, args) => {
 			LogEntry entry = new LogEntry(this, "TrapPlaced")
 				.AddVector3("position", args.position);
-			logger.Enqueue(entry);
-			print("TrapPlaced");
+			EnqueueEntry(entry);
+			// print("TrapPlaced");
 		};
 
 		trap.onPickedUp += (obj, args) => {
-			logger.Enqueue(
+			EnqueueEntry(
 				new LogEntry(this, "TrapPickedUp")
 					.AddVector3("position", args.position)
 			);

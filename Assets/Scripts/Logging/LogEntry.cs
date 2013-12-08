@@ -16,7 +16,7 @@ public class LogEntry
 	public int session_id; // TODO: REMOVE THIS, NOT USED SINCE WE HAVE scene_id
 	private float time;
 	private Loggable origin;
-	private string event_name;
+	public string event_name { get; private set; }
 
 	public LogEntry(Loggable origin, string event_name = "None")
 	{

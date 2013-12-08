@@ -62,14 +62,13 @@ public class LogAPI {
 		form.AddField("name", l.name);
 		form.AddField("scene_id", logger.scene_id);
 
-		int retries = 5;
+		
 		WWW www = new WWW(host + "/register_loggable", form);
 		yield return www;
-		while(String.IsNullOrEmpty(www.error) == false && retries-- > 0)
+
+		if(String.IsNullOrEmpty(www.error) == false)
 		{
-			Debug.Log("Retrying...");
-			www = new WWW(host + "/register_loggable", form);
-			yield return www;
+			yield return logger.StartCoroutine(RetryConnection(www, form));
 		}
 
 		JSONObject json = HandleResponse(www);
@@ -84,7 +83,7 @@ public class LogAPI {
 	{
 		e.session_id = session_id;
 		entryQueue.Enqueue(e);
-		Debug.Log("Enqueue");
+		Debug.Log("Enqueue: " + e.event_name);
 		if(entryQueue.Count >= size)
 		{
 			return true;
@@ -97,7 +96,7 @@ public class LogAPI {
 		return entryQueue.Count;
 	}
 
-	public IEnumerator Flush()
+	public IEnumerator Flush(MonoBehaviour context = null)
 	{
 		if(Enqueued() <= 0 || flushing)
 			yield return false;
@@ -114,21 +113,23 @@ public class LogAPI {
 			e.ToForm(form, i);
 		}
 		
-		WWW www = LogEntries(form);
+		WWW www = new WWW(host + "/batch_entries", form);
 		yield return www;
+
+		if(String.IsNullOrEmpty(www.error) == false && context != null)
+		{
+			yield return context.StartCoroutine(RetryConnection(www, form));
+		}
+
 		JSONObject json = HandleResponse(www);
 		Debug.Log("Entry post: " + json.ToString());
 		flushing = false;
 	}
 
-	
-	private WWW LogEntries(WWWForm form)
-	{
-		WWW www = new WWW(host + "/batch_entries", form);
-		return www;
-	}
 
-	public IEnumerator RegisterScene(String name, float time, Action<int> cb = null)
+
+	public IEnumerator RegisterScene
+	(String name, float time, MonoBehaviour context = null, Action<int> cb = null)
 	{
 		while(session_id == 0)
 		{
@@ -149,11 +150,11 @@ public class LogAPI {
 
 		WWW www = new WWW(host + "/register_scene", form);
 		yield return www;
-		// while(String.IsNullOrEmpty(www.error) == false)
-		// {
-		// 	www = new WWW(host + "/register_scene" form);
-		// 	yield return www;
-		// }
+		
+		if(String.IsNullOrEmpty(www.error) == false && context != null)
+		{
+			yield return context.StartCoroutine(RetryConnection(www, form));
+		}
 		
 		JSONObject json = HandleResponse(www);
 		if(cb != null)
@@ -174,13 +175,21 @@ public class LogAPI {
 	}
 
 	// Still not working
-	public IEnumerator CloseScene(int scene_id, Action cb = null)
+	public IEnumerator CloseScene
+	(int scene_id, MonoBehaviour context = null, Action cb = null)
 	{
+		Debug.Log("Closing scene with id: " + scene_id);
 		string url = host + "/close_scene/";
 		WWWForm form = new WWWForm();
 		form.AddField("id", scene_id);
 		WWW www = new WWW(url, form);
 		yield return www;
+
+		if(String.IsNullOrEmpty(www.error) == false && context != null)
+		{
+			yield return context.StartCoroutine(RetryConnection(www, form));
+		}
+
 		HandleResponse(www);
 		if(cb != null)
 		{
@@ -192,13 +201,14 @@ public class LogAPI {
 	/**
 	 * Starts a new session server-side
 	 */
-	public IEnumerator StartSession()
+	public IEnumerator StartSession(MonoBehaviour context = null)
 	{
 		if(session_id != 0)
 		{
 			yield return false;
 		}
 		Debug.Log("Registering new session...");
+		
 		WWWForm form = new WWWForm();
 		form.AddField("app_version", "1");	
 		form.AddField("MAC", Utils.GetMacAddress());
@@ -206,22 +216,48 @@ public class LogAPI {
 		WWW www = new WWW(host + "/start_session", form);
 		yield return www;
 
+		if(String.IsNullOrEmpty(www.error) == false && context != null)
+		{
+			yield return context.StartCoroutine(RetryConnection(www, form));
+		}
+		
+
 		JSONObject json = HandleResponse(www);
 		session_id = (int) json[0]["id"].n;
-		Debug.Log(json[0]["id"]);
+		Debug.Log("Session registed with id: " + json[0]["id"]);
 
 	}
+
+	private IEnumerator RetryConnection(WWW www, WWWForm form, int retries = 5)
+	{
+		do
+		{
+			// form.AddField("retries", retries);
+			Debug.Log("Retry nr. " + retries + "\n" +
+								"Url: " + www.url + "\n" + 
+								"Error: " + www.error);
+
+			www = new WWW(www.url, form);
+			yield return www;
+		} while(String.IsNullOrEmpty(www.error) == false && --retries >= 0);
+	}
+
 
 	public bool IsDry()
 	{
 		return (session_id == 0);
 	}
 
-	public IEnumerator StopSession(){
+	public IEnumerator StopSession(MonoBehaviour context = null){
 		WWWForm form = new WWWForm();
 		form.AddField("id", session_id);
 		WWW www = new WWW(host + "/stop_session", form);
 		yield return www;
+
+		if(String.IsNullOrEmpty(www.error) == false && context != null)
+		{
+			yield return context.StartCoroutine(RetryConnection(www, form));
+		}
 		sessionClosed = true;
 
 		Debug.Log("session finished: " + www.text);

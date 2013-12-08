@@ -13,16 +13,24 @@ public class Logger : MonoBehaviour
 
 	public static Logger instance {get; private set;}
 	public int scene_id { get; private set; }
+	public bool enabled = true;
+
+	public bool IsActive()
+	{
+		return (instance != null && this == instance && enabled);
+	}
 
 	void Awake()
 	{
+		if(enabled == false) return;
 		if(instance != null && instance != this)
 		{
 			Destroy(gameObject);
-			Debug.Log("Multiple Loggers found!!");
+			CancelInvoke();
+			Debug.LogError("Multiple Loggers found!!");
 			return;
 		}
-
+		Debug.Log("Setting Logger instance");
 		instance = this;
 		GameObject.DontDestroyOnLoad(gameObject);
 		SetupLogging();
@@ -30,17 +38,31 @@ public class Logger : MonoBehaviour
 
 	private void SetupLogging()
 	{
-		StartCoroutine(LogAPI.instance.StartSession()); // Register session
+		StartCoroutine(LogAPI.instance.StartSession(this)); // Register session
 		StartCoroutine(RegisterScene()); // register scene
 	}
 
-	void OnLevelLoaded()
+	void OnLevelWasLoaded()
 	{
+		if(IsActive() == false) return;
+		Debug.Log("Logger " + gameObject.GetInstanceID() + ": OnLevelWasLoaded");
 		StartCoroutine(RegisterScene());
+	}
+
+	void OnApplicationQuit()
+	{
+		if(IsActive() == false) return;
+		if(LogAPI.instance.Enqueued() > 0)
+		{
+			StartCoroutine(LogAPI.instance.Flush(this));
+		}
+		StartCoroutine(LogAPI.instance.CloseScene(scene_id, this));
+		StartCoroutine(LogAPI.instance.StopSession(this));
 	}
 
 	private IEnumerator RegisterScene()
 	{
+		if(IsActive() == false) yield return false;
 		while(LogAPI.instance.session_id == 0)
 		{
 			yield return new WaitForSeconds(0.5f);
@@ -48,12 +70,20 @@ public class Logger : MonoBehaviour
 		if(scene_id != 0)
 		{
 			// Unregister current scene
-			StartCoroutine(LogAPI.instance.CloseScene(scene_id));
+			if(LogAPI.instance.Enqueued() > 0)
+			{
+				StartCoroutine(LogAPI.instance.Flush(this));
+			}
+			StartCoroutine(LogAPI.instance.CloseScene(scene_id, this));
 		}
 		StartCoroutine(LogAPI.instance.RegisterScene(
 			Application.loadedLevelName,
 			Time.time,
-			id => { scene_id = id; }
+			this,
+			id => {
+				scene_id = id;
+				Debug.Log("Scene registered with id: " + id);
+			}
 		));
 	}
 
@@ -65,32 +95,15 @@ public class Logger : MonoBehaviour
 
 	public void Enqueue(LogEntry entry)
 	{
-// 		if(enabled == false)
-// 			return;
+		if(IsActive() == false) return;
 
-// 		if(scene_id == 0 || LogAPI.instance.session_id == 0)
-// 		{
-// 			waitingQueue.Enqueue(entry);
-// 		}
-// 		else if(waitingQueue.Count > 0)
-// 		{
-// 			LogEntry[] waitingEntries = new LogEntry[waitingQueue.Count];
-// 			waitingQueue.CopyTo(waitingEntries, 0);
-// 			waitingQueue.Clear();
-// 			foreach(LogEntry e in waitingEntries)
-// 			{
-// 				Enqueue(e);
-// 			}
-// 		}
-// 		else
-// 		{
-// 			entry.scene_id = scene_id;
-// 			entry.AddFloat("fps", 1.0f/Time.deltaTime);
-// 			if(LogAPI.instance.Enqueue(entry))
-// 			{
-// 				StartCoroutine(LogAPI.instance.Flush());
-// 			}
-// 		}
+		entry.scene_id = scene_id;
+		entry.AddFloat("fps", 1.0f/Time.deltaTime);
+		if(LogAPI.instance.Enqueue(entry))
+		{
+			StartCoroutine(LogAPI.instance.Flush(this));
+		}
+
 	}
 
 }

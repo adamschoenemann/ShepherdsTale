@@ -14,7 +14,7 @@ public class CherryLoggable : Loggable
 
 		cherry = GetComponent<Cherry>();
 		cherry.onPickUp += (obj, args) => {
-			logger.Enqueue(
+			EnqueueEntry(
 				new LogEntry(this, "CherryPickUp")
 					.AddInt("health", args.health)
 					.AddVector3("position", args.position)

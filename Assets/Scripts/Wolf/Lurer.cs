@@ -7,7 +7,6 @@ public class Lurer : NoiseGenerator
 	public string lureKey = "v";
 	public string trapKey = "c";
 	public AudioSource sound;
-	public GameObject trap;
 	public float timeToSetTrap = 1.0f; // Seconds
 	private int nTraps = 1;
 
@@ -18,8 +17,11 @@ public class Lurer : NoiseGenerator
 	private Texture2D setTrapTexture1, setTrapTexture2;
 	private Timer setTrapTimer = null;
 
+	private Trap trap;
+
 	void Start()
 	{
+		trap = GameObject.FindWithTag(Tags.trap).GetComponent<Trap>();
 		setTrapTexture1 = new Texture2D(1, 1);
 		setTrapTexture2 = new Texture2D(1, 1);
 		for(int y = 0; y < setTrapTexture1.height; y++)
@@ -33,7 +35,7 @@ public class Lurer : NoiseGenerator
 		setTrapTexture1.Apply();
 		setTrapTexture2.Apply();
 
-		playermovement = GameObject.FindWithTag(Tags.player).GetComponent<PlayerMovement>();
+		playermovement = GetComponent<PlayerMovement>();
 	}
 
 	void Update()
@@ -47,7 +49,7 @@ public class Lurer : NoiseGenerator
 		{
 			if(atTrap)
 			{
-				PickupTrap(GameObject.FindWithTag(Tags.trap));
+				PickupTrap();
 			}
 			else if(nTraps > 0)
 			{
@@ -81,15 +83,15 @@ public class Lurer : NoiseGenerator
 	{
 		if(nTraps > 0)
 		{
-			GameObject.Instantiate(trap, transform.position, transform.rotation);
+			trap.Place(transform.position, transform.rotation);
 			nTraps--;
 		}
 	}
 
-	void PickupTrap(GameObject trap)
+	void PickupTrap()
 	{
 		nTraps++;
-		Destroy(trap);
+		trap.PickUp();
 		atTrap = false;
 	}
 
