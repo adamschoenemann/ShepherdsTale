@@ -1,8 +1,8 @@
 using UnityEngine;
 using System;
-using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 
 /**
  * There should only EVER BE ONE OF THESE IN A PROJECT!!!!
@@ -104,6 +104,52 @@ public class Logger : MonoBehaviour
 			StartCoroutine(LogAPI.instance.Flush(this));
 		}
 
+	}
+
+	public void SendQuestionnaire(string[] answers)
+	{
+		StartCoroutine(SendAnswers(answers));
+	}
+
+	private IEnumerator SendAnswers(string[] answers)
+	{
+		while(LogAPI.instance.session_id == 0 || scene_id == 0)
+		{
+			yield return new WaitForSeconds(0.5f);
+		}
+
+		WWWForm form = new WWWForm();
+		form.AddField("session_id", LogAPI.instance.session_id);
+
+		form.AddField("timestamp", answers[0]);
+		form.AddField("gender", answers[1]);
+		form.AddField("age", answers[2]);
+		form.AddField("nationality", answers[3]);
+
+		// Join answers
+		StringBuilder sb = new StringBuilder();
+		for(int i = 4; i < answers.Length - 1; i++)
+		{
+			sb.Append(answers[i]).Append("|");
+		}
+		sb.Append(answers[answers.Length - 1]);
+		form.AddField("answers", sb.ToString());
+
+		string url = "http://www.adamschoenemann.dk/api/answers";
+		WWW www = new WWW(url, form);
+		yield return www;
+		if(String.IsNullOrEmpty(www.error) == false)
+		{
+			yield return StartCoroutine(Utils.RetryConnection(www, form));
+		}
+		if(String.IsNullOrEmpty(www.error))
+		{
+			Debug.Log("Questionnaire posted succesfully");
+		}
+		else
+		{
+			Debug.Log(www.error);
+		}
 	}
 
 }

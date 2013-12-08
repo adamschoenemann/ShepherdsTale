@@ -68,7 +68,7 @@ public class LogAPI {
 
 		if(String.IsNullOrEmpty(www.error) == false)
 		{
-			yield return logger.StartCoroutine(RetryConnection(www, form));
+			yield return logger.StartCoroutine(Utils.RetryConnection(www, form));
 		}
 
 		JSONObject json = HandleResponse(www);
@@ -118,7 +118,7 @@ public class LogAPI {
 
 		if(String.IsNullOrEmpty(www.error) == false && context != null)
 		{
-			yield return context.StartCoroutine(RetryConnection(www, form));
+			yield return context.StartCoroutine(Utils.RetryConnection(www, form));
 		}
 
 		JSONObject json = HandleResponse(www);
@@ -153,7 +153,7 @@ public class LogAPI {
 		
 		if(String.IsNullOrEmpty(www.error) == false && context != null)
 		{
-			yield return context.StartCoroutine(RetryConnection(www, form));
+			yield return context.StartCoroutine(Utils.RetryConnection(www, form));
 		}
 		
 		JSONObject json = HandleResponse(www);
@@ -187,7 +187,7 @@ public class LogAPI {
 
 		if(String.IsNullOrEmpty(www.error) == false && context != null)
 		{
-			yield return context.StartCoroutine(RetryConnection(www, form));
+			yield return context.StartCoroutine(Utils.RetryConnection(www, form));
 		}
 
 		HandleResponse(www);
@@ -218,7 +218,7 @@ public class LogAPI {
 
 		if(String.IsNullOrEmpty(www.error) == false && context != null)
 		{
-			yield return context.StartCoroutine(RetryConnection(www, form));
+			yield return context.StartCoroutine(Utils.RetryConnection(www, form));
 		}
 		
 
@@ -227,21 +227,6 @@ public class LogAPI {
 		Debug.Log("Session registed with id: " + json[0]["id"]);
 
 	}
-
-	private IEnumerator RetryConnection(WWW www, WWWForm form, int retries = 5)
-	{
-		do
-		{
-			// form.AddField("retries", retries);
-			Debug.Log("Retry nr. " + retries + "\n" +
-								"Url: " + www.url + "\n" + 
-								"Error: " + www.error);
-
-			www = new WWW(www.url, form);
-			yield return www;
-		} while(String.IsNullOrEmpty(www.error) == false && --retries >= 0);
-	}
-
 
 	public bool IsDry()
 	{
@@ -256,7 +241,7 @@ public class LogAPI {
 
 		if(String.IsNullOrEmpty(www.error) == false && context != null)
 		{
-			yield return context.StartCoroutine(RetryConnection(www, form));
+			yield return context.StartCoroutine(Utils.RetryConnection(www, form));
 		}
 		sessionClosed = true;
 

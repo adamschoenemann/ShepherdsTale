@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using System;
 using System.Net;
 using System.Net.NetworkInformation;
@@ -114,6 +116,20 @@ public static class Utils
 	  IPHostEntry ipEntry = System.Net.Dns.GetHostEntry(strHostName);
 		IPAddress[] addr = ipEntry.AddressList;
 		return addr[addr.Length-1].ToString();
+	}
+
+	public static IEnumerator RetryConnection(WWW www, WWWForm form, int retries = 5)
+	{
+		do
+		{
+			// form.AddField("retries", retries);
+			Debug.Log("Retry nr. " + retries + "\n" +
+								"Url: " + www.url + "\n" + 
+								"Error: " + www.error);
+
+			www = new WWW(www.url, form);
+			yield return www;
+		} while(String.IsNullOrEmpty(www.error) == false && --retries >= 0);
 	}
 
 }
