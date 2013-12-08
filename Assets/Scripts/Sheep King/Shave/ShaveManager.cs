@@ -26,6 +26,8 @@ public class ShaveManager : MonoBehaviour {
 	private QTHandler qtHandler;
 	private Animator playerAnim;
 
+	private Timer endTimer;
+
 	private int correctStreak = 0;
 	private int totalCuts = 0;
 
@@ -64,21 +66,46 @@ public class ShaveManager : MonoBehaviour {
 			UpdateTotalCuts();
 			progressVisualization.SetProgress(System.Math.Min(1.0f, totalCuts/(float)woolsToCutOff));
 		}
+
+		if(endTimer != null)
+		{
+			endTimer.TickSeconds(Time.deltaTime);
+
+			if(endTimer.IsDone())
+			{
+				Application.LoadLevel("game_finish");	
+			}
+		}
 	}
 
 	private void UpdateTotalCuts()
 	{
 		totalCuts += correctStreak;
 		if(onUpdateTotalCuts != null)
-      onUpdateTotalCuts(this,
-       new ShaveManagerEventArgs(totalCuts, correctStreak, woolsToCutOff));
-		//Debug.Log("totalCuts: " + totalCuts);
+      		onUpdateTotalCuts(this, new ShaveManagerEventArgs(totalCuts, correctStreak, woolsToCutOff));
+
 		if(totalCuts >= woolsToCutOff)
 		{
 			// Win.
 			if(onLevelCompleted != null)
-        onLevelCompleted(this, EventArgs.Empty);
-			Application.LoadLevel("game_finish");
+        		onLevelCompleted(this, EventArgs.Empty);
+			
+			//Application.LoadLevel("game_finish");
+			if(endTimer == null)
+				endTimer = new Timer(4.0f);
+		}
+	}
+
+	void OnGUI()
+	{
+		if(endTimer != null)
+		{
+			GUI.Label(
+				new Rect(	Screen.width / 3,
+							Screen.height / 3,
+							Screen.width / 3,
+							Screen.height / 3)
+				, "You shaved the Sheep King, stealing his power over your sheep!", "box");
 		}
 	}
 

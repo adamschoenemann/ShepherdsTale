@@ -109,13 +109,14 @@ public class SimonManager : MonoBehaviour {
 
 	private Timer noteDurationTimer;
 	private Timer waitToShowTimer;
+	private Timer endTimer;
 
 	public bool playerMadeMistake;
 
 	// Events
-  public event EventHandler<HitSheepEventArgs> onPlayerHitRightSheep;
-  public event EventHandler<HitSheepEventArgs> onPlayerHitWrongSheep;
-  public event EventHandler onLevelCompleted;
+  	public event EventHandler<HitSheepEventArgs> onPlayerHitRightSheep;
+  	public event EventHandler<HitSheepEventArgs> onPlayerHitWrongSheep;
+  	public event EventHandler onLevelCompleted;
 
 	// Initialization
 	void Start () {
@@ -153,6 +154,11 @@ public class SimonManager : MonoBehaviour {
 				if(!winSound.isPlaying)
 				{
 					Application.LoadLevel("game_finish");
+				}
+				endTimer.TickSeconds(Time.deltaTime);
+				if(endTimer.IsDone())
+				{
+					Application.LoadLevel("game_finish");	
 				}
 				break;
 		}
@@ -238,10 +244,11 @@ public class SimonManager : MonoBehaviour {
 				{
 					// win; finish game
 					if(onLevelCompleted != null)
-            onLevelCompleted(this, EventArgs.Empty);
+            			onLevelCompleted(this, EventArgs.Empty);
 					GoToState(State.Finished);
 					Debug.Log("You won the game!");
 					winSound.Play();
+					endTimer = new Timer(4.0f);
 				}
 				else
 				{
@@ -350,5 +357,18 @@ public class SimonManager : MonoBehaviour {
 		i -= startLevel;
 
 		return i;
+	}
+
+	void OnGUI()
+	{
+		if(endTimer != null)
+		{
+			GUI.Label(
+				new Rect(	Screen.width / 3,
+							Screen.height / 3,
+							Screen.width / 3,
+							Screen.height / 3)
+				, "You totally beat the Sheep King, regaining your sheep's respect!", "box");
+		}
 	}
 }

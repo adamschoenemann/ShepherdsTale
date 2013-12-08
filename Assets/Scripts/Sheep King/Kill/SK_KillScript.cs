@@ -88,10 +88,6 @@ public class SK_KillScript : MonoBehaviour
 		};
 		mortal.onDeathHandler = (mortalInstance, killer) => {
 			Destroy(this.gameObject);
-
-			// Insert winning consequence here, e.g. go to scene or something like that.
-			print("You won against the sheep king! Now celebrate with a happy ending!");
-			//Application.LoadLevel("game_finish");
 		};
 
 		timer = new Timer(aimTime);
