@@ -56,12 +56,10 @@ public class KillGameController : MonoBehaviour
 	{
 		Debug.Log("Wolf died... :(");
 		wolvesLeft--;
-		if(wolvesLeft <= 0)
+		if(wolvesLeft <= 0 && restartLevelTimer == null)
 		{
 			StartNextLevelTimer();
 			displayComplete = true;
-			Debug.Log("Level completed!");
-			//Application.LoadLevel("wolf_finish");
 		}
 	}
 

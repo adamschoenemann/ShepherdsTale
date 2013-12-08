@@ -9,6 +9,8 @@ public class RaceCourse : MonoBehaviour {
 
 	private Timer restartTimer = null;
 	private int restartTime = 4000; // milliseconds
+
+	private Timer endTimer;
 	
 	// Use this for initialization
 	void Start () 
@@ -45,6 +47,15 @@ public class RaceCourse : MonoBehaviour {
 		if(restartTimer != null)
 		{
 			restartTimer.TickSeconds(Time.deltaTime);
+		} 
+		else if(endTimer != null)
+		{
+			endTimer.TickSeconds(Time.deltaTime);
+
+			if(endTimer.IsDone())
+			{
+				Application.LoadLevel("loonie_finish");	
+			}
 		}
 	}
 
@@ -56,6 +67,15 @@ public class RaceCourse : MonoBehaviour {
 								Screen.height / 4, 
 								Screen.width / 2,
 								Screen.height / 2), "You lost! Restarting level in " + ((int)(restartTime/1000.0f - restartTimer.GetElapsedSeconds())).ToString());
+		}
+		else if(endTimer != null)
+		{
+			GUI.Label(
+				new Rect(	Screen.width / 3,
+							Screen.height / 3,
+							Screen.width / 3,
+							Screen.height / 3)
+				, "You beat the Loonie!", "box");
 		}
 	}
 	
@@ -81,7 +101,7 @@ public class RaceCourse : MonoBehaviour {
 		{
 			// Lose
 			//print ("goal reached loonie");
-			if(restartTimer == null)
+			if(restartTimer == null && endTimer == null)
 			{
 				restartTimer = new Timer(restartTime);
 				restartTimer.onDone += delegate(Timer timer) {
@@ -94,7 +114,9 @@ public class RaceCourse : MonoBehaviour {
 		{
 			// Win
 			//print ("goal reached player");
-			Application.LoadLevel("loonie_finish");
+			//Application.LoadLevel("loonie_finish");
+			if(restartTimer == null && endTimer == null)
+				endTimer = new Timer(4.0f);
 			return true;
 		}
 		

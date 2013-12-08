@@ -12,7 +12,7 @@ public class LoonieController : LoonieBaseController {
 	{
 		base.Awake();
 		mortal.onDamageHandler = OnDamage;
-		mortal.onDeathHandler = OnLoonieDeath;		
+		mortal.onDeathHandler = OnLoonieDeath;
 	}
 	
 	bool OnDamage(Mortal mortal, GameObject attacker, int damage)

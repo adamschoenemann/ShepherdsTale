@@ -681,7 +681,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400018, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
       propertyPath: startDistance
-      value: 15
+      value: 18.6000004
       objectReference: {fileID: 0}
     - target: {fileID: 11400018, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
       propertyPath: globalDensity
@@ -689,11 +689,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400018, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400014, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
       propertyPath: enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400018, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
+      propertyPath: globalFogColor.r
+      value: .54301393
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400018, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
+      propertyPath: globalFogColor.g
+      value: .540873706
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400018, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
+      propertyPath: globalFogColor.b
+      value: .602941155
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
@@ -12286,17 +12298,17 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 80834604}
   m_GameObject: {fileID: 1393358818}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34c3946ab5378473cb34bedd1c8194ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fogMode: 2
-  startDistance: 15
+  startDistance: 18.6000004
   globalDensity: 4.5
   heightScale: 100
   height: 0
-  globalFogColor: {r: .764705896, g: .764705896, b: .764705896, a: 1}
+  globalFogColor: {r: .54301393, g: .540873706, b: .602941155, a: 1}
   fogShader: {fileID: 4800000, guid: 70d8568987ac0499f952b54c7c13e265, type: 3}
 --- !u!114 &1393358828
 MonoBehaviour:
@@ -18612,7 +18624,6 @@ MonoBehaviour:
   lureKey: q
   trapKey: e
   sound: {fileID: 2055785878}
-  trap: {fileID: 100006, guid: b2534b20e22dd6f46a73abbbf1fb6716, type: 2}
   timeToSetTrap: 1
   trapIcon: {fileID: 2800000, guid: 1f7f155e93b466349a2db227366a9d6b, type: 3}
 --- !u!114 &2055785884

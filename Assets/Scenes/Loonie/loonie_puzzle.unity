@@ -8799,9 +8799,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: .0460325293
-  m_Height: .75
+  m_Height: .569999993
   m_Direction: 1
-  m_Center: {x: 1.5260186e-05, y: .0900000036, z: 1.15483999e-07}
+  m_Center: {x: 1.5260186e-05, y: 0, z: 1.15483999e-07}
 --- !u!54 &835509936
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16650,7 +16650,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .215686277, g: .278431386, b: .403921574, a: .0196078438}
+  m_BackGroundColor: {r: .917647064, g: .784313738, b: .784313738, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -16721,11 +16721,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fogMode: 2
-  startDistance: 10
-  globalDensity: 4
+  startDistance: 41.6599998
+  globalDensity: 5.5
   heightScale: 100
   height: 0
-  globalFogColor: {r: .215686277, g: .278431386, b: .41568628, a: 1}
+  globalFogColor: {r: .286274523, g: .242294356, b: .232387558, a: 1}
   fogShader: {fileID: 4800000, guid: 70d8568987ac0499f952b54c7c13e265, type: 3}
 --- !u!114 &1393358827
 MonoBehaviour:
@@ -23305,6 +23305,30 @@ Prefab:
       propertyPath: enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400018, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400018, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
+      propertyPath: startDistance
+      value: 41.6599998
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400018, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
+      propertyPath: globalFogColor.r
+      value: .286274523
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400018, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
+      propertyPath: globalFogColor.g
+      value: .242294356
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400018, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
+      propertyPath: globalFogColor.b
+      value: .232387558
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400018, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
+      propertyPath: globalDensity
+      value: 5.5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400004, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
@@ -23600,7 +23624,7 @@ MonoBehaviour:
   lureKey: q
   trapKey: e
   sound: {fileID: 2055785878}
-  trap: {fileID: 100006, guid: b2534b20e22dd6f46a73abbbf1fb6716, type: 2}
+  timeToSetTrap: 1
   trapIcon: {fileID: 2800000, guid: 1f7f155e93b466349a2db227366a9d6b, type: 3}
 --- !u!136 &2055785875
 CapsuleCollider:
@@ -23644,7 +23668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69cde2a20f757a2489cea30f607fc454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 150
+  runSpeed: 200
   sneakSpeed: 200
 --- !u!82 &2055785878
 AudioSource:
