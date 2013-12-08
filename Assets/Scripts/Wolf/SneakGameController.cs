@@ -7,9 +7,14 @@ public class SneakGameController : GameController
 
 	void Awake()
 	{
-	
-		WolfController.onPlayerSeen += OnPlayerSeenHandler;
-		LevelComplete.onPlayerEntered += OnLevelComplete;
+		LevelComplete lvlComplete = GameObject.Find("LevelCompleteTrigger").GetComponent<LevelComplete>();
+		lvlComplete.onPlayerEntered += OnLevelComplete;
+		
+		foreach(GameObject wolf in GameObject.FindGameObjectsWithTag(Tags.enemy))
+		{
+			wolf.GetComponent<WolfController>().onPlayerSeen += OnPlayerSeenHandler;
+		}
+
 	}
 
 	void OnPlayerSeenHandler(object wolf, EventArgs args)

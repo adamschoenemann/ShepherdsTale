@@ -5,7 +5,7 @@ using System;
 public class LevelComplete : Loggable
 {
 
-	public static event EventHandler onPlayerEntered;
+	public event EventHandler onPlayerEntered;
 
 	void OnTriggerEnter(Collider other)
 	{

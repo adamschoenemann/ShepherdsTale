@@ -9169,7 +9169,6 @@ GameObject:
   - 23: {fileID: 1025662038}
   - 65: {fileID: 1025662037}
   - 114: {fileID: 1025662039}
-  - 114: {fileID: 1025662042}
   m_Layer: 0
   m_Name: LevelCompleteTrigger
   m_TagString: Untagged
@@ -9222,7 +9221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enabled: 1
-  name: 
+  name: SneakLevelCompleteLogger
 --- !u!33 &1025662040
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9241,17 +9240,6 @@ Transform:
   m_LocalScale: {x: 7.45570803, y: 7.45570803, z: 7.45570803}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!114 &1025662042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1025662036}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1300eef9b77882c4db6c8492ad8480af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1026707634
 GameObject:
   m_ObjectHideFlags: 0

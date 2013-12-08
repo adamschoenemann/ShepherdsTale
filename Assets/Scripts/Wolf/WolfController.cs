@@ -78,7 +78,7 @@ public class WolfController : MonoBehaviour
 
 	private NavMeshAgent agent;
 
-	public static event EventHandler onPlayerSeen;
+	public event EventHandler onPlayerSeen;
 	public event EventHandler<OnStateChangeEventArgs> onStateChangeEvent;
 
 //============================================================================//
