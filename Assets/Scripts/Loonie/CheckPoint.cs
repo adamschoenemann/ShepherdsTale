@@ -55,7 +55,10 @@ public class CheckPoint : MonoBehaviour {
 	void OnTriggerEnter (Collider other)
 	{
 		if(other.gameObject == GameObject.FindGameObjectWithTag(Tags.player))
+		{
 			gateCheckedPlayer = true;
+			renderer.material.SetColor("_Colour", new Color(1, 1, 0, 1));
+		}
 		else if(other.gameObject == GameObject.FindGameObjectWithTag(Tags.loonie))
 			gateCheckedLoonie = true;
 	}
