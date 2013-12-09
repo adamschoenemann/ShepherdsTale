@@ -298,7 +298,6 @@ GameObject:
   - 4: {fileID: 400038}
   - 23: {fileID: 2300000}
   - 114: {fileID: 11400000}
-  - 102: {fileID: 10200000}
   m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
@@ -875,8 +874,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100044}
-  m_LocalRotation: {x: 0, y: -.930130601, z: 0, w: -.367229074}
-  m_LocalPosition: {x: 2.44066381, y: -.26472193, z: 33.9705925}
+  m_LocalRotation: {x: 0, y: -.907129645, z: 0, w: .42085129}
+  m_LocalPosition: {x: 3.62312746, y: .364416659, z: -20.1832066}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400074}
@@ -1117,17 +1116,17 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 4ee229156e1bb85458e0991136da3510, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_PlayOnAwake: 1
+  m_Volume: .49000001
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 1.59414959
+  MaxDistance: 2.81999993
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -1160,7 +1159,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: .0500000007
+      value: .384722233
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1180,27 +1179,6 @@ Animator:
   m_ApplyRootMotion: 0
   m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
---- !u!102 &10200000
-TextMesh:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100038}
-  m_Text: 
-  m_OffsetZ: 0
-  m_CharacterSize: .959999979
-  m_LineSpacing: 1.01999998
-  m_Anchor: 4
-  m_Alignment: 1
-  m_TabSize: 4.03000021
-  m_FontSize: 62
-  m_FontStyle: 0
-  m_RichText: 1
-  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-  m_Color:
-    serializedVersion: 2
-    rgba: 4294967295
 --- !u!108 &10800000
 Light:
   m_ObjectHideFlags: 1
@@ -1249,7 +1227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subject: {fileID: 100044}
   width: 30
-  distanceThresh: 10
+  distanceThresh: 15
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1288,11 +1266,12 @@ MonoBehaviour:
   hearing: 2
   seeingThresh: 10
   fieldOfView: 100
-  turnSpeed: 5
+  turnSpeed: 2
   playerDistanceThresh: 15
   moveSpeed: 1
   nearThresh: 1.70000005
   distanceFromHomeThresh: 15
+  debug: 0
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1338,10 +1317,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100044}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8412e7a96f3a0a4d9e3b021696682d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 38c02981ae96b894fbec85047318442c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
+  enabled: 1
   name: Wolf1
 --- !u!135 &13500000
 SphereCollider:
@@ -1365,9 +1344,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: .300000012
-  m_Height: 1.37
+  m_Height: 1.58000004
   m_Direction: 2
-  m_Center: {x: 0, y: .310000002, z: 0}
+  m_Center: {x: 0, y: .310000002, z: .170000002}
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -1439,7 +1418,7 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 200
+  m_AngularSpeed: 30
   m_StoppingDistance: .100000001
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1

@@ -34,7 +34,7 @@ LightmapSettings:
   m_ObjectHideFlags: 0
   m_LightProbes: {fileID: 0}
   m_Lightmaps:
-  - m_Lightmap: {fileID: 2800000, guid: 1fd21d2256c98524a99a18ccd246e321, type: 3}
+  - m_Lightmap: {fileID: 2800000, guid: 3001204f91402b94187cbb9a21365344, type: 3}
     m_IndirectLightmap: {fileID: 2800000, guid: 03be01c1709efbf4a9302341861b1847,
       type: 3}
   m_LightmapsMode: 1
@@ -30860,7 +30860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 5
   invincibleTime: 500
 --- !u!136 &2055785875
 CapsuleCollider:
