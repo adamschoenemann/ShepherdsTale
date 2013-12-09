@@ -18,6 +18,8 @@ public class EndGame : MonoBehaviour {
 
 	void OnGUI()
 	{
+		GUI.skin.button.wordWrap = true;
+
 		Rect rect = new Rect((int)(Screen.width * marginAmount),
 							 (int)(Screen.height * marginAmount),
 							 (int)(Screen.width - 2 * (Screen.width * marginAmount)),
@@ -32,10 +34,7 @@ public class EndGame : MonoBehaviour {
 		}
 		else 
 		{
-			if(GUI.Button(rect, "Congratulations! You beat the game. Click to exit!"))
-			{
-				Application.Quit(); // Won't work for webapp.
-			}
+			GUI.Label(rect, "Congratulations! You beat the game. Feel free to close your tab or browser!", "button");
 		}
 	}
 }

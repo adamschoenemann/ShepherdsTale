@@ -38,7 +38,7 @@ public class Collectible : MonoBehaviour
 	private float sizeX	= Screen.width*0.8f;
 	private float sizeY	= Screen.height*0.8f;
 
-	private static string nFacts = "IX";
+	private static string nFacts = "VI";
 	private static int collectiblesPickedUp = 0;
 	private static List<CollectibleRecord> alreadyCollected = new List<CollectibleRecord>();
 	
@@ -148,10 +148,10 @@ public class Collectible : MonoBehaviour
 			GUI.color = new Color(1,0,1,1);
 			if (GUI.Button(new Rect(posX+(sizeX/2)-100,Screen.height-200, 200, 50), "<color=#ffa500ff> Click to \n<color=#ffffff> EXIT </color> or press <color=#ffffff>ESCAPE</color> </color>") || Input.GetButtonDown("Escape"))
 			{
-				//print("You clicked the button!");
 				collectiblesPickedUp++;
 				showGUI = false;
 				Time.timeScale = 1.0f;
+				Screen.showCursor = false;
 			}
 		}
 	}

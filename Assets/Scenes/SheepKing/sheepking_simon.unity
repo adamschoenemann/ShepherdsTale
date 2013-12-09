@@ -2340,7 +2340,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 35.5579948
+  m_Radius: 40
   m_Center: {x: .692581177, y: -8.44732189, z: 32.3046341}
 --- !u!1 &284425700
 GameObject:
@@ -3976,7 +3976,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 35.5579948
+  m_Radius: 40
   m_Center: {x: .692581177, y: -8.44732189, z: 32.3046341}
 --- !u!54 &569956042
 Rigidbody:
@@ -10540,7 +10540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d9f1d351f6e6ba4a90f0578ffd67e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 5
   invincibleTime: 500
 --- !u!114 &1393358826
 MonoBehaviour:
@@ -10556,7 +10556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fogMode: 2
   startDistance: 0
-  globalDensity: 3
+  globalDensity: 4.5
   heightScale: 100
   height: 0
   globalFogColor: {r: .764705896, g: .764705896, b: .764705896, a: 1}
@@ -10973,7 +10973,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 35.5579948
+  m_Radius: 40
   m_Center: {x: .692581117, y: -8.44732189, z: 32.3046074}
 --- !u!54 &1423382262
 Rigidbody:
@@ -14104,7 +14104,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 35.5579948
+  m_Radius: 40
   m_Center: {x: .693069458, y: -8.44732189, z: 32.3046417}
 --- !u!54 &1695585748
 Rigidbody:

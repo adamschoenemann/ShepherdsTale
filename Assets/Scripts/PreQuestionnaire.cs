@@ -17,6 +17,8 @@ public class PreQuestionnaire : MonoBehaviour {
 
 	void OnGUI()
 	{
+		GUI.skin.button.wordWrap = true;
+		
 		if(GUI.Button(new Rect((int)(Screen.width * 0.3),
 							   (int)(Screen.height * 0.3),
 							   (int)(Screen.width - 2 * (Screen.width * 0.3)),
