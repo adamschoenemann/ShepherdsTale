@@ -27,14 +27,14 @@ public class EndGame : MonoBehaviour {
 
 		if(pilotTesting)
 		{
-			if(GUI.Button(rect, "Congratulations! You beat the game. Since you're pilot testing, please fill out the final questionnaire. Click to proceed!"))
+			if(GUI.Button(rect, "Congratulations! You got your sheep back and can now live happily forever after. Since you're pilot testing, please fill out the final questionnaire. Click to proceed!"))
 			{
 				Application.LoadLevel("pilot_test_questionnaire");
 			}
 		}
 		else 
 		{
-			GUI.Label(rect, "Congratulations! You beat the game. Feel free to close your tab or browser!", "button");
+			GUI.Label(rect, "Congratulations! You got your sheep back and can now live happily forever after. Feel free to close your tab or browser!", "button");
 		}
 	}
 }

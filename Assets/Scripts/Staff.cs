@@ -24,6 +24,9 @@ public class Staff : MonoBehaviour
 		if(obj == null)
 			return;
 
+		//if(!audio.isPlaying)
+			audio.Play();
+
 		Mortal mortal = obj.GetComponent<Mortal>();
 		if(mortal == null)
 			return;

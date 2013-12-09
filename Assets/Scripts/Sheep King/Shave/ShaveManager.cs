@@ -100,6 +100,7 @@ public class ShaveManager : MonoBehaviour {
 	{
 		if(endTimer != null)
 		{
+			GUI.skin.box.wordWrap = true;
 			GUI.Label(
 				new Rect(	Screen.width / 3,
 							Screen.height / 3,
