@@ -179,7 +179,7 @@ public class Logger : MonoBehaviour
 
 		// Join answers
 		StringBuilder sb = new StringBuilder();
-		for(int i = 7; i < answers.Length - 1; i++)
+		for(int i = 8; i < answers.Length - 1; i++)
 		{
 			sb.Append(answers[i]).Append("|");
 		}
