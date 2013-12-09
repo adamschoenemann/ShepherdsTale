@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   marginAmount: .200000003
-  pilotTesting: 0
+  pilotTesting: 1
 --- !u!4 &429818243
 Transform:
   m_ObjectHideFlags: 0
@@ -152,7 +152,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5a73b2b249b494a42ae01d002ff6d851, type: 2}
       propertyPath: pilotTesting
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5a73b2b249b494a42ae01d002ff6d851, type: 2}

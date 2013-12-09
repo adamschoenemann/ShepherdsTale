@@ -7,9 +7,11 @@ using System.Collections;
 public class PilotPage
 {
 	private PilotRow[] questions;
+	private Layout layout;
 
 	public PilotPage(string[] left, int startIndex, int endIndex, Layout layout)
 	{
+		this.layout = layout;
 		questions = new PilotRow[endIndex - startIndex + 1];
 		
 		for(int i = 0; i < questions.Length; i++)
@@ -22,11 +24,11 @@ public class PilotPage
 
 	public void Draw()
 	{
-		for(int i = 0; i < questions.Length+1; i++)
+		GUI.Toolbar(layout.ElementRectRange(1f, 3f, -1f, 0f)/*layout.ElementRect(1, -1)*/, -1, new string[]{ "No", "Not so much", "So and so", "Almost", "Yes"});
+
+		for(int i = 0; i < questions.Length; i++)
 		{
-			if (i==0) questions[i].Draw(i);
-			else {
-				questions[i-1].Draw(i);}
+			questions[i].Draw(i);
 		}
 	}
 

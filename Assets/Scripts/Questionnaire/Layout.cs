@@ -30,6 +30,14 @@ public class Layout
 						elementWidth, elementHeight);
 	}
 
+	public Rect ElementRectRange(float x1, float x2, float y1, float y2)
+	{
+		return new Rect((int)(startX + x1 * (gapSize + elementWidth)), 
+						(int)(startY + y1 * (gapSize + elementHeight)), 
+						(int)((x2 - x1) * elementWidth  + (int)(x2 - x1 - 2) * gapSize), 
+						(int)((y2 - y1) * elementHeight + (int)(x2 - x1 - 2) * gapSize));
+	}
+
 	public void MoveDown(int nRows)
 	{
 		this.startY += nRows * (this.gapSize + this.elementHeight);

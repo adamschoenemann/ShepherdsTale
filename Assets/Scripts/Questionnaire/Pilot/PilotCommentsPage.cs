@@ -36,8 +36,8 @@ public class PilotCommentsPage : MonoBehaviour {
 	public void Draw()
 	{
 		// playTime
-		GUI.Label(layout.ElementRect(0,1), "How long do you think it took you to finish the game? Please enter the answer in minutes",  "box");
-		playTime = GUI.TextField(layout.ElementRect(1,1), playTime);
+		GUI.Label(layout.ElementRectRange(-0.5f, 1f, 0f, 1.5f), "How long do you think it took you to finish the game? Please enter the answer in minutes",  "box");
+		playTime = GUI.TextField(layout.ElementRectRange(1, 3, 0f, 1.5f), playTime);
 		int noMin;
 		if(!Int32.TryParse(playTime, out noMin) || (noMin > 99))
 		{
@@ -45,8 +45,8 @@ public class PilotCommentsPage : MonoBehaviour {
 		}
 		
 		// comAppearance
-		GUI.Label(layout.ElementRect(0,2), "What do you think about the general visual appearance of the game ?",  "box");
-		comAppearance = GUI.TextField(layout.ElementRect(1,2), comAppearance);
+		GUI.Label(layout.ElementRectRange(-0.5f, 1f, 1.5f, 3f), "What do you think about the general visual appearance of the game ?",  "box");
+		comAppearance = GUI.TextField(layout.ElementRectRange(1, 3, 1.5f, 3f), comAppearance);
 		int vis;
 		if(Int32.TryParse(comAppearance, out vis))
 		{
@@ -54,16 +54,16 @@ public class PilotCommentsPage : MonoBehaviour {
 		}
 
 		// comChoices
-		GUI.Label(layout.ElementRect(0,3), "Did the choices in the event coincide with their descriptions? Please elaborate for each of the choices.",  "box");
-		comChoices = GUI.TextField(layout.ElementRect(1,3), comChoices);
+		GUI.Label(layout.ElementRectRange(-0.5f, 1f, 3f, 4.5f), "Did the choices in the event coincide with their descriptions? Please elaborate for each of the choices.",  "box");
+		comChoices = GUI.TextField(layout.ElementRectRange(1, 3, 3f, 4.5f), comChoices);
 		int cho;
 		if(Int32.TryParse(comChoices, out cho))
 		{
 			comChoices = "";
 		}
 		// comOther
-		GUI.Label(layout.ElementRect(0,4), "Any other comments are welcomed. Any kind of feedback, really.",  "box");
-		comOther = GUI.TextField(layout.ElementRect(1,4), comOther);
+		GUI.Label(layout.ElementRectRange(-0.5f, 1f, 4.5f, 6f), "Any other comments are welcomed. Any kind of feedback, really.",  "box");
+		comOther = GUI.TextField(layout.ElementRectRange(1, 3, 4.5f, 6f), comOther);
 		int gen;
 		if(Int32.TryParse(comOther, out gen))
 		{

@@ -17,19 +17,8 @@ public class PilotRow
 
 	public void Draw(int i)
 	{
-		// Draw left and right labels:
-
-
 		// Draw slider and obtain its value
-		//Value = (int)GUI.HorizontalSlider(layout.ElementRect(1, 0), Value, 1, 5);
-		if (i==0)
-		{//GUI.Label(layout.ElementRect(0, 0), left,  "box");
-			Value = GUI.Toolbar(layout.ElementRect(1, -1), Value, new string[]{ "No", "Not so much", "So and so", "Almost", "Yes"});
-		}
-	
-		else
-		{GUI.Label(layout.ElementRect(0, 0), left,  "box");
-			Value = GUI.Toolbar(layout.ElementRect(1, 0), Value, new string[]{ "", "", "", "", ""});}
-
-}
+		GUI.Label(layout.ElementRectRange(-0.5f, 1f, 0f, 1.2f), left,  "box");
+		Value = GUI.Toolbar(layout.ElementRectRange(1f, 3f, 0f, 1f), Value, new string[]{ "", "", "", "", ""});
+	}
 }
