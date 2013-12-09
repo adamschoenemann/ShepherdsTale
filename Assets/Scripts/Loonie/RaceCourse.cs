@@ -56,6 +56,10 @@ public class RaceCourse : MonoBehaviour {
 			{
 				Application.LoadLevel("loonie_finish");	
 			}
+		} 
+		else if(Input.GetKeyDown("q"))
+		{
+			Application.LoadLevel("loonie_race");	
 		}
 	}
 
@@ -76,6 +80,11 @@ public class RaceCourse : MonoBehaviour {
 							Screen.width / 3,
 							Screen.height / 3)
 				, "You beat the Loonie!", "box");
+		}
+		else
+		{
+			GUI.Label(new Rect(	Screen.width/3, Screen.height - 50,
+							Screen.width/3, 50), "If needed, press Q to restart level.");	
 		}
 	}
 	
