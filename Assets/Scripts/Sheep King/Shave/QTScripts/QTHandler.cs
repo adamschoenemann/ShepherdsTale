@@ -52,12 +52,13 @@ public class QTHandler : MonoBehaviour {
 	void Start ()
 	{
 		stream = new QTStream(quickTimeEventList, textures, nodesPerSecond, nodeSize, (int)(nodeSize * inputPrecision)/2);
-		xCenter = Screen.width/2;
-		yCenter = Screen.height - (nodeSize/2 + 10);
 	}
 
 	void Update ()
 	{
+		xCenter = Screen.width/2;
+		yCenter = Screen.height - (nodeSize/2 + 10);
+		
 		errorMarkerTimeElapsed += Time.deltaTime;
 		stream.Update();
 		CheckInput();
