@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using System.Net;
-using System.Net.NetworkInformation;
+//using System.Net.NetworkInformation;
 
 public static class Utils
 {
@@ -85,6 +85,8 @@ public static class Utils
 	/// <returns>The MAC address.</returns>
 	public static string GetMacAddress()
 	{
+		return "FAKE_MAC_ADDRESS"; // We can't get the true mac address using the web player.
+		/*
 	    const int MIN_MAC_ADDR_LENGTH = 12;
 	    string macAddress = string.Empty;
 	    long maxSpeed = -1;
@@ -106,7 +108,7 @@ public static class Utils
 	        }
 	    }
 
-	    return macAddress;
+	    return macAddress;*/
 	}
 
 	public static String GetIP()

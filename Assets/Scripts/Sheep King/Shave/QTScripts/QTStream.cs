@@ -24,13 +24,58 @@ public class QTStream {
 	public QTStream(TextAsset input, QTTextures textures, float speed, int nodeSize, int xOffset)
 	{
 		// Parse input
-		string text = input.text;
-		string[] lines = text.Split(new string[] { "\n" /*System.Environment.NewLine*/ }, System.StringSplitOptions.RemoveEmptyEntries);
+		//string text = input.text;
+		//string[] lines = text.Split(new string[] { "\n" /*System.Environment.NewLine*/ }, System.StringSplitOptions.RemoveEmptyEntries);
 
-		nodes = new QTNode[lines.Length];
+		KeyCode[] expected = { 	KeyCode.None, KeyCode.None, KeyCode.None, 
+								KeyCode.A, KeyCode.None, KeyCode.D, KeyCode.A, 
+								KeyCode.A, KeyCode.W, KeyCode.D, KeyCode.None, 
+								KeyCode.None, KeyCode.S, KeyCode.None, 
+								KeyCode.A, KeyCode.None, KeyCode.A, KeyCode.S, 
+								KeyCode.S, KeyCode.S, KeyCode.W, KeyCode.D, 
+								KeyCode.None, KeyCode.S, KeyCode.S, KeyCode.A, 
+								KeyCode.S, KeyCode.S, KeyCode.None, KeyCode.W, 
+								KeyCode.W, KeyCode.None, KeyCode.S, KeyCode.A, 
+								KeyCode.W, KeyCode.W, KeyCode.S, KeyCode.None, 
+								KeyCode.D, KeyCode.A, KeyCode.None, KeyCode.W, 
+								KeyCode.A, KeyCode.S, KeyCode.W, KeyCode.D, 
+								KeyCode.A, KeyCode.A, KeyCode.None, KeyCode.D, 
+								KeyCode.W, KeyCode.D, KeyCode.None, KeyCode.S, 
+								KeyCode.S, KeyCode.None, KeyCode.W, KeyCode.S, 
+								KeyCode.A, KeyCode.W, KeyCode.D, KeyCode.None, 
+								KeyCode.None, KeyCode.A, KeyCode.None, 
+								KeyCode.None, KeyCode.W, KeyCode.D, 
+								KeyCode.None, KeyCode.W, KeyCode.S, 
+								KeyCode.None, KeyCode.D, KeyCode.S, KeyCode.S, 
+								KeyCode.A, KeyCode.D, KeyCode.W, KeyCode.A, 
+								KeyCode.A, KeyCode.None, KeyCode.A, 
+								KeyCode.None, KeyCode.D, KeyCode.W, KeyCode.A, 
+								KeyCode.D, KeyCode.None, KeyCode.A, 
+								KeyCode.None, KeyCode.S, KeyCode.None, 
+								KeyCode.S, KeyCode.None, KeyCode.A, KeyCode.W, 
+								KeyCode.D, KeyCode.None, KeyCode.W, KeyCode.S, 
+								KeyCode.None, KeyCode.None, KeyCode.S, 
+								KeyCode.D, KeyCode.None, KeyCode.None, 
+								KeyCode.S, KeyCode.W, KeyCode.A, KeyCode.None, 
+								KeyCode.S, KeyCode.None, KeyCode.None, 
+								KeyCode.W, KeyCode.S, KeyCode.None, KeyCode.S, 
+								KeyCode.None, KeyCode.None, KeyCode.W, 
+								KeyCode.D, KeyCode.W, KeyCode.A, KeyCode.None, 
+								KeyCode.W, KeyCode.None, KeyCode.None, 
+								KeyCode.D, KeyCode.D, KeyCode.A, KeyCode.D, 
+								KeyCode.None, KeyCode.A, KeyCode.D, 
+								KeyCode.None, KeyCode.A, KeyCode.None, 
+								KeyCode.A, KeyCode.D, KeyCode.W, KeyCode.D, 
+								KeyCode.A, KeyCode.None, KeyCode.None, 
+								KeyCode.D, KeyCode.None, KeyCode.D, KeyCode.D, 
+								KeyCode.W, KeyCode.None, KeyCode.W, KeyCode.None, 
+								KeyCode.W, KeyCode.S, KeyCode.None, KeyCode.None, 
+								KeyCode.W, KeyCode.None, KeyCode.S, KeyCode.D, KeyCode.D };
+
+		nodes = new QTNode[expected.Length];
 		for(int i = 0; i < nodes.Length; i++)
 		{
-			KeyCode k = KeyCodeParser.Parse(lines[i]);
+			KeyCode k = expected[i];//KeyCodeParser.Parse(lines[i]);
 
 			// If key matches WASD, use custom image rather than standard text.
 			switch(k)

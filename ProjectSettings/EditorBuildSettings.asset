@@ -6,6 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/pregame.unity
+  - enabled: 1
     path: Assets/Scenes/Loonie/loonie_main.unity
   - enabled: 1
     path: Assets/Scenes/Loonie/loonie_three_options.unity
@@ -51,8 +53,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Cutscenes/sheepking_intro.unity
   - enabled: 1
     path: Assets/Scenes/endgame.unity
-  - enabled: 1
-    path: Assets/Scenes/pregame.unity
   - enabled: 1
     path: Assets/Scenes/Questionnaires/personality_test.unity
   - enabled: 1
