@@ -1273,7 +1273,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400170, guid: bbf32b79ac428a040bd45dbb5c449776, type: 2}
   m_PrefabInternal: {fileID: 1831250225}
   m_GameObject: {fileID: 134319344}
-  m_LocalRotation: {x: 0, y: .70710659, z: 0, w: -.707106948}
+  m_LocalRotation: {x: 0, y: .70710665, z: 0, w: -.707107008}
   m_LocalPosition: {x: 236.204086, y: .0457791686, z: 448.930206}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4759,7 +4759,6 @@ GameObject:
   - 4: {fileID: 562256928}
   - 114: {fileID: 562256927}
   - 154: {fileID: 562256926}
-  - 82: {fileID: 562256930}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Ground
@@ -4814,64 +4813,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
---- !u!82 &562256930
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 562256925}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: dd80341e36b62a6439021b33ec462f69, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 5000
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!1 &573562169
 GameObject:
   m_ObjectHideFlags: 0
@@ -17154,7 +17095,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400124, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2055785871}
-  m_LocalRotation: {x: 0, y: .70710659, z: 0, w: -.707106948}
+  m_LocalRotation: {x: 0, y: .70710665, z: 0, w: -.707107008}
   m_LocalPosition: {x: 236.154877, y: 0, z: 450.447021}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

@@ -210,7 +210,8 @@ public class LogAPI {
 		Debug.Log("Registering new session...");
 		
 		WWWForm form = new WWWForm();
-		form.AddField("app_version", "1");	
+		int appv = (Debug.isDebugBuild) ? 1 : 2;
+		form.AddField("app_version", appv.ToString());	
 		form.AddField("MAC", Utils.GetMacAddress());
 
 		WWW www = new WWW(host + "/start_session", form);
