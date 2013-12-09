@@ -219,7 +219,7 @@ public class Questionnaire : MonoBehaviour {
 		output[0] = timestamp;
 		answers.CopyTo(output, 1);
 
-		Logger.instance.SendQuestionnaire(output);
+		Logger.instance.SendPersonalityTest(output);
 		WriteLine(output);
 		//CSVWriter.WriteNewRow(Application.dataPath + @"/Output", "QuestionnaireResponses.csv", output, ",");
 	}

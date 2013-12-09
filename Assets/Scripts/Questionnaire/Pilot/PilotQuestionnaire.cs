@@ -215,6 +215,7 @@ public class PilotQuestionnaire : MonoBehaviour {
 		string[] output = new string[1 + answers.Length];
 		output[0] = timestamp;
 		answers.CopyTo(output, 1);
+		Logger.instance.SendPilotTest(output);
 
 		WriteLine(output);
 	}

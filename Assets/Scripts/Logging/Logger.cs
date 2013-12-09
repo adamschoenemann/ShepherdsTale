@@ -107,12 +107,12 @@ public class Logger : MonoBehaviour
 
 	}
 
-	public void SendQuestionnaire(string[] answers)
+	public void SendPersonalityTest(string[] answers)
 	{
-		StartCoroutine(SendAnswers(answers));
+		StartCoroutine(SendPersonalityAnswers(answers));
 	}
 
-	private IEnumerator SendAnswers(string[] answers)
+	private IEnumerator SendPersonalityAnswers(string[] answers)
 	{
 		while(LogAPI.instance.session_id == 0 || scene_id == 0)
 		{
@@ -153,6 +153,55 @@ public class Logger : MonoBehaviour
 		}
 	}
 
+	public void SendPilotTest(string[] answers)
+	{
+		StartCoroutine(SendPilotTestAnswers(answers));
+	}
+
+	private IEnumerator SendPilotTestAnswers(string[] answers)
+	{
+		while(LogAPI.instance.session_id == 0 || scene_id == 0)
+		{
+			yield return new WaitForSeconds(0.5f);
+		}
+
+		WWWForm form = new WWWForm();
+		form.AddField("session_id", LogAPI.instance.session_id);
+
+		form.AddField("timestamp", answers[0]);
+		form.AddField("gender", answers[1]);
+		form.AddField("age", answers[2]);
+		form.AddField("nationality", answers[3]);
+		form.AddField("est_play_time", answers[4]);
+		form.AddField("com_appearance", answers[5]);
+		form.AddField("com_choices", answers[6]);
+		form.AddField("com_other", answers[7]);
+
+		// Join answers
+		StringBuilder sb = new StringBuilder();
+		for(int i = 7; i < answers.Length - 1; i++)
+		{
+			sb.Append(answers[i]).Append("|");
+		}
+		sb.Append(answers[answers.Length - 1]);
+		form.AddField("answers", sb.ToString());
+
+		string url = "http://www.adamschoenemann.dk/api/pilot_answers";
+		WWW www = new WWW(url, form);
+		yield return www;
+		if(String.IsNullOrEmpty(www.error) == false)
+		{
+			yield return StartCoroutine(Utils.RetryConnection(www, form));
+		}
+		if(String.IsNullOrEmpty(www.error))
+		{
+			Debug.Log("Pilot answers posted succesfully");
+		}
+		else
+		{
+			Debug.Log(www.error);
+		}
+	}
 }
 
 // public class Logger : MonoBehaviour
