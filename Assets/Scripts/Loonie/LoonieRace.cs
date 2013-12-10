@@ -20,6 +20,8 @@ public class LoonieRace : MonoBehaviour {
 	private GameObject player;
 	private GameObject raceCourse;
 	private GameObject [] wayPoints;
+
+	private float speedCorrection = 0.02f;
 	
 	private Timer timerBoost = new Timer(5000);
 
@@ -103,7 +105,7 @@ public class LoonieRace : MonoBehaviour {
 	void Run(Vector3 wayPointPosition)
 	{
 		Vector3 deltaPos = wayPointPosition - transform.position;
-		rigidbody.velocity = deltaPos.normalized * moveSpeed * Time.deltaTime;
+		rigidbody.velocity = deltaPos.normalized * moveSpeed * speedCorrection;
 		if(raceStart)
 		{
 			anim.SetBool("Run", true);
@@ -116,7 +118,7 @@ public class LoonieRace : MonoBehaviour {
 	void Walk(Vector3 wayPointPosition)
 	{
 		Vector3 deltaPos = wayPointPosition - transform.position;
-		rigidbody.velocity = deltaPos.normalized * moveSpeed * Time.deltaTime;
+		rigidbody.velocity = deltaPos.normalized * moveSpeed * speedCorrection;
 		if(raceCourse.GetComponent<RaceCourse>().IsGoalReached())
 		{
 			moveSpeed = walkSpeed;
