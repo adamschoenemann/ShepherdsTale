@@ -6,7 +6,7 @@ using System;
 public abstract class Loggable : MonoBehaviour
 {
 
-	public static float logRate = 0.1f;
+	public static float logRate = 0.5f;
 	public bool enabled = true;
 	public string name;
 	public int id {get; private set;}
