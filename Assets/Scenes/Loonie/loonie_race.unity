@@ -377,6 +377,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc159cc3c9848b4b8313bd10292cdc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
   puddleSpeed: 150
 --- !u!23 &20182807
 Renderer:
@@ -464,6 +466,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc159cc3c9848b4b8313bd10292cdc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
   puddleSpeed: 150
 --- !u!23 &20922064
 Renderer:
@@ -1273,7 +1277,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400170, guid: bbf32b79ac428a040bd45dbb5c449776, type: 2}
   m_PrefabInternal: {fileID: 1831250225}
   m_GameObject: {fileID: 134319344}
-  m_LocalRotation: {x: 0, y: .70710665, z: 0, w: -.707107008}
+  m_LocalRotation: {x: 0, y: .70710659, z: 0, w: -.707106948}
   m_LocalPosition: {x: 236.204086, y: .0457791686, z: 448.930206}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1452,6 +1456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc159cc3c9848b4b8313bd10292cdc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
   puddleSpeed: 150
 --- !u!23 &140271362
 Renderer:
@@ -2592,6 +2598,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc159cc3c9848b4b8313bd10292cdc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
   puddleSpeed: 150
 --- !u!23 &258890162
 Renderer:
@@ -4381,6 +4389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc159cc3c9848b4b8313bd10292cdc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
   puddleSpeed: 150
 --- !u!23 &520603532
 Renderer:
@@ -7310,6 +7320,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc159cc3c9848b4b8313bd10292cdc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
   puddleSpeed: 150
 --- !u!23 &860182171
 Renderer:
@@ -9088,6 +9100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc159cc3c9848b4b8313bd10292cdc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
   puddleSpeed: 150
 --- !u!23 &1111200292
 Renderer:
@@ -11337,6 +11351,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc159cc3c9848b4b8313bd10292cdc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
   puddleSpeed: 150
 --- !u!23 &1276442553
 Renderer:
@@ -12027,6 +12043,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc159cc3c9848b4b8313bd10292cdc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
   puddleSpeed: 150
 --- !u!23 &1386358940
 Renderer:
@@ -14913,6 +14931,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc159cc3c9848b4b8313bd10292cdc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
   puddleSpeed: 150
 --- !u!23 &1803428790
 Renderer:
@@ -15265,6 +15285,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc159cc3c9848b4b8313bd10292cdc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
   puddleSpeed: 150
 --- !u!23 &1831686945
 Renderer:
@@ -15655,6 +15677,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc159cc3c9848b4b8313bd10292cdc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
   puddleSpeed: 150
 --- !u!23 &1907501779
 Renderer:
@@ -15901,6 +15925,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc159cc3c9848b4b8313bd10292cdc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
   puddleSpeed: 150
 --- !u!23 &1933087483
 Renderer:
@@ -16183,6 +16209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc159cc3c9848b4b8313bd10292cdc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
   puddleSpeed: 150
 --- !u!23 &1950694043
 Renderer:
@@ -16286,6 +16314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc159cc3c9848b4b8313bd10292cdc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
   puddleSpeed: 150
 --- !u!23 &1956170649
 Renderer:
@@ -17776,6 +17806,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc159cc3c9848b4b8313bd10292cdc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enabled: 1
+  name: 
   puddleSpeed: 150
 --- !u!23 &2086777810
 Renderer:

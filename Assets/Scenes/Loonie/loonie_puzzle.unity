@@ -13347,7 +13347,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1212593887}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!92 &1212593889
 Behaviour:
   m_ObjectHideFlags: 0
@@ -18277,7 +18277,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf32cdeb0083f74dae160385341d476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxesInPlace: 0
+  enabled: 1
+  name: 
   port: {fileID: 598608472}
 --- !u!1 &1543585834
 GameObject:

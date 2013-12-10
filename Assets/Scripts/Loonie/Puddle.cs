@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Puddle : MonoBehaviour {
+public class Puddle : Loggable {
 	
 	private float playerRunSpeed;
 	private float loonieRunSpeed;
@@ -31,6 +31,9 @@ public class Puddle : MonoBehaviour {
 		if(other.gameObject == player)
 		{
 			player.GetComponent<PlayerMovement>().runSpeed = puddleSpeed;	
+			// Send message
+			LogEntry entry = new LogEntry(this, "PlayerEnteredMud");
+			EnqueueEntry(entry);
 		}	
 		
 		if(other.gameObject == loonie)
@@ -51,7 +54,16 @@ public class Puddle : MonoBehaviour {
 		{
 			loonie.GetComponent<LoonieRace>().moveSpeed = loonieRunSpeed;
 		}
-		
+	}
+
+	// Logging API ;)
+	public override bool ShouldLogRoutinely()
+	{
+		return false;
+	}
+
+	protected override void BeforeEnqueueEntry(LogEntry entry)
+	{
 		
 	}
 }

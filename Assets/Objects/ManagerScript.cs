@@ -1,9 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ManagerScript : MonoBehaviour {
+public class ManagerScript : Loggable {
 	
-	public int boxesInPlace;
+	private int _boxesInPlace;
+	public int boxesInPlace
+	{
+		set 
+		{
+			_boxesInPlace = value; 
+			LogEntry entry = new LogEntry(this, "BoxesInPlace")
+				.AddInt("NewTotal", _boxesInPlace);
+			EnqueueEntry(entry);
+		}
+		get { return _boxesInPlace; }
+	}
+
 	public GameObject port;
 
 	private Timer endTimer;
@@ -56,5 +68,16 @@ public class ManagerScript : MonoBehaviour {
 			GUI.Box(new Rect(	Screen.width/3, Screen.height - 50,
 							Screen.width/3, 50), "If needed, press Q to restart level.");	
 		}
+	}
+
+	// Logging API ;)
+	public override bool ShouldLogRoutinely()
+	{
+		return false;
+	}
+
+	protected override void BeforeEnqueueEntry(LogEntry entry)
+	{
+		
 	}
 }

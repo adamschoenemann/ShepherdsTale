@@ -44,7 +44,7 @@ public class PlayerMovement : NoiseGenerator
 		rigidbody.AddForce(force);
 		if(move.magnitude > 0.1)
 		{
-			MakeNoise(2.5f);
+			MakeNoise(0.5f);//MakeNoise(2.5f); 2.5 is way too much - according to pilot#5
 		}
 	}
 
