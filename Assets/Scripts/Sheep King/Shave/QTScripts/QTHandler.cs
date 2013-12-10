@@ -81,6 +81,11 @@ public class QTHandler : MonoBehaviour {
 	{
 		float progress = stream.GetProgress();
 
+		if(currentIndex - progress > 2.0f) // Stream has looped
+		{
+			currentIndex = 0;
+		}
+		
 		if((int)progress > currentIndex) // Have we reached the next event?
 		{
 			// Did the user miss pressing the required key? (Not counting cases where required key is "None")

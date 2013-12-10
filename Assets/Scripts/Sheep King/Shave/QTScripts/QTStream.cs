@@ -21,6 +21,8 @@ public class QTStream {
 	private int nodeSize;
 	private int xOffset;
 
+	private bool loop = true;
+
 	public QTStream(TextAsset input, QTTextures textures, float speed, int nodeSize, int xOffset)
 	{
 		// Parse input
@@ -70,7 +72,8 @@ public class QTStream {
 								KeyCode.D, KeyCode.None, KeyCode.D, KeyCode.D, 
 								KeyCode.W, KeyCode.None, KeyCode.W, KeyCode.None, 
 								KeyCode.W, KeyCode.S, KeyCode.None, KeyCode.None, 
-								KeyCode.W, KeyCode.None, KeyCode.S, KeyCode.D, KeyCode.D };
+								KeyCode.W, KeyCode.None, KeyCode.S, KeyCode.D, KeyCode.D,
+								KeyCode.None, KeyCode.None, KeyCode.None };
 
 		nodes = new QTNode[expected.Length];
 		for(int i = 0; i < nodes.Length; i++)
@@ -117,6 +120,10 @@ public class QTStream {
 		for(int i = 0; i < nodes.Length; i++)
 		{
 			int x = (int)((i - progress) * nodeSize + (xCenter - (nodeSize / 2))) + xOffset;
+
+			if(x < - nodeSize || x > Screen.width)
+				continue;
+
 			float alpha = System.Math.Max( 1.0f  - (System.Math.Abs(xCenter  - nodeSize/2 - x))/ (float)(3*nodeSize), 0.0f); // More alpha when in centre, less otherwise
 
 			col.a = alpha;
@@ -149,8 +156,16 @@ public class QTStream {
 	}
 
 	// Returns the floating-point index value, e.g. 2.5 if we're halfway past node 2 (0-based)
+	// Handles looping
 	public float GetProgress()
 	{
-		return (float)(timePassedMillis * speed) / 1000.0f;
+		float indexf = (float)(timePassedMillis * speed) / 1000.0f;
+
+		if(loop)
+		{
+			indexf %= nodes.Length;
+		}
+		
+		return indexf;			
 	}
 }
