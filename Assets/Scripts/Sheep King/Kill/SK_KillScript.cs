@@ -81,6 +81,7 @@ public class SK_KillScript : MonoBehaviour
 		anim = GetComponent<Animator>();
 		mortal = GetComponent<Mortal>();
 		mortal.onDamageHandler = (mortalInstance, attacker, health) => {
+			print("SK onDamageHandler");
 			if(state == States.stun)
 				return true;
 			else

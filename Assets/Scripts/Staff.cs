@@ -9,13 +9,20 @@ public class Staff : MonoBehaviour
 
 	public event HitHandler onHit;
 
+	private bool alreadyHit;
+
 	void Awake()
 	{
 		player = GameObject.FindWithTag(Tags.player);
 		playerController = player.GetComponent<PlayerController>();
 	}
 
-	void OnTriggerEnter(Collider collider)
+	void OnTriggerExit(Collider other)
+	{
+		alreadyHit = false;	
+	}
+
+	void OnTriggerStay(Collider collider)
 	{
 		if(playerController.IsAttacking() == false)
 			return;
@@ -27,19 +34,23 @@ public class Staff : MonoBehaviour
 		if(obj == null)
 			return;
 
-		//	if(!audio.isPlaying)
-			audio.Play();
 
 		Mortal mortal = obj.GetComponent<Mortal>();
 		if(mortal == null)
 			return;
 
+		if(alreadyHit) return;
+
 		int dmg = 1;
-		mortal.Damage(dmg, gameObject);
-		if(onHit != null)
+		if(mortal.Damage(dmg, gameObject) > 0)
 		{
-			//print("onHit");
-			onHit(collider, dmg);
+			audio.Play();
+			alreadyHit = true;
+			if(onHit != null)
+			{
+				//print("onHit");
+				onHit(collider, dmg);
+			}
 		}
 
 	}

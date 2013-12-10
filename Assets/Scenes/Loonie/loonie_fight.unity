@@ -8215,7 +8215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
-  invincibleTime: 500
+  invincibleTime: 1000
 --- !u!114 &1650948792
 MonoBehaviour:
   m_ObjectHideFlags: 0

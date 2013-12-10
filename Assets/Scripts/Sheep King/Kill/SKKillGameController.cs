@@ -54,6 +54,7 @@ public class SKKillGameController : MonoBehaviour {
 
 	void OnGUI()
 	{
+		GUI.skin.box.wordWrap = true;
 		if(endTimer != null)
 		{
 			GUI.Label(
