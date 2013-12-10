@@ -14,7 +14,7 @@ public class SKKillGameController : MonoBehaviour {
 		playerMortal.onDeathHandler += (self, killer) => {
 			if(restartTimer == null)
 			{
-				restartTimer = new Timer(2.0f);
+				restartTimer = new Timer(4.0f);
 					player.GetComponent<PlayerMovement>().Immovable = true;
 			}
 			//Application.LoadLevel("sheepking_fight");

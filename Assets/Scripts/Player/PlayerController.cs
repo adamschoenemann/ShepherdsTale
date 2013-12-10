@@ -36,6 +36,11 @@ public class PlayerController : MonoBehaviour
 			return true;
 		};
 
+		mortal.onDeathHandler += (mn, attacker) => {
+			movement.enabled = false;
+		};
+
+
 		Screen.showCursor = false;
 	}
 

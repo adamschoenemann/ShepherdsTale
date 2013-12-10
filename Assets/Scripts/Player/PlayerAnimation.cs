@@ -35,6 +35,9 @@ public class PlayerAnimation : MonoBehaviour
 	private int preAttackRunState = Animator.StringToHash("Layer2.Pre-Attack");
 	private int attackRunState = Animator.StringToHash("Layer2.Attack");
 
+
+	Mortal mortal;
+
 	void Start()
 	{
 		anim = GetComponent<Animator>();					  
@@ -44,6 +47,11 @@ public class PlayerAnimation : MonoBehaviour
 			anim.SetLayerWeight(1, 1);
 		}
 		anim.speed = animSpeed;
+
+		mortal = GetComponent<Mortal>();
+		mortal.onDeathHandler += (m, attacker) => {
+			anim.SetBool("DieBool", true);
+		};
 	}
 
 	void Update()

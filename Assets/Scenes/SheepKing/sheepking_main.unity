@@ -7722,6 +7722,10 @@ Prefab:
       propertyPath: enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9500002, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba295e70e033bc046a2adde726661ba6, type: 2}
   m_RootGameObject: {fileID: 940888545}
@@ -8566,7 +8570,7 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: 70bc876b26b220a4daba7689779ebe93, type: 3}
   m_Controller: {fileID: 9100000, guid: bc1e1d397c8affc4bb8060f8cc590f43, type: 2}
   m_CullingMode: 1
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_AnimatePhysics: 1
   m_HasTransformHierarchy: 1
 --- !u!114 &940888557
