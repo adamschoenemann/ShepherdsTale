@@ -19,15 +19,16 @@ public class DemographicPage
 			// Deliberately empty
 		}
 	}
-
+	
 	public string Gender { get; private set;}
 	public string Age { get; private set;}
 	public string Nationality { get; private set;}
-
+	public string HoursOfGamingPerWeek { get; private set;}
+	
 	private bool male = false, female = false;
-
+	
 	private Layout layout;
-
+	
 	public DemographicPage(Layout layout)
 	{
 		this.layout = layout;
@@ -35,13 +36,14 @@ public class DemographicPage
 		Gender = "";
 		Age = "";
 		Nationality = "";
+		HoursOfGamingPerWeek = "";
 	}
-
+	
 	public void Draw()
 	{
 		// Gender
-	 	GUI.Label(layout.ElementRect(0,0), "Gender",  "box");
-	 	if(GUI.Toggle(layout.ElementRect(1,0), male, "Male"))
+		GUI.Label(layout.ElementRect(0,0), "Gender",  "box");
+		if(GUI.Toggle(layout.ElementRect(1,0), male, "Male"))
 		{	
 			male = true;
 			female = false;
@@ -53,7 +55,7 @@ public class DemographicPage
 			female = true;
 			Gender = "female";
 		}
-
+		
 		// Age
 		GUI.Label(layout.ElementRect(0,1), "Age",  "box");
 		Age = GUI.TextField(layout.ElementRect(1,1), Age);
@@ -62,7 +64,7 @@ public class DemographicPage
 		{
 			Age = "";
 		}
-
+		
 		// Nationality
 		GUI.Label(layout.ElementRect(0,2), "Nationality",  "box");
 		Nationality = GUI.TextField(layout.ElementRect(1,2), Nationality);
@@ -71,6 +73,17 @@ public class DemographicPage
 		{
 			Nationality = "";
 		}
+		
+		// Gaming 1337ness
+		GUI.Label(layout.ElementRect(0,3), "How many hours a week do you play video games?",  "box");
+		HoursOfGamingPerWeek = GUI.TextField(layout.ElementRect(1,3), HoursOfGamingPerWeek);
+		int hpw;
+		if(!Int32.TryParse(HoursOfGamingPerWeek, out hpw))
+		{
+			HoursOfGamingPerWeek = "";
+		}
+		
+		
 	}
-
+	
 }

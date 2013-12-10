@@ -9,75 +9,75 @@ using System;
 // Finally, it also stores the information to .../Assets/Output/QuestionnaireResponses.csv
 // including a time stamp
 public class Questionnaire : MonoBehaviour {
-
+	
 	public PersonalityQuestions personalityQuestions;
 	public GUISkin skin;
 	public string sceneAfterResults;
 	public bool debug = false;
-
+	
 	private ProgressBar progressBar;
 	private DemographicPage demoPage;
 	private InstructionsPage instructionsPage;
 	private PersonalityPage[] personalityPages;
 	private PersonalityResultsPage personalityResultsPage;
-
+	
 	private int personalityPageIndex = -2; // -2: demographics, -1: instructions page
-	private readonly int noOfDemographicQuestions = 3;
-
+	private readonly int noOfDemographicQuestions = 4; // Gender, age, nationality, how much they game
+	
 	// Layout
 	private Layout layout;
 	private int questionsPerPage = 5;
 	private int maxNoElementsY = 8;
-
+	
 	private int fillOutAllAnswersLabelTimer = 0;
-
+	
 	void Start () {
 		Screen.showCursor = true;
-
+		
 		// Layout
 		float offsetXFactor = 1.0f/6.0f; // The amount of empty screen space in each vertical margin
 		float offsetYFactor = 1.0f/6.0f; // The amount of empty screen space in the top horizontal margin
 		int gapSize = 10;
 		int defaultHeight = 50;
-
+		
 		layout = new Layout((int)(Screen.width  * offsetXFactor), // Horizontal offset
-							(int)(Screen.height * offsetYFactor), // Vertical offset
-							gapSize, // Gap between elements
-							(int)(Screen.width * (1-2*offsetXFactor)/3), // Element width
-							(int)(Screen.height < Screen.height * offsetYFactor + maxNoElementsY * (defaultHeight + gapSize) ? // Element height
-									((Screen.height - Screen.height * offsetYFactor - maxNoElementsY * gapSize) / maxNoElementsY) : 
-									defaultHeight)
-							); 
-
+		                    (int)(Screen.height * offsetYFactor), // Vertical offset
+		                    gapSize, // Gap between elements
+		                    (int)(Screen.width * (1-2*offsetXFactor)/3), // Element width
+		                    (int)(Screen.height < Screen.height * offsetYFactor + maxNoElementsY * (defaultHeight + gapSize) ? // Element height
+		      ((Screen.height - Screen.height * offsetYFactor - maxNoElementsY * gapSize) / maxNoElementsY) : 
+		      defaultHeight)
+		                    ); 
+		
 		progressBar = new ProgressBar(layout.ElementRect(0, 8));
 		demoPage = new DemographicPage(layout);
-
+		
 		// Initialize personalityQuestions
 		string[] left = personalityQuestions.GetLefthandQuestions();
 		string[] right = personalityQuestions.GetRighthandQuestions();
-
+		
 		personalityPages = new PersonalityPage[ (int)Math.Ceiling((float)(left.Length)/questionsPerPage)];
-
+		
 		for(int i = 0; i < personalityPages.Length; i++)
 		{
 			personalityPages[i] = new PersonalityPage(left, right, 
-				i * questionsPerPage, // Startindex
-				Math.Min((i + 1) * questionsPerPage - 1, left.Length - 1), // Endindex
-				layout);
+			                                          i * questionsPerPage, // Startindex
+			                                          Math.Min((i + 1) * questionsPerPage - 1, left.Length - 1), // Endindex
+			                                          layout);
 		}
-
+		
 		// Initialize instructions page
 		instructionsPage = new InstructionsPage(layout);
-
+		
 		//PrimeOutputFile(); // Insert suitable header in the output file
 		//personalityPageIndex = 5; // Go to last page
 	}
 	
 	// Update is called once per frame
 	void OnGUI () {
-
+		
 		GUI.skin = this.skin;
-
+		
 		if(debug)
 		{
 			if(personalityPageIndex < personalityPages.Length)
@@ -88,7 +88,7 @@ public class Questionnaire : MonoBehaviour {
 				}
 			}
 		}
-
+		
 		if(personalityPageIndex == -2)
 		{
 			demoPage.Draw();
@@ -115,10 +115,10 @@ public class Questionnaire : MonoBehaviour {
 			// Draw current page of the personality thingy.
 			personalityPages[personalityPageIndex].Draw();
 		}
-
+		
 		progressBar.progress = GetProgress();
 		progressBar.Draw();
-
+		
 		// Next page button
 		if(GUI.Button(layout.ElementRect(1, 7), "Next page"))
 		{
@@ -141,7 +141,7 @@ public class Questionnaire : MonoBehaviour {
 				fillOutAllAnswersLabelTimer = 300; // Display label saying "Answer all the questions."
 			}
 		}
-
+		
 		// Show label saying "Answer all the questions." ?
 		if(fillOutAllAnswersLabelTimer > 0)
 		{
@@ -149,52 +149,45 @@ public class Questionnaire : MonoBehaviour {
 			GUI.Label(layout.ElementRect(1,6), "Please answer all the questions.", "box");
 		}		
 	}
-
+	
 	public float GetProgress()
 	{
 		return Math.Min(1.0f, Math.Max(0.0f, (float)(personalityPageIndex + 2)/(personalityPages.Length + 2))); // Ya, clamp to range [0;1]
 	}
-
+	
 	private string[] GetAnswers()
 	{
 		string[] output = new string[personalityQuestions.Length + noOfDemographicQuestions];
-
+		
 		// Demographic responses
 		output[0] = demoPage.Gender;
 		output[1] = demoPage.Age;
 		output[2] = demoPage.Nationality;
-
+		output[3] = demoPage.HoursOfGamingPerWeek;
+		
 		// Personality question responses
-		/*int index = noOfDemographicQuestions;
-		for(int page = 0; page < personalityPages.Length; page++)
-		{
-			string[] pageAnswers = personalityPages[page].GetAnswers();
-
-			Array.Copy(pageAnswers, 0, output, index, pageAnswers.Length);
-			index += pageAnswers.Length;
-		}*/
 		string[] personalityAnswers = GetPersonalityAnswers();
 		personalityAnswers.CopyTo(output, 3);
-
+		
 		return output;
 	}
-
+	
 	private string[] GetPersonalityAnswers()
 	{
 		string[] output = new string[personalityQuestions.Length];
-
+		
 		int index = 0;
 		for(int page = 0; page < personalityPages.Length; page++)
 		{
 			string[] pageAnswers = personalityPages[page].GetAnswers();
-
+			
 			Array.Copy(pageAnswers, 0, output, index, pageAnswers.Length);
 			index += pageAnswers.Length;
 		}
-
+		
 		return output;
 	}
-
+	
 	private void PrimeOutputFile()
 	{
 		string[] header = new string[personalityQuestions.Length + noOfDemographicQuestions + 1];
@@ -202,15 +195,15 @@ public class Questionnaire : MonoBehaviour {
 		header[1] = "Gender";
 		header[2] = "Age";
 		header[3] = "Nationality";
+		header[4] = "HoursOfGamingPerWeek";
 		for(int i = 4; i < header.Length; i++)
 		{
-			header[i] = "q" + (i - 3).ToString();
+			header[i] = "q" + (i - noOfDemographicQuestions).ToString();
 		}
 		
 		WriteLine(header);
-		//CSVWriter.WriteNewRow(Application.dataPath + @"/Output", "QuestionnaireResponses.csv", header, ",");
 	}
-
+	
 	private void WriteAnswersToDisk()
 	{
 		string timestamp = (DateTime.Now).ToString("yyyyMMddHHmmssffff");
@@ -218,23 +211,18 @@ public class Questionnaire : MonoBehaviour {
 		string[] output = new string[1 + answers.Length];
 		output[0] = timestamp;
 		answers.CopyTo(output, 1);
-
+		
 		Logger.instance.SendPersonalityTest(output);
 		WriteLine(output);
-		//CSVWriter.WriteNewRow(Application.dataPath + @"/Output", "QuestionnaireResponses.csv", output, ",");
 	}
-
-
-
+	
 	private void WriteLine(string[] line)
 	{
 		CSVWriter.WriteNewRow(Application.dataPath + @"/Output", "QuestionnaireResponses.csv", line, "|"); // Separate by pipe
 	}
-
+	
 	private void GoToNextScene()
 	{
 		Application.LoadLevel(sceneAfterResults);
 	}
 }
-
-
