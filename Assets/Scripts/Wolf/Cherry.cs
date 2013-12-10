@@ -13,7 +13,8 @@ public class CherryEventArgs : EventArgs
 	}
 }
 
-public class Cherry : MonoBehaviour {
+public class Cherry : MonoBehaviour
+{
 
 	public event EventHandler<CherryEventArgs> onPickUp;
 	public int health = 5;
@@ -23,11 +24,23 @@ public class Cherry : MonoBehaviour {
 		GameObject go = other.gameObject;
 		if(go.tag == Tags.player)	
 		{
-			Mortal mortal = go.GetComponent<Mortal>();
-			mortal.AddHealth(health);
-			onPickUp(this, new CherryEventArgs(health, transform.position));
-			Destroy(gameObject);
+			print("Cherry -> Player");
+			StartCoroutine(BePickedUp(go));
 		}
+	}
+
+	private IEnumerator BePickedUp(GameObject go)
+	{
+		Mortal mortal = go.GetComponent<Mortal>();
+		mortal.AddHealth(health);
+		Utils.DisableChildRenderers(transform);
+		audio.Play();
+		onPickUp(this, new CherryEventArgs(health, transform.position));
+		while(audio.isPlaying == true)
+		{
+			yield return true;
+		}
+		Destroy(gameObject);
 	}
 
 }

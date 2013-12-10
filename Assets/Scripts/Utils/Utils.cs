@@ -134,4 +134,14 @@ public static class Utils
 		} while(String.IsNullOrEmpty(www.error) == false && --retries >= 0);
 	}
 
+	public static void DisableChildRenderers(Transform transform)
+	{
+		if(transform.renderer != null) transform.renderer.enabled = false;
+		for(int i = 0; i < transform.childCount; i++)
+		{
+			DisableChildRenderers(transform.GetChild(i));
+		}
+	}
+
+
 }

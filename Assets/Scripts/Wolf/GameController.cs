@@ -9,6 +9,12 @@ public class GameController : MonoBehaviour
 
 	public event EventHandler onLevelRestarting;
 
+	public static void PlaySound(AudioSource sound)
+	{
+		sound.Play();
+	}
+
+
 	public IEnumerator RestartLevel()
 	{
 		OnLevelRestarting();
