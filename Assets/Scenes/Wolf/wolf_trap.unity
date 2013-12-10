@@ -2458,7 +2458,7 @@ Light:
     m_SoftnessFade: 1
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
-  m_ActuallyLightmapped: 0
+  m_ActuallyLightmapped: 1
   m_Flare: {fileID: 0}
   m_RenderMode: 0
   m_CullingMask:
@@ -12694,6 +12694,7 @@ GameObject:
   - 135: {fileID: 799708283}
   - 114: {fileID: 799708282}
   - 114: {fileID: 799708284}
+  - 82: {fileID: 799708285}
   m_Layer: 0
   m_Name: Cherry_prefab
   m_TagString: Untagged
@@ -12772,6 +12773,65 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enabled: 1
   name: Cherry1
+--- !u!82 &799708285
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8200000, guid: dab9cd2d18b3f9c439d877f4b8f82d0e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1749465320}
+  m_GameObject: {fileID: 799708279}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 08a63221b32114e6ea8078787fea6600, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &799889835
 GameObject:
   m_ObjectHideFlags: 0
@@ -16564,7 +16624,7 @@ AudioSource:
   m_GameObject: {fileID: 1069324937}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 0ce6b289b4b2946229fe1d7ee5183d76, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8de2b409cf0b1da4caf20547e92d7e74, type: 3}
   m_PlayOnAwake: 0
   m_Volume: .815999985
   m_Pitch: 1
@@ -16598,7 +16658,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -21615,6 +21675,7 @@ GameObject:
   - 135: {fileID: 1422709727}
   - 114: {fileID: 1422709726}
   - 114: {fileID: 1422709729}
+  - 82: {fileID: 1422709730}
   m_Layer: 0
   m_Name: Cherry_prefab
   m_TagString: Untagged
@@ -21693,6 +21754,65 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enabled: 1
   name: Cherry2
+--- !u!82 &1422709730
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8200000, guid: dab9cd2d18b3f9c439d877f4b8f82d0e,
+    type: 2}
+  m_PrefabInternal: {fileID: 566049335}
+  m_GameObject: {fileID: 1422709724}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 08a63221b32114e6ea8078787fea6600, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1430116610
 GameObject:
   m_ObjectHideFlags: 0
@@ -25303,7 +25423,11 @@ Prefab:
     - target: {fileID: 8200000, guid: f40241c900ed44000b0b1b3963a5076c, type: 2}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 0ce6b289b4b2946229fe1d7ee5183d76, type: 3}
+      objectReference: {fileID: 8300000, guid: 8de2b409cf0b1da4caf20547e92d7e74, type: 3}
+    - target: {fileID: 8200000, guid: f40241c900ed44000b0b1b3963a5076c, type: 2}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f40241c900ed44000b0b1b3963a5076c, type: 2}
   m_RootGameObject: {fileID: 1069324937}
@@ -27457,7 +27581,7 @@ Light:
     m_SoftnessFade: 1
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
-  m_ActuallyLightmapped: 0
+  m_ActuallyLightmapped: 1
   m_Flare: {fileID: 0}
   m_RenderMode: 0
   m_CullingMask:
@@ -28329,6 +28453,7 @@ GameObject:
   - 135: {fileID: 1887972454}
   - 114: {fileID: 1887972453}
   - 114: {fileID: 1887972456}
+  - 82: {fileID: 1887972457}
   m_Layer: 0
   m_Name: Cherry_prefab
   m_TagString: Untagged
@@ -28407,6 +28532,65 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enabled: 1
   name: Cherry3
+--- !u!82 &1887972457
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8200000, guid: dab9cd2d18b3f9c439d877f4b8f82d0e,
+    type: 2}
+  m_PrefabInternal: {fileID: 630702346}
+  m_GameObject: {fileID: 1887972451}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 08a63221b32114e6ea8078787fea6600, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1888502756
 GameObject:
   m_ObjectHideFlags: 0
@@ -33309,7 +33493,7 @@ Light:
     m_SoftnessFade: 1
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
-  m_ActuallyLightmapped: 0
+  m_ActuallyLightmapped: 1
   m_Flare: {fileID: 0}
   m_RenderMode: 0
   m_CullingMask:
