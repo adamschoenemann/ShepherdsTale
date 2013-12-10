@@ -49,7 +49,7 @@ public class ThreeOptions : Loggable
 			
 			options[1].sceneName = "wolf_trap";
 			options[1].title = "Trap the wolves";
-			options[1].description = "Make sheep sounds (by pressing '<color=#ffa500ff>Q</color>')' to lure the wolves into the trap. Set (and pick up) the trap by pressing '<color=#ffa500ff>E</color>'.";
+			options[1].description = "Make sheep sounds (by pressing '<color=#ffa500ff>Q</color>')' to lure the wolves into the trap. Set (and pick up) the trap by holding down '<color=#ffa500ff>E</color>'.";
 			options[1].image = wolf_lureImage;
 			
 			options[2].sceneName = "wolf_sneak";

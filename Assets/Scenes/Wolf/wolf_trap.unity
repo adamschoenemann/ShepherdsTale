@@ -31172,7 +31172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69cde2a20f757a2489cea30f607fc454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 150
+  runSpeed: 200
   sneakSpeed: 125
 --- !u!82 &2055785878
 AudioSource:
