@@ -36,11 +36,6 @@ public class PlayerController : MonoBehaviour
 			return true;
 		};
 
-		mortal.onDeathHandler += (mn, attacker) => {
-			movement.enabled = false;
-		};
-
-
 		Screen.showCursor = false;
 	}
 
@@ -59,8 +54,11 @@ public class PlayerController : MonoBehaviour
 		else
 		{
 			cam.ResetRotation(transform.position);
-			movement.Rotate(dx, dy);
+			if(mortal.IsAlive())
+				movement.Rotate(dx, dy);
 		}
+		if(mortal.IsAlive() == false)
+			return;
 		if(IsSneaking())
 		{
 			movement.Sneak(ver, hor);
