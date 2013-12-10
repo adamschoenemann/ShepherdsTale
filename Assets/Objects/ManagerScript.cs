@@ -53,7 +53,7 @@ public class ManagerScript : MonoBehaviour {
 		}
 		else
 		{
-			GUI.Label(new Rect(	Screen.width/3, Screen.height - 50,
+			GUI.Box(new Rect(	Screen.width/3, Screen.height - 50,
 							Screen.width/3, 50), "If needed, press Q to restart level.");	
 		}
 	}
