@@ -26,7 +26,7 @@ namespace Wolf
 [RequireComponent(typeof(NavMeshPatroller))]
 [RequireComponent(typeof(Mortal))]
 [RequireComponent(typeof(NavMeshAgent))]
-public class WolfController : MonoBehaviour
+public class WolfController : NoiseListener
 {
 
 	protected Vector3 defaultPosition;
@@ -61,7 +61,7 @@ public class WolfController : MonoBehaviour
 	public float nearThresh = 1.7f; // Adjust by hand for now
 	public float distanceFromHomeThresh = 15.0f;
 
-	public bool debug = false;
+	public bool debug = true;
 
 	protected Timer suspiciousTimer;
 
@@ -104,6 +104,7 @@ public class WolfController : MonoBehaviour
 		particles = transform.Find("Particles").GetComponent<ParticleSystem>();
 
 		state = State.Patrolling;
+		base.Awake();
 
 	}
 
@@ -394,10 +395,9 @@ public class WolfController : MonoBehaviour
 		NoiseManager nm = GameObject.FindWithTag(Tags.gameController).GetComponent<NoiseManager>();
 		if(nm != null)
 		{
-			IEnumerator<Noise> e = nm.GetEnumerator();
-			while(e.MoveNext())
+			Noise[] noises = GetNoises();
+			foreach(Noise noise in noises)
 			{
-				Noise noise = e.Current;
 				if(noise.origin.tag == Tags.player)
 				{
 					float d = noise.intensity * hearing - (noise.position - transform.position).magnitude;

@@ -43,7 +43,7 @@ public class Lurer : NoiseGenerator
 		if(Input.GetKeyDown(lureKey))
 		{
 			sound.Play();
-			MakeNoise(10.0f);
+			MakeNoise(15.0f);
 		}
 		else if(Input.GetKeyDown(trapKey))
 		{
