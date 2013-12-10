@@ -13,4 +13,5 @@ public class Tags
 	public const string checkPoint = "CheckPoint";
 	public const string wolfWaypoint = "WolfWaypoint";
 	public const string endLevelHandler = "EndLevelHandler";
+	public const string mortalCollider = "MortalCollider";
 }

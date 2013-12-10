@@ -26,9 +26,9 @@ public class LoonieController : LoonieBaseController {
 	
 	bool OnDamage(Mortal mortal, GameObject attacker, int damage)
 	{
-		return true;
 		Vector3 playerPos = player.transform.position;
 		Vector3 direction = playerPos - transform.position;
+		state = State.Alerted;
 		if(Vector3.Dot(direction.normalized, transform.forward) < 0.0f)
 		{
 			return true;

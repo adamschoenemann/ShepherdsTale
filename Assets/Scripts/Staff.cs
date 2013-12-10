@@ -5,7 +5,7 @@ public class Staff : MonoBehaviour
 	private GameObject player;
 	private PlayerController playerController;
 
-	public delegate void HitHandler(Collision collision, int damage);
+	public delegate void HitHandler(Collider collider, int damage);
 
 	public event HitHandler onHit;
 
@@ -15,12 +15,15 @@ public class Staff : MonoBehaviour
 		playerController = player.GetComponent<PlayerController>();
 	}
 
-	void OnCollisionEnter(Collision collision)
+	void OnTriggerEnter(Collider collider)
 	{
 		if(playerController.IsAttacking() == false)
 			return;
+
+		if(collider.gameObject.tag != Tags.mortalCollider)
+			return;
 		
-		GameObject obj = collision.gameObject;
+		GameObject obj = collider.transform.parent.gameObject;
 		if(obj == null)
 			return;
 
@@ -36,7 +39,7 @@ public class Staff : MonoBehaviour
 		if(onHit != null)
 		{
 			//print("onHit");
-			onHit(collision, dmg);
+			onHit(collider, dmg);
 		}
 
 	}

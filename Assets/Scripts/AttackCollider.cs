@@ -5,6 +5,14 @@ public class AttackCollider : MonoBehaviour {
 
 	public GameObject target;
 
+	void Awake()
+	{
+		if(target == null)
+		{
+			target = GameObject.FindWithTag(Tags.player);
+		}
+	}
+
 	void OnTriggerEnter(Collider other){
 		GameObject go = other.gameObject;
 		if(go.tag == target.tag)

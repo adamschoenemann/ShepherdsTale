@@ -11,7 +11,7 @@ TagManager:
   - Wall
   - ColliderBox
   - Button
-  - 
+  - MortalCollider
   - SoftObstacle
   - HardObstacle
   - SheepButton
@@ -23,6 +23,13 @@ TagManager:
   - Waypoint
   - WolfWaypoint
   - EndLevelHandler
+  - 
+  - WayPoint
+  - CheckPoint
+  - Collectible
+  - 
+  - Loonie
+  - RaceCourse
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
