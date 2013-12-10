@@ -49,7 +49,7 @@ public class ThreeOptions : Loggable
 			
 			options[1].sceneName = "wolf_trap";
 			options[1].title = "Trap the wolves";
-			options[1].description = "Make sheep sounds (by pressing '<color=#ffa500ff>Q</color>')' to lure the wolves into the trap. Set (and pick up) the trap by holding down '<color=#ffa500ff>E</color>'.";
+			options[1].description = "Make sheep sounds (by pressing '<color=#ffa500ff>Q</color>')' to lure the wolves into the trap. Set (and pick up) the trap by pressing '<color=#ffa500ff>E</color>'.";
 			options[1].image = wolf_lureImage;
 			
 			options[2].sceneName = "wolf_sneak";
@@ -60,34 +60,34 @@ public class ThreeOptions : Loggable
 		else if(episode == Episode.Loonie)
 		{		 
 			options[0].sceneName = "loonie_fight";
-			options[0].title = "Kill the Loonie";
+			options[0].title = "Outfight the Loonie"; //"Use your staff"; // hit-n-hide, Assassinate the Loonie, Outlive the Loonie, Outfight the Loonie
 			options[0].description = "Sneak (use '<color=#ffa500ff>Left Shift</color>' to sneak) up on the Loonie from behind and kill him with the staff (<color=#ffa500ff>Left Mouse Button</color>).";
 			options[0].image = loonie_fightImage;
 			
 			options[1].sceneName = "loonie_race";
-			options[1].title = "Race the Loonie";
+			options[1].title = "Outrun the Loonie"; // "Use your legs"; // run-n-run, Outrun the Loonie
 			options[1].description = "Win a race against the Loonie. Make sure to pass all checkpoints!";
 			options[1].image = loonie_raceImage;
 			
 			options[2].sceneName = "loonie_puzzle";
-			options[2].title = "Solve a puzzle";
+			options[2].title = "Outsmart the Loonie"; // "Use your brain"; // think-n-push, Outsmart the Loonie
 			options[2].description = "Solve a puzzle given by the Loonie - push the pieces to the far corner with the little spheres by moving into them, but don't make mistakes!";
 			options[2].image = loonie_puzzleImage;
 		}
 		else if(episode == Episode.SheepKing)
 		{
 			options[0].sceneName = "sheepking_fight";
-			options[0].title = "Kill the Sheep King";
+			options[0].title = "Slaughter the Sheep King with superior tactics";
 			options[0].description = "Use the staff (<color=#ffa500ff>Left Mouse Button</color>) to kill the Sheep King. Stun him for a while by making him run into a pillar.";
 			options[0].image = SK_fightImage;
 			
 			options[1].sceneName = "sheepking_shave";
-			options[1].title = "Shear the Sheep King"; // people probably don't know what shear means.
+			options[1].title = "Shave the Sheep King with elegant sneakiness"; // people probably don't know what shear means.
 			options[1].description = "Use <color=#ffa500ff>W</color>, <color=#ffa500ff>A</color>, <color=#ffa500ff>S</color> and <color=#ffa500ff>D</color> to shave the Sheep King while he is sleeping, thus stealing his power.";
 			options[1].image = SK_shaveImage;
 			
 			options[2].sceneName = "sheepking_simon";
-			options[2].title = "Beat a memory game";
+			options[2].title = "Overpower the Sheep King with your memory skills";
 			options[2].description = "Beat the Sheep King's challenge: Listen carefully to the order of baaahs, and then make the sheep repeat their baaahs in the correct order by hitting them with your staff (<color=#ffa500ff>Left Mouse Button</color>).";
 			options[2].image = SK_simonImage;
 		}
