@@ -13,6 +13,13 @@ public class PostGameQuestion : Loggable
 
 	private bool sent = false;
 
+	void Start()
+	{
+		Screen.showCursor = true;
+		Screen.lockCursor = false;
+		CursorLocker.shouldCursorLock = false;
+	}
+
 	void OnGUI()
 	{
 		Screen.showCursor = true;
@@ -54,6 +61,7 @@ public class PostGameQuestion : Loggable
 		LogEntry entry = new LogEntry(this, "PostGameFeedback")
 				.AddString("Feedback", userInput);
 			EnqueueEntry(entry);
+		Logger.instance.Flush();
 	}
 
 	// Logging API ;)

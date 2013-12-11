@@ -5,25 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Loonie/loonie_main.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Loonie/loonie_three_options.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Loonie/loonie_fight.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Loonie/loonie_puzzle.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Loonie/loonie_race.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SheepKing/sheepking_main.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SheepKing/sheepking_three_options.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SheepKing/sheepking_fight.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SheepKing/sheepking_simon.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SheepKing/sheepking_shave.unity
   - enabled: 1
     path: Assets/Scenes/Wolf/wolf_main.unity
@@ -31,29 +31,29 @@ EditorBuildSettings:
     path: Assets/Scenes/Wolf/wolf_three_options.unity
   - enabled: 1
     path: Assets/Scenes/Wolf/wolf_kill.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Wolf/wolf_sneak.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Cutscenes/loonie_finish.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Cutscenes/wolf_finish.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Wolf/wolf_trap.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Cutscenes/wolf_intro.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Cutscenes/game_intro.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Cutscenes/game_finish.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Cutscenes/loonie_intro.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Cutscenes/sheepking_intro.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/endgame.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Questionnaires/personality_test.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Questionnaires/pilot_test_questionnaire.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/pregame.unity

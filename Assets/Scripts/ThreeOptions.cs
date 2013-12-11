@@ -33,6 +33,8 @@ public class ThreeOptions : Loggable
 	void Start ()
 	{ 
 		Screen.showCursor = true;
+		CursorLocker.shouldCursorLock = false;
+		Screen.lockCursor = false;
 		options = new Option[3];
 		for(int i = 0; i < options.Length; i++)
 		{
@@ -136,6 +138,7 @@ public class ThreeOptions : Loggable
 			if(GUI.Button(GetTextRect(1), "Click here to start!"))
 			{
 				Screen.showCursor = false;
+				CursorLocker.shouldCursorLock = true;
 				Application.LoadLevel(options[chosenOption].sceneName);
 			}
 		}

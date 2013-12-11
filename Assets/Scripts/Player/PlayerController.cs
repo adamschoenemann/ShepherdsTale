@@ -74,12 +74,13 @@ public class PlayerController : MonoBehaviour
 	{
 		if(Input.GetKeyDown("escape"))
 		{
-			Screen.lockCursor = false;
+			if(Screen.lockCursor)
+				Screen.lockCursor = false;
 		}
 		else if(Input.GetMouseButton(0))
 		{
-			print("Locking cursor");
-    	Screen.lockCursor = true;
+			if(CursorLocker.shouldCursorLock)
+    		Screen.lockCursor = true;
 		}
 	}
 

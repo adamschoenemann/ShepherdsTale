@@ -80,6 +80,8 @@ public class Collectible : MonoBehaviour
 		if(other.gameObject.tag == Tags.player)
 		{
 			print ("You found a collectible!" + collectiblesPickedUp);
+			CursorLocker.shouldCursorLock = false;
+			Screen.lockCursor = false;
 			if(onPickUp != null)
 			{
 				onPickUp(this,
@@ -109,6 +111,7 @@ public class Collectible : MonoBehaviour
 		if(other.gameObject.tag == Tags.player)
 		{
 			Destroy(this);
+			CursorLocker.shouldCursorLock = true;
 		}
 	}
 

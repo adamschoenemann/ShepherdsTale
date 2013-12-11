@@ -54,7 +54,7 @@ public class Logger : MonoBehaviour
 		if(IsActive() == false) return;
 		if(LogAPI.instance.Enqueued() > 0)
 		{
-			StartCoroutine(LogAPI.instance.Flush(this));
+			Flush();
 		}
 		StartCoroutine(LogAPI.instance.CloseScene(scene_id, this));
 		StartCoroutine(LogAPI.instance.StopSession(this));
@@ -102,9 +102,14 @@ public class Logger : MonoBehaviour
 		entry.AddFloat("fps", 1.0f/Time.deltaTime);
 		if(LogAPI.instance.Enqueue(entry))
 		{
-			StartCoroutine(LogAPI.instance.Flush(this));
+			Flush();
 		}
 
+	}
+
+	public void Flush()
+	{
+		StartCoroutine(LogAPI.instance.Flush(this));
 	}
 
 	public void SendPersonalityTest(string[] answers)
