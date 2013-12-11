@@ -136,6 +136,7 @@ public class SK_KillScript : MonoBehaviour
 
 		if(hitHardObstacle)
 		{
+			Debug.Log("SK hit hard obstacle");
 			hitHardObstacle = false;
 			hitSoftObstacle = false;
 
