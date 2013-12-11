@@ -76,6 +76,11 @@ public class PlayerController : MonoBehaviour
 		{
 			Screen.lockCursor = false;
 		}
+		else if(Input.GetMouseButton(0))
+		{
+			print("Locking cursor");
+    	Screen.lockCursor = true;
+		}
 	}
 
 
@@ -96,7 +101,7 @@ public class PlayerController : MonoBehaviour
 
   void OnMouseDown()
   {
-    Screen.lockCursor = true;
+  	
   }
 
 }

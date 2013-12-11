@@ -51,7 +51,7 @@ public class HelpMenu : Loggable
 				openText = "Follow the bridge to the sign by the castle.\n" + standardcontrols;
 				break;
 		}
-
+		openText += "\nPress escape to release the mouse from the game.";
 		openText += "\nClose this window by pressing <color=#ffa500ff>" + openKey + "</color> again.\n";
 	}
 
