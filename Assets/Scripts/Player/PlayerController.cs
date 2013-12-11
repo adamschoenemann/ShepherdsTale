@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
 		};
 
 		Screen.showCursor = false;
+
 	}
 
 	void FixedUpdate()
@@ -67,9 +68,16 @@ public class PlayerController : MonoBehaviour
 		{
 			movement.Run(ver, hor);
 		}
-
-
 	}
+
+	void Update()
+	{
+		if(Input.GetKeyDown("escape"))
+		{
+			Screen.lockCursor = false;
+		}
+	}
+
 
 	public bool IsSneaking()
 	{
@@ -85,5 +93,10 @@ public class PlayerController : MonoBehaviour
 	{
 		collectibles.Add(c);
 	}
+
+  void OnMouseDown()
+  {
+    Screen.lockCursor = true;
+  }
 
 }
