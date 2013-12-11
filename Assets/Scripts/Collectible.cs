@@ -38,7 +38,7 @@ public class Collectible : MonoBehaviour
 	private float sizeX	= Screen.width*0.8f;
 	private float sizeY	= Screen.height*0.8f;
 
-	private static string nFacts = "VI";
+	private static string nFacts = "VII";
 	private static int collectiblesPickedUp = 0;
 	private static List<CollectibleRecord> alreadyCollected = new List<CollectibleRecord>();
 	
