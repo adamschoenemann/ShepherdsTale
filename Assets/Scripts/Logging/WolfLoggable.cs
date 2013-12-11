@@ -36,7 +36,7 @@ public class WolfLoggable : Loggable
 			}
 			else if(args.to == State.Chasing)
 			{
-				LogEntry entry = new LogEntry(this, "PlayerSeen")
+				LogEntry entry = new LogEntry(this, "WolfAlerted")
 					.AddGameObject("player", player)
 					.AddGameObject("wolf", gameObject);
 				EnqueueEntry(entry);
