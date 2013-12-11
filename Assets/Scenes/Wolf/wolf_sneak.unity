@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb594ad015ae0844a81de33924de8d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 0
+  waitTime: 2500
   permanent: 0
 --- !u!23 &66961682
 Renderer:

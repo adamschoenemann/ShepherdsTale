@@ -5102,7 +5102,7 @@ Light:
     type: 2}
   m_PrefabInternal: {fileID: 1180220777}
   m_GameObject: {fileID: 495868225}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Type: 0
   m_Color: {r: 0, g: .996078432, b: .952941179, a: 1}
@@ -10482,6 +10482,10 @@ Prefab:
     - target: {fileID: 100000, guid: 7de5d169e8d3cb447930208d8e7e32ba, type: 2}
       propertyPath: m_Name
       value: Spotlight
+      objectReference: {fileID: 0}
+    - target: {fileID: 10800000, guid: 7de5d169e8d3cb447930208d8e7e32ba, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7de5d169e8d3cb447930208d8e7e32ba, type: 2}
