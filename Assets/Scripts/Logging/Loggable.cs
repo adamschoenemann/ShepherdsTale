@@ -49,7 +49,7 @@ public class Loggable : MonoBehaviour
 
 	public void EnqueueEntry(LogEntry entry)
 	{
-		if(enabled == false || id == 0) return;
+		if(enabled == false) return;
 		if(id <= 0)
 		{
 			StartCoroutine(WaitForId(entry));
