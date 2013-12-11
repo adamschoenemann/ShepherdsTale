@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BoxScript : MonoBehaviour {
+public class BoxScript : Loggable {
 	
 	//var lerpedColor : Color = Color.white;
 	public GameObject totemHead;
@@ -73,7 +73,13 @@ public class BoxScript : MonoBehaviour {
 		{
 			renderer.material.color = Color.red;
 			if(totemHead != null)
+			{
+				LogEntry entry = new LogEntry(this, "TotemDestroy")
+					.AddGameObject("box", gameObject);
+				EnqueueEntry(entry);
 				Destroy(totemHead);
+				
+			}
 		}
 	}
 	

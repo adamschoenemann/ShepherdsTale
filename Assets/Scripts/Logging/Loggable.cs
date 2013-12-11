@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public abstract class Loggable : MonoBehaviour
+public class Loggable : MonoBehaviour
 {
 
 	public static float logRate = 0.5f;
@@ -42,7 +42,10 @@ public abstract class Loggable : MonoBehaviour
 		logger.RegisterLoggable(this, id => this.id = id);
 	}
 
-	public abstract bool ShouldLogRoutinely();
+	public virtual bool ShouldLogRoutinely()
+	{
+		return false;
+	}
 
 	public void EnqueueEntry(LogEntry entry)
 	{
@@ -90,7 +93,10 @@ public abstract class Loggable : MonoBehaviour
 		EnqueueEntry(entry);
 	}
 
-	protected abstract void BeforeEnqueueEntry(LogEntry entry);
+	protected virtual void BeforeEnqueueEntry(LogEntry entry)
+	{
+
+	}
 
 	public IEnumerator LoggingRoutine()
 	{
