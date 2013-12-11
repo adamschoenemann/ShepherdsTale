@@ -210,7 +210,7 @@ public class PilotQuestionnaire : MonoBehaviour {
 	
 	private void WriteAnswersToDisk()
 	{
-		string timestamp = (DateTime.Now).ToString("yyyyMMddHHmmssffff");
+		string timestamp = (DateTime.Now).ToString("yyyy-MM-dd-HH.mm.ss.ffff");
 		string[] answers = GetAnswers();
 		string[] output = new string[1 + answers.Length];
 		output[0] = timestamp;
