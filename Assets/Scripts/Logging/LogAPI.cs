@@ -100,6 +100,9 @@ public class LogAPI {
 	{
 		if(Enqueued() <= 0 || flushing)
 			yield return false;
+
+		while(session_id <= 0)
+			yield return true;
 		
 		Debug.Log("Flushing...");
 		flushing = true;

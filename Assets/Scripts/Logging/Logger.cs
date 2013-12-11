@@ -109,6 +109,15 @@ public class Logger : MonoBehaviour
 
 	public void Flush()
 	{
+		StartCoroutine(_Flush());
+	}
+
+	private IEnumerator _Flush()
+	{
+		while(scene_id <= 0)
+		{
+			yield return true;
+		}
 		StartCoroutine(LogAPI.instance.Flush(this));
 	}
 
